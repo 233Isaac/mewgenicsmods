@@ -355,7 +355,7 @@ Jack {
 		reward_text "FAVOR_JACK_UPGRADE"
 	}
 	jack_shopupgrade3 {
-		favor 89
+		favor 8
 		shop_level_up 1 //to 5 items in the shop
 
 		reward_text "FAVOR_JACK_UPGRADE"
@@ -731,3 +731,4 @@ Steven {
 		level_display max
 	}
 }
+
