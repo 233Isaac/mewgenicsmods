@@ -1,0 +1,2168 @@
+//////////////////////////////////////////////
+//   GUILLOTINA / MEAT WORLD UNLOCK QUEST   //
+//////////////////////////////////////////////
+
+Quest_ThrobbingArtery { //boneyard
+    intro {
+        title QEVENT_THROBBINGARTERY_NAME
+        cat_choice random
+        choose_cat_with_item PutridLeech
+        subject_clip EventSubject
+        subject_frame throbbing_artery
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt QEVENT_THROBBINGARTERY_QUES1
+        setup { //alt prompt if the flesh has been removed
+            conditional_reward {
+                requirements {
+                    has_token MeatWorldQuest_Gristle
+                }
+
+                reward {
+                    prompt QEVENT_THROBBINGARTERY_QUES2
+                    set_subject throbbing_artery_noflesh
+                }
+            }
+        }
+
+        options {
+            bite {
+                label QEVENT_THROBBINGARTERY_BITE_ANSW
+                stat con
+                animation choice_con
+
+                good {
+                    reward {
+                        common {
+                            prompt QEVENT_THROBBINGARTERY_REW1
+                            set_frame 2
+                            party_heal_disorder 2
+                        }
+                        rare {
+                            prompt QEVENT_THROBBINGARTERY_REW2
+                            set_frame 3
+                            party_heal 100%
+                            party_random_mutation 1
+                            party_heal_injury 99
+                            party_heal_disorder 2
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            prompt QEVENT_THROBBINGARTERY_REW3
+                            set_frame 4
+                            random_mutation {
+                                tag birth_defect
+                            }
+                        }
+                        rare {
+                            prompt QEVENT_THROBBINGARTERY_REW3
+                            set_frame 5                            
+                            random_mutation {
+                                count 2
+                                tag birth_defect
+                            }
+                        }
+                    }
+                }
+            }
+
+            attach_leech {
+                label QEVENT_THROBBINGARTERY_ATTACH_ANSW
+                stat quest
+                animation choice_misc
+
+                requirements {
+                    cat_has_item_equipped PutridLeech
+                }
+
+                good {
+                    set_legacy_token MeatWorldQuest_Leech
+                    set_legacy_token mapflag_ThrobbingArteryDone
+                    complete_item_quest PutridLeech
+                    lose_specific_item PutridLeech 
+                    set_frame 6
+
+                    conditional_reward {
+                        requirements {
+                            has_token MeatWorldQuest_Gristle
+                        }
+
+                        reward { //the other half of the quest (gristle) was previously completed, this completes the meat world quest and unlocks meat world
+                            prompt QEVENT_THROBBINGARTERY_REW5
+                            trigger_adventure_unlock meat_world_unlock
+                        } else {
+                            prompt QEVENT_THROBBINGARTERY_REW6
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label EVENT_IGNORE_ANSW
+                stat none
+                animation choice_leave
+
+                good {
+                    prompt QEVENT_THROBBINGARTERY_REW_IGNORE
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+Quest_ThrobbingArtery2 { //boneyard
+    intro {
+        title QEVENT_THROBBINGARTERY_NAME2
+        cat_choice random
+        choose_cat_with_item PutridLeech
+        subject_clip EventSubject
+        subject_frame throbbing_artery2
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt QEVENT_THROBBINGARTERY2_QUES
+
+        options {
+            bite {
+                label QEVENT_THROBBINGARTERY_BITE_ANSW
+                stat con
+                animation choice_con
+
+                good {
+                    reward {
+                        common {
+                            prompt QEVENT_THROBBINGARTERY_REW1
+                            set_frame 2
+                            party_heal_disorder 2
+                        }
+                        rare {
+                            prompt QEVENT_THROBBINGARTERY_REW2
+                            set_frame 3
+                            party_heal 100%
+                            party_random_mutation 1
+                            party_heal_injury 99
+                            party_heal_disorder 2
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            prompt QEVENT_THROBBINGARTERY_REW3
+                            set_frame 4
+                            random_mutation {
+                                tag birth_defect
+                            }
+                        }
+                        rare {
+                            prompt QEVENT_THROBBINGARTERY_REW3
+                            set_frame 5                            
+                            random_mutation {
+                                count 2
+                                tag birth_defect
+                            }
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label EVENT_IGNORE_ANSW
+                stat none
+                animation choice_leave
+
+                good {
+                    prompt QEVENT_THROBBINGARTERY2_REW_IGNORE
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+Quest_WallOfFlesh { //caves
+    intro {
+        title QEVENT_WALLOFFLESH_NAME
+        cat_choice random
+        choose_cat_with_item ThrobbingGristle
+        subject_clip EventSubject
+        subject_frame wall_of_flesh
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt QEVENT_WALLOFFLESH_QUES1
+
+        setup { //alt prompt if the veins have been drained
+            conditional_reward {
+                requirements {
+                    has_token MeatWorldQuest_Leech
+                }
+
+                reward {
+                    prompt QEVENT_WALLOFFLESH_QUES2
+                    set_subject wall_of_flesh_noartery
+                }
+            }
+        }
+        
+        //TODO: Add alt info result text if you bring GuillotinasHead but the wall is still blocking your way?
+
+        options {
+            bite {
+                label QEVENT_WALLOFFLESH_BITE_ANSW
+                stat str
+                animation choice_con
+
+                good {
+                    reward {
+                        common {
+                            prompt QEVENT_WALLOFFLESH_REW1
+                            set_frame 2
+                            gain_food 20
+                        }
+                        rare {
+                            prompt QEVENT_WALLOFFLESH_REW2
+                            set_frame 3
+                            gain_food 30
+                            random_mutation {
+                                count 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            prompt QEVENT_WALLOFFLESH_REW3
+                            set_frame 4
+                            //nothing happens
+                        }
+                        rare {
+                            prompt QEVENT_WALLOFFLESH_REW4
+                            set_frame 5
+                            lose_item equipped
+                        }
+                    }
+                }
+            }
+
+            place_gristle {
+                label QEVENT_WALLOFFLESH_PLACE_ANSW
+                stat quest
+                animation choice_misc
+
+                requirements {
+                    cat_has_item_equipped ThrobbingGristle
+                }
+
+                good {
+                    set_legacy_token MeatWorldQuest_Gristle
+                    set_legacy_token mapflag_WallOfFleshDone
+                    complete_item_quest ThrobbingGristle
+                    lose_specific_item ThrobbingGristle
+                    set_frame 6
+
+                    conditional_reward {
+                        requirements {
+                            has_token MeatWorldQuest_Leech
+                        }
+
+                        reward { //the other half of the quest (leech) was previously completed, this completes the meat world quest and unlocks meat world
+                            prompt QEVENT_WALLOFFLESH_REW5
+                            trigger_adventure_unlock meat_world_unlock
+                        } else {
+                            prompt QEVENT_WALLOFFLESH_REW6
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label EVENT_IGNORE_ANSW
+                stat none
+                animation choice_leave
+
+                good {
+                    prompt QEVENT_WALLOFFLESH_REW_IGNORE
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+Quest_WallOfFlesh2 { //caves
+    intro {
+        title QEVENT_WALLOFFLESH_NAME
+        cat_choice random
+        choose_cat_with_item ThrobbingGristle
+        subject_clip EventSubject
+        subject_frame wall_of_flesh2
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt QEVENT_WALLOFFLESH2_QUES
+
+        options {
+            bite {
+                label QEVENT_WALLOFFLESH_BITE2_ANSW
+                stat str
+                animation choice_con
+                
+                good {
+                    reward {
+                        common {
+                            prompt QEVENT_WALLOFFLESH_REW7
+                            set_frame 2
+                            gain_food 20
+                        }
+                        rare {
+                            prompt QEVENT_WALLOFFLESH_REW8
+                            set_frame 3
+                            gain_food 30
+                            random_mutation {
+                                count 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            prompt QEVENT_WALLOFFLESH_REW9
+                            set_frame 4
+                            //nothing happens
+                        }
+                        rare {
+                            prompt QEVENT_WALLOFFLESH_REW10
+                            set_frame 5
+                            lose_item equipped
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label EVENT_IGNORE_ANSW
+                stat none
+                animation choice_leave
+
+                good {
+                    prompt QEVENT_WALLOFFLESH2_REW_IGNORE
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+Quest_MeatWorldAltar {
+    intro {
+        title QEVENT_MEATALTAR_NAME
+        cat_choice random
+        choose_cat_with_item GuillotinasHead // will pick the cat with GuillotinasHead equipped (or random otherwise) (this can be an array, in which case any cat that has a qualifying item equipped will be pulled randomly)
+        subject_clip EventSubject
+        subject_frame meatworld_altar
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt QEVENT_MEATALTAR_QUES1
+
+        options {
+            sacrifice_quest {
+                requirements {
+                    cat_has_item_equipped GuillotinasHead
+                }
+
+                label QEVENT_MEATALTAR_SACRIFICE_ANSW
+                stat quest
+                animation choice_misc
+
+                good {
+                    prompt QEVENT_MEATALTAR_REW1
+                    damage [1 5]
+                    play_animation resultHole
+                    set_frame 6
+                    complete_item_quest GuillotinasHead
+                    trigger_adventure_unlock meat_world_open
+                    cutscene_on_exit king_intro
+                }
+            }
+
+            sacrifice_normal {
+                requirements {
+                    not_cat_has_item_equipped GuillotinasHead
+                }
+
+                label QEVENT_MEATALTAR_SACRIFICE_ANSW
+                stat lck
+                animation choice_misc
+                
+                good {
+                    damage [1 5]
+                    play_animation resultHole
+
+                    reward {
+                        common {
+                            set_frame 2
+
+                            conditional_reward {
+                                requirements {
+                                    has_token mapflag_MeatWorldUnlocked
+                                }
+
+                                reward {
+                                    prompt QEVENT_MEATALTAR_REW2B
+                                } else {
+                                    prompt QEVENT_MEATALTAR_REW2
+                                }
+                            }
+
+                            get_item_from_pool blood_altar_items
+							get_item_from_pool blood_altar_items
+                            party_heal 100%
+                            party_permanent_stats_exclude_self {
+                                str 1
+                                dex 1
+                                con 1
+                                int 1
+                                spd 1
+                                cha 1
+                                lck 1
+                            }
+                            clear_result_animation 1
+                        }
+                        rare {
+                            set_frame 3
+
+                            conditional_reward {
+                                requirements {
+                                    has_token mapflag_MeatWorldUnlocked
+                                }
+
+                                reward {
+                                    prompt QEVENT_MEATALTAR_REW3B
+                                } else {
+                                    prompt QEVENT_MEATALTAR_REW3
+                                }
+                            }
+
+                            get_item_from_pool blood_altar_items
+                            get_item_from_pool blood_altar_items
+							get_item_from_pool blood_altar_items
+                            party_heal 100%
+                            party_permanent_stats_exclude_self {
+                                str 2
+                                dex 2
+                                con 2
+                                int 2
+                                spd 2
+                                cha 2
+                                lck 2
+                            }
+
+                            clear_result_animation 1
+                        }
+                    }
+                }
+
+                bad {
+                    play_animation resultHole
+                    reward {
+                        common {
+                            prompt QEVENT_MEATALTAR_REW4
+                            set_frame 4
+                            //cat is just dead, penalty enough!
+                        }
+                        rare {
+                            prompt QEVENT_MEATALTAR_REW5
+                            set_frame 5
+                            party_gain_disorder_from_pool_exclude_self all_disorders
+                        }
+                    }
+                    damage [1 5]
+                }
+            }
+
+            ignore {
+                label EVENT_IGNORE_ANSW
+                stat none
+                animation choice_leave
+
+                good {
+                    prompt QEVENT_MEATALTAR_REW_IGNORE
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+Quest_DeadKing { //THE RESULTS FOR THIS NEED TO USE A SPECIAL CUTSCENE
+    intro {
+        title QEVENT_DEADKING_NAME
+        cat_choice random
+        choose_cat_with_item [CryogenicTimeChamber_Empty JarOfRadiation]
+        subject_clip EventSubject
+        subject_frame dead_king
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt QEVENT_DEADKING_QUES
+
+        options {
+            loot {
+                label QEVENT_DEADKING_LOOTCORPSE_ANSW
+                stat none
+                animation choice_misc
+
+                good {
+                    // set_frame 2
+                    prompt QEVENT_DEADKING_REW1 //once cutscene is in this prompt is skipped
+                    get_item_from_pool bloody_items
+                    cutscene {
+                        cutscene "king_ending_good"
+                        skip_result_screen true
+                    }
+                }
+
+                bad {
+                    // set_frame 2
+                    prompt QEVENT_DEADKING_REW2 //once cutscene is in this prompt is skipped
+                    damage [1 5]
+                    cutscene {
+                        cutscene "king_ending_bad"
+                        skip_result_screen true
+                    }
+                    play_animation resultHole
+                }
+            }
+
+            loot_heart {
+                label QEVENT_DEADKING_TAKEHEART_ANSW
+                stat quest
+                animation choice_misc
+
+                requirements {
+                    cat_has_item_equipped CryogenicTimeChamber_Empty
+                }
+
+                good {
+                    prompt QEVENT_DEADKING_REW3
+                    complete_item_quest CryogenicTimeChamber_Empty
+                    unlock_item_quest CryogenicTimeChamber_Full
+                    transform_item [CryogenicTimeChamber_Empty CryogenicTimeChamber_Full]
+                    trigger_adventure_unlock time_machine_quest_finalstep
+                    //set_frame 3
+                    cutscene {
+                        cutscene "king_ending_good"
+                        skip_result_screen true
+                    }
+                }
+            }
+
+            take_blood {
+                label QEVENT_DEADKING_DRAINBLOOD_ANSW
+                stat quest
+                animation choice_misc
+
+                requirements {
+                    cat_has_item_equipped JarOfRadiation
+                }
+
+                good {
+                    prompt QEVENT_DEADKING_REW4
+                    complete_item_quest JarOfRadiation
+                    unlock_item_quest JarOfRadiatedBlood
+                    transform_item [JarOfRadiation JarOfRadiatedBlood]
+                    //set_frame 4
+                    cutscene {
+                        cutscene "king_ending_good"
+                        skip_result_screen true
+                    }
+                }
+            }
+
+            ignore {
+                label EVENT_IGNORE_ANSW
+                stat none
+                animation choice_leave
+
+                good {
+                    prompt QEVENT_DEADKING_REW5
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+
+///////////////////////////////////////////////////
+//   KAIJU OBELISKS / DIMENSION X UNLOCK QUEST   //
+///////////////////////////////////////////////////
+
+//for each obelisk:
+
+//states:
+    //obelisk not yet risen (no event on the map)
+    //one obelisk risen (if you bring the kaiju to this one what happens?)
+    //both obelisks risen (activate it with the kaiju = unlock dimension X portal)
+
+//half
+//full
+//awaiting activation
+//portal
+
+Quest_MoonObelisk {
+    intro {
+        title QEVENT_OBELISK_MOON_NAME
+        cat_choice random
+        subject_clip EventSubject
+        choose_cat_with_item [PyrophinasCollar ZaratanasCollar]
+        subject_frame obelisk
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt QEVENT_OBELISK_QUES1
+
+        options {
+            touch {
+                label QEVENT_OBELISK_MOON_TOUCH_ANSW
+                stat lck
+                animation choice_misc
+
+                good {
+                    reward {
+                        common {
+                            prompt QEVENT_OBELISK_REW1
+                            set_frame 2
+                            random_mutation 1
+                        }
+                        rare {
+                            prompt QEVENT_OBELISK_REW2
+                            set_frame 3
+                            party_random_mutation 1
+                        }
+                    }
+                }
+
+                bad {
+                    reward {
+                        common {
+                            prompt QEVENT_OBELISK_REW3
+                            set_frame 1
+                            //nothing happens
+                        }
+                        rare {
+                            prompt QEVENT_OBELISK_REW4
+                            set_frame 4
+                            damage [1 5]
+                        }
+                    }
+                }
+            }
+
+            activate_p {
+                label QEVENT_OBELISK_MOON_ACTIVATE_ANSW
+                stat none
+                animation choice_misc
+
+                requirements {
+                    cat_has_item_equipped PyrophinasCollar
+                }
+
+                good {
+                    prompt QEVENT_OBELISK_MOON_REW_PYRO1
+                }
+            }
+
+            activate_z {
+                label QEVENT_OBELISK_MOON_ACTIVATE_ANSW
+                stat none
+                animation choice_misc
+
+                requirements {
+                    cat_has_item_equipped ZaratanasCollar
+                }
+
+                good {
+                    prompt QEVENT_OBELISK_REW_ZARA_WRONG
+                }
+            }
+
+            ignore {
+                label EVENT_IGNORE_ANSW
+                stat none
+                animation choice_leave
+
+                good {
+                    prompt QEVENT_OBELISK_IGNORE
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+Quest_MoonObeliskRaised {
+    intro {
+        title QEVENT_OBELISK_MOON_NAME2
+        cat_choice random
+        subject_clip EventSubject
+        choose_cat_with_item [PyrophinasCollar ZaratanasCollar]
+        subject_frame obelisk_raised
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt QEVENT_OBELISK_QUES2
+
+        options {
+            touch {
+                label QEVENT_OBELISK_MOON_TOUCH_ANSW
+                stat lck
+                animation choice_misc
+
+                good {
+                    reward {
+                        common {
+                            prompt QEVENT_OBELISK_REW1
+                            set_frame 2
+                            random_mutation 1
+                        }
+                        rare {
+                            prompt QEVENT_OBELISK_REW2
+                            set_frame 3
+                            party_random_mutation 1
+                        }
+                    }
+                }
+
+                bad {
+                    reward {
+                        common {
+                            prompt QEVENT_OBELISK_REW3
+                            set_frame 1
+                            //nothing happens
+                        }
+                        rare {
+                            prompt QEVENT_OBELISK_REW4
+                            set_frame 4
+                            damage [1 5]
+                        }
+                    }
+                }
+            }
+
+            activate_p {
+                label QEVENT_OBELISK_MOON_ACTIVATE_ANSW
+                stat none
+                animation choice_misc
+
+                requirements {
+                    cat_has_item_equipped PyrophinasCollar
+                }
+
+                good {
+                    prompt QEVENT_OBELISK_MOON_REW_PYRO2
+                }
+            }
+
+            activate_z {
+                label QEVENT_OBELISK_MOON_ACTIVATE_ANSW
+                stat none
+                animation choice_misc
+
+                requirements {
+                    cat_has_item_equipped ZaratanasCollar
+                }
+
+                good {
+                    prompt QEVENT_OBELISK_REW_ZARA_WRONG
+                }
+            }
+
+            ignore {
+                label EVENT_IGNORE_ANSW
+                stat none
+                animation choice_leave
+
+                good {
+                    prompt QEVENT_OBELISK_IGNORE
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+Quest_MoonObeliskGlowing {
+    intro {
+        title QEVENT_OBELISK_MOON_NAME3
+        cat_choice random
+        subject_clip EventSubject
+        choose_cat_with_item [PyrophinasCollar ZaratanasCollar]
+        subject_frame obelisk_glowing
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt QEVENT_OBELISK_QUES3
+
+        options {
+            touch {
+                label QEVENT_OBELISK_MOON_TOUCH_ANSW
+                stat none
+                animation choice_misc
+                
+                good {
+                    reward {
+                        common {
+                            prompt QEVENT_OBELISK_REW1
+                            set_frame 2
+                            random_mutation 1
+                        }
+                        rare {
+                            prompt QEVENT_OBELISK_REW2
+                            set_frame 3
+                            party_random_mutation 1
+                        }
+                    }
+                }
+
+                bad {
+                    reward {
+                        common {
+                            prompt QEVENT_OBELISK_REW3
+                            set_frame 1
+                            //nothing happens
+                        }
+                        rare {
+                            prompt QEVENT_OBELISK_REW4
+                            set_frame 4
+                            damage [1 5]
+                        }
+                    }
+                }
+            }
+
+            activate_p {
+                label QEVENT_OBELISK_MOON_ACTIVATE_ANSW
+                stat quest
+                animation choice_misc
+
+                requirements {
+                    cat_has_item_equipped PyrophinasCollar
+                }
+
+                good {
+                    cutscene {
+                        cutscene "pyro_ending"
+                        skip_result_screen true
+                    }
+
+                    prompt QEVENT_OBELISK_MOON_REW_PYRO3
+                    trigger_adventure_unlock map_unlock_dimensionx
+                    complete_item_quest PyrophinasCollar
+                    lose_specific_item PyrophinasCollar
+                    clear_surviving_kaiju pyrophina
+                    set_legacy_token TheRift_UsedPyrophina
+                    event_now_same_cat Quest_DimensionXPortal
+                    //set_frame 6
+                }
+            }
+
+            activate_z {
+                label QEVENT_OBELISK_MOON_ACTIVATE_ANSW
+                stat none
+                animation choice_misc
+
+                requirements {
+                    cat_has_item_equipped ZaratanasCollar
+                }
+
+                good {
+                    prompt QEVENT_OBELISK_REW_ZARA_WRONG
+                }
+            }
+
+            ignore {
+                label EVENT_IGNORE_ANSW
+                stat none
+                animation choice_leave
+
+                good {
+                    prompt QEVENT_OBELISK_IGNORE
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+Quest_CoreObelisk {
+    intro {
+        title QEVENT_OBELISK_CORE_NAME
+        cat_choice random
+        subject_clip EventSubject
+        choose_cat_with_item [PyrophinasCollar ZaratanasCollar]
+        subject_frame obelisk
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt QEVENT_OBELISK_QUES1
+
+        options {
+            touch {
+                label QEVENT_OBELISK_CORE_TOUCH_ANSW
+                stat none
+                animation choice_misc
+                
+                good {
+                    reward {
+                        common {
+                            prompt QEVENT_OBELISK_REW1
+                            set_frame 2
+                            random_mutation 1
+                        }
+                        rare {
+                            prompt QEVENT_OBELISK_REW2
+                            set_frame 3
+                            party_random_mutation 1
+                        }
+                    }
+                }
+
+                bad {
+                    reward {
+                        common {
+                            prompt QEVENT_OBELISK_REW3
+                            set_frame 1
+                            //nothing happens
+                        }
+                        rare {
+                            prompt QEVENT_OBELISK_REW4
+                            set_frame 4
+                            damage [1 5]
+                        }
+                    }
+                }
+            }
+
+            activate_p {
+                label QEVENT_OBELISK_CORE_ACTIVATE_ANSW
+                stat none
+                animation choice_misc
+
+                requirements {
+                    cat_has_item_equipped PyrophinasCollar
+                }
+
+                good {
+                    prompt QEVENT_OBELISK_REW_PYRO_WRONG
+                }
+            }
+
+            activate_z {
+                label QEVENT_OBELISK_CORE_ACTIVATE_ANSW
+                stat none
+                animation choice_misc
+
+                requirements {
+                    cat_has_item_equipped ZaratanasCollar
+                }
+
+                good {
+                    prompt QEVENT_OBELISK_CORE_REW_ZARA1
+                }
+            }
+
+            ignore {
+                label EVENT_IGNORE_ANSW
+                stat none
+                animation choice_leave
+
+                good {
+                    prompt QEVENT_OBELISK_IGNORE
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+Quest_CoreObeliskRaised {
+    intro {
+        title QEVENT_OBELISK_CORE_NAME2
+        cat_choice random
+        subject_clip EventSubject
+        choose_cat_with_item [PyrophinasCollar ZaratanasCollar]
+        subject_frame obelisk_raised
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt QEVENT_OBELISK_QUES2
+
+        options {
+            touch {
+                label QEVENT_OBELISK_CORE_TOUCH_ANSW
+                stat none
+                animation choice_misc
+
+                good {
+                    reward {
+                        common {
+                            prompt QEVENT_OBELISK_REW1
+                            set_frame 2
+                            random_mutation 1
+                        }
+                        rare {
+                            prompt QEVENT_OBELISK_REW2
+                            set_frame 3
+                            party_random_mutation 1
+                        }
+                    }
+                }
+
+                bad {
+                    reward {
+                        common {
+                            prompt QEVENT_OBELISK_REW3
+                            set_frame 1
+                            //nothing happens
+                        }
+                        rare {
+                            prompt QEVENT_OBELISK_REW4
+                            set_frame 4
+                            damage [1 5]
+                        }
+                    }
+                }
+            }
+
+            activate_p {
+                label QEVENT_OBELISK_CORE_ACTIVATE_ANSW
+                stat none
+                animation choice_misc
+
+                requirements {
+                    cat_has_item_equipped PyrophinasCollar
+                }
+
+                good {
+                    prompt QEVENT_OBELISK_REW_PYRO_WRONG
+                }
+            }
+
+            activate_z {
+                label QEVENT_OBELISK_CORE_ACTIVATE_ANSW
+                stat none
+                animation choice_misc
+
+                requirements {
+                    cat_has_item_equipped ZaratanasCollar
+                }
+
+                good {
+                    prompt QEVENT_OBELISK_CORE_REW_ZARA2
+                }
+            }
+
+            ignore {
+                label EVENT_IGNORE_ANSW
+                stat none
+                animation choice_leave
+
+                good {
+                    prompt QEVENT_OBELISK_IGNORE
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+Quest_CoreObeliskGlowing {
+    intro {
+        title QEVENT_OBELISK_CORE_NAME3
+        cat_choice random
+        subject_clip EventSubject
+        choose_cat_with_item [PyrophinasCollar ZaratanasCollar]
+        subject_frame obelisk_glowing
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt QEVENT_OBELISK_QUES2
+
+        options {
+            touch {
+                label QEVENT_OBELISK_CORE_TOUCH_ANSW
+                stat none
+                animation choice_misc
+
+                good {
+                    reward {
+                        common {
+                            prompt QEVENT_OBELISK_REW1
+                            set_frame 2
+                            random_mutation 1
+                        }
+                        rare {
+                            prompt QEVENT_OBELISK_REW2
+                            set_frame 3
+                            party_random_mutation 1
+                        }
+                    }
+                }
+
+                bad {
+                    reward {
+                        common {
+                            prompt QEVENT_OBELISK_REW3
+                            set_frame 1
+                            //nothing happens
+                        }
+                        rare {
+                            prompt QEVENT_OBELISK_REW4
+                            set_frame 4
+                            damage [1 5]
+                        }
+                    }
+                }
+            }
+
+            activate_p {
+                label QEVENT_OBELISK_CORE_ACTIVATE_ANSW
+                stat none
+                animation choice_misc
+
+                requirements {
+                    cat_has_item_equipped PyrophinasCollar
+                }
+
+                good {
+                    prompt QEVENT_OBELISK_REW_PYRO_WRONG
+                }
+            }
+
+            activate_z {
+                label QEVENT_OBELISK_CORE_ACTIVATE_ANSW
+                stat quest
+                animation choice_misc
+
+                requirements {
+                    cat_has_item_equipped ZaratanasCollar
+                }
+
+                good {
+                    cutscene {
+                        cutscene "zara_ending"
+                        skip_result_screen true
+                    }
+
+                    prompt QEVENT_OBELISK_CORE_REW_ZARA3
+                    trigger_adventure_unlock map_unlock_dimensionx
+                    complete_item_quest ZaratanasCollar
+                    lose_specific_item ZaratanasCollar
+                    clear_surviving_kaiju zaratana
+                    set_legacy_token TheRift_UsedZaratana
+                    event_now_same_cat Quest_DimensionXPortal
+                    //set_frame 6
+                }
+            }
+
+            ignore {
+                label EVENT_IGNORE_ANSW
+                stat none
+                animation choice_leave
+
+                good {
+                    prompt QEVENT_OBELISK_IGNORE
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+Quest_DimensionXPortal {
+    intro {
+        title QEVENT_DIMENSIONXPORTAL_NAME
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame dimensionx_portal
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt QEVENT_DIMENSIONXPORTAL_QUES
+
+        options {
+            enter {
+                label QEVENT_DIMENSIONXPORTAL_ENTER_ANSW
+                stat none
+                animation choice_misc
+                hint_chapter_exit dimensionx
+
+                good {
+                    prompt QEVENT_DIMENSIONXPORTAL_ENTER_REW
+                    play_animation resultHole
+                    begin_chapter dimensionx.gon
+
+                    cutscene {
+                        cutscene "rift_portal"
+                        skip_result_screen true
+                    }
+                    //set_frame 6
+                }
+            }
+
+            /*reach {
+                label QEVENT_DIMENSIONXPORTAL_LICK_ANSW
+                stat lck
+                animation choice_misc
+
+                good {
+                    reward {
+                        common {
+                            prompt QEVENT_DIMENSIONXPORTAL_REW1
+                            set_frame 2
+                            random_mutation 1
+                        }
+                        rare {
+                            prompt QEVENT_DIMENSIONXPORTAL_REW2
+                            set_frame 3
+                            party_random_mutation 1
+                        }
+                    }
+                }
+
+                bad {
+                    reward {
+                        common {
+                            prompt QEVENT_DIMENSIONXPORTAL_REW3
+                            set_frame 4
+                            gain_disorder_from_pool all_disorders
+                        }
+                        rare {
+                            prompt QEVENT_DIMENSIONXPORTAL_REW4
+                            set_frame 5
+                            party_gain_disorder_from_pool all_disorders
+                        }
+                    }
+                }
+            }*/
+
+            ignore {
+                label EVENT_IGNORE_ANSW
+                stat none
+                animation choice_leave
+                hint_chapter_exit home
+
+                good {
+                    prompt QEVENT_DIMENSIONXPORTAL_IGNORE_ANSW
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+Quest_DimensionXRift {
+    intro {
+        title QEVENT_THEHEAD_NAME //ignore that the name of this doesnt match the art/theme it was implemented before the art
+        cat_choice random
+        choose_cat_with_item [SignalAmplifier JarOfRadiatedBlood]
+        subject_clip EventSubject
+        subject_frame dimensionx_head
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt QEVENT_THEHEAD_QUES
+        
+        setup { //alt frame if the flesh have been removed
+            conditional_reward {
+                requirements {
+                    has_token AntennaQuest_Rift
+                }
+
+                reward {
+                    set_subject dimensionx_head2
+                }
+            }
+        }
+
+        options {
+            loot {
+                label EVENT_LOOT_ANSW
+                stat none
+                animation choice_misc
+
+                good {
+                    prompt QEVENT_THEHEAD_REW1
+                    get_item_from_pool glitched_items
+                    cutscene {
+                        cutscene "chaos_ending_good"
+                        skip_result_screen true
+                    }
+                    //set_frame 2
+                }
+                bad {
+                    prompt QEVENT_THEHEAD_REW2
+                    damage [1 5]
+                    select_item_from_pool_for_cutscene_only glitched_items
+                    cutscene {
+                        cutscene "chaos_ending_bad"
+                        skip_result_screen true
+                    }
+                }
+            }
+
+            attach_amplifier {
+                label QEVENT_THEHEAD_AMPLIFIER_ANSW
+                stat quest
+                animation choice_misc
+
+                requirements {
+                    cat_has_item_equipped SignalAmplifier
+                }
+
+                good {
+                    set_legacy_token AntennaQuest_Rift
+                    set_legacy_token mapflag_ChaosAntennaAttached
+                    complete_item_quest SignalAmplifier
+                    lose_specific_item SignalAmplifier
+                    set_frame 3
+
+                    conditional_reward {
+                        requirements {
+                            has_token AntennaQuest_Volcano
+                            has_token AntennaQuest_Orb
+                            has_token AntennaQuest_Rift
+                        }
+
+                        reward { //the whole quest is completed
+                            prompt QEVENT_THEHEAD_REW3
+                            trigger_adventure_unlock end_of_time_unlock
+
+                            cutscene_on_exit infinite_intro
+
+                        } else {
+                            prompt QEVENT_THEHEAD_REW4
+                        }
+                    }
+                }
+            }
+
+            fill_jar {
+                label QEVENT_THEHEAD_FILLJAR_ANSW
+                stat quest
+                animation choice_misc
+
+                requirements {
+                    cat_has_item_equipped JarOfRadiatedBlood
+                }
+
+                good {
+                    prompt QEVENT_THEHEAD_REW5
+                    complete_item_quest JarOfRadiatedBlood
+                    unlock_item_quest JarOfChaos
+                    transform_item [JarOfRadiatedBlood JarOfChaos]
+
+                    cutscene {
+                        cutscene "chaos_ending_good"
+                        skip_result_screen true
+                    }
+                    //set_frame 2
+                }
+            }
+
+            ignore {
+                label EVENT_IGNORE_ANSW
+                stat none
+                animation choice_leave
+
+                good {
+                    prompt QEVENT_THEHEAD_REW6
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+
+
+///////////////////////////////////////////////////
+//              TIME MACHINE QUEST               //
+///////////////////////////////////////////////////
+
+Quest_BrokenTimeMachine {
+    intro {
+        title QEVENT_BROKENTIMEMACHINE_NAME
+        cat_choice random
+        choose_cat_with_item CryogenicTimeChamber_Full
+        subject_clip EventSubject
+        subject_frame timemachine_broken
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt QEVENT_BROKENTIMEMACHINE_QUES
+
+        options {
+            fiddle {
+                label EVENT_EXAMINE_ANSW
+                stat quest
+
+                requirements {
+                    not_has_token TimeMachineQuest_Began
+                }
+
+                good {
+                    /*prompt QEVENT_BROKENTIMEMACHINE_REW1
+                    unlock_item_quest CryogenicTimeChamber_Empty
+                    get_item CryogenicTimeChamber_Empty
+                    set_legacy_token TimeMachineQuest_Began*/
+
+                    play_animation resultConfused
+                    prompt QEVENT_BROKENTIMEMACHINE_REW2
+                    trigger_adventure_unlock time_machine_quest_trigger
+                    set_legacy_token TimeMachineQuest_Began
+                }
+            }
+
+            repair {
+                label EVENT_REPAIR_ANSW
+                stat none
+
+                requirements {
+                    has_token TimeMachineQuest_Began
+                    not_cat_has_item_equipped CryogenicTimeChamber_Full
+                }
+
+                good {
+                    prompt QEVENT_BROKENTIMEMACHINE_REW3
+                    play_animation resultConfused
+                }
+            }
+
+            repair_quest {
+                label EVENT_REPAIR_ANSW
+                stat quest
+
+                requirements {
+                    has_token TimeMachineQuest_Began
+                    cat_has_item_equipped CryogenicTimeChamber_Full
+                }
+
+                good {
+                    prompt QEVENT_BROKENTIMEMACHINE_REW4
+                    trigger_adventure_unlock map_unlock_iceage
+                    complete_item_quest CryogenicTimeChamber_Full
+                    lose_specific_item CryogenicTimeChamber_Full
+                    event_now_same_cat Quest_TimeMachine
+                }
+            }
+
+            ignore {
+                label EVENT_IGNORE_ANSW
+                stat none
+                animation choice_leave
+
+                requirements {
+                    has_token TimeMachineQuest_Began
+                }
+
+                good {
+                    prompt QEVENT_BROKENTIMEMACHINE_REW5
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+Quest_TimeMachine {
+    intro {
+        title QEVENT_TIMEMACHINE_NAME
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame timemachine_fixed
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt QEVENT_TIMEMACHINE_QUES
+
+        options {
+            past {
+                label QEVENT_TIMEMACHINE_PAST_ANSW
+                stat none
+                animation choice_misc
+                hint_chapter_exit iceage
+
+                requirements {
+                    has_token mapflag_IceAgeUnlocked
+                }
+
+                good {
+                    prompt QEVENT_TIMEMACHINE_REW1
+
+                    cutscene {
+                        cutscene "time_machine-lab-iceage"
+                        skip_result_screen true
+                    }
+                    random_mutation 1
+
+                    play_animation resultHole
+                    begin_chapter iceage.gon
+                    trigger_butterfly_effect 1
+                }
+            }
+
+            future {
+                label QEVENT_TIMEMACHINE_FUTURE_ANSW
+                stat none
+                animation choice_misc
+                hint_chapter_exit future
+
+                requirements {
+                    has_token mapflag_FutureUnlocked
+                }
+
+                good {
+                    prompt QEVENT_TIMEMACHINE_REW2
+
+                    cutscene {
+                        cutscene "time_machine-lab-future"
+                        skip_result_screen true
+                    }
+                    random_mutation 1
+
+                    play_animation resultHole
+                    begin_chapter future.gon
+                }
+            }
+
+            ignore {
+                label EVENT_IGNORE_ANSW
+                stat none
+                animation choice_leave
+                hint_chapter_exit home
+
+                good {
+                    prompt QEVENT_TIMEMACHINE_REW3
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+Quest_TimeMachineIceAge {
+    intro {
+        title QEVENT_TIMEMACHINE_NAME
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame timemachine_fixed
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt QEVENT_TIMEMACHINE_ICEAGE_QUES
+
+        options {
+            past {
+                label QEVENT_TIMEMACHINE_ICEAGE_PAST_ANSW
+                stat none
+                animation choice_misc
+                hint_chapter_exit jurassic
+
+                requirements {
+                    has_token mapflag_JurassicUnlocked
+                }
+
+                good {
+                    prompt QEVENT_TIMEMACHINE_ICEAGE_REW1
+
+                    cutscene {
+                        cutscene "time_machine-iceage-jurassic"
+                        skip_result_screen true
+                    }
+                    random_mutation 1
+
+                    play_animation resultHole
+                    begin_chapter jurassic.gon
+                }
+            }
+
+            home {
+                label QEVENT_TIMEMACHINE_HOME_ANSW
+                stat none
+                animation choice_misc
+                hint_chapter_exit home
+
+                good {
+                    prompt QEVENT_TIMEMACHINE_ICEAGE_REW2
+                    
+                    play_animation resultHole
+                    begin_chapter home
+                }
+            }
+        }
+    }
+}
+Quest_TimeMachineJurassic {
+    intro {
+        title QEVENT_TIMEMACHINE_NAME
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame timemachine_fixed
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt QEVENT_TIMEMACHINE_JURASSIC_QUES
+
+        options {
+            past {
+                label QEVENT_TIMEMACHINE_JURASSIC_INFINITE_ANSW
+                stat none
+                animation choice_misc
+                hint_chapter_exit endoftime
+
+                requirements {
+                    has_token mapflag_EndOfTimeUnlocked
+                }
+
+                good {
+                    prompt QEVENT_TIMEMACHINE_JURASSIC_REW1
+
+                    cutscene {
+                        cutscene "time_machine-jurassic-infinite"
+                        skip_result_screen true
+                    }
+                    random_mutation 1
+
+                    play_animation resultHole
+                    begin_chapter endoftime.gon
+                }
+            }
+
+            home {
+                label QEVENT_TIMEMACHINE_HOME_ANSW
+                stat none
+                animation choice_misc
+                hint_chapter_exit home
+
+                good {
+                    prompt QEVENT_TIMEMACHINE_JURASSIC_REW2
+                    
+                    play_animation resultHole
+                    begin_chapter home
+                }
+            }
+        }
+    }
+}
+Quest_TimeMachineFuture {
+    intro {
+        title QEVENT_TIMEMACHINE_NAME
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame timemachine_fixed
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt QEVENT_TIMEMACHINE_FUTURE_QUES
+
+        options {
+            past {
+                label QEVENT_TIMEMACHINE_FUTURE_FUTURE_ANSW
+                stat none
+                animation choice_misc
+                hint_chapter_exit theend
+
+                requirements {
+                    has_token mapflag_TheEndUnlocked
+                }
+
+                good {
+                    prompt QEVENT_TIMEMACHINE_FUTURE_REW1
+
+                    cutscene {
+                        cutscene "time_machine-future-theend"
+                        skip_result_screen true
+                    }
+                    random_mutation 1
+
+                    play_animation resultHole
+                    begin_chapter theend.gon
+                }
+            }
+
+            home {
+                label QEVENT_TIMEMACHINE_HOME_ANSW
+                stat none
+                animation choice_misc
+                hint_chapter_exit home
+
+                good {
+                    prompt QEVENT_TIMEMACHINE_FUTURE_REW2
+                    
+                    play_animation resultHole
+                    begin_chapter home
+                }
+            }
+        }
+    }
+}
+Quest_TimeMachineTheEnd {
+    intro {
+        title QEVENT_TIMEMACHINE_NAME
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame timemachine_fixed
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt QEVENT_TIMEMACHINE_THEEND_QUES
+
+        options {
+            infinite {
+                label QEVENT_TIMEMACHINE_THEEND_INFINITE_ANSW
+                stat none
+                animation choice_misc
+                hint_chapter_exit endoftime
+
+                requirements {
+                    has_token mapflag_EndOfTimeUnlocked
+                }
+
+                good {
+                    prompt QEVENT_TIMEMACHINE_THEEND_REW1
+
+                    cutscene {
+                        cutscene "time_machine-theend-infinite"
+                        skip_result_screen true
+                    }
+                    random_mutation 1
+
+                    play_animation resultHole
+                    begin_chapter endoftime.gon
+                }
+            }
+
+            home {
+                label QEVENT_TIMEMACHINE_HOME_ANSW
+                stat none
+                animation choice_misc
+                hint_chapter_exit home
+
+                good {
+                    prompt QEVENT_TIMEMACHINE_THEEND_REW2
+                    
+                    play_animation resultHole
+                    begin_chapter home
+                }
+            }
+        }
+    }
+}
+
+///////////////////////////////////////////////////
+//       TERMINATOR / END OF TIME QUEST          //
+///////////////////////////////////////////////////
+
+//volcano (place receiver)
+Quest_Volcano {
+    intro {
+        title QEVENT_VOLCANO_NAME
+        cat_choice random
+        choose_cat_with_item ReceiverAntenna
+        subject_clip EventSubject
+        subject_frame volcano
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt QEVENT_VOLCANO_QUES
+        setup { //alt prompt if the flesh have been removed
+            conditional_reward {
+                requirements {
+                    has_token AntennaQuest_Volcano
+                }
+
+                reward {
+                    prompt QEVENT_VOLCANO_QUES2
+                    set_subject volcano2
+                }
+            }
+        }
+
+        options {
+            sacrifice {
+                label "QEVENT_VOLCANO_SACRIFICE_ANSW"
+                stat none
+                animation choice_misc
+                
+                requirements {
+                    counter_range [WorldEventLegacyCounter_VolcanoSacrifices 0 1]
+                }
+
+                good {
+                    reward {
+                        common {
+                            damage [1 5]
+                            play_animation resultHole
+                            prompt QEVENT_VOLCANO_REW1
+                            set_frame 2
+                            increment_legacy_counter WorldEventLegacyCounter_VolcanoSacrifices
+                        }
+                        rare {
+                            prompt QEVENT_VOLCANO_REW2
+                            set_frame 3
+                            gain_disorder_from_pool [BlackFetin OrangeFetin PurpleFetin]
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            prompt QEVENT_VOLCANO_REW3
+                            play_animation resultHole
+                            set_frame 4
+                            damage [1 5]
+                            //gain nothing
+                        }
+                        rare {
+                            prompt QEVENT_VOLCANO_REW4
+                            play_animation resultHole
+                            set_frame 5
+
+                            lose_all_equipped_items cat
+                            lose_item_from_inventory cat
+                            lose_item_from_inventory cat
+                            lose_item_from_inventory cat
+                            damage [1 5]                         
+                        }
+                    }
+                }
+            }
+
+            sacrifice_partial_favor {
+                label "QEVENT_VOLCANO_SACRIFICE_ANSW"
+                stat none
+                animation choice_misc
+                
+                requirements {
+                    counter_range [WorldEventLegacyCounter_VolcanoSacrifices 2 4]
+                }
+
+                good {
+                    reward {
+                        common {
+                            damage [1 5]
+                            play_animation resultHole
+                            prompt QEVENT_VOLCANO_REW1
+                            set_frame 2
+                            increment_legacy_counter WorldEventLegacyCounter_VolcanoSacrifices
+                        }
+                        rare {
+                            prompt QEVENT_VOLCANO_REW2
+                            set_frame 3
+                            gain_disorder_from_pool [BlackFetin OrangeFetin PurpleFetin]
+                        }
+                    }
+                }
+                bad {
+                    prompt QEVENT_VOLCANO_REW3
+                    play_animation resultHole
+                    set_frame 4
+                    damage [1 5]
+                    //gain nothing
+                }
+                //Favor from previous sacrifices removed bad crit
+            }
+            
+            sacrifice_full_favor {
+                label "QEVENT_VOLCANO_SACRIFICE_ANSW"
+                stat none
+                animation choice_misc
+                
+                requirements {
+                    counter_minimum [WorldEventLegacyCounter_VolcanoSacrifices 5]
+                }
+
+                good {
+                    reward {
+                        common {
+                            damage [1 5]
+                            play_animation resultHole
+                            prompt QEVENT_VOLCANO_REW3
+                            set_frame 4
+                        }
+                        rare {
+                            prompt QEVENT_VOLCANO_REW2
+                            set_frame 3
+                            gain_disorder_from_pool [BlackFetin OrangeFetin PurpleFetin]
+                        }
+                    }
+                }
+                //Favor from previous sacrifices eliminates bad outcomes
+            }
+
+            attach_antenna {
+                label QEVENT_VOLCANO_ANTENNA_ANSW
+                stat quest
+                animation choice_misc
+
+                requirements {
+                    cat_has_item_equipped ReceiverAntenna
+                }
+
+                good {
+                    set_legacy_token AntennaQuest_Volcano
+                    set_legacy_token mapflag_VolcanoAntennaAttached
+                    complete_item_quest ReceiverAntenna
+                    lose_specific_item ReceiverAntenna
+
+                    conditional_reward {
+                        requirements {
+                            has_token AntennaQuest_Volcano
+                            has_token AntennaQuest_Orb
+                            has_token AntennaQuest_Rift
+                        }
+
+                        reward { //the whole quest is completed
+                            prompt QEVENT_VOLCANO_REW5
+                            trigger_adventure_unlock end_of_time_unlock
+
+                            cutscene_on_exit infinite_intro
+                        } else {
+                            prompt QEVENT_VOLCANO_REW6
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label EVENT_IGNORE_ANSW
+                stat none
+                animation choice_leave
+
+                good {
+                    prompt QEVENT_VOLCANO_REW7
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+//orb in the ground (place transmitter)
+Quest_Orb {
+    intro {
+        title QEVENT_GLOWINGORB_NAME
+        cat_choice random
+        choose_cat_with_item TransmitterAntenna
+        subject_clip EventSubject
+        subject_frame endorb
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt QEVENT_GLOWINGORB_QUES
+        setup { //alt prompt if the flesh have been removed
+            conditional_reward {
+                requirements {
+                    has_token AntennaQuest_Orb
+                }
+
+                reward {
+                    prompt QEVENT_GLOWINGORB_QUES2
+                    set_subject endorb2
+                }
+            }
+        }
+
+        options {
+            lick {
+                label QEVENT_GLOWINGORB_LICK_ANSW
+                stat none
+                animation choice_misc
+
+                good {
+                    reward {
+                        common {
+                            prompt QEVENT_GLOWINGORB_REW1
+                            set_frame 2
+                            random_pool [
+                                {
+                                    random_mutation {
+                                        count 2
+                                    }
+                                }
+                                {
+                                    random_mutation {
+                                        count 3
+                                    }
+                                }
+                            ]
+                        }
+                        rare {
+                            prompt QEVENT_GLOWINGORB_REW2
+                            set_frame 3
+                            random_mutation_from_set {
+                                body 758
+                                head 759
+                                tail 760
+                            }                            
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            prompt QEVENT_GLOWINGORB_REW3
+                            set_frame 4
+                            gain_disorder Cancer
+                        }
+                        rare {
+                            prompt QEVENT_GLOWINGORB_REW4
+                            set_frame 5
+                            play_animation resultHole
+                            damage [1 5]
+                        }
+                    }
+                }
+            }
+
+            attach_antenna {
+                label QEVENT_GLOWINGORB_ANTENNA_ANSW
+                stat quest
+                animation choice_misc
+
+                requirements {
+                    cat_has_item_equipped TransmitterAntenna
+                }
+
+                good {
+                    set_legacy_token AntennaQuest_Orb
+                    set_legacy_token mapflag_OrbAntennaAttached
+                    complete_item_quest TransmitterAntenna
+                    lose_specific_item TransmitterAntenna
+
+                    conditional_reward {
+                        requirements {
+                            has_token AntennaQuest_Volcano
+                            has_token AntennaQuest_Orb
+                            has_token AntennaQuest_Rift
+                        }
+
+                        reward { //the whole quest is completed
+                            prompt QEVENT_GLOWINGORB_REW5
+                            trigger_adventure_unlock end_of_time_unlock
+
+                            cutscene_on_exit infinite_intro
+                        } else {
+                            prompt QEVENT_GLOWINGORB_REW6
+                        }
+                    }
+                }
+            }
+            ignore {
+                label EVENT_IGNORE_ANSW
+                stat none
+                animation choice_leave
+
+                good {
+                    prompt QEVENT_GLOWINGORB_REW7
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+///////////////////////////////////////////////////
+//                 The Infinite                  //
+///////////////////////////////////////////////////
+
+//the final quest is completed during the fight, so this event doesn't actually have any special quest stuff in it. mostly just a reward pool
+
+Quest_DeadGod {
+    intro {
+        title QEVENT_DEADGOD_NAME
+        cat_choice random
+        choose_cat_with_item TransmitterAntenna
+        subject_clip EventSubject
+        subject_frame dead_god
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt QEVENT_DEADGOD_QUES
+
+        options {
+            examine {
+                label EVENT_EXAMINE_ANSW
+                stat none
+                animation choice_misc
+
+                good {
+                    prompt QEVENT_DEADGOD_REW1 //once cutscene is in this prompt is skipped
+                    get_item_from_pool godly_items
+                    cutscene {
+                        cutscene "infinite_ending_good"
+                        skip_result_screen true
+                    }
+                    //set_frame 2 //do not set frame once cutscenes are added.
+                }
+
+                bad {
+                    prompt QEVENT_DEADGOD_REW2 //once cutscene is in this prompt is skipped
+                    damage [1 5]
+                    cutscene {
+                        cutscene "infinite_ending_bad"
+                        skip_result_screen true
+                    }
+                    //set_frame 2 //do not set frame once cutscenes are added.
+                    play_animation resultHole
+                }
+            }
+
+            ignore {
+                label EVENT_IGNORE_ANSW
+                stat none
+                animation choice_leave
+
+                good {
+                    prompt QEVENT_DEADGOD_REW3
+                    play_animation [resultLeave 0]
+                    set_frame 2
+                }
+            }
+        }
+    }
+}

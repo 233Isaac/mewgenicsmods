@@ -1,0 +1,3328 @@
+DeadRat {
+    intro {
+        title "EVENT_DEADRAT_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame deadrat
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_DEADRAT_QUES"
+
+        options {
+            destroy {
+                label "EVENT_DESTROY_ANSW"
+                stat str
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW1"
+ 
+                            spawn_unit_next_fight {
+                                object [Rat Pinky]
+                                count 2
+                                spawn_side enemies
+                            }
+
+                            global_effect_next_fight {
+                                CharacterTypeGainsStatusAtBattleStart {
+                                    tag rat
+                                    Fear 1
+                                }
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW2"
+                            get_item_from_pool rat_trinkets
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW3"
+                            spawn_unit_next_fight {
+                                object [Rat Pinky Leaper]
+                                count 2
+                                spawn_side enemies
+                            }
+
+                            ambush_next_basic_fights 1
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW4"
+                            gain_disorder BloodFrenzy
+                        }
+                    }
+                }
+            }
+
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW5"
+                            full_heal 1
+                            gain_food [2 10]
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW6"
+                            random_mutation_from_set {
+                                tail 1500
+                                ears 1500
+                                mouth 1500
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW7"
+                            self_status_next_fight {
+                                Poison 2
+                            }
+                            permanent_stats {
+                                con -1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW8"
+                            gain_disorder Rabies
+                        }
+                    }
+                }
+            }
+
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            random_pool [
+                                {
+                                    prompt "EVENT_DEADRAT_REW9"
+                                    gain_coins [5 10]
+                                }
+                                {
+                                    prompt "EVENT_DEADRAT_REW10"
+                                    get_item_from_pool food
+                                }
+                            ]
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW11"
+                            get_item_from_pool rat_trinkets
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW12"
+                            spawn_unit_next_fight {
+                                object [Rat Pinky Leaper]
+                                count 2
+                                spawn_side enemies
+                            }
+
+                            ambush_next_basic_fights 1
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW13"
+                            gain_disorder Rabies
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+DeadCat {
+    intro {
+        title "EVENT_DEADCAT_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame deadcat
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_DEADCAT_QUES"
+
+        options {
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_DEADCAT_REW1"
+                            heal 10
+                            gain_food [2 10]
+
+                            global_effect_next_fight {
+                                KillEnemyOfTypeAtBattleStart {
+                                    enemy_type cat
+                                    fallback_spawn [TomTom Kitten CatCaller Mangy]
+                                }
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_DEADCAT_REW2"
+                            gain_disorder Cannibal
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_DEADCAT_REW3"
+                            party_damage 3
+                            self_damage 8
+                        }
+                        rare {
+                            prompt "EVENT_DEADCAT_REW4"
+                            gain_disorder Shunned
+                        }
+                    }
+                }
+            }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_DEADCAT_REW5"
+                            get_item_from_pool [Catnip, CatnipBig, KiloOfCatnip]
+                        }
+                        rare {
+                            prompt "EVENT_DEADCAT_REW6"
+                            gain_cat_familiar 1
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_DEADCAT_REW7"
+                            party_damage [1 6]
+                        }
+                        rare {
+                            prompt "EVENT_DEADCAT_REW8"
+                            gain_disorder Distemper
+                        }
+                    }
+                }
+            }
+
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_DEADCAT_REW9"
+                            gain_coins [1 10]
+                            get_item_from_pool consumables
+                        }
+                        rare {
+                            prompt "EVENT_DEADCAT_REW10"
+                            get_item_from_pool cat_armor
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            random_pool [
+                                {
+                                    prompt "EVENT_DEADCAT_REW11"
+                                    spawn_unit_next_fight {
+                                        object Maggot
+                                        count 2
+                                        spawn_side cats
+                                    }
+                                }
+                                {
+                                    prompt "EVENT_DEADCAT_REW12"
+                                    lose_item inventory
+                                }
+                            ]
+                        }
+                        rare {
+                            prompt "EVENT_DEADCAT_REW13"
+                            //gain_disorder_from_pool mental_disorders
+                            spawn_reflection_next_fight 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+BonePile {
+    intro {
+        title "EVENT_BONEPILE_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame bonepile
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_BONEPILE_QUES"
+
+        options {
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_BONEPILE_REW1"
+                            get_item_from_pool bone_equipment
+                        }
+                        rare {
+                            prompt "EVENT_BONEPILE_REW2"
+                            get_item SnaggleTooth
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_BONEPILE_REW3"
+                            spawn_unit_next_fight {
+                                object [SkeletonCat TallSkeletonCat]
+                                count 1
+                                spawn_side enemies
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_BONEPILE_REW4"
+                            self_status_next_fight {
+                                Fear 10
+                            }
+                        }
+                    }
+                }
+            }
+
+            destroy {
+                label "EVENT_DESTROY_ANSW"
+                stat str
+
+                good {
+                    prompt "EVENT_BONEPILE_REW5"
+                    set_frame 4
+                    reward {
+                        common {
+                            heal 10
+                            gain_food [10 25]
+                        }
+                        rare {
+                            get_item BoneMarrow
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_BONEPILE_REW6"
+                            self_damage [1 10]
+                        }
+                        rare {
+                            prompt "EVENT_BONEPILE_REW7"
+                            damage [1 5]
+                        }
+                    }
+                }
+            }
+
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    prompt "EVENT_BONEPILE_REW8"
+                    set_frame 3
+                    reward {
+                        common {
+                            get_item_from_pool bone_weapons
+                        }
+                        rare {
+                            get_item_from_pool bone_armor
+                            get_item_from_pool bone_armor
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_BONEPILE_REW9"
+                            damage [1 5]  //spd
+                        }
+                        rare {
+                            prompt "EVENT_BONEPILE_REW10"
+                            damage [1 5]  //str
+                            damage [1 5]  //spd
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+GutPile {
+    intro {
+        title "EVENT_GUTPILE_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame gutspile
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_GUTPILE_QUES"
+
+        options {
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_GUTPILE_REW1"
+                            party_heal 100%
+                            gain_food [5 15]
+
+                            party_status_next_fight {
+                                Poison 1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_GUTPILE_REW2"
+                            gain_food [2 5]
+                            permanent_stats {
+                                con 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_GUTPILE_REW3"
+                            gain_disorder_from_pool all_disorders
+                        }
+                        rare {
+                            prompt "EVENT_GUTPILE_REW4"
+                            get_parasite_from_pool parasites
+                        }
+                    }
+                }
+            }
+
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_GUTPILE_REW5"
+                            gain_coins [1 15]
+                            gain_food [1 15]
+                        }
+                        rare {
+                            prompt "EVENT_GUTPILE_REW6"
+                            get_item_from_pool guts_items
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_GUTPILE_REW7"
+
+                            spawn_unit_next_fight {
+                                object Fly
+                                count 3
+                                spawn_side cats
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_GUTPILE_REW8"
+                            get_parasite_from_pool parasites
+                        }
+                    }
+                }
+            }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_GUTPILE_REW9"
+                            get_item_from_pool food
+                            gain_food [1 5]
+                        }
+                        rare {
+                            prompt "EVENT_GUTPILE_REW10"
+                            gain_food [1 5]
+                            get_item_from_pool food
+                            get_item_from_pool food
+                            get_item_from_pool food
+                            get_item_from_pool food
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_GUTPILE_REW11"
+                            party_damage 5
+                        }
+                        rare {
+                            prompt "EVENT_GUTPILE_REW12"
+                            get_parasite AlluringDoodie
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+SeveredHead {
+    intro {
+        title "EVENT_SEVEREDHEAD_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame severedhead
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_SEVEREDHEAD_QUES"
+
+        options {
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_SEVEREDHEAD_REW1"
+                        }
+                        rare {
+                            prompt "EVENT_SEVEREDHEAD_REW2"
+                            get_item BlinkingEyeball
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                        prompt "EVENT_SEVEREDHEAD_REW3"
+                            self_status_next_fight {
+                                Fear 1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_SEVEREDHEAD_REW4"
+                            gain_disorder_from_pool mental_disorders
+                        }
+                    }
+                }
+            }
+
+            destroy {
+                label "EVENT_DESTROY_ANSW"
+                stat str
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_SEVEREDHEAD_REW5"
+                        }
+                        rare {
+                            prompt "EVENT_SEVEREDHEAD_REW6" 
+                            get_item GoldenTooth
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                        prompt "EVENT_SEVEREDHEAD_REW7"
+                            self_damage [4 8]
+                            self_status_next_fight {
+                                Bleed 2
+                            }
+                        }
+                        rare {
+                        prompt "EVENT_SEVEREDHEAD_REW8"
+                            self_damage [6 10]
+                            damage [1 5]  //str 
+                        }
+                    }
+                }
+            }
+
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_SEVEREDHEAD_REW9"
+                        }
+                        rare {
+                            prompt "EVENT_SEVEREDHEAD_REW10" 
+                            permanent_stats {
+                                con 2
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_SEVEREDHEAD_REW11"
+                            get_parasite CursedHairball
+                        }
+                        rare {
+                            prompt "EVENT_SEVEREDHEAD_REW12"
+                            damage [1 5]  //con
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+CatPelts {
+    intro {
+        title "EVENT_PILEOFCATPELTS_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame catpelts
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_PILEOFCATPELTS_QUES"
+
+        options {
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_PILEOFCATPELTS_REW1"
+                            get_item_from_pool consumables
+                            heal 3
+                            party_heal 1
+                            gain_food [1 5]
+                        }
+                        rare {
+                            prompt "EVENT_PILEOFCATPELTS_REW2"
+                            get_item_from_pool [CatHideHat CatHideMask CatHideArmor]
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_PILEOFCATPELTS_REW3"
+                            self_status_next_fight {
+                                ConstitutionUp -1
+                                StrengthUp -1
+                                Poison 1
+                            }
+                            damage 2
+                        }
+                        rare {
+                            prompt "EVENT_PILEOFCATPELTS_REW4"
+                            gain_disorder Anxiety
+                        }
+                    }
+                }
+            }
+
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_PILEOFCATPELTS_REW5"
+                            get_item_from_pool consumables
+                            heal 3
+                            party_heal 1
+                            gain_food [1 5]
+                        }
+                        rare {
+                            prompt "EVENT_PILEOFCATPELTS_REW6"
+                            get_item_from_pool [CatHideHat CatHideMask CatHideArmor]
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_PILEOFCATPELTS_REW7"
+                            self_status_next_fight {
+                                ConstitutionUp -1
+                                StrengthUp -1
+                                Poison 1
+                            }
+                            damage 2
+                        }
+                        rare {
+                            prompt "EVENT_PILEOFCATPELTS_REW8"
+                            gain_disorder Anxiety
+                        }
+                    }
+                }
+            }
+
+            destroy {
+                label "EVENT_DESTROY_ANSW"
+                stat str
+
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_PILEOFCATPELTS_REW9"
+                            get_item_from_pool consumables
+                            heal 3
+                            party_heal 1
+                            gain_food [1 5]
+                        }
+                        rare {
+                            prompt "EVENT_PILEOFCATPELTS_REW10"
+                            get_item_from_pool [CatHideHat CatHideMask CatHideArmor]
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_PILEOFCATPELTS_REW11"
+                            self_status_next_fight {
+                                ConstitutionUp -1
+                                StrengthUp -1
+                                Poison 1
+                            }
+                            damage 2
+                        }
+                        rare {
+                            prompt "EVENT_PILEOFCATPELTS_REW12"
+                            gain_disorder Anxiety
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+Stain {
+    intro {
+        title "EVENT_MYSTERIOUSSTAIN_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame mysteriousstain
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_MYSTERIOUSSTAIN_QUES"
+
+        options {
+            lick {
+                label "EVENT_LICK_ANSW"
+                stat con
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_MYSTERIOUSSTAIN_REW1"
+                            random_pool [ //RandomStatUp does not show on cat info in map.
+                                {
+                                    self_status_next_fight {
+                                        StrengthUp 2
+                                    }
+                                }{
+                                    self_status_next_fight {
+                                        DexterityUp 2
+                                    }
+                                }{
+                                    self_status_next_fight {
+                                        ConstitutionUp 2
+                                    }
+                                }{
+                                    self_status_next_fight {
+                                        IntelligenceUp 2
+                                    }
+                                }{
+                                    self_status_next_fight {
+                                        SpeedUp 2
+                                    }
+                                }{
+                                    self_status_next_fight {
+                                        CharismaUp 2
+                                    }
+                                }{
+                                    self_status_next_fight {
+                                        LuckUp 2
+                                    }
+                                }
+                            ]
+                        }
+                        rare {
+                            prompt "EVENT_MYSTERIOUSSTAIN_REW2"
+                            random_mutation 1
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_MYSTERIOUSSTAIN_REW3"
+                            random_pool [ //RandomStatDown does not show on cat info in map.
+                                {
+                                    self_status_next_fight {
+                                        StrengthUp -2
+                                    }
+                                }{
+                                    self_status_next_fight {
+                                        DexterityUp -2
+                                    }
+                                }{
+                                    self_status_next_fight {
+                                        ConstitutionUp -2
+                                    }
+                                }{
+                                    self_status_next_fight {
+                                        IntelligenceUp -2
+                                    }
+                                }{
+                                    self_status_next_fight {
+                                        SpeedUp -2
+                                    }
+                                }{
+                                    self_status_next_fight {
+                                        CharismaUp -2
+                                    }
+                                }{
+                                    self_status_next_fight {
+                                        LuckUp -2
+                                    }
+                                }
+                            ]
+                        }
+                        rare {
+                            prompt "EVENT_MYSTERIOUSSTAIN_REW4"
+                            gain_disorder_from_pool physical_disorders
+                        }
+                    }
+                }
+            }
+
+            leave {
+                label "EVENT_LEAVE_ANSW"
+                stat none
+                animation choice_leave
+
+                good {
+                    prompt "EVENT_MYSTERIOUSSTAIN_REW5"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+DecayingCarcass {
+    intro {
+        title "EVENT_DECAYINGCARCASS_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame decaying_carcass
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_DECAYINGCARCASS_QUES"
+
+        options {
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_DECAYINGCARCASS_REW1"
+                            get_parasite_from_pool parasites
+                            permanent_stats {
+                                random 1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_DECAYINGCARCASS_REW2"
+                            get_parasite_from_pool good_parasites
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_DECAYINGCARCASS_REW3"
+                            get_parasite_from_pool parasites
+                        }
+                        rare {
+                            prompt "EVENT_DECAYINGCARCASS_REW4"
+                            get_parasite_from_pool parasites
+                            gain_disorder_from_pool physical_disorders
+                        }
+                    }
+                }
+            }
+            
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_DECAYINGCARCASS_REW5"
+                            gain_familiar CharmedMaggot
+                        }
+                        rare {
+                            prompt "EVENT_DECAYINGCARCASS_REW6"
+                            get_and_equip_item FlyLarva
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_DECAYINGCARCASS_REW7"
+                            self_damage 2
+                        }
+
+                        rare {
+                            prompt "EVENT_DECAYINGCARCASS_REW8"
+                            get_parasite_from_pool parasites
+                        }
+                    }
+                }
+            }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_DECAYINGCARCASS_REW9"
+                            //nothing
+                        }
+
+                        rare {
+                            prompt "EVENT_DECAYINGCARCASS_REW10"
+                            permanent_stats {
+                                int 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_DECAYINGCARCASS_REW11"
+                            //nothing
+                        }
+
+                        rare {
+                            prompt "EVENT_DECAYINGCARCASS_REW12"
+                            get_parasite_from_pool parasites
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+APoop {
+    intro {
+        title "EVENT_APOOP_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame a_poop
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_APOOP_QUES"
+
+        options {
+            destroy {
+                label "EVENT_DESTROY_ANSW"
+                stat str
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_APOOP_REW1"
+                            gain_coins 1
+                        }
+                        rare {
+                            prompt "EVENT_APOOP_REW2"
+                            gain_coins 10
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_APOOP_REW3"
+                            //gain nothing
+                        }
+                        rare {
+                            prompt "EVENT_APOOP_REW4"
+                            gain_disorder Stinky
+                        }
+                    }
+                }
+            }
+            
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_APOOP_REW5"
+                            heal 1
+                        }
+                        rare {
+                            prompt "EVENT_APOOP_REW6"
+                            gain_disorder Scatological
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_APOOP_REW7"
+                            gain_disorder_from_pool stomach_disorders
+                        }
+
+                        rare {
+                            prompt "EVENT_APOOP_REW8"
+                            gain_disorder IntestinalProlapse
+                        }
+                    }
+                }
+            }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_APOOP_REW9"
+                            get_item_from_pool consumables
+                        }
+
+                        rare {
+                            prompt "EVENT_APOOP_REW10"
+                            get_item_from_pool poop_items
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_APOOP_REW11"
+                            get_parasite EnchantingPoop_Cursed
+                        }
+
+                        rare {
+                            prompt "EVENT_APOOP_REW12"
+                            gain_disorder Stinky
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+ALargePoop { 
+    intro {
+        title "EVENT_ALARGEPOOP_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame a_large_poop
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_ALARGEPOOP_QUES"
+
+        options {
+            destroy {
+                label "EVENT_DESTROY_ANSW"
+                stat str
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_ALARGEPOOP_REW1"
+                            gain_coins 10
+                        }
+                        rare {
+                            prompt "EVENT_ALARGEPOOP_REW2"
+                            gain_coins 25
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_ALARGEPOOP_REW3"
+                            gain_disorder Stinky
+                        }
+                        rare {
+                            prompt "EVENT_ALARGEPOOP_REW4"
+                            gain_disorder Stinky
+                            get_parasite FecalHood_Cursed
+                        }
+                    }
+                }
+            }
+            
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_ALARGEPOOP_REW5"
+                            gain_disorder Scatological
+
+                        }
+                        rare {
+                            prompt "EVENT_ALARGEPOOP_REW6"
+                            gain_disorder Scatological
+                            get_item EnchantingPoop
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_ALARGEPOOP_REW7"
+                            gain_disorder IntestinalProlapse
+                        }
+
+                        rare {
+                            prompt "EVENT_ALARGEPOOP_REW8"
+                            damage [1 5]  //con
+                            gain_disorder Incontinence
+                        }
+                    }
+                }
+            }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_ALARGEPOOP_REW9"
+                            get_item_from_pool poop_items
+                        }
+
+                        rare {
+                            prompt "EVENT_ALARGEPOOP_REW10" 
+                            get_item_from_pool poop_items
+                            get_item_from_pool {
+                                pool chapter
+                                restrict trinket
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_ALARGEPOOP_REW11"
+                            gain_disorder Stinky
+                        }
+
+                        rare {
+                            prompt "EVENT_ALARGEPOOP_REW12"
+                            gain_disorder Stinky
+                            get_parasite FecalMask_Cursed
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+AMegaHugePoop {
+    intro {
+        title "EVENT_AMEGAHUGEPOOP_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame a_mega_large_poop
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_AMEGAHUGEPOOP_QUES"
+
+        options {
+            destroy {
+                label "EVENT_DESTROY_ANSW"
+                stat str
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_AMEGAHUGEPOOP_REW1"
+                            gain_coins 25
+                        }
+                        rare {
+                            prompt "EVENT_AMEGAHUGEPOOP_REW2"
+                            gain_coins 50
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_AMEGAHUGEPOOP_REW3"
+                            gain_disorder Stinky
+                            get_parasite FecalHood_Cursed
+                        }
+                        rare {
+                            prompt "EVENT_AMEGAHUGEPOOP_REW4"
+                            gain_disorder Stinky
+                            get_parasite FecalHood_Cursed
+                            get_parasite FecalNecklace_Cursed
+                        }
+                    }
+                }
+            }
+            
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_AMEGAHUGEPOOP_REW5"
+                            gain_disorder Scatological
+                            get_item EnchantingPoop
+                        }
+                        rare {
+                            prompt "EVENT_AMEGAHUGEPOOP_REW6"
+                            gain_disorder Scatological
+                            get_item EnchantingPoop
+                            permanent_stats {
+                                con 2
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_AMEGAHUGEPOOP_REW7"
+                            damage [1 5]  //con
+                            gain_disorder Incontinence
+                        }
+
+                        rare {
+                            prompt "EVENT_AMEGAHUGEPOOP_REW8"
+                            gain_disorder ExplosiveGas
+                        }
+                    }
+                }
+            }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_AMEGAHUGEPOOP_REW9"
+                            get_item_from_pool poop_items
+                            get_item_from_pool{
+                                pool chapter_common
+                                restrict trinket
+                            }
+                        }
+
+                        rare {
+                            prompt "EVENT_AMEGAHUGEPOOP_REW10"
+                            get_item_from_pool{
+                                pool chapter_common
+                                restrict trinket
+                            }
+                            get_item_from_pool{
+                                pool chapter
+                                restrict trinket
+                            }
+                            get_item_from_pool{
+                                pool chapter_rare
+                                restrict trinket
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_AMEGAHUGEPOOP_REW11"
+                            gain_disorder Stinky
+                            get_parasite FecalMask_Cursed
+
+                        }
+
+                        rare {
+                            prompt "EVENT_AMEGAHUGEPOOP_REW12"
+                            gain_disorder Stinky
+                            get_parasite FecalMask_Cursed
+                            get_parasite FecalNecklace_Cursed
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+MummifiedCorpse {
+    intro {
+        title "EVENT_MUMMIFIEDCORPSE_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame mummified_corpse
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_MUMMIFIEDCORPSE_QUES"
+
+        options {
+            destroy {
+                label "EVENT_DESTROY_ANSW"
+                stat str
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_MUMMIFIEDCORPSE_REW1"
+                            self_status_next_fight {
+                                TempStrengthUp 1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_MUMMIFIEDCORPSE_REW2"    
+                            permanent_stats {
+                                str 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    
+                    reward {
+                        common {
+                            set_frame 1
+                            prompt "EVENT_MUMMIFIEDCORPSE_REW3"
+                            self_status_next_fight {
+                                Stun 1
+                            }
+                        }
+                        rare {
+                            set_frame 2
+                            prompt "EVENT_MUMMIFIEDCORPSE_REW4"
+                            get_parasite_from_pool parasites
+                        }
+                    }
+                }
+            }
+            
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_MUMMIFIEDCORPSE_REW5"
+                            //nothing, gain info about boss
+                        }
+                        rare {
+                            prompt "EVENT_MUMMIFIEDCORPSE_REW6"
+                            battle "events/chupacabra.lvl"
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_MUMMIFIEDCORPSE_REW7"
+                            self_damage 2
+                        }
+
+                        rare {
+                            prompt "EVENT_MUMMIFIEDCORPSE_REW8"
+                            ambush "events/chupacabra.lvl"
+                        }
+                    }
+                }
+            }
+
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_MUMMIFIEDCORPSE_REW9"
+                            get_item_from_pool deadcat_equipment
+                        }
+
+                        rare {
+                            prompt "EVENT_MUMMIFIEDCORPSE_REW10"
+                            get_item_from_pool{
+                                pool chapter_rare
+                                restrict trinket
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_MUMMIFIEDCORPSE_REW11"
+                            self_status_next_fight {
+                                Fear 3
+                            }
+                        }
+
+                        rare {
+                            prompt "EVENT_MUMMIFIEDCORPSE_REW12"
+                            gain_disorder Anxiety
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+Fetus {
+    intro {
+        title "EVENT_FETUS_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame fetus
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_FETUS_QUES"
+
+        options {
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_FETUS_REW1"
+                            party_heal 100%
+                        }
+                        rare {
+                            prompt "EVENT_FETUS_REW2"
+                            permanent_stats {
+                                con 1
+                            }
+                            self_status_next_fight {
+                                HealthRegenUp 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_FETUS_REW3"
+                            self_status_next_fight {
+                                Poison 2
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_FETUS_REW4"
+                            get_parasite_from_pool parasites
+                        }
+                    }
+                }
+            }
+            
+            charm {
+                label "EVENT_CHARM_ANSW"
+                stat cha
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_FETUS_REW5"
+                            gain_familiar CharmedPinky
+                        }
+                        rare {
+                            prompt "EVENT_FETUS_REW6"
+                            gain_familiar CharmedPinky
+                            gain_familiar CharmedPinky
+                            gain_familiar CharmedPinky
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_FETUS_REW7"
+                            damage 2
+                        }
+
+                        rare {
+                            prompt "EVENT_FETUS_REW8"
+                            get_parasite_from_pool parasites
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+
+                good {
+                    prompt "EVENT_FETUS_REW9"
+                    play_animation [resultLeave 0]
+                    //Nothing happens
+                }
+                bad {
+                    prompt "EVENT_FETUS_REW10"
+                    play_animation [resultLeave 0]
+                    self_status_next_fight {
+                        AddInitiative -99
+                    }
+                }
+            }
+        }
+    }
+}
+
+BloodStain {
+    intro {
+        title "EVENT_BLOODSTAIN_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame blood_stain
+        event_clip NonWheelEvent
+    }
+
+    main {
+        setup {
+            conditional_reward {
+                requirements {
+                    is_not_chapter [future theend]
+                }
+                reward {
+                    prompt "EVENT_BLOODSTAIN_QUES"
+                }
+            }
+            
+            conditional_reward {
+                requirements {
+                    is_chapter [future]
+                }
+                reward {
+                    prompt "EVENT_BLOODSTAIN_ALT_FUTURE_QUES"
+                }
+            }
+
+            conditional_reward {
+                requirements {
+                    is_chapter [theend]
+                }
+                reward {
+                    prompt "EVENT_BLOODSTAIN_ALT_THEEND_QUES"
+                }
+            }
+        }
+
+        options {
+            lick {
+                label "EVENT_LICK_ANSW"
+                stat con
+                
+                requirements {
+                    is_not_chapter [future theend]
+                }
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_BLOODSTAIN_REW1"
+                            heal 1
+                        }
+                        rare {
+                            prompt "EVENT_BLOODSTAIN_REW2"
+                            get_parasite CrimsonMask_Cursed
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_BLOODSTAIN_REW3"
+                            self_damage 1
+                        }
+                        rare {
+                            prompt "EVENT_BLOODSTAIN_REW4"
+                            get_parasite_from_pool parasites
+                        }
+                    }
+                }
+            }
+            
+            lick_alt {
+                label "EVENT_LICK_ANSW"
+                stat con
+                
+                requirements {
+                    is_chapter [future theend]
+                }
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_BLOODSTAIN_ALT_REW1"
+                            permanent_stats {
+                                con 1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_BLOODSTAIN_ALT_REW2"
+                            upgrade_passive random
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_BLOODSTAIN_ALT_REW3"
+                            permanent_stats {
+                                con -1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_BLOODSTAIN_ALT_REW4"
+                            get_parasite_from_pool parasites
+                            get_parasite_from_pool parasites
+                        }
+                    }
+                }
+            }
+
+            leave {
+                label "EVENT_LEAVE_ANSW"
+                stat none
+                animation choice_leave
+
+                good {
+                    prompt "EVENT_BLOODSTAIN_REW5"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+RottenMeat {
+    intro {
+        title "EVENT_ROTTENMEAT_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame rotten_meat
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_ROTTENMEAT_QUES"
+
+        options {
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_ROTTENMEAT_REW1"
+                            heal 5
+
+                        }
+                        rare {
+                            prompt "EVENT_ROTTENMEAT_REW2"
+                            learn_passive PoisonTips
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_ROTTENMEAT_REW3"
+                            self_damage 5
+                        }
+                        rare {
+                            prompt "EVENT_ROTTENMEAT_REW4"
+                            permanent_stats {
+                                con -1
+                            }
+                            learn_ability BarfBall 
+                        }
+                    }
+                }
+            }
+            
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    reward {
+                        common {
+                            prompt "EVENT_ROTTENMEAT_REW5"
+                            set_frame 4
+                            gain_food [1 5]
+                        }
+                        rare {
+                            prompt "EVENT_ROTTENMEAT_REW6"
+                            set_frame 5
+                            gain_familiar FamiliarChargeyMaggot
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_ROTTENMEAT_REW7"
+                            spawn_unit_next_fight {
+                                object [Maggot]
+                                count 2
+                                spawn_side cats
+                            }
+                        }
+
+                        rare {
+                            prompt "EVENT_ROTTENMEAT_REW8"
+                            get_parasite_from_pool parasites
+                        }
+                    }
+                }
+            }
+
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            random_pool [
+                                {
+                                    prompt "EVENT_ROTTENMEAT_REW9"
+                                    get_item_from_pool bone_weapons
+                                }
+                                {
+                                    prompt "EVENT_ROTTENMEAT_REW10"
+                                    gain_food [1 5]
+                                }
+                            ]
+                        }
+
+                        rare {
+                            set_frame 1
+                            prompt "EVENT_ROTTENMEAT_REW11"
+                            get_item RottenMeat
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_ROTTENMEAT_REW12"
+                            party_damage [2 6]
+                        }
+
+                        rare {
+                            prompt "EVENT_ROTTENMEAT_REW13"
+                            gain_disorder LooseMeat
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+OminousSign {
+    intro {
+        title "EVENT_OMINOUSSIGN_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame ominous_sign
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_OMINOUSSIGN_QUES"
+
+        options {
+            destroy {
+                label "EVENT_DESTROY_ANSW"
+                stat str
+
+                good {  
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_OMINOUSSIGN_REW1"
+                            self_status_next_fight{
+                                DivineShield 2
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_OMINOUSSIGN_REW2"
+                            learn_passive Blessed
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_OMINOUSSIGN_REW3"
+                            event_now_same_cat Happening
+                        }
+                        rare {
+                            prompt "EVENT_OMINOUSSIGN_REW4"
+                            damage [1 5]  //cursed
+                        }
+                    }
+                }
+            }
+            
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_OMINOUSSIGN_REW5"
+                            ally_ambush_next_fights 1
+                        }
+                        rare {
+                            prompt "EVENT_OMINOUSSIGN_REW6"
+                            learn_ability_from_pool Necromancer                             
+                        }
+                    }
+                } 
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_OMINOUSSIGN_REW7"
+                            ambush_next_basic_fights 1
+                        }
+
+                        rare {
+                            prompt "EVENT_OMINOUSSIGN_REW8"
+                            self_status_next_fight {
+                                Fear 3
+                            }
+                        }
+                    }
+                }
+            }
+
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_OMINOUSSIGN_REW9"
+                            get_item_from_pool rat_trinkets
+                        }
+
+                        rare {
+                            prompt "EVENT_OMINOUSSIGN_REW10"
+                            get_item CursedStickman
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_OMINOUSSIGN_REW11"
+                            permanent_stats {
+                                lck -1
+                            }
+                        }
+
+                        rare {
+                            prompt "EVENT_OMINOUSSIGN_REW12"
+                            get_parasite CursedStickman
+                            gain_disorder_from_pool [Psychosis, Touched, Soulless]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+StrangeFlowers {
+    intro {
+        title "EVENT_STRANGEFLOWERS_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame strange_flowers
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_STRANGEFLOWERS_QUES"
+
+        options {
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_STRANGEFLOWERS_REW1"
+                            get_and_equip_item Catnip
+                        }
+                        rare {
+                            prompt "EVENT_STRANGEFLOWERS_REW2"
+                            permanent_stats {
+                                int 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_STRANGEFLOWERS_REW3"
+                            self_status_next_fight{
+                                Confusion 2
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_STRANGEFLOWERS_REW4"
+                            gain_disorder_from_pool [Psychosis, Pica, Vegan]
+                        }
+                    }
+                }
+            }
+            
+            destroy {
+                label "EVENT_DESTROY_ANSW"
+                stat str
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_STRANGEFLOWERS_REW5"
+                            get_item CatnipBig
+                        }
+                        rare {
+                            prompt "EVENT_STRANGEFLOWERS_REW6"
+                            get_item StrangeMarble //TODO: Gain strange bulb weapon
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_STRANGEFLOWERS_REW7"
+                            self_status_next_fight {
+                                AbilityOnBattleStart_Immediate FlowerEventSleep
+                            }
+                        }
+
+                        rare {
+                            prompt "EVENT_STRANGEFLOWERS_REW8"
+                            damage [1 5]  //spd //broken leg
+                            self_status_next_fight {
+                                Bleed 1
+                            }
+                        }
+                    }
+                }
+            }
+
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_STRANGEFLOWERS_REW9"
+                            get_item SeedBombs
+                        }
+
+                        rare {
+                            prompt "EVENT_STRANGEFLOWERS_REW10"
+                            get_item BagOfGrass
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_STRANGEFLOWERS_REW11"
+                            self_status_next_fight {
+                                Sleep 2
+                            }
+                        }
+
+                        rare {
+                            prompt "EVENT_STRANGEFLOWERS_REW12"
+                            gain_disorder Narcolepsy
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+Mushroom {
+    intro {
+        title "EVENT_MUSHROOM_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame mushroom
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_MUSHROOM_QUES"
+
+        options {
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_MUSHROOM_REW1"
+                            self_status_next_fight{
+                                IntelligenceUp 3
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_MUSHROOM_REW2"
+                            permanent_stats {
+                                int 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_MUSHROOM_REW3" 
+                            self_status_next_fight{
+                                IntelligenceUp -3
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_MUSHROOM_REW4"
+                            gain_disorder_from_pool [EatingDisorder, Pica]
+                        }
+                    }
+                }
+            }
+            
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_MUSHROOM_REW5"
+                            get_item_from_pool [Mushrooms, PurpleMushroom, BlackMushroom]
+                        }
+                        rare {
+                            prompt "EVENT_MUSHROOM_REW6"
+                            get_item_from_pool [SpottedMushroom, RedMushroom]
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_MUSHROOM_REW7"
+                            self_status_next_fight{
+                                Confusion 4
+                            }
+                        }
+
+                        rare {
+                            prompt "EVENT_MUSHROOM_REW8"
+                            gain_disorder Paranoia
+                        }
+                    }
+                }
+            }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_MUSHROOM_REW9"
+                            random_pool [
+                                {
+                                    get_item_from_pool bone_armor
+                                }
+                                {
+                                    get_item_from_pool cat_armor
+                                }
+                            ]
+                            
+                        }
+
+                        rare {
+                            prompt "EVENT_MUSHROOM_REW10"
+                            get_item_from_pool rotten_armor
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_MUSHROOM_REW11"
+                            self_damage [3 8]
+                            self_status_next_fight{
+                                Fear 1
+                            }
+                        }
+
+                        rare {
+                            prompt "EVENT_MUSHROOM_REW12"
+                            gain_disorder Necrosis
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+SmellyBag {
+    intro {
+        title "EVENT_SMELLYBAG_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame smelly_bag
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_SMELLYBAG_QUES"
+
+        options {
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_SMELLYBAG_REW1"
+                            get_item_from_pool consumables
+                        }
+                        rare { 
+                            prompt "EVENT_SMELLYBAG_REW2"
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict [weapon consumables armor]
+                            }
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict [weapon consumables armor]
+                            }
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict [weapon consumables armor]
+                            }
+                            random_pool [
+                                {} //get 3 or 4 items.
+                                {
+                                    get_item_from_pool {
+                                        pool chapter_common
+                                        restrict [weapon consumables armor]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_SMELLYBAG_REW3"
+                            damage [2 4]
+                        }
+                        rare {
+                            prompt "EVENT_SMELLYBAG_REW4"
+                            get_parasite_from_pool parasites
+                        }
+                    }
+                }
+            }
+            
+            destroy {
+                label "EVENT_DESTROY_ANSW"
+                stat str
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_SMELLYBAG_REW5"
+                            get_item_from_pool consumables
+                        }
+                        rare { 
+                            prompt "EVENT_SMELLYBAG_REW6"
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict [weapon consumables armor]
+                            }
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict [weapon consumables armor]
+                            }
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict [weapon consumables armor]
+                            }
+                            random_pool [
+                                {} //get 3 or 4 items.
+                                {
+                                    get_item_from_pool {
+                                        pool chapter_common
+                                        restrict [weapon consumables armor]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_SMELLYBAG_REW7"
+                            spawn_unit_next_fight {
+                                object ChumBag
+                                count 1
+                            }
+                        }
+
+                        rare {
+                            prompt "EVENT_SMELLYBAG_REW8"
+                            damage [1 5]  //cha
+                        }
+                    }
+                }
+            }
+
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_SMELLYBAG_REW9"
+                            get_item_from_pool consumables
+                        }
+                        rare { 
+                            prompt "EVENT_SMELLYBAG_REW10"
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict [weapon consumables armor]
+                            }
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict [weapon consumables armor]
+                            }
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict [weapon consumables armor]
+                            }
+                            random_pool [
+                                {} //get 3 or 4 items.
+                                {
+                                    get_item_from_pool {
+                                        pool chapter_common
+                                        restrict [weapon consumables armor]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_SMELLYBAG_REW11"
+                            get_parasite_from_pool sludge_armor
+                        }
+
+                        rare {
+                            prompt "EVENT_SMELLYBAG_REW12"
+                            get_parasite PutridPile
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+ASmallPileOfStones {
+    intro {
+        title "EVENT_ASMALLPILEOFSTONES_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame a_small_pile_of_stones
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_ASMALLPILEOFSTONES_QUES"
+
+        options {
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_ASMALLPILEOFSTONES_REW1"
+                            heal 1
+                        }
+                        rare {
+                            prompt "EVENT_ASMALLPILEOFSTONES_REW2"
+                            permanent_stats { //TODO: gain RockTeeth item: +2 melee damage
+                                str 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_ASMALLPILEOFSTONES_REW3"
+                            damage 1
+                            permanent_stats { //TODO: Injury: Cracked Tooth: -1 melee damage.
+                                str -1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_ASMALLPILEOFSTONES_REW4"
+                            damage [1 5]  //cha //TODO: Injury: Broken Jaw: -1 damage, Can't eat food.
+                        }
+                    }
+                }
+            }
+            
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_ASMALLPILEOFSTONES_REW5"
+                            get_item Rocks
+                        }
+                        rare {
+                            prompt "EVENT_ASMALLPILEOFSTONES_REW6"
+                            get_item Rocks
+                            get_item Rocks
+                            get_item_from_pool rock_items
+                            get_item_from_pool rock_items
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_ASMALLPILEOFSTONES_REW7"
+                            self_status_next_fight {
+                                SpeedUp -2
+                            }
+                        }
+
+                        rare {
+                            prompt "EVENT_ASMALLPILEOFSTONES_REW8"
+                            get_parasite CursedRock
+                        }
+                    }
+                }
+            }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_ASMALLPILEOFSTONES_REW9"
+                            gain_coins [3 7]
+                        }
+
+                        rare {
+                            prompt "EVENT_ASMALLPILEOFSTONES_REW10"
+                            gain_coins [15 30]
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_ASMALLPILEOFSTONES_REW11"
+                            ambush_next_basic_fights 1
+                        }
+
+                        rare {
+                            prompt "EVENT_ASMALLPILEOFSTONES_REW12"
+                            gain_disorder Fossilized //TODO: add RockHound disorder to this pool.
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+FruitBasket {
+    intro {
+        title "EVENT_FRUITBASKET_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame fruit_basket
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_FRUITBASKET_QUES"
+
+        options {
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_FRUITBASKET_REW1"
+                            full_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_FRUITBASKET_REW2"
+                            party_heal 100%
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_FRUITBASKET_REW3"
+                            self_status_next_fight {
+                                Poison 3
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_FRUITBASKET_REW4"
+                            party_status_next_fight {
+                                Poison 3
+                            }
+                        }
+                    }
+                }
+            }
+            
+            destroy {
+                label "EVENT_DESTROY_ANSW"
+                stat str
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_FRUITBASKET_REW5"
+                            //nothing happens.
+                        }
+                        rare {
+                            prompt "EVENT_FRUITBASKET_REW6"
+                            get_item_from_pool [MagicSeed, BagOfSeeds, GlowingSeed] 
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 2
+                            prompt "EVENT_FRUITBASKET_REW7"
+                            //nothing happens.
+                        }
+
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_FRUITBASKET_REW8"
+                            spawn_unit_next_fight {
+                                object Fly
+                                count [6 8]
+                                spawn_side cats
+                            }
+                        }
+                    }
+                }
+            }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_FRUITBASKET_REW9"
+                            party_heal 3
+                        }
+
+                        rare {
+                            prompt "EVENT_FRUITBASKET_REW10"
+                            party_heal 6
+                            party_status_next_fight {
+                                DivineShield 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_FRUITBASKET_REW11"
+                            ambush_next_basic_fights 1
+                        }
+
+                        rare {
+                            prompt "EVENT_FRUITBASKET_REW12"
+                            self_status_next_fight{
+                                Fear 5
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+HumanSkin {
+    intro {
+        title "EVENT_HUMANSKIN_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame human_skin
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_HUMANSKIN_QUES"
+
+        options {
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_HUMANSKIN_REW1"
+                            heal 5
+                        }
+                        rare {
+                            prompt "EVENT_HUMANSKIN_REW2"
+                            mutation {
+                                eyes 702 //gain human eyes
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_HUMANSKIN_REW3"
+                            random_pool [
+                                {
+                                    self_status_next_fight {
+                                        Poison 1
+                                    }
+                                }{
+                                    self_status_next_fight {
+                                        Poison 2
+                                    }
+                                }{
+                                    self_status_next_fight {
+                                        Poison 3
+                                    }
+                                }{
+                                    self_status_next_fight {
+                                        Poison 4
+                                    }
+                                }
+                            ]
+                        }
+                        rare {
+                            prompt "EVENT_HUMANSKIN_REW4"
+                            gain_disorder_from_pool mental_disorders
+                        }
+                    }
+                }
+            }
+            
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+                
+                good {
+                    reward {
+                        common {
+                            set_frame 3
+                            prompt "EVENT_HUMANSKIN_REW5"
+                            get_item_from_pool consumables
+                        }
+                        rare {
+                            set_frame 4
+                            prompt "EVENT_HUMANSKIN_REW6"
+                            mutation { 
+                                ears 310 //gain human ears
+                            }
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 5
+                            prompt "EVENT_HUMANSKIN_REW7"
+                            party_status_next_fight {
+                                Fear 1
+                            }
+                        }
+
+                        rare {
+                            set_frame 5
+                            prompt "EVENT_HUMANSKIN_REW8"
+                            gain_disorder_from_pool mental_disorders
+                        }
+                    }
+                }
+            }
+
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    reward {
+                        common {
+                            set_frame 4
+                            prompt "EVENT_HUMANSKIN_REW9"
+                            //nothing happens
+                        }
+
+                        rare {
+                            set_frame 5
+                            prompt "EVENT_HUMANSKIN_REW10"
+                            mutation {
+                                eyebrows 440 //gain human eyebrows
+                            }
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        set_frame 4
+                        common {
+                            prompt "EVENT_HUMANSKIN_REW11"
+                            //nothing happens
+                        }
+                        set_frame 2
+                        rare {
+                            prompt "EVENT_HUMANSKIN_REW12"
+                            permanent_stats {
+                                con -1
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+BottleOfViperBooze {
+    intro {
+        title "EVENT_BOTTLEOFVIPERBOOZE_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame bottle_of_viper_booze
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_BOTTLEOFVIPERBOOZE_QUES"
+
+        options {
+            drink {
+                label "EVENT_DRINK_ANSW"
+                stat con
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_BOTTLEOFVIPERBOOZE_REW1"
+                            permanent_stats {
+                                random 1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_BOTTLEOFVIPERBOOZE_REW2"
+                            learn_ability BarfBall
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_BOTTLEOFVIPERBOOZE_REW3"
+                            self_status_next_fight {
+                                Poison 7
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_BOTTLEOFVIPERBOOZE_REW4"
+                            random_mutation {
+                                tag melted
+                            }
+                        }
+                    }
+                }
+            }
+            
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_BOTTLEOFVIPERBOOZE_REW5"
+                            get_item Bottles
+                        }
+                        rare {
+                            prompt "EVENT_BOTTLEOFVIPERBOOZE_REW6"
+                            get_item ViperBottle
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_BOTTLEOFVIPERBOOZE_REW7"
+                            damage 5
+                            permanent_stats {
+                                str -1
+                            }
+                        }
+
+                        rare {
+                            prompt "EVENT_BOTTLEOFVIPERBOOZE_REW8"
+                            damage 10
+                            permanent_stats {
+                                str -1
+                                spd -1
+                                dex -1
+                            }
+                        }
+                    }
+                }
+            }
+
+            leave {
+                label "EVENT_LEAVE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_BOTTLEOFVIPERBOOZE_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+Hairball {
+    intro {
+        title "EVENT_HAIRBALL_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame hairball
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_HAIRBALL_QUES"
+
+        options {
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    reward {
+                        common {
+                            set_frame 2
+                            prompt "EVENT_HAIRBALL_REW1"
+                            heal 1
+                        }
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_HAIRBALL_REW2"
+                            get_item RatBeezer
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_HAIRBALL_REW3"
+                            self_status_next_fight {
+                                Poison 1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_HAIRBALL_REW4"
+                            permanent_stats {
+                                con -1
+                            }
+                        }
+                    }
+                }
+            }
+            
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_HAIRBALL_REW5"
+                            gain_coins 1
+                        }
+                        rare {
+                            prompt "EVENT_HAIRBALL_REW6"
+                            gain_coins 20
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 3
+                            prompt "EVENT_HAIRBALL_REW7"
+                            self_status_next_fight {
+                                CharismaUp -2
+                            }
+                        }
+                        rare {
+                            set_frame 4
+                            prompt "EVENT_HAIRBALL_REW8"
+                            get_parasite CursedHairball
+                        }
+                    }
+                }
+            }
+            
+            leave {
+                label "EVENT_LEAVE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_HAIRBALL_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+TallGrass {
+    intro {
+        title "EVENT_TALLGRASS_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame tall_grass
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_TALLGRASS_QUES"
+
+        options {
+            destroy {
+                label "EVENT_DESTROY_ANSW"
+                stat str
+
+                good {
+                    reward {
+                        common {
+                            set_frame 2
+                            prompt "EVENT_TALLGRASS_REW1"
+                            ally_ambush_next_fights 1
+                        }
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_TALLGRASS_REW2"
+                            gain_coins [10 20]
+                        }
+                    }
+                }
+                bad {                    
+                    reward {
+                        common {
+                            set_frame 4
+                            prompt "EVENT_TALLGRASS_REW3"
+                            damage 8
+                        }
+                        rare {
+                            set_frame 5
+                            prompt "EVENT_TALLGRASS_REW4"
+                            party_damage 5
+                            party_status_next_fight {
+                                Tangled 2
+                                AbilityOnBattleStart_Immediate SummonBrambles2
+                            }
+                        }
+                    }
+                }
+            }
+            
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    reward {
+                        common {
+                            set_frame 2
+                            prompt "EVENT_TALLGRASS_REW5"
+                            full_heal 1
+                            self_status_next_fight {
+                                HealthRegenUp 1
+                            }
+                        }
+                        rare {
+                            set_frame 2
+                            prompt "EVENT_TALLGRASS_REW6"
+                            //TODO: Gain grass mutation instead of spawning grass and healing.
+                            party_heal 5
+                            party_status_next_fight {
+                                AbilityOnBattleStart_Immediate GrassEvent
+                            }
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 4
+                            prompt "EVENT_TALLGRASS_REW7"
+                            self_status_next_fight {
+                                Bleed 1
+                            }
+                        }
+
+                        rare {
+                            set_frame 2
+                            prompt "EVENT_TALLGRASS_REW8"
+                            permanent_stats {
+                                con -1
+                            }
+                        }
+                    }
+                }
+            }
+
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_TALLGRASS_REW9"
+                            random_pool [
+                                {
+                                    get_item KiloOfCatnip
+                                }
+                                {
+                                    get_item CatnipBig
+                                    get_item CatnipBig
+                                }
+                                {
+                                    get_item Catnip
+                                    get_item Catnip
+                                    get_item Catnip
+                                }
+                            ]
+                        }
+
+                        rare {
+                            prompt "EVENT_TALLGRASS_REW10"
+                            get_item_from_pool grass_items
+							get_item_from_pool grass_items
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 4
+                            prompt "EVENT_TALLGRASS_REW11"
+                            damage 2
+                            self_status_next_fight {
+                                AbilityOnBattleStart_Immediate SummonBrambles2
+                            }
+                        }
+
+                        rare {
+                            set_frame 5
+                            prompt "EVENT_TALLGRASS_REW12"
+                            self_status_next_fight {
+                                AbilityOnBattleStart_Immediate BrambleRandomTileEvent
+                                AbilityOnBattleStart_Immediate BrambleRandomTileEvent
+                                AbilityOnBattleStart_Immediate BrambleRandomTileEvent
+                                AbilityOnBattleStart_Immediate BrambleRandomTileEvent
+                                AbilityOnBattleStart_Immediate BrambleRandomTileEvent
+                                AbilityOnBattleStart_Immediate BrambleRandomTileEvent
+                                AbilityOnBattleStart_Immediate BrambleRandomTileEvent
+                                AbilityOnBattleStart_Immediate BrambleRandomTileEvent
+                                AbilityOnBattleStart_Immediate BrambleRandomTileEvent
+                                AbilityOnBattleStart_Immediate BrambleRandomTileEvent
+                                AbilityOnBattleStart_Immediate BrambleRandomTileEvent
+                            }
+                            spawn_unit_next_fight {
+                                object BrambleBaby
+                                count 1
+                                spawn_side enemies
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+Fountain {
+    intro {
+        title "EVENT_FOUNTAIN_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame fountain
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_FOUNTAIN_QUES"
+
+        options {
+            drink {
+                label "EVENT_DRINK_ANSW"
+                stat con
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_FOUNTAIN_REW1"
+                            full_heal 1
+                            heal_injury 1
+                        }
+                        rare {
+                            prompt "EVENT_FOUNTAIN_REW2"
+                            set_age 1
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_FOUNTAIN_REW3"
+                            permanent_stats {
+                                int -4
+                                cha +1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_FOUNTAIN_REW4"
+                            gain_disorder EternalYouth
+                        }
+                    }
+                }
+            }
+            
+            leave {
+                label "EVENT_LEAVE_ANSW"
+                stat none
+                animation choice_leave
+
+                good {
+                    prompt "EVENT_FOUNTAIN_LEAVE"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }   
+    }
+}

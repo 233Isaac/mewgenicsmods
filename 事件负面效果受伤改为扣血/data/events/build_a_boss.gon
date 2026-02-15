@@ -1,0 +1,328 @@
+StacyMutant1 {
+    intro {
+        title "QEVENT_STACYMUTANT1_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame stacy_buff
+        event_clip NonWheelEvent
+    }
+
+    main {
+        setup {
+            conditional_reward {
+                requirements {
+                    has_token WorldEventLegacyToken_StacyMutant
+                }
+                reward {
+                    prompt "QEVENT_STACYMUTANT1_QUES2"
+                }
+                else {
+                    prompt "QEVENT_STACYMUTANT1_QUES1"
+                    //First time seeing machine
+                }
+            }
+        }
+
+
+        options {
+            thorns {
+                label "QEVENT_STACYMUTANT1_ANSW1"
+                stat none
+                animation choice_misc
+
+                good {
+                    set_frame 2
+
+                    prompt "QEVENT_STACYMUTANT1_REW1"
+                    set_adventure_token StacyMutant_Thorns
+                    event_now StacyMutant2
+                }
+            }
+
+            brace {
+                label "QEVENT_STACYMUTANT1_ANSW2"
+                stat none
+                animation choice_misc
+
+                good {
+                    set_frame 2
+
+                    prompt "QEVENT_STACYMUTANT1_REW2"
+                    set_adventure_token StacyMutant_Brace
+                    event_now StacyMutant2
+                }
+            }
+
+            holy {
+                label "QEVENT_STACYMUTANT1_ANSW3"
+                stat none
+                animation choice_misc
+
+                good {
+                    set_frame 2
+
+                    prompt "QEVENT_STACYMUTANT1_REW3"
+                    set_adventure_token StacyMutant_Holy
+                    event_now StacyMutant2
+                }
+            }
+
+            skip {
+                label "QEVENT_STACYMUTANT1_ANSW4"
+                stat none
+                animation choice_misc
+
+                bad {
+                    set_frame 3
+
+                    prompt "QEVENT_STACYMUTANT1_REW4"
+                    gain_disorder_from_pool all_disorders
+                    prompt "QEVENT_STACYMUTANT1_REW4_B"
+                    self_status_next_fight {
+                        Poison 3
+                    }
+                    event_now StacyMutant2
+                }
+            }
+        }
+    }
+}
+
+StacyMutant2 {
+    intro {
+        title "QEVENT_STACYMUTANT2_NAME"
+        cat_choice random
+        different_from_last_x_cats 1
+        subject_clip EventSubject
+        subject_frame stacy_element
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "QEVENT_STACYMUTANT2_QUES"
+
+        options {
+            fire {
+                label "QEVENT_STACYMUTANT2_ANSW1"
+                stat none
+                animation choice_misc
+
+                good {
+                    set_frame 2
+
+                    prompt "QEVENT_STACYMUTANT2_REW1"
+                    set_adventure_token StacyMutant_Fire
+
+                    event_now StacyMutant3
+                }
+            }
+
+            ice {
+                label "QEVENT_STACYMUTANT2_ANSW2"
+                stat none
+                animation choice_misc
+
+                good {
+                    set_frame 2
+
+                    prompt "QEVENT_STACYMUTANT2_REW2"
+                    set_adventure_token StacyMutant_Ice
+
+                    event_now StacyMutant3
+                }
+            }
+
+            lightning {
+                label "QEVENT_STACYMUTANT2_ANSW3"
+                stat none
+                animation choice_misc
+
+                good {
+                    set_frame 2
+
+                    prompt "QEVENT_STACYMUTANT2_REW3"
+                    set_adventure_token StacyMutant_Lightning
+
+                    event_now StacyMutant3
+                }
+            }
+
+            skip {
+                label "QEVENT_STACYMUTANT2_ANSW4"
+                stat none
+                animation choice_misc
+
+                bad {
+                    set_frame 3
+
+                    prompt "QEVENT_STACYMUTANT2_REW4"
+                    gain_disorder_from_pool all_disorders
+                    get_parasite_from_pool parasites
+
+                    event_now StacyMutant3
+                }
+            }
+        }
+    }
+}
+
+StacyMutant3 {
+    intro {
+        title "QEVENT_STACYMUTANT3_NAME"
+        cat_choice random
+        different_from_last_x_cats 2
+        subject_clip EventSubject
+        subject_frame stacy_stats
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "QEVENT_STACYMUTANT3_QUES"
+
+        options {
+            hp {
+                label "QEVENT_STACYMUTANT3_ANSW1"
+                stat none
+                animation choice_misc
+
+                good {
+                    set_frame 2
+
+                    prompt "QEVENT_STACYMUTANT3_REW1"
+                    set_adventure_token StacyMutant_Health
+
+                    event_now StacyMutant4
+                }
+            }
+
+            damage {
+                label "QEVENT_STACYMUTANT3_ANSW2"
+                stat none
+                animation choice_misc
+
+                good {
+                    set_frame 2
+
+                    prompt "QEVENT_STACYMUTANT3_REW2"
+                    set_adventure_token StacyMutant_Damage
+
+                    event_now StacyMutant4
+                }
+            }
+
+            speed {
+                label "QEVENT_STACYMUTANT3_ANSW3"
+                stat none
+                animation choice_misc
+
+                good {
+                    set_frame 2
+
+                    prompt "QEVENT_STACYMUTANT3_REW3"
+                    set_adventure_token StacyMutant_Speed
+
+                    event_now StacyMutant4
+                }
+            }
+
+            skip {
+                label "QEVENT_STACYMUTANT3_ANSW4"
+                stat none
+                animation choice_misc
+
+                bad {
+                    set_frame 3
+
+                    prompt "QEVENT_STACYMUTANT3_REW4"
+                    injury str
+                    injury dex
+                    injury con
+                    injury int
+                    injury cha
+                    injury spd
+                    injury lck
+
+                    event_now StacyMutant4
+                }
+            }
+        }
+    }
+}
+
+StacyMutant4 {
+    intro {
+        title "QEVENT_STACYMUTANT4_NAME"
+        cat_choice random
+        different_from_last_x_cats 3
+        subject_clip EventSubject
+        subject_frame stacy_special
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "QEVENT_STACYMUTANT4_QUES"
+
+        options {
+            double {
+                label "QEVENT_STACYMUTANT4_ANSW1"
+                stat none
+                animation choice_misc
+
+                good {
+                    set_frame 2
+
+                    prompt "QEVENT_STACYMUTANT4_REW1"
+                    set_adventure_token StacyMutant_DoubleHead
+                    set_legacy_token WorldEventLegacyToken_StacyMutant
+                }
+            }
+
+            counter {
+                label "QEVENT_STACYMUTANT4_ANSW2"
+                stat none
+                animation choice_misc
+
+                good {
+                    set_frame 2
+
+                    prompt "QEVENT_STACYMUTANT4_REW2"
+                    set_adventure_token StacyMutant_Counter
+                    set_legacy_token WorldEventLegacyToken_StacyMutant
+                }
+            }
+
+            reflect {
+                label "QEVENT_STACYMUTANT4_ANSW3"
+                stat none
+                animation choice_misc
+
+                good {
+                    set_frame 2
+
+                    prompt "QEVENT_STACYMUTANT4_REW3"
+                    set_adventure_token StacyMutant_Mirror
+                    set_legacy_token WorldEventLegacyToken_StacyMutant
+                }
+            }
+
+            skip {
+                label "QEVENT_STACYMUTANT4_ANSW4"
+                stat none
+                animation choice_misc
+
+                bad {
+                    set_frame 3
+
+                    prompt "QEVENT_STACYMUTANT4_REW4"
+                    set_legacy_token WorldEventLegacyToken_StacyMutant
+                    gain_disorder_from_pool all_disorders
+                    self_status_next_fight {
+                         NoHealthRegen 1
+                         NoManaRegen 1
+                    }
+                    prompt "QEVENT_STACYMUTANT4_REW5"
+                }
+            }
+        }
+    }
+}

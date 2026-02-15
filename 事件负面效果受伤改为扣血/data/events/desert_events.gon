@@ -1,0 +1,302 @@
+Mirage {
+    intro {
+        title "EVENT_MIRAGE_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame mirage
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_MIRAGE_QUES"
+
+        options {
+            inspect {
+                label "EVENT_INSPECT_ANSW"
+                stat int
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_MIRAGE_REW1"
+                            //nothing
+                        }
+                        rare {
+                            prompt "EVENT_MIRAGE_REW2"
+                            shop_now Event_SmallShop
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            conditional_reward {
+                                requirements {
+                                    has_token AdventureToken_Mirage2
+                                }
+                                reward {
+                                    set_frame 2
+                                    prompt "EVENT_MIRAGE_REW1"
+                                    //This was final (3rd) attempt, end event.
+                                }
+                                else {
+                                    set_frame 3
+                                    prompt "EVENT_MIRAGE_REW3"
+                                    party_damage 1
+                                    event_now Mirage
+                                    
+                                    conditional_reward {
+                                        requirements {
+                                            has_token AdventureToken_Mirage1
+                                        }
+                                        reward {
+                                            set_adventure_token AdventureToken_Mirage2
+                                        }
+                                        else {
+                                            set_adventure_token AdventureToken_Mirage1
+                                        }
+                                    }
+                                }
+                            }                                
+                        }
+                        rare { 
+                            conditional_reward {
+                                requirements {
+                                    has_token AdventureToken_Mirage2
+                                }
+                                reward {
+                                    set_frame 2
+                                    prompt "EVENT_MIRAGE_REW1"
+                                }
+                                else {
+                                    set_adventure_token AdventureToken_Mirage1
+                                    set_frame 4
+                                    prompt "EVENT_MIRAGE_REW4"
+                                    party_damage 5
+                                    event_now Mirage
+                                    
+                                    conditional_reward {
+                                        requirements {
+                                            has_token AdventureToken_Mirage1
+                                        }
+                                        reward {
+                                            set_adventure_token AdventureToken_Mirage2
+                                        }
+                                        else {
+                                            set_adventure_token AdventureToken_Mirage1
+                                        }
+                                    }
+                                }
+                            }       
+                        }
+                    }
+                }
+            }
+
+            go_around {
+                label "EVENT_GOAROUND_ANSW"
+                stat spd
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_MIRAGE_REW5"
+                            //nothing
+                        }
+                        rare {
+                            prompt "EVENT_MIRAGE_REW6"
+                            ally_ambush_next_fights 1
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            conditional_reward {
+                                requirements {
+                                    has_token AdventureToken_Mirage2
+                                }
+                                reward {
+                                    set_frame 2
+                                    prompt "EVENT_MIRAGE_REW1"
+                                }
+                                else {
+                                    set_frame 3
+                                    prompt "EVENT_MIRAGE_REW3"
+                                    party_damage 1
+                                    event_now Mirage
+                                    
+                                    conditional_reward {
+                                        requirements {
+                                            has_token AdventureToken_Mirage1
+                                        }
+                                        reward {
+                                            set_adventure_token AdventureToken_Mirage2
+                                        }
+                                        else {
+                                            set_adventure_token AdventureToken_Mirage1
+                                        }
+                                    }
+                                }
+                            }                                
+                        }
+                        rare { 
+                            conditional_reward {
+                                requirements {
+                                    has_token AdventureToken_Mirage2
+                                }
+                                reward {
+                                    set_frame 2
+                                    prompt "EVENT_MIRAGE_REW1"
+                                }
+                                else {
+                                    set_adventure_token AdventureToken_Mirage1
+                                    set_frame 4
+                                    prompt "EVENT_MIRAGE_REW4"
+                                    party_damage 5
+                                    event_now Mirage
+                                    
+                                    conditional_reward {
+                                        requirements {
+                                            has_token AdventureToken_Mirage1
+                                        }
+                                        reward {
+                                            set_adventure_token AdventureToken_Mirage2
+                                        }
+                                        else {
+                                            set_adventure_token AdventureToken_Mirage1
+                                        }
+                                    }
+                                }
+                            }       
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+Oasis {
+    intro {
+        title "EVENT_OASIS_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame oasis
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_OASIS_QUES"
+
+        options {
+            drink {
+                label "EVENT_DRINK_ANSW"
+                stat lck
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_OASIS_REW1"
+                            full_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_OASIS_REW2"
+                            party_heal 100%
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 3
+                            prompt "EVENT_OASIS_REW3"
+                            self_status_next_fight {
+                                Poison 1
+                            }
+                        }
+                        rare {
+                            set_frame 4
+                            prompt "EVENT_OASIS_REW4"
+                            set_age 1
+                        }
+                    }
+                }
+            }
+            
+            leave {
+                label "EVENT_LEAVE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_OASIS_REW5"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+MysteriousTomb {
+    intro {
+        title "EVENT_MYSTERIOUSTOMB_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame mysterious_tomb_door
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_MYSTERIOUSTOMB_QUES"
+
+        options {
+            smash {
+                label "EVENT_MYSTERIOUSTOMB_ANSW"
+                stat str
+
+                good {
+                    set_frame 2
+                    override_end_option_prompt "EVENT_MYSTERIOUSTOMB_END"
+                    event_now_same_cat MysteriousTomb1
+                    reward {
+                        common {
+                            prompt "EVENT_MYSTERIOUSTOMB_REW1"
+                            damage 2
+                        }
+                        rare {
+                            prompt "EVENT_MYSTERIOUSTOMB_REW2"
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            prompt "EVENT_MYSTERIOUSTOMB_REW3"
+                            //nothing
+                        }
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_MYSTERIOUSTOMB_REW4" 
+                            damage [1 5]
+                        }
+                    }
+                }
+            }
+
+            leave {
+                label "EVENT_LEAVE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_MYSTERIOUSTOMB_REW5"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+} //the rest of the continuing events are in sequence_event_continuations.gon

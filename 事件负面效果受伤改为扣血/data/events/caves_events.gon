@@ -1,0 +1,709 @@
+DyingFetus {
+    intro {
+        title "EVENT_DYINGFETUS_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame dying_fetus
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_DYINGFETUS_QUES"
+
+        options {
+            comfort {
+                label "EVENT_COMFORT_ANSW"
+                stat cha
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_DYINGFETUS_REW1"
+                            gain_familiar CharmedFetus
+                        }
+                        rare {
+                            prompt "EVENT_DYINGFETUS_REW2"
+                            permanent_stats {
+                                lck 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_DYINGFETUS_REW3"
+                            spawn_unit_next_fight {
+                                object Fetus
+                                count 1
+                                spawn_side cats
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_DYINGFETUS_REW4"
+                            mutation {
+                                mouth 705
+                            }
+                            permanent_stats {
+                                dex -1
+                            }
+                        }
+                    }
+                }
+            }
+            
+            patch_up {
+                label "EVENT_PATCHUP_ANSW"
+                stat int
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_DYINGFETUS_REW5"
+                            gain_familiar CharmedFetus                            
+                        }
+                        rare {
+                            prompt "EVENT_DYINGFETUS_REW6"
+                            gain_familiar CharmedFetus2
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 4
+                            prompt "EVENT_DYINGFETUS_REW7"
+                            spawn_unit_next_fight {
+                                object Fetus
+                                count 1
+                                spawn_side cats
+                            }
+                        }
+                        rare {
+                            set_frame 5
+                            prompt "EVENT_DYINGFETUS_REW8" 
+                            permanent_stats {
+                                con -1
+                            }
+                        }
+                    }
+                }
+            }
+
+            put_out_of_misery {
+                label "EVENT_PUTOUTOFMISERY_ANSW"
+                stat str
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_DYINGFETUS_REW9"
+                            //nothing
+                        }
+                        rare {
+                            prompt "EVENT_DYINGFETUS_REW10"
+                            get_item_from_pool [GutsHeart GutsLiver GutsIntestines]
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 3
+                            prompt "EVENT_DYINGFETUS_REW11"
+                            //nothing
+                        }
+                        rare {
+                            set_frame 6
+                            prompt "EVENT_DYINGFETUS_REW12" 
+                            spawn_unit_next_fight {
+                                object MegaFetus
+                                count 1
+                                spawn_side enemies
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+StuckCorpse {
+    intro {
+        title "EVENT_STUCKCORPSE_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame stuck_corpse
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_STUCKCORPSE_QUES"
+
+        options {
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat lck
+                animation choice_dex_alt
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_STUCKCORPSE_REW1"
+                            gain_coins [4 8]
+                        }
+                        rare {
+                            prompt "EVENT_STUCKCORPSE_REW2"
+                            get_item_from_pool [MinerHat, MinerMask, MinerArmor]
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_STUCKCORPSE_REW3"
+                            damage [3 6]
+                            self_status_next_fight {
+                                Webbed 2
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_STUCKCORPSE_REW4" 
+                            spawn_unit_next_fight {
+                                object [TinySpider]
+                                count 5
+                                spawn_side cats
+                            }
+                        }
+                    }
+                }
+            }
+
+            remove {
+                label "EVENT_REMOVE_ANSW"
+                stat str
+
+                good {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_STUCKCORPSE_REW5"
+                            get_item_from_pool bone_equipment
+                        }
+                        rare {
+                            prompt "EVENT_STUCKCORPSE_REW6"
+                            get_item_from_pool chapter_rare
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {  
+                            set_frame 5
+                            prompt "EVENT_STUCKCORPSE_REW7"
+                            self_status_next_fight {
+                                Fear 1
+                            }
+                        }
+                        rare {
+                            set_frame 4
+                            prompt "EVENT_STUCKCORPSE_REW8" 
+                            event_now_same_cat CatHole
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+SomethingWhisperingFromTheDarkness {
+    intro {
+        title "EVENT_SOMETHINGWHISPERING_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame whispering_from_darkness
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_SOMETHINGWHISPERING_QUES"
+
+        options {
+            keep_going {
+                label "EVENT_KEEPGOING_ANSW"
+
+                good {
+                    reward {
+                        common {
+                            prompt "EVENT_SOMETHINGWHISPERING_REW1"
+                            //nothing
+                        }
+                        rare {
+                            set_frame 2
+                            prompt "EVENT_SOMETHINGWHISPERING_REW2"
+                            gain_disorder Brave
+                            permanent_stats {
+                                int 1
+                            }
+                            play_result_animation resultVeryGood
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            set_frame 3
+                            prompt "EVENT_SOMETHINGWHISPERING_REW3"
+                            self_status_next_fight {
+                                Fear 1
+                            }
+                        }
+                        rare {
+                            set_frame 4
+                            prompt "EVENT_SOMETHINGWHISPERING_REW4" 
+                            party_damage 2
+                            ambush_next_basic_fights 1
+                            party_status_next_fight {
+                                Immobile 1
+                            }
+                        }
+                    }
+                }
+            }
+
+            find_another_way {
+                label "EVENT_FINDANOTHERWAY_ANSW"
+
+                good {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_SOMETHINGWHISPERING_REW5"
+                            event_now_same_cat random
+                            play_animation [resultLeave 0]
+                        }
+                        rare {
+                            set_frame 2
+                            prompt "EVENT_SOMETHINGWHISPERING_REW6"
+                            event_now_same_cat Blessing
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_SOMETHINGWHISPERING_REW7"
+                            next_event_bonus -1
+                            event_now random
+                            play_animation [resultLeave 0]
+                        }
+                        rare {
+                            prompt "EVENT_SOMETHINGWHISPERING_REW8" 
+                            next_event_bonus -2
+                            event_now_same_cat random
+                           // play_result_animation resultBad
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+CrackInTheWall {
+    intro {
+        title "EVENT_CRACKINTHEWALL_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        choose_cat_with_item_slot_equipped weapon
+        subject_frame crack_in_the_wall
+        event_clip NonWheelEvent
+    }
+
+    main {
+        setup {
+            conditional_reward {
+                requirements {
+                    counter_maximum [WorldEventLegacyCounter_CrackInTheWall 0]
+                }
+                reward {
+                    prompt "EVENT_CRACKINTHEWALL_QUES"
+                    set_frame 1
+                }
+            }
+            conditional_reward {
+                requirements {
+                    counter_range [WorldEventLegacyCounter_CrackInTheWall 1 1]
+                }
+                reward {
+                    prompt "EVENT_CRACKINTHEWALL_QUES2"
+                    set_frame 2
+                }
+            }
+            conditional_reward {
+                requirements {
+                    counter_range [WorldEventLegacyCounter_CrackInTheWall 2 2]
+                }
+                reward {
+                    prompt "EVENT_CRACKINTHEWALL_QUES2"
+                    set_frame 3
+                }
+            }
+            conditional_reward {
+                requirements {
+                    counter_range [WorldEventLegacyCounter_CrackInTheWall 3 3]
+                }
+                reward {
+                    prompt "EVENT_CRACKINTHEWALL_QUES2"
+                    set_frame 4
+                }
+            }
+            conditional_reward {
+                requirements {
+                    counter_minimum [WorldEventLegacyCounter_CrackInTheWall 4]
+                }
+                reward {
+                    prompt "EVENT_CRACKINTHEWALL_QUES3"
+                    set_frame 5
+                }
+            }
+        }
+
+        options {
+            use_weapon {
+                label "EVENT_USE_WEAPON_ANSW"
+                
+                requirements {
+                    counter_maximum [WorldEventLegacyCounter_CrackInTheWall 3]
+                    cat_has_item_slot_equipped weapon
+                }
+
+                good {
+                    reward {
+                        common {
+                            prompt "EVENT_CRACKINTHEWALL_REW1"
+                            increment_legacy_counter WorldEventLegacyCounter_CrackInTheWall
+                        }
+                        rare {
+                            prompt "EVENT_CRACKINTHEWALL_REW2"
+                            increment_legacy_counter WorldEventLegacyCounter_CrackInTheWall
+                            increment_legacy_counter WorldEventLegacyCounter_CrackInTheWall
+                            gain_coins [10 15]
+                        }
+                    }
+
+                    //Update frame
+                    conditional_reward {
+                        requirements {
+                            counter_range [WorldEventLegacyCounter_CrackInTheWall 1 1]
+                        }
+                        reward {
+                            set_frame 2
+                        }
+                    }
+                    conditional_reward {
+                        requirements {
+                            counter_range [WorldEventLegacyCounter_CrackInTheWall 2 2]
+                        }
+                        reward {
+                            set_frame 3
+                        }
+                    }
+                    conditional_reward {
+                        requirements {
+                            counter_range [WorldEventLegacyCounter_CrackInTheWall 3 3]
+                        }
+                        reward {
+                            set_frame 4
+                        }
+                    }
+                    conditional_reward {
+                        requirements {
+                            counter_minimum [WorldEventLegacyCounter_CrackInTheWall 4]
+                        }
+                        reward {
+                            set_frame 5
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            prompt "EVENT_CRACKINTHEWALL_REW3"
+                            decrement_legacy_counter WorldEventLegacyCounter_CrackInTheWall
+                            lose_item weapon
+                        }
+                        rare {
+                            prompt "EVENT_CRACKINTHEWALL_REW4" 
+                            decrement_legacy_counter WorldEventLegacyCounter_CrackInTheWall
+                            decrement_legacy_counter WorldEventLegacyCounter_CrackInTheWall
+                            party_damage [5 10]
+                            party_status_next_fight {
+                                AbilityOnBattleStart_Immediate RocksFallEvent
+                            }
+                        }
+                    }
+
+                    //Update frame
+                    conditional_reward {
+                        requirements {
+                            counter_maximum [WorldEventLegacyCounter_CrackInTheWall 0]
+                        }
+                        reward {
+                            set_frame 1
+                        }
+                    }
+                    conditional_reward {
+                        requirements {
+                            counter_range [WorldEventLegacyCounter_CrackInTheWall 1 1]
+                        }
+                        reward {
+                            set_frame 2
+                        }
+                    }
+                    conditional_reward {
+                        requirements {
+                            counter_range [WorldEventLegacyCounter_CrackInTheWall 1 1]
+                        }
+                        reward {
+                            set_frame 2
+                        }
+                    }
+                    conditional_reward {
+                        requirements {
+                            counter_range [WorldEventLegacyCounter_CrackInTheWall 2 2]
+                        }
+                        reward {
+                            set_frame 3
+                        }
+                    }
+                    conditional_reward {
+                        requirements {
+                            counter_range [WorldEventLegacyCounter_CrackInTheWall 3 3]
+                        }
+                        reward {
+                            set_frame 4
+                        }
+                    }
+                    conditional_reward {
+                        requirements {
+                            counter_minimum [WorldEventLegacyCounter_CrackInTheWall 4]
+                        }
+                        reward {
+                            set_frame 5
+                        }
+                    }
+                }
+            }
+
+            bash {
+                label "EVENT_BASH_ANSW"
+                stat str
+                
+                requirements {
+                    counter_maximum [WorldEventLegacyCounter_CrackInTheWall 3]
+                }
+
+                good {
+                    reward {
+                        common {
+                            prompt "EVENT_CRACKINTHEWALL_REW5"
+                            //nothing
+                            play_animation resultLeave
+                        }
+                        rare {
+                            prompt "EVENT_CRACKINTHEWALL_REW6"
+                            increment_legacy_counter WorldEventLegacyCounter_CrackInTheWall
+                            gain_coins [10 15]
+                        }
+                    }
+                    
+                    //Update frame
+                    conditional_reward {
+                        requirements {
+                            counter_range [WorldEventLegacyCounter_CrackInTheWall 1 1]
+                        }
+                        reward {
+                            set_frame 2
+                        }
+                    }
+                    conditional_reward {
+                        requirements {
+                            counter_range [WorldEventLegacyCounter_CrackInTheWall 2 2]
+                        }
+                        reward {
+                            set_frame 3
+                        }
+                    }
+                    conditional_reward {
+                        requirements {
+                            counter_range [WorldEventLegacyCounter_CrackInTheWall 3 3]
+                        }
+                        reward {
+                            set_frame 4
+                        }
+                    }
+                    conditional_reward {
+                        requirements {
+                            counter_minimum [WorldEventLegacyCounter_CrackInTheWall 4]
+                        }
+                        reward {
+                            set_frame 5
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            prompt "EVENT_CRACKINTHEWALL_REW7"
+                            damage 5
+                        }
+                        rare {
+                            prompt "EVENT_CRACKINTHEWALL_REW8" 
+                            damage [1 5]
+                        }
+                    }
+                }
+            }
+            
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat lck
+                animation choice_dex_alt
+
+                requirements {
+                    counter_minimum [WorldEventLegacyCounter_CrackInTheWall 4]
+                }
+
+                good {
+                    reward {
+                        common {
+                            prompt "EVENT_CRACKINTHEWALL_REW9"
+                            gain_coins [5 15]
+                            get_item_from_pool chapter_common
+                        }
+                        rare {
+                            prompt "EVENT_CRACKINTHEWALL_REW10"
+                            gain_coins [10 30]
+                            get_item_from_pool chapter_rare
+                        }
+                    }
+                }
+                bad {
+                    reward { 
+                        common {
+                            prompt "EVENT_CRACKINTHEWALL_REW11"
+                            gain_food [1 5]
+                        }
+                        rare {
+                            prompt "EVENT_CRACKINTHEWALL_REW12" 
+                            battle "events/crackinthewall.lvl"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+LeakingMeat {
+    intro {
+        title "EVENT_LEAKINGMEAT_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame meat_leaking
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_LEAKINGMEAT_QUES"
+
+        options {
+            eat_meat {
+                label "EVENT_LEAKINGMEAT_EAT_ANSW"
+                stat con
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_LEAKINGMEAT_REW1"
+                            random_mutation 1
+                        }
+                        rare {
+                            prompt "EVENT_LEAKINGMEAT_REW2"
+                            random_mutation 1
+                            permanent_stats {
+                                con 2
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_LEAKINGMEAT_REW3"
+                            random_mutation 1
+                            gain_disorder_from_pool all_disorders
+                        }
+                        rare {
+                            prompt "EVENT_LEAKINGMEAT_REW4" 
+                            gain_disorder_from_pool all_disorders
+                        }
+                    }
+                }
+            }
+
+            kiss_meat {
+                label "EVENT_LEAKINGMEAT_KISS_ANSW"
+                stat cha
+
+                good {
+                    reward {
+                        common {
+                            prompt "EVENT_LEAKINGMEAT_REW5"
+                            random_mutation 1
+                        }
+                        rare {
+                            set_frame 2
+                            prompt "EVENT_LEAKINGMEAT_REW6"
+                            random_mutation 1
+                            gain_familiar CharmedHeadTumor
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_LEAKINGMEAT_REW7"
+                            random_mutation 1
+                            get_parasite_from_pool [CrimsonMask_Cursed RedCap_Cursed PoundOfFlesh_Cursed]
+                        }
+                        rare {
+                            prompt "EVENT_LEAKINGMEAT_REW8" 
+                            random_mutation_from_set {
+                                mouth -1
+                            }
+                            self_status_next_fight {
+                                Fights 99
+                                PermanentConfusion 1
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

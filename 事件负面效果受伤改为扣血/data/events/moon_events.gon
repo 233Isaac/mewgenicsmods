@@ -1,0 +1,358 @@
+CrashedObject {
+    intro {
+        title "EVENT_CRASHEDOBJECT_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame crashed_object
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_CRASHEDOBJECT_QUES"
+
+        options {
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    reward {
+                        common {
+                            set_frame 2
+                            prompt "EVENT_CRASHEDOBJECT_REW1"
+                            get_item_from_pool tech_items
+                        }
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_CRASHEDOBJECT_REW2"
+                            get_item AlienBlaster
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            prompt "EVENT_CRASHEDOBJECT_REW3"
+                            //nothing
+                        }
+                        rare {
+                            set_frame 7
+                            prompt "EVENT_CRASHEDOBJECT_REW4" 
+                            self_status_next_fight {
+                                ProbeCharmed 1
+                            }
+                        }
+                    }
+                }
+            }
+
+            repair {
+                label "EVENT_REPAIR_ANSW"
+                stat lck
+
+                good {
+                    reward {
+                        common {
+                            set_frame 4
+                            prompt "EVENT_CRASHEDOBJECT_REW5"
+                            permanent_stats {
+                                int 1
+                            }
+                        }
+                        rare {
+                            set_frame 6
+                            prompt "EVENT_CRASHEDOBJECT_REW6"
+                            gain_familiar MechSuit
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            prompt "EVENT_CRASHEDOBJECT_REW7"
+                            //nothing
+                        }
+                        rare {
+                            set_frame 7
+                            prompt "EVENT_CRASHEDOBJECT_REW8" 
+                            damage 10
+                            self_status_next_fight {
+                                Bleed 2
+                            }
+                        }
+                    }
+                }
+            }
+
+            inspect {
+                label "EVENT_INSPECT_ANSW"
+                stat int
+
+                good {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_CRASHEDOBJECT_REW9"
+                            random_pool [
+                                {
+                                    gain_familiar CharmedLoveBot
+                                }{
+                                    gain_familiar CharmedSecurityBot
+                                }{
+                                    gain_familiar CharmedCopBot
+                                }{
+                                    gain_familiar CharmedSoldierBot
+                                }{
+                                    gain_familiar CharmedHangerBot
+                                }{
+                                    gain_familiar CharmedDoctorBot
+                                }{
+                                    gain_familiar CharmedTallBot
+                                }{
+                                    gain_familiar CharmedFutureBot
+                                }
+                            ]
+                        }
+                        rare {
+                            prompt "EVENT_CRASHEDOBJECT_REW10"
+                            random_pool [
+                                {
+                                    gain_familiar CharmedLoveBot
+                                }{
+                                    gain_familiar CharmedSecurityBot
+                                }{
+                                    gain_familiar CharmedCopBot
+                                }{
+                                    gain_familiar CharmedSoldierBot
+                                }{
+                                    gain_familiar CharmedHangerBot
+                                }{
+                                    gain_familiar CharmedDoctorBot
+                                }{
+                                    gain_familiar CharmedTallBot
+                                }{
+                                    gain_familiar CharmedFutureBot
+                                }
+                            ]
+                            random_pool [
+                                {
+                                    gain_familiar CharmedLoveBot
+                                }{
+                                    gain_familiar CharmedSecurityBot
+                                }{
+                                    gain_familiar CharmedCopBot
+                                }{
+                                    gain_familiar CharmedSoldierBot
+                                }{
+                                    gain_familiar CharmedHangerBot
+                                }{
+                                    gain_familiar CharmedDoctorBot
+                                }{
+                                    gain_familiar CharmedTallBot
+                                }{
+                                    gain_familiar CharmedFutureBot
+                                }
+                            ]
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            prompt "EVENT_CRASHEDOBJECT_REW11"
+                            //nothing
+                        }
+                        rare {
+                            prompt "EVENT_CRASHEDOBJECT_REW12" 
+                            ambush_next_basic_fights 1
+                        }
+                    }
+                }
+            }   
+        }
+    }
+}
+
+MysteriousObelisk {
+    intro {
+        title "EVENT_MYSTERIOUSOBELISK_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame mysterious_obelisk
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_MYSTERIOUSOBELISK_QUES"
+
+        options {
+            touch {
+                label "EVENT_MYSTERIOUSOBELISK_TOUCH_ANSW"
+                stat cha
+
+                good {
+                    reward {
+                        common {
+                            set_frame 2
+                            prompt "EVENT_MYSTERIOUSOBELISK_REW1"
+                            random_pool [
+                                {
+                                    self_status_next_fight {
+                                        MaxStartingMana 1
+                                    }
+                                    prompt "EVENT_MYSTERIOUSOBELISK_REW1A"
+                                }
+                                {
+                                    self_status_next_fight {
+                                        HealthRegenUp 3
+                                    }
+                                    prompt "EVENT_MYSTERIOUSOBELISK_REW1B"
+                                }
+                                {
+                                    self_status_next_fight {
+                                        DoubleCast 1
+                                    }
+                                    prompt "EVENT_MYSTERIOUSOBELISK_REW1C"
+                                }
+                            ]
+                        }
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_MYSTERIOUSOBELISK_REW2"
+                            random_pool [
+                                {
+                                    prompt "EVENT_MYSTERIOUSOBELISK_REW2A"
+                                    gain_disorder FlamingFists
+                                    play_animation [resultVeryGood 0]
+                                }
+                                {
+                                    prompt "EVENT_MYSTERIOUSOBELISK_REW2B"
+                                    get_item_from_pool [ObeliskMask ObeliskHat ObeliskArmor]
+                                }
+                            ]
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 4
+                            prompt "EVENT_MYSTERIOUSOBELISK_REW3"
+                            gain_disorder_from_pool all_disorders
+                        }
+                        rare {
+                            set_frame 5
+                            prompt "EVENT_MYSTERIOUSOBELISK_REW4" 
+                            scramble_abilities all
+                        }
+                    }
+                }
+            }
+            
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_MYSTERIOUSOBELISK_REW5"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+SmallBlackHole {
+    intro {
+        title "EVENT_SMALLBLACKHOLE_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame small_black_hole
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_SMALLBLACKHOLE_QUES"
+
+        options {
+            reach_inside {
+                label "EVENT_SMALLBLACKHOLE_REACHINSIDE_ANSW"
+                stat spd
+
+                good {
+                    reward {
+                        common {
+                            prompt "EVENT_SMALLBLACKHOLE_REW1"
+                            random_pool [
+                                {
+                                    set_frame 2
+                                    prompt "EVENT_SMALLBLACKHOLE_REW1A"
+                                    get_item_from_pool chapter_rare
+                                }
+                                {
+                                    set_frame 3
+                                    prompt "EVENT_SMALLBLACKHOLE_REW1B"
+                                    random_pool [ //mutate 1 arm
+                                        {
+                                            mutation {
+                                                arm1 -1
+                                            }
+                                        }
+                                        {
+                                            mutation {
+                                                arm2 -1
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_SMALLBLACKHOLE_REW2"
+                            random_mutation 3
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 4
+                            prompt "EVENT_SMALLBLACKHOLE_REW3"
+                            permanent_stats {
+                                str -2
+                            }
+                            random_mutation {
+                                count 2
+                                asymmetric true
+                            }
+                            random_pool [ //lose arm
+                                {
+                                    mutation {
+                                        arm1 -2
+                                    }
+                                }
+                                {
+                                    mutation {
+                                        arm2 -2
+                                    }
+                                }
+                            ]
+                        }
+                        rare {
+                            set_frame 5
+                            prompt "EVENT_SMALLBLACKHOLE_REW4"
+                            random_mutation 2
+                            random_mutation {
+                                count 2
+                                tag birth_defect
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
