@@ -1,0 +1,5223 @@
+//SCRAP
+    ScrapHat {
+        name "ARMOR_SCRAPMETALHAT_NAME"
+        desc "ARMOR_SCRAPMETALHAT_DESC"
+        rarity common
+        kind head
+        frame 12
+    degrade_after_adventure false
+        set Scrap
+
+        shield 4
+
+        passives {
+            Metal 1
+        }
+    }
+
+    ScrapMask {
+        name "ARMOR_SCRAPMETALMASK_NAME"
+        desc "ARMOR_SCRAPMETALMASK_DESC"
+        rarity common
+        kind face
+        frame 12
+    degrade_after_adventure false
+        set Scrap
+
+        shield 4
+
+        passives {
+            Metal 1
+        }
+    }
+
+    ScrapArmor {
+        name "ARMOR_SCRAPMETALARMOR_NAME"
+        desc "ARMOR_SCRAPMETALARMOR_DESC"
+        rarity common
+        kind neck
+        frame 2
+    degrade_after_adventure false
+        set Scrap
+
+        shield 4
+
+        passives {
+            Metal 1
+        }
+    }
+
+//LEATHER
+    LeatherHat {
+        name "ARMOR_LEATHERHAT_NAME"
+        desc "ARMOR_LEATHERHAT_DESC"
+        rarity common
+        kind head
+        frame 23
+    degrade_after_adventure false
+        set Leather
+
+		shield 1
+
+        passives {
+            Brace 1
+        }
+    }
+
+    LeatherMask {
+        name "ARMOR_LEATHERMASK_NAME"
+        desc "ARMOR_LEATHERMASK_DESC"
+        rarity common
+        kind face
+        frame 32
+    degrade_after_adventure false
+        set Leather
+
+		shield 1
+
+        passives {
+            Brace 1
+        }
+    }
+
+    LeatherArmor {
+        name "ARMOR_LEATHERARMOR_NAME"
+        desc "ARMOR_LEATHERARMOR_DESC"
+        rarity common
+        kind neck
+        frame 26
+    degrade_after_adventure false
+        set Leather
+
+		shield 1
+
+        passives {
+            Brace 1
+        }
+    }
+
+//RAG
+    RagHood {
+        name "ARMOR_RAGHAT_NAME"
+        desc "ARMOR_RAGHAT_DESC"
+        rarity common
+        kind head
+        frame 6
+    degrade_after_adventure false
+        set Rag
+
+        passives {
+            ArmorDodgeChance 15%
+        }
+    }
+
+    RagMask {
+        name "ARMOR_RAGMASK_NAME"
+        desc "ARMOR_RAGMASK_DESC"
+        rarity common
+        kind face
+        frame 13
+    degrade_after_adventure false
+        set Rag
+
+        passives {
+            ArmorDodgeChance 15%
+        }
+    }
+
+    RagArmor {
+        name "ARMOR_RAGARMOR_NAME"
+        desc "ARMOR_RAGARMOR_DESC"
+        rarity common
+        kind neck
+        frame 3
+    degrade_after_adventure false
+        set Rag
+
+        passives {
+            ArmorDodgeChance 15%
+        }
+    }
+
+//RUBBER
+    RubberHat {
+        name "ARMOR_RUBBERHAT_NAME"
+        desc "ARMOR_RUBBERHAT_DESC"
+        rarity common
+        kind head
+        frame 10
+    degrade_after_adventure false
+        set Rubber
+
+        shield 2
+        passives {
+            MeleeRevengeDamage {
+                knockback 2
+            }
+        }
+    }
+
+    RubberMask {
+        name "ARMOR_RUBBERMASK_NAME"
+        desc "ARMOR_RUBBERMASK_DESC"
+        rarity common
+        kind face
+        frame 14
+    degrade_after_adventure false
+        set Rubber
+
+        shield 2
+        passives {
+            MeleeRevengeDamage {
+                knockback 2
+            }
+        }
+    }
+
+    RubberArmor {
+        name "ARMOR_RUBBERARMOR_NAME"
+        desc "ARMOR_RUBBERARMOR_DESC"
+        rarity common
+        kind neck
+        frame 4
+    degrade_after_adventure false
+        set Rubber
+
+        shield 2
+        passives {
+            MeleeRevengeDamage {
+                knockback 2
+            }
+        }
+    }
+
+//CATHIDE
+    CatHideHat {
+        name "ARMOR_CATHIDEHAT_NAME"
+        desc "ARMOR_CATHIDEHAT_DESC"
+        rarity common
+        kind head
+        frame 11
+    degrade_after_adventure false
+        set CatHide
+
+        shield 2
+    
+        passives {
+            HealthRegenUp 1
+            SpawnEachTurn {
+                chance 5%
+                object CharmedFlea
+
+                stack_key CATHIDE
+            }
+        }
+    }
+
+    CatHideMask {
+        name "ARMOR_CATHIDEMASK_NAME"
+        desc "ARMOR_CATHIDEMASK_DESC"
+        rarity common
+        kind face
+        frame 15
+    degrade_after_adventure false
+        set CatHide
+
+        shield 2
+    
+        passives {
+            HealthRegenUp 1
+            SpawnEachTurn {
+                chance 5%
+                object CharmedFlea
+
+                stack_key CATHIDE
+            }
+        }
+    }
+
+    CatHideArmor {
+        name "ARMOR_CATHIDEARMOR_NAME"
+        desc "ARMOR_CATHIDEARMOR_DESC"
+        rarity common
+        kind neck
+        frame 5
+    degrade_after_adventure false
+        set CatHide
+
+        shield 2
+    
+        passives {
+            HealthRegenUp 1
+            SpawnEachTurn {
+                chance 5%
+                object CharmedFlea
+
+                stack_key CATHIDE
+            }
+        }
+    }
+
+    ThickHide { //Aquired from DeadMammoth event
+        name "ARMOR_THICKHIDE_NAME"
+        desc "ARMOR_THICKHIDE_DESC"
+        rarity rare
+        kind neck
+        frame 161
+    degrade_after_adventure false
+        set CatHide
+        
+        shield 3
+
+        passives {
+            Brace 1
+            StatusImmunity [Freeze, Slow]
+        }
+    }
+
+
+//GUTS
+    GutsHeart {
+        name "ARMOR_GUTSHEART_NAME"
+        desc "ARMOR_GUTSHEART_DESC"
+        rarity uncommon
+        kind neck
+        frame 19
+    degrade_after_adventure false
+        set Guts
+
+        con 2
+    
+        passives {
+            HealthRegenUp 1
+        }
+    }
+
+    GutsLiver {
+        name "ARMOR_GUTSLIVER_NAME"
+        desc "ARMOR_GUTSLIVER_DESC"
+        rarity uncommon
+        kind head
+        frame 20
+    degrade_after_adventure false
+        set Guts
+
+        con 2
+    
+        passives {
+            HealthRegenUp 1
+        }
+    }
+
+    GutsIntestines {
+        name "ARMOR_GUTSINTESTINES_NAME"
+        desc "ARMOR_GUTSINTESTINES_DESC"
+        rarity uncommon
+        kind face
+        frame 25
+    degrade_after_adventure false
+        set Guts
+
+        con 2
+    
+        passives {
+            HealthRegenUp 1
+        }
+    }
+
+
+//BONES
+    BonesHat {
+        name "ARMOR_BONESHAT_NAME"
+        desc "ARMOR_BONESHAT_DESC"
+        rarity common
+        kind head
+        frame 5
+    degrade_after_adventure false
+        set Bone
+
+        shield 3
+    
+        passives {
+            BoneArmorPassive 1
+            StatusOnBreak {
+                HealthRegenUp 3
+                IntelligenceUp 1
+            }
+        }
+    }
+
+    BonesMask {
+        name "ARMOR_BONESMASK_NAME"
+        desc "ARMOR_BONESMASK_DESC"
+        rarity common
+        kind face
+        frame 24
+    degrade_after_adventure false
+        set Bone
+
+        shield 3
+    
+        passives {
+            BoneArmorPassive 1
+            StatusOnBreak {
+                HealthRegenUp 3
+                StrengthUp 1
+            }
+        }
+    }
+
+    BonesNeck {
+        name "ARMOR_BONESARMOR_NAME"
+        desc "ARMOR_BONESARMOR_DESC"
+        rarity common
+        kind neck
+        frame 18
+    degrade_after_adventure false
+        set Bone
+
+        shield 3
+    
+        passives {
+            BoneArmorPassive 1
+            StatusOnBreak {
+                HealthRegenUp 3
+                DexterityUp 1
+            }
+        }
+    }
+
+//DIRTCLOD
+    DirtClodHat {
+        name "ARMOR_DIRTHAT_NAME"
+        desc "ARMOR_DIRTHAT_DESC"
+        rarity uncommon
+        kind head
+        frame 22
+    degrade_after_adventure false
+        set DirtClod
+
+        passives {
+            AddManaRegen 2
+            HealthRegenUp 2
+            FragileDuringElement water
+            BrittleDuringElement water
+        }
+    }
+
+    DirtClodMask {
+        name "ARMOR_DIRTMASK_NAME"
+        desc "ARMOR_DIRTMASK_DESC"
+        rarity uncommon
+        kind face
+        frame 31
+    degrade_after_adventure false
+        set DirtClod
+
+        passives {
+            AddManaRegen 2
+            HealthRegenUp 2
+            FragileDuringElement water
+            BrittleDuringElement water
+        }
+    }
+
+    DirtClodNeck {
+        name "ARMOR_DIRTARMOR_NAME"
+        desc "ARMOR_DIRTARMOR_DESC"
+        rarity uncommon
+        kind neck
+        frame 25
+    degrade_after_adventure false
+        set DirtClod
+
+        passives {
+            AddManaRegen 2
+            HealthRegenUp 2
+            FragileDuringElement water
+            BrittleDuringElement water
+        }
+    }
+
+//BARBED
+    BarbedHat {
+        name "ARMOR_BARBEDHAT_NAME"
+        desc "ARMOR_BARBEDHAT_DESC"
+        rarity common
+        kind head
+        frame 21
+    degrade_after_adventure false
+        set Barbed
+
+        max_health -1
+
+        passives {
+            Thorns 1
+            DamageUp 1
+            Metal 1
+        }
+    }
+
+    BarbedMask {
+        name "ARMOR_BARBEDMASK_NAME"
+        desc "ARMOR_BARBEDMASK_DESC"
+        rarity common
+        kind face
+        frame 26
+    degrade_after_adventure false
+        set Barbed
+
+        max_health -1
+
+        passives {
+            Thorns 1
+            DamageUp 1
+            Metal 1
+        }
+    }
+
+    BarbedNeck {
+        name "ARMOR_BARBEDARMOR_NAME"
+        desc "ARMOR_BARBEDARMOR_DESC"
+        rarity common
+        kind neck
+        frame 20
+    degrade_after_adventure false
+        set Barbed
+
+        max_health -1
+
+        passives {
+            Thorns 1
+            DamageUp 1
+            Metal 1
+        }
+    }
+
+//SLUDGE
+    SludgeHat {
+        name "ARMOR_SLUDGEHAT_NAME"
+        desc "ARMOR_SLUDGEHAT_DESC"
+        kind head
+        frame 14
+    degrade_after_adventure false
+        set Sludge
+        cursed true
+
+        shield 1
+        cha -1
+    }
+
+    SludgeMask {
+        name "ARMOR_SLUDGEMASK_NAME"
+        desc "ARMOR_SLUDGEMASK_DESC"
+        kind face
+        frame 23
+    degrade_after_adventure false
+        set Sludge
+        cursed true
+
+        shield 1
+        cha -1
+    }
+
+    SludgeNeck {
+        name "ARMOR_SLUDGEARMOR_NAME"
+        desc "ARMOR_SLUDGEARMOR_DESC"
+        kind neck
+        frame 14
+    degrade_after_adventure false
+        set Sludge
+        cursed true
+
+        shield 1
+        cha -1
+    }
+
+//COOL
+    CoolGlasses {
+        name "ARMOR_COOLMASK_NAME"
+        desc "ARMOR_COOLMASK_DESC"
+        rarity common
+        kind face
+        frame 10
+    degrade_after_adventure false
+        set Cool
+
+        cha 2
+
+        passives {
+            Fragile 1
+        }
+    }
+
+    CoolShirt {
+        name "ARMOR_COOLARMOR_NAME"
+        desc "ARMOR_COOLARMOR_DESC"
+        rarity common
+        kind neck
+        frame 36
+    degrade_after_adventure false
+        set Cool
+
+        cha 2
+
+        passives {
+            Fragile 1
+        }
+    }
+
+    CoolHat {
+        name "ARMOR_COOLHAT_NAME"
+        desc "ARMOR_COOLHAT_DESC"
+        rarity common
+        kind head
+        frame 39
+    degrade_after_adventure false
+        set Cool
+
+        cha 2
+
+        passives {
+            Fragile 1
+        }
+    }
+
+//Paper
+    PaperHat {
+        name "ARMOR_PAPERHAT_NAME"
+        desc "ARMOR_PAPERHAT_DESC"
+        rarity common
+        kind head
+        frame 40
+    degrade_after_adventure false
+        set Paper
+
+        passives {
+            BleedThorns 1
+            AddStatusToBasicAttack {
+                Bleed 1
+            }
+            Flammable 1
+            BreakOnElement water
+            Fragile 1
+            Brittle 1
+        }
+    }
+
+    PaperMask {
+        name "ARMOR_PAPERMASK_NAME"
+        desc "ARMOR_PAPERMASK_DESC"
+        rarity common
+        kind face
+        frame 46
+    degrade_after_adventure false
+        set Paper
+
+        passives {
+            BleedThorns 1
+            AddStatusToBasicAttack {
+                Bleed 1
+            }
+            Flammable 1
+            BreakOnElement water
+            Fragile 1
+            Brittle 1
+        }
+    }
+
+    PaperArmor {
+        name "ARMOR_PAPERARMOR_NAME"
+        desc "ARMOR_PAPERARMOR_DESC"
+        rarity common
+        kind neck
+        frame 37
+    degrade_after_adventure false
+        set Paper
+
+        passives {
+            BleedThorns 1
+            AddStatusToBasicAttack {
+                Bleed 1
+            }
+            Flammable 1
+            BreakOnElement water
+            Fragile 1
+            Brittle 1
+        }
+    }
+
+//Cardboard
+    CardboardHat {
+        name "ARMOR_CARDBOARDHAT_NAME"
+        desc "ARMOR_CARDBOARDHAT_DESC"
+        rarity common
+        kind head
+        frame 41
+    degrade_after_adventure false
+        set Cardboard
+
+        shield 2
+
+        passives {
+            Flammable 1
+            Fragile 1
+            BrittleDuringElement water
+        }
+    }
+
+    CardboardMask {
+        name "ARMOR_CARDBOARDMASK_NAME"
+        desc "ARMOR_CARDBOARDMASK_DESC"
+        rarity common
+        kind face
+        frame 47
+    degrade_after_adventure false
+        set Cardboard
+
+        shield 2
+
+        passives {
+            Flammable 1
+            Fragile 1
+            BrittleDuringElement water
+        }
+    }
+
+    CardboardArmor {
+        name "ARMOR_CARDBOARDARMOR_NAME"
+        desc "ARMOR_CARDBOARDARMOR_DESC"
+        rarity common
+        kind neck
+        frame 38
+    degrade_after_adventure false
+        set Cardboard
+
+        shield 2
+
+        passives {
+            Flammable 1
+            Fragile 1
+            BrittleDuringElement water
+        }
+    }
+
+//Used
+    UsedHat {
+        name "ARMOR_USEDHAT_NAME"
+        desc "ARMOR_USEDHAT_DESC"
+        rarity common
+        kind head
+        frame 31
+    degrade_after_adventure false
+        set Used
+
+        shield 1
+    }
+
+    UsedMask {
+        name "ARMOR_USEDMASK_NAME"
+        desc "ARMOR_USEDMASK_DESC"
+        rarity common
+        kind face
+        frame 38
+    degrade_after_adventure false
+        set Used
+
+        shield 1
+    }
+
+    UsedArmor {
+        name "ARMOR_USEDARMOR_NAME"
+        desc "ARMOR_USEDARMOR_DESC"
+        rarity common
+        kind neck
+        frame 27
+    degrade_after_adventure false
+        set Used
+
+        shield 1
+    }
+
+//Wood
+    WoodHat {
+        name "ARMOR_WOODHAT_NAME"
+        desc "ARMOR_WOODHAT_DESC"
+        rarity common
+        kind head
+        frame 33
+    degrade_after_adventure false
+        set Wood
+
+        shield 2
+
+        passives {
+            Thorns 1
+            Fragile 1
+            Flammable 2
+        }
+    }
+
+    WoodMask {
+        name "ARMOR_WOODMASK_NAME"
+        desc "ARMOR_WOODMASK_DESC"
+        rarity common
+        kind face
+        frame 40
+    degrade_after_adventure false
+        set Wood
+
+        shield 2
+
+        passives {
+            Thorns 1
+            Fragile 1
+            Flammable 2
+        }
+    }
+
+    WoodArmor {
+        name "ARMOR_WOODARMOR_NAME"
+        desc "ARMOR_WOODARMOR_DESC"
+        rarity common
+        kind neck
+        frame 29
+    degrade_after_adventure false
+        set Wood
+
+        shield 2
+
+        passives {
+            Thorns 1
+            Fragile 1
+            Flammable 2
+        }
+    }
+
+//Recycled
+    RecycledHat {
+        name "ARMOR_RECYCLEDHAT_NAME"
+        desc "ARMOR_RECYCLEDHAT_DESC"
+        rarity common
+        kind head
+        frame 34
+    degrade_after_adventure false
+        set Recycled
+
+        shield 2
+
+        passives {
+            Brittle 1
+            StatusOnBreak {
+                FindItemFromPool common
+            }
+        }
+    }
+
+    RecycledMask {
+        name "ARMOR_RECYCLEDMASK_NAME"
+        desc "ARMOR_RECYCLEDMASK_DESC"
+        rarity common
+        kind face
+        frame 41
+    degrade_after_adventure false
+        set Recycled
+
+        shield 2
+
+        passives {
+            Brittle 1
+            StatusOnBreak {
+                FindItemFromPool common
+            }
+        }
+    }
+
+    RecycledArmor {
+        name "ARMOR_RECYCLEDARMOR_NAME"
+        desc "ARMOR_RECYCLEDARMOR_DESC"
+        rarity common
+        kind neck
+        frame 30
+    degrade_after_adventure false
+        set Recycled
+
+        shield 2
+
+        passives {
+            Brittle 1
+            StatusOnBreak {
+                FindItemFromPool common
+            }
+            Metal 1
+        }
+    }
+
+//ROTTEN
+    RottenHat {
+        name "ARMOR_ROTTENHAT_NAME"
+        desc "ARMOR_ROTTENHAT_DESC"
+        rarity uncommon
+        kind head
+        frame 35
+    degrade_after_adventure false
+        set Rotten
+
+        cha -1
+
+        passives {
+            SpawnEachTurn {
+                chance 100%
+                object [CharmedFly CharmedMaggot]
+            }
+        }
+    }
+
+    RottenMask {
+        name "ARMOR_ROTTENMASK_NAME"
+        desc "ARMOR_ROTTENMASK_DESC"
+        rarity uncommon
+        kind face
+        frame 42
+    degrade_after_adventure false
+        set Rotten
+
+        cha -1
+
+        passives {
+            SpawnEachTurn {
+                chance 100%
+                object [CharmedFly CharmedMaggot]
+            }
+        }
+    }
+
+    RottenArmor {
+        name "ARMOR_ROTTENARMOR_NAME"
+        desc "ARMOR_ROTTENARMOR_DESC"
+        rarity uncommon
+        kind neck
+        frame 31
+    degrade_after_adventure false
+        set Rotten
+
+        cha -1
+
+        passives {
+            SpawnEachTurn {
+                chance 100%
+                object [CharmedFly CharmedMaggot]
+            }
+        }
+    }
+
+//Tinkerer Tech 0
+    JankAlloyHat {
+        name "ARMOR_JANKARMOR_NAME"
+        desc "ARMOR_JANKARMOR_DESC"
+        kind head
+        frame 42
+    degrade_after_adventure false
+        set JankAlloy
+
+        shield 2
+
+        passives {
+            Brace 1
+            Brittle 1
+            Metal 1
+        }
+    }
+
+    JankAlloyMask {
+        name "ARMOR_JANKMASK_NAME"
+        desc "ARMOR_JANKMASK_DESC"
+        kind face
+        frame 48
+    degrade_after_adventure false
+        set JankAlloy
+
+        shield 2
+
+        passives {
+            Brace 1
+            Brittle 1
+            Metal 1
+        }
+    }
+
+    JankAlloyArmor {
+        name "ARMOR_JANKHAT_NAME"
+        desc "ARMOR_JANKHAT_DESC"
+        kind neck
+        frame 39
+    degrade_after_adventure false
+        set JankAlloy
+
+        shield 2
+
+        passives {
+            Brace 1
+            Brittle 1
+            Metal 1
+        }
+    }
+
+//Tinkerer Tech 1
+    AlloyHat {
+        name "ARMOR_ALLOYMASK_NAME"
+        desc "ARMOR_ALLOYMASK_DESC"
+        kind head
+        frame 43
+    degrade_after_adventure false
+        set Alloy
+
+        shield 3
+
+        passives {
+            Brace 1
+            Thorns 2
+            Brittle 1
+            Metal 1
+        }
+    }
+
+    AlloyMask {
+        name "ARMOR_ALLOYMASK_NAME"
+        desc "ARMOR_ALLOYMASK_DESC"
+        kind face
+        frame 49
+    degrade_after_adventure false
+        set Alloy
+
+        shield 3
+
+        passives {
+            Brace 1
+            Thorns 2
+            Brittle 1
+            Metal 1
+        }
+    }
+
+    AlloyArmor {
+        name "ARMOR_ALLOYARMOR_NAME"
+        desc "ARMOR_ALLOYARMOR_DESC"
+        kind neck
+        frame 40
+    degrade_after_adventure false
+        set Alloy
+
+        shield 3
+
+        passives {
+            Brace 1
+            Thorns 2
+            Brittle 1
+            Metal 1
+        }
+    }
+
+//Tinkerer Tech 2
+    AdvancedAlloyHat {
+        name "ARMOR_ADVANCEDHAT_NAME"
+        desc "ARMOR_ADVANCEDHAT_DESC"
+        kind head
+        frame 44
+    degrade_after_adventure false
+        set AdvancedAlloy
+
+        shield 4
+
+        passives {
+            Brace 2
+            Thorns 2
+            Brittle 1
+            Metal 1
+        }
+    }
+
+    AdvancedAlloyMask {
+        name "ARMOR_ADVANCEDMASK_NAME"
+        desc "ARMOR_ADVANCEDMASK_DESC"
+        kind face
+        frame 50
+    degrade_after_adventure false
+        set AdvancedAlloy
+
+        shield 4
+
+        passives {
+            Brace 2
+            Thorns 2
+            Brittle 1
+            Metal 1
+        }
+    }
+
+    AdvancedAlloyArmor {
+        name "ARMOR_ADVANCEDARMOR_NAME"
+        desc "ARMOR_ADVANCEDARMOR_DESC"
+        kind neck
+        frame 41
+    degrade_after_adventure false
+        set AdvancedAlloy
+
+        shield 4
+
+        passives {
+            Brace 2
+            Thorns 2
+            Brittle 1
+            Metal 1
+        }
+    }
+
+//Tinkerer Tech 3
+    EliteAlloyHat {
+        name "ARMOR_ELITEHAT_NAME"
+        desc "ARMOR_ELITEHAT_DESC"
+        kind head
+        frame 45
+    degrade_after_adventure false
+        set EliteAlloy
+
+        shield 5
+
+        passives {
+            Brace 2
+            Thorns 3
+            AllStatsUp 1
+            Brittle 1
+            Metal 1
+        }
+    }
+
+    EliteAlloyMask {
+        name "ARMOR_ELITEMASK_NAME"
+        desc "ARMOR_ELITEMASK_DESC"
+        kind face
+        frame 51
+    degrade_after_adventure false
+        set EliteAlloy
+
+        shield 5
+
+        passives {
+            Brace 2
+            Thorns 3
+            AllStatsUp 1
+            Brittle 1
+            Metal 1
+        }
+    }
+
+    EliteAlloyArmor {
+        name "ARMOR_ELITEARMOR_NAME"
+        desc "ARMOR_ELITEARMOR_DESC"
+        kind neck
+        frame 42
+    degrade_after_adventure false
+        set EliteAlloy
+
+        shield 5
+
+        passives {
+            Brace 2
+            Thorns 3
+            AllStatsUp 1
+            Brittle 1
+            Metal 1
+        }
+    }
+
+
+//TWINE
+    TwineHat {
+        name "ARMOR_TWINEHAT_NAME"
+        desc "ARMOR_TWINEHAT_DESC"
+        rarity common
+        kind head
+        frame 32
+    degrade_after_adventure false
+        set Twine
+
+		shield 3
+
+        passives {
+            Flammable 1
+            MeleeRevengeDamage {
+                damage 0
+                effects {
+                    Grappled [1, .50]
+                }
+            }
+        }
+    }
+
+    TwineMask {
+        name "ARMOR_TWINEMASK_NAME"
+        desc "ARMOR_TWINEMASK_DESC"
+        rarity common
+        kind face
+        frame 39
+    degrade_after_adventure false
+        set Twine
+
+		shield 1
+
+        passives {
+            Flammable 1
+            MeleeRevengeDamage {
+                damage 0
+                effects {
+                    Grappled [1, .50]
+                }
+            }
+        }
+    }
+
+    TwineArmor {
+        name "ARMOR_TWINEARMOR_NAME"
+        desc "ARMOR_TWINEARMOR_DESC"
+        rarity common
+        kind neck
+        frame 28
+    degrade_after_adventure false
+        set Twine
+		
+		shield 1
+
+        passives {
+            Flammable 1
+            MeleeRevengeDamage {
+                damage 0
+                effects {
+                    Grappled [1, .50]
+                }
+            }
+        }
+    }
+
+//ROCK
+    RockHat {
+        name "ARMOR_ROCKHAT_NAME"
+        desc "ARMOR_ROCKHAT_DESC"
+        rarity uncommon
+        kind head
+        frame 46
+    degrade_after_adventure false
+        set Rock
+
+        shield 6
+        spd -1
+        passives { 
+		    Brittle 1
+		    AddStatusToBasicAttack {
+                Knockback 1
+            }
+            StatusOnBreak {
+                GainCoinsRange {
+                    min 1
+                    max 25
+                }
+            }
+        }
+    }
+
+    RockMask {
+        name "ARMOR_ROCKMASK_NAME"
+        desc "ARMOR_ROCKMASK_DESC"
+        rarity uncommon
+        kind face
+        frame 53
+    degrade_after_adventure false
+        set Rock
+
+        shield 6
+        spd -1
+        passives {
+		    Brittle 1
+		    AddStatusToBasicAttack {
+                Knockback 1
+            }
+            StatusOnBreak {
+                GainCoinsRange {
+                    min 1
+                    max 25
+                }
+            }
+        }
+    }
+
+    RockArmor {
+        name "ARMOR_ROCKARMOR_NAME"
+        desc "ARMOR_ROCKARMOR_DESC"
+        rarity uncommon
+        kind neck
+        frame 44
+    degrade_after_adventure false
+        set Rock
+
+        shield 6
+        spd -1
+        passives {
+		    Brittle 1
+		    AddStatusToBasicAttack {
+                Knockback 1
+            }
+            StatusOnBreak {
+                GainCoinsRange {
+                    min 1
+                    max 25
+                }
+            }
+        }
+    }
+
+//MINER
+    MinerHat {
+        name "ARMOR_MINERHAT_NAME"
+        desc "ARMOR_MINERHAT_DESC"
+        rarity uncommon
+        kind head
+        frame 48
+    degrade_after_adventure false
+        set Miner
+
+        shield 4
+        passives {
+            TrueShot 1
+        }
+    }
+
+    MinerMask {
+        name "ARMOR_MINERMASK_NAME"
+        desc "ARMOR_MINERMASK_DESC"
+        rarity uncommon
+        kind face
+        frame 55
+    degrade_after_adventure false
+        set Miner
+		
+		shield 4
+
+        passives {
+            StatusImmunity Poison
+            CantCatchDiseases 1
+            CantSpreadDiseases 1
+        }
+    }
+
+    MinerArmor {
+        name "ARMOR_MINERARMOR_NAME"
+        desc "ARMOR_MINERARMOR_DESC"
+        rarity uncommon
+        kind neck
+        frame 46
+    degrade_after_adventure false
+        set Miner
+
+        passives {
+            AddKnockbackDamage 1
+            AddStatusToBasicAttack {
+                Knockback 1
+            }
+        }
+    }
+
+//GEMSTONE
+    GemstoneHat {
+        name "ARMOR_GEMSTONEHAT_NAME"
+        desc "ARMOR_GEMSTONEHAT_DESC"
+        rarity uncommon
+        kind head
+        frame 47
+    degrade_after_adventure false
+        set Gemstone
+
+        shield 1
+        cha 1
+        passives {
+            KineticSpikes 1
+        }
+    }
+
+    GemstoneMask {
+        name "ARMOR_GEMSTONEMASK_NAME"
+        desc "ARMOR_GEMSTONEMASK_DESC"
+        rarity uncommon
+        kind face
+        frame 54
+    degrade_after_adventure false
+        set Gemstone
+
+        shield 1
+        cha 1
+        passives {
+            KineticSpikes 1
+        }
+    }
+
+    GemstoneArmor {
+        name "ARMOR_GEMSTONEARMOR_NAME"
+        desc "ARMOR_GEMSTONEARMOR_DESC"
+        rarity uncommon
+        kind neck
+        frame 45
+    degrade_after_adventure false
+        set Gemstone
+
+        shield 1
+        cha 1
+        passives {
+            KineticSpikes 1
+        }
+    }
+
+//VEINY
+    VeinyHat {
+        name "ARMOR_VEINYHAT_NAME"
+        desc "ARMOR_VEINYHAT_DESC"
+        rarity rare
+        kind head
+        frame 49
+    degrade_after_adventure false
+        set Veiny
+
+        passives {
+            AddStatusToAllDamage {
+                Conditional_HasStatus {
+                    status Bleed
+                    ApplyToSource {
+                        SpeedUp 1
+                    }
+                }
+            }
+        }
+    }
+
+    VeinyMask {
+        name "ARMOR_VEINYMASK_NAME"
+        desc "ARMOR_VEINYMASK_DESC"
+        rarity rare
+        kind face
+        frame 56
+    degrade_after_adventure false
+        set Veiny
+
+        passives {
+            AddStatusToAllDamage {
+                Conditional_HasStatus {
+                    status Bleed
+                    ApplyToSource {
+                        StrengthUp 1
+                    }
+                }
+            }
+        }
+    }
+
+    VeinyArmor {
+        name "ARMOR_VEINYARMOR_NAME"
+        desc "ARMOR_VEINYARMOR_DESC"
+        rarity rare
+        kind neck
+        frame 47
+    degrade_after_adventure false
+        set Veiny
+
+        passives {
+            AddStatusToAllDamage {
+                Conditional_HasStatus {
+                    status Bleed
+                    FlatLeech 3
+                }
+            }
+        }
+    }
+
+//GIMP
+    GimpHat {
+        name "ARMOR_GIMPHAT_NAME"
+        desc "ARMOR_GIMPHAT_DESC"
+        rarity uncommon
+        kind head
+        frame 28
+    degrade_after_adventure false
+        set Gimp
+
+        passives {
+            StatusOnTookDamage {
+                Charge 2
+            }
+        }
+    }
+
+    GimpMask {
+        name "ARMOR_GIMPMASK_NAME"
+        desc "ARMOR_GIMPMASK_DESC"
+        rarity uncommon
+        kind face
+        frame 37
+    degrade_after_adventure false
+        set Gimp
+
+        passives {
+            StatusOnTookDamage {
+                Charge 2
+            }
+        }
+    }
+
+    GimpArmor {
+        name "ARMOR_GIMPCOLLAR_NAME"
+        desc "ARMOR_GIMPCOLLAR_DESC"
+        rarity uncommon
+        kind neck
+        frame 33
+    degrade_after_adventure false
+        set Gimp
+
+        passives {
+            StatusOnTookDamage {
+                Charge 2
+            }
+        }
+    }
+
+//Bionic
+    BionicHat {
+        name "ARMOR_BIONICHAT_NAME"
+        desc "ARMOR_BIONICHAT_DESC"
+        rarity uncommon
+        kind head
+        frame 25
+    degrade_after_adventure false
+        set Bionic
+
+        spd 3
+
+        passives {
+            Fragile 1
+            Metal 1
+        }
+    }
+
+    BionicMask {
+        name "ARMOR_BIONICMASK_NAME"
+        desc "ARMOR_BIONICMASK_DESC"
+        rarity uncommon
+        kind face
+        frame 34
+    degrade_after_adventure false
+        set Bionic
+
+        spd 3
+
+        passives {
+            Fragile 1
+            Metal 1
+        }
+    }
+
+    BionicArmor {
+        name "ARMOR_BIONICARMOR_NAME"
+        desc "ARMOR_BIONICARMOR_DESC"
+        rarity uncommon
+        kind neck
+        frame 34
+    degrade_after_adventure false
+        set Bionic
+
+        spd 3
+
+        passives {
+            Fragile 1
+            Metal 1
+        }
+    }
+
+//Cyborg
+    CyborgHat {
+        name "ARMOR_CYBORGHAT_NAME"
+        desc "ARMOR_CYBORGHAT_DESC"
+        rarity rare
+        kind head
+        frame 26
+    degrade_after_adventure false
+        set Cyborg
+
+        int 1
+		shield 3
+		
+        passives {
+            ChanceToBackflip {
+                ability ShadowstepDodge
+                chance 10%
+            }
+            Metal 1
+        }
+    }
+
+    CyborgMask {
+        name "ARMOR_CYBORGMASK_NAME"
+        desc "ARMOR_CYBORGMASK_DESC"
+        rarity rare
+        kind face
+        frame 35
+    degrade_after_adventure false
+        set Cyborg
+
+        int 1
+		shield 3
+
+        passives {
+            AddBonusRange 1
+            AddBonusMeleeRange 1
+            Metal 1
+        }
+    }
+
+    CyborgArmor {
+        name "ARMOR_CYBORGARMOR_NAME"
+        desc "ARMOR_CYBORGARMOR_DESC"
+        rarity rare
+        kind neck
+        frame 35
+    degrade_after_adventure false
+        set Cyborg
+
+        int 1
+		shield 3
+
+        passives {
+            CritChanceUp 10
+            Metal 1
+        }
+    }
+
+//Lucky Charms
+    LuckyHat {
+        name "ARMOR_LUCKYHAT_NAME"
+        desc "ARMOR_LUCKYHAT_DESC"
+        rarity common
+        kind head
+        frame 27
+    degrade_after_adventure false
+        set Lucky
+
+        lck 1
+
+        passives {
+            Fragile 1
+        }
+    }
+
+    LuckyMask {
+        name "ARMOR_LUCKYMASK_NAME"
+        desc "ARMOR_LUCKYMASK_DESC"
+        rarity common
+        kind face
+        frame 36
+    degrade_after_adventure false
+        set [Lucky, Leafy]
+
+        lck 1
+
+        passives {
+            Fragile 1
+        }
+    }
+
+    LuckyArmor {
+        name "ARMOR_LUCKYARMOR_NAME"
+        desc "ARMOR_LUCKYARMOR_DESC"
+        rarity common
+        kind neck
+        frame 32
+    degrade_after_adventure false
+        set Lucky
+
+        lck 1
+
+        passives {
+            Fragile 1
+        }
+    }
+
+//FLY
+    FlyHat {
+        name "ARMOR_FLYHAT_NAME"
+        desc "ARMOR_FLYHAT_DESC"
+        kind head
+        frame 73
+    degrade_after_adventure false
+        set Fly
+        cursed true
+
+        cha -1
+        spd 3
+
+        passives {
+            AddTag bug
+            ArmorDodgeChance 10%
+        }
+    }
+
+    FlyMask {
+        name "ARMOR_FLYMASK_NAME"
+        desc "ARMOR_FLYMASK_DESC"
+        kind face
+        frame 75
+    degrade_after_adventure false
+        set Fly
+        cursed true
+
+        dex 3
+        cha -1
+
+        passives {
+            AddTag bug
+            ArmorDodgeChance 10%
+           
+        }
+    }
+
+    FlyNeck {
+        name "ARMOR_FLYARMOR_NAME"
+        desc "ARMOR_FLYARMOR_DESC"
+        kind neck
+        frame 59
+    degrade_after_adventure false
+        set Fly
+        cursed true
+
+        con 3
+        cha -1
+
+        passives {
+            AddTag bug
+            ArmorDodgeChance 10%
+        }
+    }
+
+//GRUB
+    FaceGrub {//todo needs a huge buff, maybe just spawn maggots on damage and not break
+        name "ARMOR_FACEGRUB_NAME"
+        desc "ARMOR_FACEGRUB_DESC"
+        rarity uncommon
+        kind face
+        frame 21
+    degrade_after_adventure false
+        set Grub
+
+        shield 3
+
+        passives {
+            DropAsFamiliarOnArmorBreak FaceGrubFamiliar
+        }
+    }
+
+    HeadGrub {
+        name "ARMOR_HEADGRUB_NAME"
+        desc "ARMOR_HEADGRUB_DESC"
+        rarity uncommon
+        kind head
+        frame 17
+    degrade_after_adventure false
+        set Grub
+
+        shield 3
+
+        passives {
+            DropAsFamiliarOnArmorBreak HeadGrubFamiliar
+        }
+    }
+
+    NeckGrub {
+        name "ARMOR_NECKGRUB_NAME"
+        desc "ARMOR_NECKGRUB_DESC"
+        rarity uncommon
+        kind neck
+        frame 16
+    degrade_after_adventure false
+        set Grub
+
+        shield 3
+
+        passives {
+            DropAsFamiliarOnArmorBreak NeckGrubFamiliar
+        }
+    }
+    
+//MEAT
+    CrimsonMask {
+        name "ARMOR_CRIMSONMASK_NAME"
+        desc "ARMOR_CRIMSONMASK_DESC"
+        rarity rare
+        kind face
+        frame 57
+    degrade_after_adventure false
+        set Meat
+
+        passives {
+            DamageUp 1
+            StatusOnKillEnemy {
+                DamageUp 1
+            }
+        }
+    }
+    
+    CrimsonMask_Cursed {
+        variant_of CrimsonMask
+        cursed true
+    }
+
+    RedCap {
+        name "ARMOR_REDCAP_NAME"
+        desc "ARMOR_REDCAP_DESC"
+        rarity rare
+        kind head
+        frame 50
+    degrade_after_adventure false
+        set Meat
+
+        passives {
+            DamageUp 1
+            StatusOnKillEnemy {
+                DamageUp 1
+            }
+        }
+    }
+    
+    RedCap_Cursed {
+        variant_of RedCap
+        cursed true
+    }
+
+    PoundOfFlesh {
+        name "ARMOR_POUNDOFFLESH_NAME"
+        desc "ARMOR_POUNDOFFLESH_DESC"
+        rarity rare
+        kind neck
+        frame 48
+    degrade_after_adventure false
+        set Meat
+
+        passives {
+            DamageUp 1
+            StatusOnKillEnemy {
+                DamageUp 1
+            }
+        }
+    }
+
+    PoundOfFlesh_Cursed {
+        variant_of PoundOfFlesh
+        cursed true
+    }
+
+//FECAL
+    FecalMask {
+        name "ARMOR_FECALMASK_NAME"
+        desc "ARMOR_FECALMASK_DESC"
+        rarity common
+        kind face
+        frame 60
+    degrade_after_adventure false
+        set Fecal
+
+        cha -1
+
+        passives {
+            PoisonThorns 1
+        }
+    }
+
+    FecalHood {
+        name "ARMOR_FECALHOOD_NAME"
+        desc "ARMOR_FECALHOOD_DESC"
+        rarity common
+        kind head
+        frame 57
+    degrade_after_adventure false
+        set Fecal
+
+        cha -1
+
+        passives {
+            PoisonThorns 1
+        }
+    }
+
+    FecalNecklace {
+        name "ARMOR_FECALNECKLACE_NAME"
+        desc "ARMOR_FECALNECKLACE_DESC"
+        rarity common
+        kind neck
+        frame 52
+    degrade_after_adventure false
+        set Fecal
+
+        cha -1
+
+        passives {
+            PoisonThorns 1
+        }
+    }
+
+    FecalMask_Cursed {
+        variant_of FecalMask
+        cursed true
+    }
+
+    FecalHood_Cursed {
+        variant_of FecalHood
+        cursed true
+    }
+
+    FecalNecklace_Cursed {
+        variant_of FecalNecklace
+        cursed true
+    }
+
+//LEAFY
+    LeafyMask {
+        name "ARMOR_LEAFYMASK_NAME"
+        desc "ARMOR_LEAFYMASK_DESC"
+        rarity common
+        kind face
+        frame 70
+    degrade_after_adventure false
+        set Leafy
+
+        cha 1
+
+        passives {
+            PassiveWhenOnTile {
+                tile [TallGrassTile TallFlowerTile]
+                passives {
+                    DodgeChance_Status 40
+                }
+            }
+        }
+    }
+
+    LeafyHat {
+        name "ARMOR_LEAFYHAT_NAME"
+        desc "ARMOR_LEAFYHAT_DESC"
+        rarity common
+        kind head
+        frame 68
+    degrade_after_adventure false
+        set Leafy
+
+        cha 1
+
+        passives {
+            PassiveWhenOnTile {
+                tile [TallGrassTile TallFlowerTile]
+                passives {
+                    AddManaRegen 3
+                    HealthRegenUp 1
+                }
+            }
+        }
+    }
+
+    LeafyNecklace {
+        name "ARMOR_LEAFYNECKLACE_NAME"
+        desc "ARMOR_LEAFYNECKLACE_DESC"
+        rarity common
+        kind neck
+        frame 56
+    degrade_after_adventure false
+        set Leafy
+
+        cha 1
+
+        passives {
+            PassiveWhenOnTile {
+                tile [TallGrassTile TallFlowerTile]
+                passives {
+                    AddManaRegen 1
+                    HealthRegenUp 3
+                }
+            }
+        }
+    }
+
+//CACTUS
+    CactusMask {
+        name "ARMOR_CACTUSMASK_NAME"
+        desc "ARMOR_CACTUSMASK_DESC"
+        rarity uncommon
+        kind face
+        frame 74
+    degrade_after_adventure false
+        set Cactus
+
+        passives {
+            Thorns 3
+            Brittle 1
+            StatusOnBreak {
+                PermanentConstitution 2
+                HealthGain 10
+                ChangeTilesUnder WaterTile
+            }
+        }
+    }
+
+    CactusHat {
+        name "ARMOR_CACTUSHAT_NAME"
+        desc "ARMOR_CACTUSHAT_DESC"
+        rarity uncommon
+        kind head
+        frame 72
+    degrade_after_adventure false
+        set Cactus
+
+        passives {
+            Thorns 3
+            Brittle 1
+            StatusOnBreak {
+                PermanentConstitution 2
+                HealthGain 10
+                ChangeTilesUnder WaterTile
+            }
+        }
+    }
+
+    CactusNecklace {
+        name "ARMOR_CACTUSNECKLACE_NAME"
+        desc "ARMOR_CACTUSNECKLACE_DESC"
+        rarity uncommon
+        kind neck
+        frame 58
+    degrade_after_adventure false
+        set Cactus
+
+        passives {
+            Thorns 3
+            Brittle 1
+            StatusOnBreak {
+                PermanentConstitution 2
+                HealthGain 10
+                ChangeTilesUnder WaterTile
+            }
+        }
+    }
+
+//MUMMY
+    FaceWrap {
+        name ARMOR_FACEWRAP_NAME
+        desc ARMOR_FACEWRAP_DESC
+        rarity uncommon
+        kind face
+        frame 76
+    degrade_after_adventure false
+        set Mummy
+        passives {
+            HealthRegenUp 1
+            DelayedAutoRevive {
+                rounds 1
+                health 15%
+            }
+        }
+    }
+
+    HeadWrap {
+        name ARMOR_HEADWRAP_NAME
+        desc ARMOR_HEADWRAP_DESC
+        rarity uncommon
+        kind head
+        frame 74
+    degrade_after_adventure false
+        set Mummy
+        passives {
+            HealthRegenUp 1
+            DelayedAutoRevive {
+                rounds 1
+                health 15%
+            }
+        }
+    }
+
+    NeckWrap {
+        name ARMOR_NECKWRAP_NAME
+        desc ARMOR_NECKWRAP_DESC
+        rarity uncommon
+        kind neck
+        frame 60
+    degrade_after_adventure false
+        set Mummy
+        passives {
+            HealthRegenUp 1
+            DelayedAutoRevive {
+                rounds 1
+                health 15%
+            }
+        }
+    }
+
+//MAN
+    ManGlasses {
+        name ARMOR_MANGLASSES_NAME
+        desc ARMOR_MANGLASSES_DESC
+        rarity uncommon
+        kind face
+        frame 77
+    degrade_after_adventure false
+        set Man
+
+        passives {
+            TrueShot 1
+            SpawnExtraThingsOnBattleStart {
+                object RandomPickup
+                number [1 2]
+            }
+        }
+    }
+    ManHair {
+        name ARMOR_MANHAIR_NAME
+        desc ARMOR_MANHAIR_DESC
+        rarity uncommon
+        kind head
+        frame 75
+    degrade_after_adventure false
+        set Man
+
+        cha 2
+
+        passives {
+        }
+    }
+    ManTie {
+        name ARMOR_MANTIE_NAME
+        desc ARMOR_MANTIE_DESC
+        rarity uncommon
+        kind neck
+        frame 61
+    degrade_after_adventure false
+        set Man
+
+        lck 2
+
+        passives {
+        }
+    }
+
+//FLOWER
+    FlowerMask {//todo needs rework
+        name ARMOR_FLOWERMASK_NAME
+        desc ARMOR_FLOWERMASK_DESC
+        rarity uncommon
+        kind face
+        frame 78
+    degrade_after_adventure false
+        set Flower
+
+        passives {
+            StackingFlowerTrail {
+                stacks 1
+                stack_key FLOWER_SET
+            }
+            AddStatusToBasicAttack {
+                Tangled [1, .05]
+            }
+        }
+    }
+    FlowerHat {
+        name ARMOR_FLOWERHAT_NAME
+        desc ARMOR_FLOWERHAT_DESC
+        rarity uncommon
+        kind head
+        frame 76
+    degrade_after_adventure false
+        set Flower
+
+        passives {
+            StackingFlowerTrail {
+                stacks 1
+                stack_key FLOWER_SET
+            }
+            AddStatusToBasicAttack {
+                Tangled [1, .05]
+            }
+        }
+    }
+    FlowerNecklace {
+        name ARMOR_FLOWERNECKLACE_NAME
+        desc ARMOR_FLOWERNECKLACE_DESC
+        rarity uncommon
+        kind neck
+        frame 62
+    degrade_after_adventure false
+        set Flower
+
+        passives {
+            StackingFlowerTrail {
+                stacks 1
+                stack_key FLOWER_SET
+            }
+            AddStatusToBasicAttack {
+                Tangled [1, .05]
+            }
+        }
+    }
+
+//HUMANFLESH
+    HumanFleshMask {
+        name ARMOR_HUMANFLESHMASK_NAME
+        desc ARMOR_HUMANFLESHMASK_DESC
+        rarity rare
+        kind face
+        frame 79
+    degrade_after_adventure false
+        set HumanFlesh
+
+        cha -1
+        con 2
+
+        passives {
+            AddStatusToBasicAttack {
+                Fear [1, .25]
+            }
+            SpawnOnBattleStart {
+                object Food
+            }
+        }
+    }
+    HumanFleshHat {
+        name ARMOR_HUMANFLESHHAT_NAME
+        desc ARMOR_HUMANFLESHHAT_DESC
+        rarity rare
+        kind head
+        frame 77
+    degrade_after_adventure false
+        set HumanFlesh
+
+        cha -1
+        str 2
+
+        passives {
+            CritsApplyStatus {
+                Fear 1
+            }
+            SpawnOnBattleStart {
+                object Food
+            }
+        }
+    }
+    HumanFleshArmor {
+        name ARMOR_HUMANFLESHARMOR_NAME
+        desc ARMOR_HUMANFLESHARMOR_DESC
+        rarity rare
+        kind neck
+        frame 63
+    degrade_after_adventure false
+        set HumanFlesh
+		
+		cha -1
+		lck 2
+
+        passives {
+            RevengeDamage {
+                effects {
+                    Fear [1, .25]
+                }
+            }
+            SpawnOnBattleStart {
+                object Food
+            }
+        }
+    }
+
+//TENTACLE
+    TentacleMask {
+        name ARMOR_TENTACLEMASK_NAME
+        desc ARMOR_TENTACLEMASK_DESC
+        rarity uncommon
+        kind face
+        frame 80
+    degrade_after_adventure false
+        set Tentacle
+
+        shield 2
+
+        passives {
+            AddStatusToBasicAttack {
+                Tangled [1, .33]
+            }
+        }
+    }
+    TentacleHat {
+        name ARMOR_TENTACLEHAT_NAME
+        desc ARMOR_TENTACLEHAT_DESC
+        rarity uncommon
+        kind head
+        frame 78
+    degrade_after_adventure false
+        set Tentacle
+
+        shield 2
+
+        passives {
+            AddStatusToBasicAttack {
+                PullSourceToTarget 1
+            }
+        }
+    }
+    TentacleNeck {
+        name ARMOR_TENTACLENECK_NAME
+        desc ARMOR_TENTACLENECK_DESC
+        rarity uncommon
+        kind neck
+        frame 64
+    degrade_after_adventure false
+        set Tentacle
+
+        shield 2
+
+        passives {
+            CounterAttack {
+                ranged_only true
+                ability neck_TentacleArmorCounter
+            }
+        }
+    }
+
+//OBELISK
+    ObeliskMask {
+        name ARMOR_OBELISKMASK_NAME
+        desc ARMOR_OBELISKMASK_DESC
+        rarity rare
+        kind face
+        frame 81
+    degrade_after_adventure false
+        set Obelisk
+
+        divine_shield 1
+
+        passives {
+            StatusOnKill {
+                BrittleIntelligenceUp 2
+                BrittleCharismaUp 2
+            }
+        }
+    }
+    ObeliskHat {
+        name ARMOR_OBELISKHAT_NAME
+        desc ARMOR_OBELISKHAT_DESC
+        rarity rare
+        kind head
+        frame 79
+    degrade_after_adventure false
+        set Obelisk
+
+        divine_shield 1
+        
+        passives {
+            StatusOnKill {
+                BrittleDexterityUp 2
+                BrittleLuckUp 2
+            }
+        }
+    }
+    ObeliskArmor {
+        name ARMOR_OBELISKARMOR_NAME
+        desc ARMOR_OBELISKARMOR_DESC
+        rarity rare
+        kind neck
+        frame 65
+    degrade_after_adventure false
+        set Obelisk
+
+        divine_shield 1
+        
+        passives {
+            StatusOnKill {
+                BrittleStrengthUp 2
+                BrittleSpeedUp 2
+                BrittleConstitutionUp 2
+            }
+        }
+    }
+
+//EXPERIMENTAL
+    ExperimentalMask {
+        name ARMOR_EXPERIMENTALMASK_NAME
+        desc ARMOR_EXPERIMENTALMASK_DESC
+        rarity common
+        kind face
+        frame 82
+    degrade_after_adventure false
+        set Experimental
+
+        str_aux_initialize random_seed
+
+        passives {
+            RandomSeededStatModifier [2 -1] // hard coded in SpawnDatabase::get_item_stats
+        }
+    }
+    ExperimentalHat {
+        name ARMOR_EXPERIMENTALHAT_NAME
+        desc ARMOR_EXPERIMENTALHAT_DESC
+        rarity common
+        kind head
+        frame 80
+    degrade_after_adventure false
+        set Experimental
+
+        str_aux_initialize random_seed
+
+        passives {
+            RandomSeededStatModifier [2 -1] // hard coded in SpawnDatabase::get_item_stats
+        }
+    }
+    ExperimentalNeck {
+        name ARMOR_EXPERIMENTALNECK_NAME
+        desc ARMOR_EXPERIMENTALNECK_DESC
+        rarity common
+        kind neck
+        frame 66
+    degrade_after_adventure false
+        set Experimental
+
+        str_aux_initialize random_seed
+
+        passives {
+            RandomSeededStatModifier [2 -1] // hard coded in SpawnDatabase::get_item_stats
+        }
+    }
+
+//ROCKY
+    RockyMask {
+        name ARMOR_ROCKYMASK_NAME
+        desc ARMOR_ROCKYMASK_DESC
+        rarity uncommon
+        kind face
+        frame 83
+    degrade_after_adventure false
+        set Rock
+
+        shield 10
+
+        passives {
+            RockyArmorPassive 1
+            StatusOnBreak {
+                Bruise 3
+            }
+        }
+    }
+
+    RockyHat {
+        name ARMOR_ROCKYHAT_NAME
+        desc ARMOR_ROCKYHAT_DESC
+        rarity uncommon
+        kind head
+        frame 81
+    degrade_after_adventure false
+        set Rock
+
+        shield 10
+
+        passives {
+            RockyArmorPassive 1
+            StatusOnBreak {
+                Bruise 3
+            }
+        }
+    }
+
+    RockyNecklace {
+        name ARMOR_ROCKYNECKLACE_NAME
+        desc ARMOR_ROCKYNECKLACE_DESC
+        rarity uncommon
+        kind neck
+        frame 67
+    degrade_after_adventure false
+        set Rock
+        
+        shield 10
+
+        passives {
+            RockyArmorPassive 1
+            StatusOnBreak {
+                Bruise 3
+            }
+        }
+    }
+
+//SPACE
+    SpaceHelmet {
+        name ARMOR_SPACEHELMET_NAME
+        desc ARMOR_SPACEHELMET_DESC
+        rarity uncommon
+        kind face
+        frame 84
+    degrade_after_adventure false
+        set Space
+
+        passives {
+            Brace 1
+            BlockNegativeStatus 30%
+        }
+    }
+    SpaceAntenna {
+        name ARMOR_SPACEANTENNA_NAME
+        desc ARMOR_SPACEANTENNA_DESC
+        rarity uncommon
+        kind head
+        frame 82
+    degrade_after_adventure false
+        set Space
+
+		shield 3
+
+        passives {
+            Metal 1
+            StatusEachTurnBegin {
+                ManaGainRange {
+                    min 0
+                    max 4
+                }
+            }
+        }
+    }
+    SpaceBoosters {
+        name ARMOR_SPACEBOOSTERS_NAME
+        desc ARMOR_SPACEBOOSTERS_DESC
+        rarity uncommon
+        kind neck
+        frame 68
+    degrade_after_adventure false
+        set Space
+		
+		spd 3
+
+        passives {
+            Metal 1
+            ReplaceBasicMove BasicJump
+        }
+    }
+
+//PLANET
+    TinyPlanet {
+        name ARMOR_TINYPLANET_NAME
+        desc ARMOR_TINYPLANET_DESC
+        rarity uncommon
+        kind face
+        frame 85
+    degrade_after_adventure false
+        set Planet
+
+        shield 1
+        int -1
+
+        passives {
+            MakeBasicAttackPull 1
+            MeleeRevengeDamage {
+                effects {
+                    Bruise 1
+                }
+            }
+        }
+    }
+
+    MiniMoon {
+        name ARMOR_MINIMOON_NAME
+        desc ARMOR_MINIMOON_DESC
+        rarity uncommon
+        kind head
+        frame 83
+    degrade_after_adventure false
+        set Planet
+
+        passives {
+            ChanceToBlock 10%
+            AddStatusToBasicAttack {
+                ForceUseAbilityOnTarget {
+                    chance 25%
+                    ability head_MiniMoonArmorAsteroid
+                }
+            }
+        }
+    }
+
+    AsteroidBelt {
+        name ARMOR_ASTEROIDBELT_NAME
+        desc ARMOR_ASTEROIDBELT_DESC
+        rarity uncommon
+        kind neck
+        frame 69
+    degrade_after_adventure false
+        set Planet
+
+        passives {
+            Brace 2
+            ChanceToBlock 10%
+        }
+    }
+    
+//DEBRIS
+    DebrisMask {//todo: instea of passivce kenetic spikes maybe just shoot them end of turn so its unique.
+        name ARMOR_DEBRISMASK_NAME
+        desc ARMOR_DEBRISMASK_DESC
+        rarity common
+        kind face
+        frame 86
+    degrade_after_adventure false
+        set Debris
+
+        shield 2
+        dex -1
+
+        passives {
+            Metal 1
+            AddBonusRange 2
+            KineticSpikes 1
+        }
+    }
+
+    DebrisHat {
+        name ARMOR_DEBRISHAT_NAME
+        desc ARMOR_DEBRISHAT_DESC
+        rarity common
+        kind head
+        frame 84
+    degrade_after_adventure false
+        set Debris
+
+        shield 2
+        dex -1
+
+        passives {
+            Metal 1
+            AddBonusRange 2
+            KineticSpikes 1
+        }
+    }
+
+    DebrisArmor {
+        name ARMOR_DEBRISARMOR_NAME
+        desc ARMOR_DEBRISARMOR_DESC
+        rarity common
+        kind neck
+        frame 70
+    degrade_after_adventure false
+        set Debris
+
+        shield 2
+        dex -1
+
+        passives {
+            Metal 1
+            AddBonusRange 2
+            KineticSpikes 1
+        }
+    }
+
+//DRYBONES
+    DryBoneMask {
+        name ARMOR_DRYBONEMASK_NAME
+        desc ARMOR_DRYBONEMASK_DESC
+        rarity uncommon
+        kind face
+        frame 87
+    degrade_after_adventure false
+        set Bone
+
+        shield 3
+
+        passives {
+            Thorns 1
+            MeleeRevengeDamage {
+                effects {
+                    Bruise 1
+                }
+            }
+        }
+    }
+    DryBoneHat {
+        name ARMOR_DRYBONEHAT_NAME
+        desc ARMOR_DRYBONEHAT_DESC
+        rarity uncommon
+        kind head
+        frame 85
+    degrade_after_adventure false
+        set Bone
+
+        shield 3
+
+        passives {
+            Thorns 1
+            MeleeRevengeDamage {
+                effects {
+                    Bruise 1
+                }
+            }
+        }
+    }
+    DryBoneNecklace {
+        name ARMOR_DRYBONENECKLACE_NAME
+        desc ARMOR_DRYBONENECKLACE_DESC
+        rarity uncommon
+        kind neck
+        frame 71
+    degrade_after_adventure false
+        set Bone
+
+        shield 3
+
+        passives {
+            Thorns 1
+            MeleeRevengeDamage {
+                effects {
+                    Bruise 1
+                }
+            }
+        }
+    }
+
+//TRANSMITTER
+    ProtectionTransmitter {
+        name "ARMOR_PROTECTIONTRANSMITTER_NAME"
+        desc "ARMOR_PROTECTIONTRANSMITTER_DESC"
+        rarity rare
+        kind head
+        frame 148
+    degrade_after_adventure false
+        set Transmitter
+
+        passives {
+            Metal 1
+            Bruise 2
+            StatusAlliesOnBattleStart {
+                Brace 1
+            }
+        }
+    }
+    DamageTransmitter {
+        name "ARMOR_DAMAGETRANSMITTER_NAME"
+        desc "ARMOR_DAMAGETRANSMITTER_DESC"
+        rarity rare
+        kind neck
+        frame 98
+    degrade_after_adventure false
+        set Transmitter
+
+        passives {
+            Metal 1
+            DamageUp -2
+            StatusAlliesOnBattleStart {
+                DamageUp 1
+            }
+        }
+    }
+    EnergyTransmitter {
+        name "ARMOR_ENERGYTRANSMITTER_NAME"
+        desc "ARMOR_ENERGYTRANSMITTER_DESC"
+        rarity rare
+        kind face
+        frame 133
+    degrade_after_adventure false
+        set Transmitter
+
+        spd -4
+
+        passives {
+            Metal 1
+            StatusAlliesOnBattleStart {
+                SpeedUp 2
+            }
+        }
+    }
+
+//THRUMMING
+    ThrummingCirclet {
+        name "ARMOR_THRUMMINGCIRCLET_NAME"
+        desc "ARMOR_THRUMMINGCIRCLET_DESC"
+        rarity rare
+        kind head
+        frame 149
+    degrade_after_adventure false
+        set Thrumming
+
+        passives {
+            StatusOnTurnEndIfDidntCastAbilityTypes {
+                type attack
+                DamageUp 1
+                Thorns 1
+            }
+        }
+    }
+    ThrummingSpectacles {
+        name "ARMOR_THRUMMINGSPECTACLES_NAME"
+        desc "ARMOR_THRUMMINGSPECTACLES_DESC"
+        rarity rare
+        kind face
+        frame 134
+    degrade_after_adventure false
+        set Thrumming
+
+        passives {
+            StatusOnTurnEndIfDidntCastAbilityTypes {
+                type move
+                HealthRegenUp 1
+                Shield 1
+            }
+        }
+    }
+    ThrummingCharm {
+        name "ARMOR_THRUMMINGCHARM_NAME"
+        desc "ARMOR_THRUMMINGCHARM_DESC"
+        rarity rare
+        kind neck
+        frame 124
+    degrade_after_adventure false
+        set Thrumming
+
+        passives {
+            StatusOnTurnEndIfDidntCastAbilityTypes {
+                type spell
+                SpellDamageUp 1
+                Charge 1
+            }
+        }
+    }
+
+//WITCH
+    WitchesHat {
+        name "ARMOR_WITCHESHAT_NAME"
+        desc "ARMOR_WITCHESHAT_DESC"
+        rarity rare
+        kind head
+        frame 146
+    degrade_after_adventure false
+        set Witch
+
+        passives {
+            SpellDamageUp 1
+        }
+    }
+    WitchesNose {
+        name "ARMOR_WITCHESNOSE_NAME"
+        desc "ARMOR_WITCHESNOSE_DESC"
+        rarity rare
+        kind face
+        frame 131
+    degrade_after_adventure false
+        set Witch
+        
+        passives {
+            SpellDamageUp 1
+        }
+    }
+    WitchesCape {
+        name "ARMOR_WITCHESCAPE_NAME"
+        desc "ARMOR_WITCHESCAPE_DESC"
+        rarity rare
+        kind neck
+        frame 122
+    degrade_after_adventure false
+        set Witch
+
+        passives {
+            SpellDamageUp 1
+        }
+    }
+
+//STUNNING
+    StunningHaircut {
+        name "ARMOR_STUNNINGHAIRCUT_NAME"
+        desc "ARMOR_STUNNINGHAIRCUT_DESC"
+        rarity very_rare
+        kind head
+        frame 152
+    degrade_after_adventure false
+        set Stunning
+
+        passives {
+            FaceArmorPassiveMultiplierBonus 1
+            NeckArmorPassiveMultiplierBonus 1
+        }
+    }
+    StunningChain {
+        name "ARMOR_STUNNINGCHAIN_NAME"
+        desc "ARMOR_STUNNINGCHAIN_DESC"
+        rarity very_rare
+        kind neck
+        frame 136
+    degrade_after_adventure false
+        set Stunning
+
+        passives {
+            Metal 1
+            FaceArmorPassiveMultiplierBonus 1
+            HeadArmorPassiveMultiplierBonus 1
+        }
+    }
+    StunningBeard {
+        name "ARMOR_STUNNINGBEARD_NAME"
+        desc "ARMOR_STUNNINGBEARD_DESC"
+        rarity very_rare
+        kind face
+        frame 137
+    degrade_after_adventure false
+        set Stunning
+
+        passives {
+            NeckArmorPassiveMultiplierBonus 1
+            HeadArmorPassiveMultiplierBonus 1
+        }
+    }
+
+//SUPERHERO
+    SuperheroHat {
+        name "ARMOR_SUPERHEROHAT_NAME"
+        desc "ARMOR_SUPERHEROHAT_DESC"
+        rarity rare
+        kind head
+        frame 154
+    degrade_after_adventure false
+        set Superhero
+
+        divine_shield 1
+
+        passives {
+            HealthRegenUp 2
+        }
+    }
+    SuperheroCape {
+        name "ARMOR_SUPERHEROCAPE_NAME"
+        desc "ARMOR_SUPERHEROCAPE_DESC"
+        rarity rare
+        kind neck
+        frame 130
+    degrade_after_adventure false
+        set Superhero
+
+        spd 3
+
+        passives {
+            Flying 1
+        }
+    }
+    SuperheroMask {
+        name "ARMOR_SUPERHEROMASK_NAME"
+        desc "ARMOR_SUPERHEROMASK_DESC"
+        rarity rare
+        kind face
+        frame 139
+    degrade_after_adventure false
+        set Superhero
+
+        passives {
+            DamageUp 1
+            
+		    AddStatusToBasicAttack {
+                KnockUpAndAway {
+                    stacks 5
+                    distance 3
+                }
+            }
+        }
+    }
+
+//LEAD
+    LeadHelmet {
+        name "ARMOR_LEADHELMET_NAME"
+        desc "ARMOR_LEADHELMET_DESC"
+        rarity uncommon
+        kind head
+        frame 156
+    degrade_after_adventure false
+        set Lead
+        
+        shield 6
+        spd -1
+
+        passives {
+            Metal 1
+        }
+    }
+    LeadShoulderPads {
+        name "ARMOR_LEADSHOULDERPADS_NAME"
+        desc "ARMOR_LEADSHOULDERPADS_DESC"
+        rarity uncommon
+        kind neck
+        frame 129
+    degrade_after_adventure false
+        set Lead
+
+        shield 6
+        spd -1
+
+        passives {
+            Metal 1
+        }
+    }
+    LeadMask {
+        name "ARMOR_LEADMASK_NAME"
+        desc "ARMOR_LEADMASK_DESC"
+        rarity uncommon
+        kind face
+        frame 141
+    degrade_after_adventure false
+        set Lead
+
+        shield 6
+        spd -1
+
+        passives {
+            Metal 1
+        }
+    }
+
+//BABY
+    ScaryBaby {
+        name "ARMOR_SCARYBABY_NAME"
+        desc "ARMOR_SCARYBABY_DESC"
+        rarity rare
+        kind face
+        frame 180
+    degrade_after_adventure false
+        set Baby
+
+        passives {
+            StatusRandomEnemiesOnBattleStart {
+                count 1
+                Fear 2
+            }
+        }
+    }
+    
+    CharmingBaby {
+        name "ARMOR_CHARMINGBABY_NAME"
+        desc "ARMOR_CHARMINGBABY_DESC"
+        rarity rare
+        kind head
+        frame 188
+    degrade_after_adventure false
+        set Baby
+
+        passives {
+            StatusRandomEnemiesOnBattleStart {
+                count 1
+                Charmed 2
+            }
+        }
+    }
+    
+    FreezingBaby {
+        name "ARMOR_FREEZINGBABY_NAME"
+        desc "ARMOR_FREEZINGBABY_DESC"
+        rarity rare
+        kind neck
+        frame 166
+    degrade_after_adventure false
+        set Baby
+
+        passives {
+            StatusRandomEnemiesOnBattleStart {
+                count 1
+                Freeze 2
+            }
+        }
+    }
+
+//NINJA
+    Obi {
+        name "ARMOR_OBI_NAME"
+        desc "ARMOR_OBI_DESC"
+        rarity uncommon
+        kind neck
+        frame 148
+    degrade_after_adventure false
+        set Ninja
+
+        passives {
+            MoveQuivered 2
+        }
+    }
+        
+    Fukumen {
+        name "ARMOR_FUKUMEN_NAME"
+        desc "ARMOR_FUKUMEN_DESC"
+        rarity uncommon
+        kind face
+        frame 175
+    degrade_after_adventure false
+        set Ninja
+
+        passives {
+            CounterNextAttacks 2
+        }
+    }
+    
+    Zukin {
+        name "ARMOR_ZUKIN_NAME"
+        desc "ARMOR_ZUKIN_DESC"
+        rarity uncommon
+        kind head
+        frame 184
+    degrade_after_adventure false
+        set Ninja
+
+        passives {
+            BackflipWhenTargeted {
+                stacks 2
+                ability BackflipDodge
+            }
+        }
+    }
+
+    
+//PROWLER
+    ProwlersCap {
+        name "ARMOR_PROWLERSCAP_NAME"
+        desc "ARMOR_PROWLERSCAP_DESC"
+        rarity uncommon
+        kind head
+        frame 186
+    degrade_after_adventure false
+        set Prowler
+
+        passives {
+            BackstabCritChance .25
+        }
+    }
+    
+    ProwlersMask {
+        name "ARMOR_PROWLERSMASK_NAME"
+        desc "ARMOR_PROWLERSMASK_DESC"
+        rarity uncommon
+        kind face
+        frame 177
+    degrade_after_adventure false
+        set Prowler
+
+        passives {
+            AddStatusToBackstabs {
+                Bleed 1
+            }
+        }
+    }
+    
+    ProwlersVial {
+        name "ARMOR_PROWLERSVIAL_NAME"
+        desc "ARMOR_PROWLERSVIAL_DESC"
+        rarity uncommon
+        kind neck
+        frame 164
+    degrade_after_adventure false
+        set Prowler
+
+        passives {
+            StatusOnBackstab {
+                HealthGain 2
+            }
+        }
+    }
+
+
+//MAGE
+    MageHat {
+        name "ARMOR_MAGEHAT_NAME"
+        desc "ARMOR_MAGEHAT_DESC"
+        rarity rare
+        kind head
+        frame 101
+    degrade_after_adventure false
+        set Mage
+        
+        int 1
+        
+        passives {
+            StatusOnCastSpell {
+                Charge 1
+            }
+        }
+    }
+
+    MageRobe {
+        name "ARMOR_MAGEROBE_NAME"
+        desc "ARMOR_MAGEROBE_DESC"
+        rarity rare
+        kind face
+        frame 101
+    degrade_after_adventure false
+        set Mage
+
+        int 1
+        
+        passives {
+            AddStatusToBasicAttack {
+                ApplyToSource {
+                    Charge 1
+                }
+            }
+        }
+    }
+
+    MageScarf {
+        name "ARMOR_MAGESCARF_NAME"
+        desc "ARMOR_MAGESCARF_DESC"
+        rarity rare
+        kind neck
+        frame 101
+    degrade_after_adventure false
+        set Mage
+
+        int 1
+        
+        passives {
+            StatusOnEnemyDeath {
+                Charge 1
+            }
+        }
+    }
+
+//THIEF
+    ThiefHood {
+        name "ARMOR_THIEFHOOD_NAME"
+        desc "ARMOR_THIEFHOOD_DESC"
+        rarity rare
+        kind head
+        frame 102
+    degrade_after_adventure false
+        set Thief
+        
+        passives {
+            ArmorDodgeChance 5%
+            CritChanceUp 5
+            AddStatusToBasicAttack {
+                Bleed 1
+            }
+        }
+    }
+
+    ThiefTattoo {
+        name "ARMOR_THIEFTATTOO_NAME"
+        desc "ARMOR_THIEFTATTOO_DESC"
+        rarity rare
+        kind face
+        frame 102
+    degrade_after_adventure false
+        set Thief
+
+        passives {
+            ArmorDodgeChance 5%
+            CritChanceUp 5
+            AddStatusToBasicAttack {
+                Poison 1
+            }
+        }
+    }
+
+    ThiefCloak {
+        name "ARMOR_THIEFCLOAK_NAME"
+        desc "ARMOR_THIEFCLOAK_DESC"
+        rarity rare
+        kind neck
+        frame 102
+    degrade_after_adventure false
+        set Thief
+        
+        passives {
+            ArmorDodgeChance 10%
+            CritChanceUp 10
+        }
+    }
+    
+//FIGHTER
+    FighterHelm {
+        name "ARMOR_FIGHTERHELM_NAME"
+        desc "ARMOR_FIGHTERHELM_DESC"
+        rarity rare
+        kind head
+        frame 103
+    degrade_after_adventure false
+        set Fighter
+        
+        shield 2
+
+        passives {
+            Metal 1
+            StatusOnKill {
+                Conditional_GoodRoll {
+                    odds 15%
+                    ForceUseAbility_NonStack Endeavor_Auto
+                }
+            }
+        }
+    }
+
+    FighterScar {
+        name "ARMOR_FIGHTERSCAR_NAME"
+        desc "ARMOR_FIGHTERSCAR_DESC"
+        rarity rare
+        kind face
+        frame 103
+    degrade_after_adventure false
+        set Fighter
+        
+        shield 2
+
+        passives {
+            StatusOnKill {
+                Conditional_GoodRoll {
+                    odds 15%
+                    ForceUseAbility_NonStack Endeavor_Auto
+                }
+            }
+        }
+    }
+
+    FighterShoulderPad {
+        name "ARMOR_FIGHTERSHOULDERPAD_NAME"
+        desc "ARMOR_FIGHTERSHOULDERPAD_DESC"
+        rarity rare
+        kind neck
+        frame 103
+    degrade_after_adventure false
+        set Fighter
+        
+        shield 2
+
+        passives {
+            Metal 1
+            StatusOnKill {
+                Conditional_GoodRoll {
+                    odds 15%
+                    ForceUseAbility_NonStack Endeavor_Auto
+                }
+            }
+        }
+    }
+
+//CLERIC
+    ClericHat {
+        name "ARMOR_CLERICHAT_NAME"
+        desc "ARMOR_CLERICHAT_DESC"
+        rarity rare
+        kind head
+        frame 104
+    degrade_after_adventure false
+        set Cleric
+        
+        shield 2
+
+        passives {
+            BoostHeals 2
+        }
+    }
+    
+    ClericTears {
+        name "ARMOR_CLERICTEARS_NAME"
+        desc "ARMOR_CLERICTEARS_DESC"
+        rarity rare
+        kind face
+        frame 104
+    degrade_after_adventure false
+        set Cleric
+        
+        divine_shield 1
+
+        passives {
+            StatusOnAllyCatDeath {
+                DivineShield 1
+            }
+        }
+    }
+
+    ClericRelic {
+        name "ARMOR_CLERICRELIC_NAME"
+        desc "ARMOR_CLERICRELIC_DESC"
+        rarity rare
+        kind neck
+        frame 104
+    degrade_after_adventure false
+        set Cleric
+        
+        passives {
+            Brace 1
+            RevengeDamage {
+                effects {
+                    Fear [1, .15]
+                }
+            }
+        }
+    }
+    
+//TANK
+    TankHelmet {
+        name "ARMOR_TANKHELMET_NAME"
+        desc "ARMOR_TANKHELMET_DESC"
+        rarity rare
+        kind head
+        frame 105
+    degrade_after_adventure false
+        set Tank
+        
+        shield 1
+
+        passives {
+            Metal 1
+            AddKnockbackDamage 1
+        }
+    }
+    
+    TankTattoo {
+        name "ARMOR_TANKTATTOO_NAME"
+        desc "ARMOR_TANKTATTOO_DESC"
+        rarity rare
+        kind face
+        frame 105
+    degrade_after_adventure false
+        set Tank
+        
+        passives {
+            AmplifyKnockback 2
+        }
+    }
+
+    TankPads {
+        name "ARMOR_TANKPADS_NAME"
+        desc "ARMOR_TANKPADS_DESC"
+        rarity rare
+        kind neck
+        frame 105
+    degrade_after_adventure false
+        set Tank
+        
+        shield 2
+
+        passives {
+            Metal 1
+            AddStatusToKnockbackDamage {
+                Stun [1, .1]
+            }
+        }
+    }
+    
+//HUNTER
+    HunterCap {
+        name "ARMOR_HUNTERCAP_NAME"
+        desc "ARMOR_HUNTERCAP_DESC"
+        rarity rare
+        kind head
+        frame 106
+    degrade_after_adventure false
+        set Hunter
+
+        lck 1
+        
+        passives {
+            AddPassivesToMinions {
+                AllStatsUp 1
+                HealthGain 4
+            }
+            AddPassivesToCharmed {
+                AllStatsUp 1
+            }
+        }
+    }
+    
+    HunterMonocle {
+        name "ARMOR_HUNTERMONOCLE_NAME"
+        desc "ARMOR_HUNTERMONOCLE_DESC"
+        rarity rare
+        kind face
+        frame 106
+    degrade_after_adventure false
+        set Hunter
+        
+        passives {
+            AddBonusRange 2
+        }
+    }
+
+    HunterQuiver {
+        name "ARMOR_HUNTERQUIVER_NAME"
+        desc "ARMOR_HUNTERQUIVER_DESC"
+        rarity rare
+        kind neck
+        frame 106
+    degrade_after_adventure false
+        set [Hunter, Leather]
+        
+        passives {
+            Quivered 2
+        }
+    }
+
+// PSYCHIC
+    MysticEye {
+        name ARMOR_MYSTICEYE_NAME
+        desc ARMOR_MYSTICEYE_DESC
+        rarity rare
+        kind face
+        frame 107
+    degrade_after_adventure false
+        set Psychic
+
+        passives {
+            IncreaseSpellRange 2
+            ReflectProjectiles 25%
+        }
+    }
+    TinfoilHat {
+        name ARMOR_TINFOILHAT_NAME
+        desc ARMOR_TINFOILHAT_DESC
+        rarity rare
+        kind head
+        frame 107
+    degrade_after_adventure false
+        set [Psychic, Scrap]
+
+        shield 2
+
+        passives {
+            Metal 1
+            CharmImmunity 1 // this covers Charm, Madness and other charm-like effects
+            StatusImmunity [Fear Confusion PermanentConfusion]
+        }
+    }
+    DivinersCloth {
+        name ARMOR_DIVINERSCLOTH_NAME
+        desc ARMOR_DIVINERSCLOTH_DESC
+        rarity rare
+        kind neck
+        frame 107
+    degrade_after_adventure false
+        set [Psychic, Rag]
+
+        passives {
+            StatusAlliesEachTurn {
+                Conditional_Adjacent {
+                    Conditional_PlayerCat {
+                        Charge 1
+                    }
+                }
+            }
+            AllyDodgeChanceAura {
+                chance 25%
+                range 1
+            }
+        }
+    }
+
+// NECROMANCER
+    DeathMask {
+        name ARMOR_DEATHMASK_NAME
+        desc ARMOR_DEATHMASK_DESC
+        rarity rare
+        kind face
+        frame 108
+    degrade_after_adventure false
+        set Necromancer
+
+        passives {
+            StatusOnBattleStart {
+                SafeDie 1
+                ReviveNextRound {
+                    revive_health 100%
+                    Shield 2
+                }
+            }
+        }
+    }
+    SpiderHat {
+        name ARMOR_SPIDERHAT_NAME
+        desc ARMOR_SPIDERHAT_DESC
+        rarity rare
+        kind head
+        frame 108
+    degrade_after_adventure false
+        set Necromancer
+        passives {
+            SpawnObjectOnPopCorpse {
+                object CharmedTinySpider
+                count 2
+                except_tiny true
+            }
+        }
+    }
+    LeechNecklace {
+        name ARMOR_LEECHNECKLACE_NAME
+        desc ARMOR_LEECHNECKLACE_DESC
+        rarity rare
+        kind neck
+        frame 108
+    degrade_after_adventure false
+        set [Necromancer, Leech]
+
+        passives {
+            AddStatusToSpells {
+                Conditional_Enemy {
+                    Leeches 1
+                }
+            }
+        }
+    }
+
+// MONK
+    FaceBrand {
+        name ARMOR_FACEBRAND_NAME
+        desc ARMOR_FACEBRAND_DESC
+        rarity rare
+        kind face
+        frame 109
+    degrade_after_adventure false
+        set Monk
+        weightless true
+
+        passives {
+            AddSelfStatusToBasicAttack {
+                Shield 1
+            }
+        }
+    }
+    HeadBrand {
+        name ARMOR_HEADBRAND_NAME
+        desc ARMOR_HEADBRAND_DESC
+        rarity rare
+        kind head
+        frame 109
+    degrade_after_adventure false
+        set Monk
+        weightless true
+
+        passives {
+            ReplaceBasicMove head_HeadBrandJump
+        }
+    }
+    PrayerBeads {
+        name ARMOR_PRAYERBEADS_NAME
+        desc ARMOR_PRAYERBEADS_DESC
+        rarity rare
+        kind neck
+        frame 109
+    degrade_after_adventure false
+        set [Monk, Twine]
+        weightless true
+
+        passives {
+            StatusOnTookDamage {
+                Temporary {
+                    status Brace
+                    stacks 3
+                    turns 1
+                    expires_on_begin_turn true
+                }
+            }
+        }
+    }
+
+// TINKERER
+    ScrappersMask {
+        name ARMOR_SCRAPPERSMASK_NAME
+        desc ARMOR_SCRAPPERSMASK_DESC
+        rarity rare
+        kind face
+        frame 110
+    degrade_after_adventure false
+        set [Tinkerer, Scrap]
+
+        shield 3
+
+        passives {
+            Metal 1
+            StatusOnBreakItem {
+                Shield 3
+            }
+        }
+    }
+    ScrappersHat {
+        name ARMOR_SCRAPPERSHAT_NAME
+        desc ARMOR_SCRAPPERSHAT_DESC
+        rarity rare
+        kind head
+        frame 110
+    degrade_after_adventure false
+        set [Tinkerer, Scrap]
+
+        shield 3
+
+        passives {
+            Metal 1
+            StatusOnBreakItem {
+                DoDamage {
+                    damage 0
+                    type spell
+                    damage_tiles all
+
+                    effects {
+                        BounceObject RandomPickup
+                        BounceObject RandomPickup
+                        BounceObject RandomPickup
+                    }
+                }
+            }
+        }
+    }
+    ScrappersBackpack {
+        name ARMOR_SCRAPPERSBACKPACK_NAME
+        desc ARMOR_SCRAPPERSBACKPACK_DESC
+        rarity rare
+        kind neck
+        frame 110
+    degrade_after_adventure false
+        set [Tinkerer, Survivalist]
+
+        passives {
+            ReclaimItemOnBreak 1
+        }
+    }
+
+// BUTCHER
+    IronJaw {
+        name ARMOR_IRONJAW_NAME
+        desc ARMOR_IRONJAW_DESC
+        rarity rare
+        kind face
+        frame 111
+    degrade_after_adventure false
+        set [Butcher, Tinkerer]
+
+        shield 3
+
+        passives {
+            Metal 1
+            CounterAttack {
+                ability head_IronJaw
+            }
+        }
+    }
+    FleshShroud {
+        name ARMOR_FLESHSHROUD_NAME
+        desc ARMOR_FLESHSHROUD_DESC
+        rarity rare
+        kind head
+        frame 111
+    degrade_after_adventure false
+        set [Butcher, HumanFlesh]
+
+        passives {
+            KillsToMeat Food
+            StatusOnHealed {
+                Shield 1
+            }
+        }
+    }
+    HookedNecklace {
+        name ARMOR_HOOKEDNECKLACE_NAME
+        desc ARMOR_HOOKEDNECKLACE_DESC
+        rarity rare
+        kind neck
+        frame 111
+    degrade_after_adventure false
+        set Butcher
+
+        shield 2
+
+        passives {
+            Metal 1
+            Thorns 2
+            MeleeRevengeDamage {
+                effects {
+                    Cleave 1
+                }
+            }
+        }
+    }
+
+// DRUID
+    GreenmanMask {
+        name ARMOR_GREENMANMASK_NAME
+        desc ARMOR_GREENMANMASK_DESC
+        rarity rare
+        kind face
+        frame 112
+    degrade_after_adventure false
+        set [Druid, Leafy]
+
+        passives {
+            PassiveWhenOnTile {
+                tile [TallGrassTile TallFlowerTile]
+                passives {
+                    Brace 3
+                }
+            }
+            PassiveWhenOnTile {
+                tile [WaterTile]
+                passives {
+                    AddManaRegen 3
+                }
+            }
+        }
+    }
+    MushroomHat {
+        name ARMOR_MUSHROOMHAT_NAME
+        desc ARMOR_MUSHROOMHAT_DESC
+        rarity rare
+        kind head
+        frame 112
+    degrade_after_adventure false
+        set Druid
+
+        passives {
+            RevengeDamage {
+                effects {
+                    Confusion 2
+                }
+            }
+            AddPassivesToMinions {
+                AddStatusToBasicAttack {
+                    Confusion 1
+                }
+            }
+        }
+    }
+    RingOfMushrooms {
+        name ARMOR_RINGOFMUSHROOMS_NAME
+        desc ARMOR_RINGOFMUSHROOMS_DESC
+        rarity rare
+        kind neck
+        frame 112
+    degrade_after_adventure false
+        set [Druid, Twine]
+
+        passives {
+            AOEBonus 1
+        }
+    }
+
+// COLLARLESS
+    CatWhiskers {
+        name ARMOR_CATWHISKERS_NAME
+        desc ARMOR_CATWHISKERS_DESC
+        rarity rare
+        kind face
+        frame 119
+    degrade_after_adventure false
+        set Collarless
+        
+        str 1
+        dex 1
+        int 1
+        con 1
+        spd 1
+        lck 1
+        cha 1
+
+        passives {
+        }
+    }
+    CatEars {
+        name ARMOR_CATEARS_NAME
+        desc ARMOR_CATEARS_DESC
+        rarity rare
+        kind head
+        frame 132
+    degrade_after_adventure false
+        set Collarless
+
+        str 1
+        dex 1
+        int 1
+        con 1
+        spd 1
+        lck 1
+        cha 1
+
+        passives {
+        }
+    }
+    CatCollar {
+        name ARMOR_CATCOLLAR_NAME
+        desc ARMOR_CATCOLLAR_DESC
+        rarity rare
+        kind neck
+        frame 87
+    degrade_after_adventure false
+        set [Collarless, Leather]
+
+        str 1
+        dex 1
+        int 1
+        con 1
+        spd 1
+        lck 1
+        cha 1
+
+        passives {
+        }
+    }
+
+// JESTER
+    ClownMakeup {
+        name "ARMOR_CLOWNMAKEUP_NAME"
+        desc "ARMOR_CLOWNMAKEUP_DESC"
+        rarity very_rare
+        kind face
+        frame 171
+    degrade_after_adventure false
+        set Jester
+        
+        lck -3
+
+        passives {
+            HeadArmorPassiveMultiplierBonus 2
+        }
+    }
+        
+    CapAndBells {
+        name "ARMOR_CAPANDBELLS_NAME"
+        desc "ARMOR_CAPANDBELLS_DESC"
+        rarity very_rare
+        kind head
+        frame 180
+    degrade_after_adventure false
+        set Jester
+
+        lck -3
+
+        passives {
+            TrinketPassiveMultiplierBonus 2
+            TrinketActiveEffectsMultiplierBonus 2
+        }
+    }
+        
+    Ruffle {
+        name "ARMOR_RUFFLE_NAME"
+        desc "ARMOR_RUFFLE_DESC"
+        rarity very_rare
+        kind neck
+        frame 163
+    degrade_after_adventure false
+        set Jester
+        
+        lck -3
+
+        passives {
+            FaceArmorPassiveMultiplierBonus 2
+        }
+    }
+
+// FEATHERED
+    FeatheredVeil {
+        name "ARMOR_FEATHEREDVEIL_NAME"
+        desc "ARMOR_FEATHEREDVEIL_DESC"
+        rarity rare
+        kind face
+        frame 92
+    degrade_after_adventure false
+        set Feathered
+
+        passives {
+            CounterAttack {
+                melee_only true
+                ability attack
+            }
+        }
+    }
+
+    FeatheredCap {
+        name "ARMOR_FEATHEREDCAP_NAME"
+        desc "ARMOR_FEATHEREDCAP_DESC"
+        rarity uncommon
+        kind head
+        frame 89
+    degrade_after_adventure false
+        set Feathered
+
+        spd 4
+
+        passives {
+        }
+    }
+
+    FeatheredNecklace {
+        name "ARMOR_FEATHEREDNECKLACE_NAME"
+        desc "ARMOR_FEATHEREDNECKLACE_DESC"
+        rarity uncommon
+        kind neck
+        frame 75
+    degrade_after_adventure false
+        set Feathered
+
+        passives {
+            ArmorDodgeChance 15%
+        }
+    }
+
+//Godhead
+    TheMind {
+        name "ARMOR_THEMIND_NAME"
+        desc "ARMOR_THEMIND_DESC"
+        rarity very_rare
+        kind head
+        frame 205
+    degrade_after_adventure false
+        set Godhead
+
+        int 7
+
+    }
+
+    TheBody {
+        name "ARMOR_THEBODY_NAME"
+        desc "ARMOR_THEBODY_DESC"
+        rarity very_rare
+        kind face
+        frame 193
+    degrade_after_adventure false
+        set Godhead
+
+        con 7
+    }
+
+    TheSoul {
+        name "ARMOR_THESOUL_NAME"
+        desc "ARMOR_THESOUL_DESC"
+        rarity very_rare
+        kind neck
+        frame 177
+    degrade_after_adventure false
+        set Godhead
+
+        lck 7
+    }
+
+//Brick
+    BrickHat {
+        name "ARMOR_BRICKHAT_NAME"
+        desc "ARMOR_BRICKHAT_DESC"
+        rarity common
+        kind head
+        frame 122
+    degrade_after_adventure false
+        set Brick
+	
+		shield 4
+		spd -1
+		
+		passives {
+			MeleeRevengeDamage {
+				effects {
+					Bruise 1
+				}
+			}
+		}
+    }
+
+    BrickMask {
+        name "ARMOR_BRICKMASK_NAME"
+        desc "ARMOR_BRICKMASK_DESC"
+        rarity common
+        kind face
+        frame 124
+    degrade_after_adventure false
+        set Brick
+		
+		shield 4
+		spd -1
+		
+		passives {
+			MeleeRevengeDamage {
+				effects {
+					Bruise 1
+				}
+			}
+		}
+    }
+
+    BrickNecklace {
+        name "ARMOR_BRICKNECKLACE_NAME"
+        desc "ARMOR_BRICKNECKLACE_DESC"
+        rarity common
+        kind neck
+        frame 113
+    degrade_after_adventure false
+        set Brick
+		
+		shield 4
+		spd -1
+		
+		passives {
+			MeleeRevengeDamage {
+				effects {
+					Bruise 1
+				}
+			}
+		}
+    }
+
+//Slimy
+    SlimyHat {
+        name "ARMOR_SLIMYHAT_NAME"
+        desc "ARMOR_SLIMYHAT_DESC"
+        rarity uncommon
+        kind head
+        frame 123
+    degrade_after_adventure false
+        set Slimy
+		
+		cha -1
+		passives {
+			CatchProjectiles {
+				chance 15%
+				ally_chance 15%
+				Quivered 1
+            }
+			MeleeRevengeDamage {
+				effects {
+					Immobile 1
+				}
+			}
+		}
+    }
+
+    SlimyMask {
+        name "ARMOR_SLIMYMASK_NAME"
+        desc "ARMOR_SLIMYMASK_DESC"
+        rarity uncommon
+        kind face
+        frame 125
+    degrade_after_adventure false
+        set Slimy
+		
+		cha -1
+		passives {
+			CatchProjectiles {
+				chance 15%
+				ally_chance 15%
+				Quivered 1
+            }
+			MeleeRevengeDamage {
+				effects {
+					Immobile 1
+				}
+			}
+		}
+    }
+
+    SlimyNecklace {
+        name "ARMOR_SLIMYNECKLACE_NAME"
+        desc "ARMOR_SLIMYNECKLACE_DESC"
+        rarity uncommon
+        kind neck
+        frame 114
+    degrade_after_adventure false
+        set Slimy
+		
+		cha -1
+		passives {
+			CatchProjectiles {
+				chance 15%
+				ally_chance 15%
+				Quivered 1
+            }
+			MeleeRevengeDamage {
+				effects {
+					Immobile 1
+				}
+			}
+		}
+    }
+	
+//Rat
+    RatHat {
+        name "ARMOR_RATHAT_NAME"
+        desc "ARMOR_RATHAT_DESC"
+        rarity common
+        kind head
+        frame 124
+    degrade_after_adventure false
+        set Rat
+		passives {
+			SpawnOnBattleStart {
+				object CharmedPinky 
+				number 1
+			}
+		}
+    }
+
+    RatMask {
+        name "ARMOR_RATMASK_NAME"
+        desc "ARMOR_RATMASK_DESC"
+        rarity common
+        kind face
+        frame 126
+    degrade_after_adventure false
+        set Rat
+
+		passives {
+			SpawnOnBattleStart {
+				object CharmedPinky 
+				number 1
+			}
+		}
+    }
+
+    RatNecklace {
+        name "ARMOR_RATNECKLACE_NAME"
+        desc "ARMOR_RATNECKLACE_DESC"
+        rarity common
+        kind neck
+        frame 115
+    degrade_after_adventure false
+        set Rat
+
+		passives {
+			SpawnOnBattleStart {
+				object CharmedPinky 
+				number 1
+			}
+		}
+    }
+	
+//Carapace
+    CarapaceHat {
+        name "ARMOR_CARAPACEHAT_NAME"
+        desc "ARMOR_CARAPACEHAT_DESC"
+        rarity uncommon
+        kind head
+        frame 73
+    degrade_after_adventure false
+        set Carapace
+		
+		shield 4
+		
+		passives {
+			StatusEachTurnEnd {
+				PartialCleanse 1 
+			}
+		}
+    }
+
+    CarapaceMask {
+        name "ARMOR_CARAPACEMASK_NAME"
+        desc "ARMOR_CARAPACEMASK_DESC"
+        rarity uncommon
+        kind face
+        frame 75
+    degrade_after_adventure false
+        set Carapace
+		
+		shield 4
+		
+		passives {
+			StatusEachTurnEnd {
+				PartialCleanse 1
+			}
+		}
+    }
+
+    CarapaceNecklace {
+        name "ARMOR_CARAPACENECKLACE_NAME"
+        desc "ARMOR_CARAPACENECKLACE_DESC"
+        rarity uncommon
+        kind neck
+        frame 59
+    degrade_after_adventure false
+        set Carapace
+		
+		shield 4
+		
+		passives {
+			StatusEachTurnEnd {
+				PartialCleanse 1
+			}
+		}
+    }
+	
+//Radioactive
+    RadioactiveHat {
+        name "ARMOR_RADIOACTIVEHAT_NAME"
+        desc "ARMOR_RADIOACTIVEHAT_DESC"
+        rarity uncommon
+        kind head
+        frame 86
+    degrade_after_adventure false
+        set Radioactive
+		
+		shield 2
+		
+		passives {
+            Metal 1
+			DepressionAura 1
+			StatusOnBattleEnd {
+				Conditional_GoodRoll {
+					RandomMutation 1
+					odds 1%
+				}	
+			}
+		}
+    }
+
+    RadioactiveMask {
+        name "ARMOR_RADIOACTIVEMASK_NAME"
+        desc "ARMOR_RADIOACTIVEMASK_DESC"
+        rarity uncommon
+        kind face
+        frame 88
+    degrade_after_adventure false
+        set Radioactive
+		
+		shield 2
+
+		passives {
+            Metal 1
+			DepressionAura 1
+			StatusOnBattleEnd {
+				Conditional_GoodRoll {
+					RandomMutation 1
+					odds 1%
+				}	
+			}
+		}
+    }
+
+    RadioactiveNecklace {
+        name "ARMOR_RADIOACTIVENECKLACE_NAME"
+        desc "ARMOR_RADIOACTIVENECKLACE_DESC"
+        rarity uncommon
+        kind neck
+        frame 72
+    degrade_after_adventure false
+        set Radioactive
+		
+		shield 2
+
+		passives {
+            Metal 1
+			DepressionAura 1
+			StatusOnBattleEnd {
+				Conditional_GoodRoll {
+					RandomMutation 1
+					odds 1%
+				}	
+			}
+		}
+    }
+	
+//Molten
+    MoltenHat {
+        name "ARMOR_MOLTENHAT_NAME"
+        desc "ARMOR_MOLTENHAT_DESC"
+        rarity uncommon
+        kind head
+        frame 87
+    degrade_after_adventure false
+        set Molten
+		
+		passives {
+			Burn 2
+			AddStatusToBasicAttack {
+				Burn 1
+			}
+			MeleeRevengeDamage {
+				effects {
+					Burn 1
+				}
+			}
+		}
+	}
+
+    MoltenMask {
+        name "ARMOR_MOLTENMASK_NAME"
+        desc "ARMOR_MOLTENMASK_DESC"
+        rarity uncommon
+        kind face
+        frame 89
+    degrade_after_adventure false
+        set Molten
+
+		passives {
+			Burn 2
+			AddStatusToBasicAttack {
+				Burn 1
+			}
+			MeleeRevengeDamage {
+				effects {
+					Burn 1
+				}
+			}
+		}
+    }
+
+    MoltenNecklace {
+        name "ARMOR_MOLTENNECKLACE_NAME"
+        desc "ARMOR_MOLTENNECKLACE_DESC"
+        rarity uncommon
+        kind neck
+        frame 73
+    degrade_after_adventure false
+        set Molten
+
+		passives {
+			Burn 2
+			AddStatusToBasicAttack {
+				Burn 1
+	        }
+			MeleeRevengeDamage {
+				effects {
+					Burn 1
+				}
+			}
+		}
+    }
+	
+//Mother
+    MothersHat {
+        name "ARMOR_MOTHERSHAT_NAME"
+        desc "ARMOR_MOTHERSHAT_DESC"
+        rarity uncommon
+        kind head
+        frame 88
+    degrade_after_adventure false
+        set Mother
+		
+		passives {
+			SpawnThingOnDeath CharmedTinyTumor
+			SpawnOnBattleStart {
+				object CharmedTinyTumor
+				number 1
+			}
+		}
+    }
+
+    MothersMask {
+        name "ARMOR_MOTHERSMASK_NAME"
+        desc "ARMOR_MOTHERSMASK_DESC"
+        rarity uncommon
+        kind face
+        frame 90
+    degrade_after_adventure false
+        set Mother
+
+		passives {
+			SpawnThingOnDeath CharmedTinyTumor
+			SpawnOnBattleStart {
+				object CharmedTinyTumor
+				number 1
+			}
+		}
+    }
+
+    MothersNecklace {
+        name "ARMOR_MOTHERSNECKLACE_NAME"
+        desc "ARMOR_MOTHERSNECKLACE_DESC"
+        rarity uncommon
+        kind neck
+        frame 74
+    degrade_after_adventure false
+        set Mother
+
+		passives {
+			SpawnThingOnDeath CharmedTinyTumor
+			SpawnOnBattleStart {
+				object CharmedTinyTumor
+				number 1
+			}
+		}
+    }
+	
+//Nurse
+    NurseHat {
+        name "ARMOR_NURSEHAT_NAME"
+        desc "ARMOR_NURSEHAT_DESC"
+        rarity common
+        kind head
+        frame 125
+    degrade_after_adventure false
+        set Nurse
+		
+		con 1
+		
+		passives {
+			HealthRegenUp 1
+			BoostHeals 1
+		}
+    }
+
+    NurseMask {
+        name "ARMOR_NURSEMASK_NAME"
+        desc "ARMOR_NURSEMASK_DESC"
+        rarity common
+        kind face
+        frame 127
+    degrade_after_adventure false
+        set Nurse
+		
+		con 1
+		
+		passives {
+			HealthRegenUp 1
+			BoostHeals 1
+		}
+    }
+
+    NurseNecklace {
+        name "ARMOR_NURSENECKLACE_NAME"
+        desc "ARMOR_NURSENECKLACE_DESC"
+        rarity common
+        kind neck
+        frame 116
+    degrade_after_adventure false
+        set Nurse
+		
+		con 1
+		
+		passives {
+			HealthRegenUp 1
+			BoostHeals 1
+		}
+    }
+	
+//Hybrid
+    HybridHat {
+        name "ARMOR_HYBRIDHAT_NAME"
+        desc "ARMOR_HYBRIDHAT_DESC"
+        rarity common
+        kind head
+        frame 126
+    degrade_after_adventure false
+        set Hybrid
+		
+		passives {
+			Bleed 1
+			MoveQuivered 1
+		}	
+    }
+
+    HybridMask {
+        name "ARMOR_HYBRIDMASK_NAME"
+        desc "ARMOR_HYBRIDMASK_DESC"
+        rarity common
+        kind face
+        frame 128
+    degrade_after_adventure false
+        set [Hybrid, Rat]
+
+		passives {
+			Poison 1
+			Quivered 1
+		}
+    }
+
+    HybridNecklace {
+        name "ARMOR_HYBRIDNECKLACE_NAME"
+        desc "ARMOR_HYBRIDNECKLACE_DESC"
+        rarity common
+        kind neck
+        frame 117
+    degrade_after_adventure false
+        set Hybrid
+		
+		passives {
+			Bruise 1
+			Charge 5
+		}
+    }
+	
+//Fatty
+    FattyHat {
+        name "ARMOR_FATTYHAT_NAME"
+        desc "ARMOR_FATTYHAT_DESC"
+        rarity common
+        kind head
+        frame 116
+    degrade_after_adventure false
+        set Fatty
+
+		passives {
+			Brace 1
+			AddStatusToBasicAttack {
+				Knockback 1
+			}
+		}
+    }
+
+    FattyMask {
+        name "ARMOR_FATTYMASK_NAME"
+        desc "ARMOR_FATTYMASK_DESC"
+        rarity common
+        kind face
+        frame 98
+    degrade_after_adventure false
+        set Fatty
+		
+		passives {
+			Brace 1
+			AddStatusToBasicAttack {
+				Knockback 1
+			}
+		}
+    }
+
+    FattyNecklace {
+        name "ARMOR_FATTYNECKLACE_NAME"
+        desc "ARMOR_FATTYNECKLACE_DESC"
+        rarity common
+        kind neck
+        frame 80
+    degrade_after_adventure false
+        set Fatty
+		
+		passives {
+			Brace 1
+			AddStatusToBasicAttack {
+				Knockback 1
+			}
+		}
+    }
+	
+//Medical
+    MedicalHat {
+        name "ARMOR_MEDICALHAT_NAME"
+        desc "ARMOR_MEDICALHAT_DESC"
+        rarity uncommon
+        kind head
+        frame 117
+    degrade_after_adventure false
+        set Medical
+
+        passives {
+            AllStatsUpPerDisorder 1
+        }
+    }
+
+    MedicalMask {
+        name "ARMOR_MEDICALMASK_NAME"
+        desc "ARMOR_MEDICALMASK_DESC"
+        rarity uncommon
+        kind face
+        frame 99
+    degrade_after_adventure false
+        set Medical
+
+        passives {
+            AllStatsUpPerDisorder 1
+        }
+    }
+
+    MedicalNecklace {
+        name "ARMOR_MEDICALNECKLACE_NAME"
+        desc "ARMOR_MEDICALNECKLACE_DESC"
+        rarity uncommon
+        kind neck
+        frame 81
+    degrade_after_adventure false
+        set Medical
+
+        passives {
+            AllStatsUpPerDisorder 1
+        }
+    }
+	
+//Chip
+    OcularChip {
+        name "ARMOR_OCULARCHIP_NAME"
+        desc "ARMOR_OCULARCHIP_DESC"
+        rarity uncommon
+        kind head
+        frame 118
+    degrade_after_adventure false
+        set Chip
+		
+		int -1
+		cha -1
+		
+		passives {
+			ManaCostReduction 1
+		}
+    }
+
+    CerebralChip {
+        name "ARMOR_CEREBRALCHIP_NAME"
+        desc "ARMOR_CEREBRALCHIP_DESC"
+        rarity uncommon
+        kind face
+        frame 114
+    degrade_after_adventure false
+        set Chip
+
+		int -1
+		cha -1
+		
+		passives {
+			ManaCostReduction 1
+		}
+    }
+
+    SpinalChip {
+        name "ARMOR_SPINALCHIP_NAME"
+        desc "ARMOR_SPINALCHIP_DESC"
+        rarity uncommon
+        kind neck
+        frame 82
+    degrade_after_adventure false
+        set Chip
+
+		int -1
+		cha -1
+		
+		passives {
+			ManaCostReduction 1
+		}
+    }
+	
+//Demonic
+    DemonicHat {
+        name "ARMOR_DEMONICHAT_NAME"
+        desc "ARMOR_DEMONICHAT_DESC"
+        rarity uncommon
+        kind head
+        frame 127
+    degrade_after_adventure false
+        set Demonic
+
+		passives {
+			Thorns 3
+			Trample 3
+            HPGainBlock 1
+		}
+    }
+
+    DemonicMask {
+        name "ARMOR_DEMONICMASK_NAME"
+        desc "ARMOR_DEMONICMASK_DESC"
+        rarity uncommon
+        kind face
+        frame 129
+    degrade_after_adventure false
+        set Demonic
+		
+		passives {
+			Bleed 3
+			BleedThorns 3
+			Trample 3
+		}
+    }
+
+    DemonicNecklace {
+        name "ARMOR_DEMONICNECKLACE_NAME"
+        desc "ARMOR_DEMONICNECKLACE_DESC"
+        rarity uncommon
+        kind neck
+        frame 118
+    degrade_after_adventure false
+        set Demonic
+		
+		passives {
+			Bruise 1
+            StatusOnTookDamage {
+                DamageUp 2
+            }
+        }
+    }
+	
+//Frozen
+    FrozenHat {
+        name "ARMOR_FROZENHAT_NAME"
+        desc "ARMOR_FROZENHAT_DESC"
+        rarity common
+        kind head
+        frame 128
+    degrade_after_adventure false
+        set Frozen
+		
+		shield 1
+		
+		passives {
+			AddStatusToBasicAttack {
+				Slow 1
+				Conditional_GoodRoll {
+					Freeze 1
+					odds 10%
+				}	
+			}
+			MeleeRevengeDamage {
+				effects {
+					Slow 1
+					Conditional_GoodRoll {
+						Freeze 1
+						odds 10%
+				    }	
+				}
+			}
+		}
+    }
+
+    FrozenMask {
+        name "ARMOR_FROZENMASK_NAME"
+        desc "ARMOR_FROZENMASK_DESC"
+        rarity common
+        kind face
+        frame 130
+    degrade_after_adventure false
+        set Frozen
+
+		shield 1
+		
+		passives {
+			AddStatusToBasicAttack {
+				Slow 1
+				Conditional_GoodRoll {
+					Freeze 1
+					odds 10%
+				}	
+			}
+			MeleeRevengeDamage {
+				effects {
+					Slow 1
+					Conditional_GoodRoll {
+						Freeze 1
+						odds 10%
+				    }	
+				}
+			}
+		}
+    }
+
+    FrozenNecklace {
+        name "ARMOR_FROZENNECKLACE_NAME"
+        desc "ARMOR_FROZENNECKLACE_DESC"
+        rarity common
+        kind neck
+        frame 119
+    degrade_after_adventure false
+        set Frozen
+		
+		shield 1
+		
+		passives {
+			AddStatusToBasicAttack {
+				Slow 1
+				Conditional_GoodRoll {
+					Freeze 1
+					odds 10%
+				}	
+			}
+			MeleeRevengeDamage {
+				effects {
+					Slow 1
+					Conditional_GoodRoll {
+						Freeze 1
+						odds 10%
+				    }	
+				}
+			}
+		}
+    }
+	
+//Wooly
+    SaberToothedHat {
+        name "ARMOR_SABERTOOTHEDHAT_NAME"
+		desc "ARMOR_SABERTOOTHEDHAT_DESC"
+        rarity common
+        kind head
+        frame 114
+    degrade_after_adventure false
+        set Wooly
+
+		shield 3
+
+		passives {
+			Thorns 2
+			ElementImmune Ice
+			StatusImmunity [Freeze, Slow]
+		}
+
+    }
+
+    CavemanBeard {
+        name "ARMOR_CAVEMANBEARD_NAME"
+        desc "ARMOR_CAVEMANBEARD_DESC"
+        rarity common
+        kind face
+        frame 96
+    degrade_after_adventure false
+        set [Wooly, Caveman]
+
+		shield 3
+
+		passives {
+			Brace 2
+			ElementImmune Ice
+			StatusImmunity [Freeze, Slow]
+		}
+    }
+
+    SaberToothedPelt {
+        name "ARMOR_SABERTOOTHEDPELT_NAME"
+        desc "ARMOR_SABERTOOTHEDPELT_DESC"
+        rarity common
+        kind neck
+        frame 78
+    degrade_after_adventure false
+        set Wooly
+
+		shield 3
+	
+		passives {
+		    HealthRegenUp 2
+		    ElementImmune Ice
+		    StatusImmunity [Freeze, Slow]
+		}
+    }
+	
+//Rune
+    RuneofJera {
+        name "ARMOR_RUNEOFJERA_NAME"
+        desc "ARMOR_RUNEOFJERA_DESC"
+        rarity rare
+        kind head
+        frame 119
+    degrade_after_adventure false
+        set Rune
+		
+		passives {
+			TrinketPassiveMultiplierBonus 1
+            TrinketActiveEffectsMultiplierBonus 1
+		}
+    }
+
+    RuneofHagalaz {
+        name "ARMOR_RUNEOFHAGALAZ_NAME"
+        desc "ARMOR_RUNEOFHAGALAZ_DESC"
+        rarity rare
+        kind face
+        frame 115
+    degrade_after_adventure false
+        set Rune
+
+		passives {
+			DoubleCastWeapons 1
+		}
+    }
+
+    RuneofPerthro {
+        name "ARMOR_RUNEOFPERTHRO_NAME"
+        desc "ARMOR_RUNEOFPERTHRO_DESC"
+        rarity rare
+        kind neck
+        frame 83
+    degrade_after_adventure false
+        set [Rune *]
+
+		shield 4
+    }
+	
+//Caveman
+    CavemanWig {
+        name "ARMOR_CAVEMANWIG_NAME"
+        desc "ARMOR_CAVEMANWIG_DESC"
+        rarity uncommon
+        kind head
+        frame 115
+    degrade_after_adventure false
+        set Caveman
+
+		int -1
+		str 2
+		
+		passives {
+			SpawnOnBattleStart {
+				object CharmedLice
+				number [1, 3]
+			}
+		}
+    }
+
+    CavemanEyebrows {
+        name "ARMOR_CAVEMANEYEBROWS_NAME"
+        desc "ARMOR_CAVEMANEYEBROWS_DESC"
+        rarity uncommon
+        kind face
+        frame 97
+    degrade_after_adventure false
+        set Caveman
+
+		int -1
+		con 2
+
+		passives {
+			WeaponDamageMultiplierBonus 1
+		}
+    }
+
+    CavemanNecklace {
+        name "ARMOR_CAVEMANNECKLACE_NAME"
+        desc "ARMOR_CAVEMANNECKLACE_DESC"
+        rarity uncommon
+        kind neck
+        frame 79
+    degrade_after_adventure false
+        set Caveman
+
+		int -1
+		lck 2
+		
+		passives {
+			AddCritMultiplier 33%
+		}
+    }
+	
+//Dino
+    DinoHat { //TODO: these should be an aura and not a "at the start of combat" thing
+        name "ARMOR_DINOHAT_NAME"
+        desc "ARMOR_DINOHAT_DESC"
+        rarity uncommon
+        kind head
+        frame 131
+    degrade_after_adventure false
+        set [Dino, Bone]
+
+		int -1
+		
+		shield 5
+		
+		passives {
+            StatusAlliesOnBattleStart {
+                StrengthUp 1
+            }
+        }
+    }
+
+    DinoMask { //TODO: these should be an aura and not a "at the start of combat" thing
+        name "ARMOR_DINOMASK_NAME"
+        desc "ARMOR_DINOMASK_DESC"
+        rarity uncommon
+        kind face
+        frame 118
+    degrade_after_adventure false
+        set [Dino, Bone]
+		
+		int -1
+		
+		shield 5
+		
+		passives {
+            StatusAlliesOnBattleStart {
+                ConstitutionUp 1
+            }
+        }
+    }
+
+    DinoNecklace { //TODO: these should be an aura and not a "at the start of combat" thing
+        name "ARMOR_DINONECKLACE_NAME"
+        desc "ARMOR_DINONECKLACE_DESC"
+        rarity uncommon
+        kind neck
+        frame 86
+    degrade_after_adventure false
+        set [Dino, Bone]
+		
+		int -1
+		
+		shield 5
+		
+		passives {
+            StatusAlliesOnBattleStart {
+                SpeedUp 1
+            }
+        }
+    }
+	
+//BigRock
+    BigRockHat {
+        name "ARMOR_BIGROCKHAT_NAME"
+        desc "ARMOR_BIGROCKHAT_DESC"
+        rarity uncommon
+        kind head
+        frame 129
+    degrade_after_adventure false
+        set Rock
+		
+		spd -2
+		shield 6
+
+		passives {
+			Brace 2
+		}
+    }
+
+    BigRockMask {
+        name "ARMOR_BIGROCKMASK_NAME"
+        desc "ARMOR_BIGROCKMASK_DESC"
+        rarity uncommon
+        kind face
+        frame 116
+    degrade_after_adventure false
+        set Rock
+		spd -2
+		shield 6
+
+		passives {
+			Brace 2
+		}
+
+    }
+
+    BigRockNecklace {
+        name "ARMOR_BIGROCKNECKLACE_NAME"
+        desc "ARMOR_BIGROCKNECKLACE_DESC"
+        rarity uncommon
+        kind neck
+        frame 84
+    degrade_after_adventure false
+        set Rock
+
+		spd -2
+		shield 6
+
+		passives {
+			Brace 2
+		}
+    }
+	
+//Phoenix
+    PhoenixHat {
+        name "ARMOR_PHOENIXHAT_NAME"
+        desc "ARMOR_PHOENIXHAT_DESC"
+        rarity uncommon
+        kind head
+        frame 130
+    degrade_after_adventure false
+        set [Phoenix, Feathered]
+
+		passives {
+			ArmorDodgeChance 10%
+		    StatusOnEndMove {
+				SpeedUp 1
+				Charge 2
+			}
+		}
+    }
+
+    PhoenixMask {
+        name "ARMOR_PHOENIXMASK_NAME"
+        desc "ARMOR_PHOENIXMASK_DESC"
+        rarity uncommon
+        kind face
+        frame 117
+    degrade_after_adventure false
+        set [Phoenix, Feathered]
+
+		passives {
+			ArmorDodgeChance 10%
+		    StatusOnEndMove {
+				SpeedUp 1
+				Charge 2
+			}
+		}
+    }
+
+    PhoenixNecklace {
+        name "ARMOR_PHOENIXNECKLACE_NAME"
+        desc "ARMOR_PHOENIXNECKLACE_DESC"
+        rarity uncommon
+        kind neck
+        frame 85
+    degrade_after_adventure false
+        set [Phoenix, Feathered]
+
+		passives {
+			ArmorDodgeChance 10%
+		    StatusOnEndMove {
+				SpeedUp 1
+				Charge 2
+			}
+		}
+    }
+
+//Ancestor
+    AncestorsSkull {
+        name "ARMOR_ANCESTORSSKULL_NAME"
+        desc "ARMOR_ANCESTORSSKULL_DESC"
+        rarity rare
+        kind head
+        frame 171
+    degrade_after_adventure false
+        set [Ancestor, Bone]
+        
+        str_aux_initialize random_class_passive
+        str_aux_is_copy_passive true
+    }
+
+    AncestorsJaw {
+        name "ARMOR_ANCESTORSJAW_NAME"
+        desc "ARMOR_ANCESTORSJAW_DESC"
+        rarity rare
+        kind face
+        frame 155
+    degrade_after_adventure false
+        set [Ancestor, Bone]
+        
+        str_aux_initialize random_class_passive
+        str_aux_is_copy_passive true
+    }
+
+    AncestorsBones {
+        name "ARMOR_ANCESTORSBONES_NAME"
+        desc "ARMOR_ANCESTORSBONES_DESC"
+        rarity rare
+        kind neck
+        frame 141
+    degrade_after_adventure false
+        set [Ancestor, Bone]
+        
+        str_aux_initialize random_class_passive
+        str_aux_is_copy_passive true
+    }
+
+//Copycat
+    CopycatHat {
+        name "ARMOR_COPYCATHAT_NAME"
+        desc "ARMOR_COPYCATHAT_DESC"
+        rarity rare
+        kind head
+        frame 90
+    degrade_after_adventure false
+        set Copycat
+
+        passives {
+            TrinketPassiveMultiplierBonus 1
+        }
+    }
+
+    CopycatMask {
+        name "ARMOR_COPYCATMASK_NAME"
+        desc "ARMOR_COPYCATMASK_DESC"
+        rarity rare
+        kind face
+        frame 93
+    degrade_after_adventure false
+        set Copycat
+
+        passives {
+            TrinketPassiveMultiplierBonus 1
+        }
+    }
+
+    CopycatScarf {
+        name "ARMOR_COPYCATSCARF_NAME"
+        desc "ARMOR_COPYCATSCARF_DESC"
+        rarity rare
+        kind neck
+        frame 76
+    degrade_after_adventure false
+        set Copycat
+
+        passives {
+            TrinketPassiveMultiplierBonus 1
+        }
+    }
+    
