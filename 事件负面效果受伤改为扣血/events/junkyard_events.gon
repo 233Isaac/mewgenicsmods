@@ -1,0 +1,854 @@
+LockedTrunk {
+    intro {
+        title "EVENT_LOCKEDTRUNK_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame locked_trunk
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_LOCKEDTRUNK_QUES"
+
+        options {
+            open {
+                label "EVENT_OPEN_ANSW"
+                stat lck
+
+                good {
+                    reward {
+                        common {
+                            set_frame 2
+                            prompt "EVENT_LOCKEDTRUNK_REW1"
+                            get_item_from_pool junkyard_items
+                        }
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_LOCKEDTRUNK_REW2"
+                            gain_coins [10 20]
+							get_item_from_pool junkyard_items
+							get_item_from_pool junkyard_items
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 4
+                            prompt "EVENT_LOCKEDTRUNK_REW3"
+                            gain_disorder_from_pool mental_disorders
+                        }
+                        rare {
+                            set_frame 5
+                            prompt "EVENT_LOCKEDTRUNK_REW4" 
+                            self_status_next_fight {
+                                Madness 1
+                            }
+                        }
+                    }
+                }
+            }
+
+            leave {
+                label "EVENT_WALKAWAY_ANSW"
+                stat spd
+
+                good {
+                    set_frame 1
+                    reward {
+                        common {
+                            prompt "EVENT_LOCKEDTRUNK_REW5"
+                            play_animation [resultLeave 0]
+                            //nothing,
+                        }
+                        rare {
+                            prompt "EVENT_LOCKEDTRUNK_REW6"
+                            permanent_stats {
+                                spd 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 1
+                            prompt "EVENT_LOCKEDTRUNK_REW5"
+                            play_animation [resultLeave 0]
+                            //nothing
+
+                        }
+                        rare {
+                            set_frame 4
+                            prompt "EVENT_LOCKEDTRUNK_REW7" 
+                            gain_disorder_from_pool mental_disorders
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+BarbedWireFence {
+    intro {
+        title "EVENT_BARBEDWIREFENCE_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame barbed_wire_fence
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_BARBEDWIREFENCE_QUES"
+
+        options {
+            cut_wires {
+                label "EVENT_CUTWIRES_ANSW"
+                stat int
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_BARBEDWIREFENCE_REW1"
+                            //nothing
+                        }
+                        rare {
+                            prompt "EVENT_BARBEDWIREFENCE_REW2"
+                            get_item_from_pool barbed_items
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_BARBEDWIREFENCE_REW3"
+                            permanent_stats {
+                                con -1
+                            }
+                            get_parasite_from_pool barbed_items
+                        }
+                        rare {
+                            prompt "EVENT_BARBEDWIREFENCE_REW4" 
+                            permanent_stats {
+                                con -1
+                            }
+                            damage [1 5]
+                        }
+                    }
+                }
+            }
+
+            slip_through {
+                label "EVENT_SLIPTHROUGH_ANSW"
+                stat dex
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_BARBEDWIREFENCE_REW5"
+                            damage [1 3]
+                        }
+                        rare {
+                            prompt "EVENT_BARBEDWIREFENCE_REW6"
+                            ambush_next_basic_fights 1
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_BARBEDWIREFENCE_REW7"
+                            damage [5 10]
+                        }
+                        rare {
+                            prompt "EVENT_BARBEDWIREFENCE_REW8" 
+                            damage [1 5]  //random
+                            get_parasite_from_pool barbed_armor
+                        }
+                    }
+                }
+            }
+
+            go_around {
+                label "EVENT_TAKELONGWAY_ANSW"
+                stat lck
+                animation choice_leave
+                
+                good {
+                    next_event_bonus 1
+                    event_now_same_cat random
+                    prompt "EVENT_BARBEDWIREFENCE_REW9"
+                    play_animation [resultLeave 0]
+                }
+                bad {
+                    next_event_bonus -1
+                    event_now_same_cat random
+                    prompt "EVENT_BARBEDWIREFENCE_REW10"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+TrashBags {
+    intro {
+        title "EVENT_TRASHBAGS_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame trash_bags
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_TRASHBAGS_QUES"
+
+        options {
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_TRASHBAGS_REW1"
+                            heal 5
+                            get_item_from_pool flesh_items
+                        }
+                        rare {
+                            prompt "EVENT_TRASHBAGS_REW2"
+                            permanent_stats {
+                                con 1
+                            }   
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_TRASHBAGS_REW3"
+                            gain_disorder_from_pool [Dysentery, IBS, Infestation, EatingDisorder, Gastritis, Pica, CrohnsDisease]
+                        }
+                        rare {
+                            prompt "EVENT_TRASHBAGS_REW4" 
+                            gain_disorder Vegan
+                        }
+                    }
+                }
+            }
+
+            open {
+                label "EVENT_OPEN_ANSW"
+                stat lck
+
+                good {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_TRASHBAGS_REW5"
+                            get_item_from_pool recycled_items
+                        }
+                        rare {
+                            prompt "EVENT_TRASHBAGS_REW6"
+                            get_item_from_pool junkyard_items
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_TRASHBAGS_REW7"
+                            get_parasite_from_pool sludge_armor
+                        }
+                        rare {
+                            prompt "EVENT_TRASHBAGS_REW8"
+                            get_parasite SludgeHat
+                            get_parasite SludgeMask
+                            get_parasite SludgeNeck
+                        }
+                    }
+                }
+            }
+
+            attack {
+                label "EVENT_ATTACK_ANSW"
+                stat str
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_TRASHBAGS_REW9"
+                            global_effect_next_fight {
+                                Fights 1
+                                StatusRandomEnemiesOnBattleStart {
+                                    count 1
+                                    Bleed 2
+                                }
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_TRASHBAGS_REW10"
+                            learn_passive DirtyClaws
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_TRASHBAGS_REW11"
+                            damage 2
+                            spawn_unit_next_fight {
+                                object ChumBag
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_TRASHBAGS_REW12" 
+                            damage [1 5]  //random
+                            spawn_unit_next_fight {
+                                count 2 //TODO: Instead spawn ChampionChummy
+                                object ChumBag
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+HeadInATire {
+    requirements {
+        not_has_token WorldEventLegacyToken_HeadInTireCompleted
+    }
+
+    intro {
+        title "EVENT_HEADINATIRE_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame head_in_a_tire
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_HEADINATIRE_QUES"
+
+        options {
+            kiss {
+                label "EVENT_KISS_ANSW"
+                stat cha
+
+                good {
+                    reward {
+                        common {
+                            set_frame 1
+                            prompt "EVENT_HEADINATIRE_REW1"
+                            //nothing
+                        }
+                        rare {
+                            set_frame 4
+                            prompt "EVENT_HEADINATIRE_REW2"
+                            set_legacy_token WorldEventLegacyToken_HeadInTireCompleted
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_HEADINATIRE_REW3"
+                            gain_disorder_from_pool diseases                            
+                        }
+                        rare {
+                            prompt "EVENT_HEADINATIRE_REW4"
+                            gain_disorder_from_pool diseases
+                            gain_disorder_from_pool diseases
+                            self_status_next_fight {
+                                Rot 2
+                            }
+                        }
+                    }
+                }
+            }
+
+            run {
+                label "EVENT_RUN_ANSW"
+                stat spd
+
+                good {
+                    reward {
+                        common {
+                            set_frame 1
+                            prompt "EVENT_HEADINATIRE_REW5"
+                            //nothing
+                        }
+                        rare {
+                            prompt "EVENT_HEADINATIRE_REW6"
+                            permanent_stats {
+                                spd 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_HEADINATIRE_REW7"
+                            damage [1 5]  //spd
+                        }
+                        rare {
+                            prompt "EVENT_HEADINATIRE_REW8" 
+                            damage [1 5]  //spd
+                            damage [1 5]  //spd
+                            damage 10
+                        }
+                    }
+                }
+            }
+
+
+            attack {
+                label "EVENT_ATTACK_ANSW"
+                stat str
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_HEADINATIRE_REW9"
+                            //nothing
+                        }
+                        rare {
+                            prompt "EVENT_HEADINATIRE_REW10"
+                            get_item_from_pool [BonesMask, BonesHat, HumanHead, HumanFleshMask, HumanBrain]
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_HEADINATIRE_REW11"
+                            damage [1 5]  //cha
+                        }
+                        rare {
+                            prompt "EVENT_HEADINATIRE_REW12" 
+                            gain_disorder PuncturedEye
+                            damage [1 5]  //cha
+                            damage 10
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+BoxWithAHole {
+    intro {
+        title "EVENT_BOXWITHAHOLE_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame box_with_a_hole
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_BOXWITHAHOLE_QUES"
+
+        options {
+            leg {
+                label "EVENT_LEGINSIDE_ANSW"
+                stat lck
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_BOXWITHAHOLE_REW1"
+                            random_mutation_from_set {
+                                count 1
+                                legs -1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_BOXWITHAHOLE_REW2"
+                            random_mutation_from_set {
+                                count 1
+                                legs -1
+                            }
+                            permanent_stats {
+                                spd 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_BOXWITHAHOLE_REW3"
+                            damage [1 5]  //spd
+                        }
+                        rare {
+                            prompt "EVENT_BOXWITHAHOLE_REW4" 
+                            damage [1 5]  //spd
+                            self_status_next_fight {
+                                Fear 5
+                            }
+                        }
+                    }
+                }
+            }
+
+            arm {
+                label "EVENT_ARMINSIDE_ANSW"
+                stat lck
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_BOXWITHAHOLE_REW5"
+                            random_mutation_from_set {
+                                count 1
+                                legs -1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_BOXWITHAHOLE_REW6"
+                            random_mutation_from_set {
+                                count 1
+                                legs -1
+                            }
+                            permanent_stats {
+                                str 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_BOXWITHAHOLE_REW7"
+                            damage [1 5]  //str
+                        }
+                        rare {
+                            prompt "EVENT_BOXWITHAHOLE_REW8" 
+                            damage [1 5]  //str
+                            self_status_next_fight {
+                                Fear 5
+                            }
+                        }
+                    }
+                }
+            }
+            
+            tail {
+                label "EVENT_TAILINSIDE_ANSW"
+                stat lck
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_BOXWITHAHOLE_REW9"
+                            random_mutation_from_set {
+                                count 1
+                                tail -1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_BOXWITHAHOLE_REW10"
+                            random_mutation_from_set {
+                                count 1
+                                tail -1
+                            }
+                            permanent_stats {
+                                dex 1
+                            }
+                        }
+                    }
+                }
+
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_BOXWITHAHOLE_REW11"
+                            damage [1 5]  //lck
+                        }
+                        rare {
+                            prompt "EVENT_BOXWITHAHOLE_REW12" 
+                            damage [1 5]  //lck
+                            self_status_next_fight {
+                                Fear 5
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+StartDigging {
+    intro {
+        title "EVENT_STARTDIGGING_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame start_digging
+        event_clip NonWheelEvent
+    }
+
+    main {
+        setup {
+            conditional_reward {
+                requirements {
+                    not_has_token WorldEventLegacyToken_StartDigging
+                }
+                reward {
+                    prompt "EVENT_STARTDIGGING_QUES"
+                }
+            }
+            conditional_reward {
+                requirements {
+                    counter_range [WorldEventLegacyToken_StartDigging 1 3]
+                }
+                reward {
+                    prompt "EVENT_STARTDIGGING_QUES2"
+                }
+            }
+            conditional_reward {
+                requirements {
+                    counter_range [WorldEventLegacyToken_StartDigging 1 1]
+                }
+
+                reward {
+                    set_frame 2
+                }
+            }
+            conditional_reward {
+                requirements {
+                    counter_range [WorldEventLegacyToken_StartDigging 2 2]
+                }
+
+                reward {
+                    set_frame 3
+                }
+            }
+            
+            conditional_reward {
+                requirements {
+                    counter_range [WorldEventLegacyToken_StartDigging 3 3]
+                }
+
+                reward {
+                    set_frame 4
+                }
+            }
+
+            conditional_reward {
+                requirements {
+                    counter_minimum [WorldEventLegacyToken_StartDigging 4]
+                }
+
+                reward {
+                    set_frame 5
+                    prompt "EVENT_STARTDIGGING_QUES3"
+                }
+            }
+        }
+
+        options {
+            dig {
+                label "EVENT_DIG_ANSW"
+                stat str
+
+                requirements {
+                    counter_maximum [WorldEventLegacyToken_StartDigging 3]
+                }
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_STARTDIGGING_REW1"
+                            increment_legacy_counter WorldEventLegacyToken_StartDigging
+                            get_item_from_pool junkyard_items
+                        }
+                        rare {
+                            prompt "EVENT_STARTDIGGING_REW2"
+                            increment_legacy_counter WorldEventLegacyToken_StartDigging
+                            increment_legacy_counter WorldEventLegacyToken_StartDigging
+                            learn_passive DirtyClaws
+							    permanent_stats {
+                                str 2
+                            }
+                        }
+                    }
+
+                    //update frame
+                    conditional_reward {
+                        requirements {
+                            counter_range [WorldEventLegacyToken_StartDigging 0 0]
+                        }
+                        reward {
+                            set_frame 1
+                        }
+                    }
+                    conditional_reward {
+                        requirements {
+                            counter_range [WorldEventLegacyToken_StartDigging 1 1]
+                        }
+                        reward {
+                            set_frame 2
+                        }
+                    }
+                    conditional_reward {
+                        requirements {
+                            counter_range [WorldEventLegacyToken_StartDigging 2 2]
+                        }
+                        reward {
+                            set_frame 3
+                        }
+                    }
+                    conditional_reward {
+                        requirements {
+                            counter_range [WorldEventLegacyToken_StartDigging 3 3]
+                        }
+                        reward {
+                            set_frame 4
+                        }
+                    }                    
+                    conditional_reward {
+                        requirements {
+                            counter_minimum [WorldEventLegacyToken_StartDigging 4]
+                        }
+                        reward {
+                            set_frame 5
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_STARTDIGGING_REW3"
+                            damage [3 6]
+                        }
+                        rare {
+                            prompt "EVENT_STARTDIGGING_REW4" 
+                            decrement_legacy_counter WorldEventLegacyToken_StartDigging
+                            get_parasite PawShards
+
+                            //update frame
+                            conditional_reward {
+                                requirements {
+                                    counter_range [WorldEventLegacyToken_StartDigging 0 0]
+                                }
+                                reward {
+                                    set_frame 1
+                                }
+                            }
+                            conditional_reward {
+                                requirements {
+                                    counter_range [WorldEventLegacyToken_StartDigging 1 1]
+                                }
+                                reward {
+                                    set_frame 2
+                                }
+                            }
+                            conditional_reward {
+                                requirements {
+                                    counter_range [WorldEventLegacyToken_StartDigging 2 2]
+                                }
+                                reward {
+                                    set_frame 3
+                                }
+                            }
+                            conditional_reward {
+                                requirements {
+                                    counter_range [WorldEventLegacyToken_StartDigging 3 3]
+                                }
+                                reward {
+                                    set_frame 4
+                                }
+                            }                    
+                            conditional_reward {
+                                requirements {
+                                    counter_minimum [WorldEventLegacyToken_StartDigging 4]
+                                }
+                                reward {
+                                    set_frame 5
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat lck
+                animation choice_dex_alt
+                
+                requirements {
+                    counter_minimum [WorldEventLegacyToken_StartDigging 4]
+                }
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_STARTDIGGING_REW5"
+                            shop_now TreasureEasy
+                        }
+                        rare {
+                            prompt "EVENT_STARTDIGGING_REW6"
+                            shop_now TreasureHard
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_STARTDIGGING_REW7"
+                            //nothing
+                        }
+                        rare {
+                            prompt "EVENT_STARTDIGGING_REW8" 
+                            damage 5
+                            decrement_legacy_counter WorldEventLegacyToken_StartDigging
+                            decrement_legacy_counter WorldEventLegacyToken_StartDigging
+                            set_frame 3
+                        }
+                    }
+                }
+            }
+            
+            leave {
+                label "EVENT_LEAVE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_STARTDIGGING_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,385 @@
+PitOfSnakes {
+    intro {
+        title "EVENT_PITOFSNAKES_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame pit_of_snakes
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_PITOFSNAKES_QUES"
+
+        options {
+            fight {
+                label "EVENT_FIGHT_ANSW"
+                stat str
+
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_PITOFSNAKES_REW1"
+                            gain_food [4 8]
+                        }
+                        rare {
+                            prompt "EVENT_PITOFSNAKES_REW2"
+                            learn_passive CobraStyle
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_PITOFSNAKES_REW3"
+                            damage 3
+                            self_status_next_fight {
+                                Poison 3
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_PITOFSNAKES_REW4"
+                            damage 6
+                            self_status_next_fight {
+                                Poison 6
+                            }
+                            mutation {
+                                ears 328
+                            }
+                        }
+                    }
+                }
+            }
+
+            jump_over {
+                label "EVENT_JUMPOVER_ANSW"
+                stat dex
+
+                good {
+                    reward {
+                        common {
+                            set_frame 1
+                            prompt "EVENT_PITOFSNAKES_REW5"
+                            //nothing
+                        }
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_PITOFSNAKES_REW6"
+                            //gain_parasite GoldenIdol //Item is waiting on feature
+                            get_item_from_pool chapter_rare
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_PITOFSNAKES_REW7"
+                            damage 3
+                            self_status_next_fight {
+                                Poison 3
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_PITOFSNAKES_REW8" 
+                            damage [1 5]
+                        }
+                    }
+                }
+            }
+            
+            charm {
+                label "EVENT_CHARM_ANSW"
+                stat cha
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_PITOFSNAKES_REW9"
+                            gain_familiar Snake
+                        }
+                        rare {
+                            prompt "EVENT_PITOFSNAKES_REW10"
+                            gain_familiar Snake
+                            gain_familiar Snake
+                            gain_familiar Snake
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_PITOFSNAKES_REW11"
+                            party_damage 3
+                            party_status_next_fight {
+                                Poison 3
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_PITOFSNAKES_REW12" 
+                            permanent_stats {
+                                cha -1
+                            }
+                            self_status_next_fight {
+                                Poison 3
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+Meteor {
+    intro {
+        title "EVENT_METEOR_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame meteor
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_METEOR_QUES"
+
+        options {
+            take {
+                label "EVENT_TAKE_ANSW"
+                stat lck
+
+                good {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_METEOR_REW1"
+                            get_item_from_pool chapter_common //TODO: Replace with small meteor item when it is implemented.
+                        }
+                        rare {
+                            prompt "EVENT_METEOR_REW2"
+                            random_mutation 1
+                            get_item_from_pool chapter_rare //TODO: Replace with meteor item when it is implemented.
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 4
+                            prompt "EVENT_METEOR_REW3"
+                            random_mutation 1
+                            get_parasite_from_pool [AmoebaHat AmoebaNeck AmoebaFace]
+                        }
+                        rare {
+                            set_frame 4
+                            prompt "EVENT_METEOR_REW4" 
+                            random_mutation 2
+                            random_pool [
+                                {
+                                    get_parasite AmoebaNeck
+                                    get_parasite AmoebaFace
+                                }
+                                {
+                                    get_parasite AmoebaHat
+                                    get_parasite AmoebaFace
+                                }
+                                {
+                                    get_parasite AmoebaHat
+                                    get_parasite AmoebaNeck
+                                }
+                            ]
+                            spawn_unit_next_fight {
+                                object Amoeba
+                                count 1
+                                side enemies
+                            }
+                        }
+                    }
+                }
+            }
+
+            crack_open {
+                label "EVENT_CRACKOPEN_ANSW"
+                stat str
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_METEOR_REW5"
+                            random_mutation 1               
+                        }
+                        rare {
+                            prompt "EVENT_METEOR_REW6"
+                            random_mutation 1
+                            gain_coins 15
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 2
+                            prompt "EVENT_METEOR_REW7"
+                            gain_disorder_from_pool all_disorders
+                            random_mutation 1
+                        }
+                        rare {
+                            set_frame 4
+                            prompt "EVENT_METEOR_REW8" 
+                            random_mutation 3
+                            random_pool [
+                                {
+                                    get_parasite AmoebaNeck
+                                    get_parasite AmoebaFace
+                                }
+                                {
+                                    get_parasite AmoebaHat
+                                    get_parasite AmoebaFace
+                                }
+                                {
+                                    get_parasite AmoebaHat
+                                    get_parasite AmoebaNeck
+                                }
+                            ]
+                            spawn_unit_next_fight {
+                                object Amoeba
+                                count 1
+                                side enemies
+                            }
+                        }
+                    }
+                }
+            }
+            
+            leave {
+                label "EVENT_LEAVE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_METEOR_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+MysteriousCrater {
+    intro {
+        title "EVENT_MYSTERIOUSCRATER_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame mysterious_crater
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_MYSTERIOUSCRATER_QUES"
+
+        options {
+            enter_crater {
+                label "EVENT_MYSTERIOUSCRATER_ENTER_ANSW"
+                stat lck
+
+                good {
+                    reward {
+                        common {
+                            prompt "EVENT_MYSTERIOUSCRATER_REW1"
+                            next_event_bonus 2
+                            random_pool [
+                                {
+                                    event_now Meteor
+                                }
+                                {
+                                    event_now SeveredHead
+                                }
+                                {
+                                    event_now WatchingHead
+                                }
+                            ]
+                        }
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_MYSTERIOUSCRATER_REW2"
+                            //TODO: Replace with 2-4 meteor items
+                            get_item_from_pool chapter_common
+                            random_pool [
+                                {
+                                    get_item_from_pool chapter_common
+                                }
+                                {
+                                    get_item_from_pool chapter_common
+                                    get_item_from_pool chapter_common
+                                }
+                                {
+                                    get_item_from_pool chapter_common
+                                    get_item_from_pool chapter_common
+                                    get_item_from_pool chapter_common
+                                }
+                            ]
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            prompt "EVENT_MYSTERIOUSCRATER_REW3"
+                            next_event_bonus -1
+                            random_pool [
+                                {
+                                    event_now_same_cat Meteor
+                                }
+                                {
+                                    event_now_same_cat SeveredHead
+                                }
+                                {
+                                    event_now_same_cat WatchingHead
+                                }
+                            ]
+                        }
+                        rare {
+                            set_frame 2
+                            prompt "EVENT_MYSTERIOUSCRATER_REW4" 
+                            
+                            random_pool [
+                                {
+                                    get_parasite AmoebaNeck
+                                    get_parasite AmoebaFace
+                                }
+                                {
+                                    get_parasite AmoebaHat
+                                    get_parasite AmoebaFace
+                                }
+                                {
+                                    get_parasite AmoebaHat
+                                    get_parasite AmoebaNeck
+                                }
+                            ]
+                            spawn_unit_next_fight {
+                                object Amoeba
+                                count 1
+                                side enemies
+                            }
+                        }
+                    }
+                }
+            }
+            
+            leave {
+                label "EVENT_LEAVE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_MYSTERIOUSCRATER_REW5"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}

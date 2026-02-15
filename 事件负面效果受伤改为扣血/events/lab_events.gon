@@ -1,0 +1,499 @@
+Needles {
+    intro {
+        title "EVENT_NEEDLES_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame needles
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_NEEDLES_QUES"
+
+        setup {
+            conditional_reward {
+                requirements {
+                    has_token AdventureToken_HasTakenNeedle
+                }
+                reward {
+                    prompt EVENT_NEEDLES_AGAIN_QUES
+                }
+            }
+        }
+
+        options {
+            red_needle {
+                label "EVENT_NEEDLES_RED_ANSW"
+                stat lck
+
+                requirements {
+                    not_has_token AdventureToken_RedNeedle
+                }
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            random_pool [
+                                {
+                                    prompt "EVENT_NEEDLES_REW1"
+                                    permanent_stats {
+                                        con 1
+                                    }
+                                }
+                                {
+                                    random_mutation 1
+                                    prompt "EVENT_NEEDLES_MUTATE_REW"
+                                }
+                            ]
+                        }
+                        rare {
+                            prompt "EVENT_NEEDLES_REW2"
+                            permanent_stats {
+                                con 1
+                            }
+                            random_mutation 1
+                            set_adventure_token AdventureToken_RedNeedle
+                            set_adventure_token AdventureToken_HasTakenNeedle
+                            conditional_reward {
+                                requirements {
+                                    has_token AdventureToken_RedNeedle
+                                    has_token AdventureToken_BlueNeedle
+                                    has_token AdventureToken_YellowNeedle
+                                }
+                                reward {}
+                                else {
+                                    event_now_same_cat Needles
+                                }
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_NEEDLES_REW3"
+                            permanent_stats {
+                                con -1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_NEEDLES_REW4" 
+                            permanent_stats {
+                                con -1
+                            }                            
+                            random_mutation 1
+                            set_adventure_token AdventureToken_RedNeedle
+                            set_adventure_token AdventureToken_HasTakenNeedle
+                            conditional_reward {
+                                requirements {
+                                    has_token AdventureToken_RedNeedle
+                                    has_token AdventureToken_BlueNeedle
+                                    has_token AdventureToken_YellowNeedle
+                                }
+                                reward {}
+                                else {
+                                    event_now_same_cat Needles
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            blue_needle {
+                label "EVENT_NEEDLES_BLUE_ANSW"
+                stat lck
+                
+                requirements {
+                    not_has_token AdventureToken_BlueNeedle
+                } 
+
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            random_pool [
+                                {
+                                    prompt "EVENT_NEEDLES_REW5"
+                                    permanent_stats {
+                                        int 1
+                                    }
+                                }
+                                {
+                                    prompt "EVENT_NEEDLES_MUTATE_REW"
+                                    random_mutation 1
+                                }
+                            ]
+                            
+                        }
+                        rare {
+                            prompt "EVENT_NEEDLES_REW6"
+                            permanent_stats {
+                                int 1
+                            }
+                            random_mutation 1
+                            set_adventure_token AdventureToken_BlueNeedle
+                            set_adventure_token AdventureToken_HasTakenNeedle
+                            conditional_reward {
+                                requirements {
+                                    has_token AdventureToken_RedNeedle
+                                    has_token AdventureToken_BlueNeedle
+                                    has_token AdventureToken_YellowNeedle
+                                }
+                                reward {}
+                                else {
+                                    event_now_same_cat Needles
+                                }
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_NEEDLES_REW7"
+                            permanent_stats {
+                                int -1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_NEEDLES_REW8" 
+                            permanent_stats {
+                                int -1
+                            }                            
+                            random_mutation 1
+                            set_adventure_token AdventureToken_BlueNeedle
+                            set_adventure_token AdventureToken_HasTakenNeedle
+                            conditional_reward {
+                                requirements {
+                                    has_token AdventureToken_RedNeedle
+                                    has_token AdventureToken_BlueNeedle
+                                    has_token AdventureToken_YellowNeedle
+                                }
+                                reward {}
+                                else {
+                                    event_now_same_cat Needles
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            yellow_needle {
+                label "EVENT_NEEDLES_YELLOW_ANSW"
+                stat lck
+                
+                requirements {
+                    not_has_token AdventureToken_YellowNeedle
+                } 
+
+                good {
+                    set_frame 6
+                    reward {
+                        common {
+                            random_pool [
+                                {
+                                    prompt "EVENT_NEEDLES_REW9"
+                                    permanent_stats {
+                                        lck 1
+                                    }
+                                }
+                                {
+                                    prompt "EVENT_NEEDLES_MUTATE_REW"
+                                    random_mutation 1
+                                }
+                            ]
+                            
+                        }
+                        rare {
+                            prompt "EVENT_NEEDLES_REW10"
+                            permanent_stats {
+                                lck 1
+                            }
+                            random_mutation 1
+                            set_adventure_token AdventureToken_YellowNeedle
+                            set_adventure_token AdventureToken_HasTakenNeedle
+                            conditional_reward {
+                                requirements {
+                                    has_token AdventureToken_RedNeedle
+                                    has_token AdventureToken_BlueNeedle
+                                    has_token AdventureToken_YellowNeedle
+                                }
+                                reward {}
+                                else {
+                                    event_now_same_cat Needles
+                                }
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 7
+                    reward {
+                        common {
+                            prompt "EVENT_NEEDLES_REW11"
+                            permanent_stats {
+                                lck -1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_NEEDLES_REW12" 
+                            permanent_stats {
+                                lck -1
+                            }                            
+                            random_mutation 1
+                            set_adventure_token AdventureToken_YellowNeedle
+                            set_adventure_token AdventureToken_HasTakenNeedle
+                            conditional_reward {
+                                requirements {
+                                    has_token AdventureToken_RedNeedle
+                                    has_token AdventureToken_BlueNeedle
+                                    has_token AdventureToken_YellowNeedle
+                                }
+                                reward {}
+                                else {
+                                    event_now_same_cat Needles
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+MysteriousJar {
+    intro {
+        title "EVENT_MYSTERIOUSJAR_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame mysterious_jar
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_MYSTERIOUSJAR_QUES"
+        
+        setup {
+            conditional_reward {
+                requirements {
+                    not_has_token AdventureToken_MysteriousJarRepeat
+                }
+                reward {
+                    prompt "EVENT_MYSTERIOUSJAR_QUES"
+                }
+                else {
+                    prompt "EVENT_MYSTERIOUSJAR_QUES2"
+                }
+            }
+        }
+
+        options {
+            free {
+                label "EVENT_FREE_ANSW"
+                stat lck
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_MYSTERIOUSJAR_REW1"
+                            random_pool [
+                                {
+                                    gain_familiar Squirrel
+                                    prompt "EVENT_MYSTERIOUSJAR_REW1_SQUIRREL"
+                                }
+                                {
+                                    gain_familiar Crow
+                                    prompt "EVENT_MYSTERIOUSJAR_REW1_CROW"
+                                }
+                                {
+                                    gain_familiar Snake
+                                    prompt "EVENT_MYSTERIOUSJAR_REW1_SNAKE"
+                                }
+                                {
+                                    gain_familiar Turtle
+                                    prompt "EVENT_MYSTERIOUSJAR_REW1_TURTLE"
+                                }
+                                {
+                                    gain_familiar Toad
+                                    prompt "EVENT_MYSTERIOUSJAR_REW1_TOAD"
+                                }
+                                {
+                                    gain_familiar Catepillar
+                                    prompt "EVENT_MYSTERIOUSJAR_REW1_CATERPILLAR"
+                                }                               
+                            ]
+                        }
+                        rare {
+                            prompt "EVENT_MYSTERIOUSJAR_REW2"
+                            random_pool [
+                                {
+                                    gain_familiar CharmedSnakeyBones
+                                }
+                                {
+                                    gain_familiar CharmedHornyCat
+                                }
+                                {
+                                    gain_familiar CharmedGunCat
+                                }
+                                {
+                                    gain_familiar CharmedScorpionCat
+                                }
+                                {
+                                    gain_familiar CharmedMangy2
+                                }
+                                {
+                                    gain_familiar CharmedBabyDeathWorm
+                                }
+                            ]
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_MYSTERIOUSJAR_REW3"
+                            self_status_next_fight {
+                                Poison 1
+                                Bleed 1
+                                Bruise 1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_MYSTERIOUSJAR_REW4" 
+                            spawn_unit_next_fight {
+                                object [SnakeyBones HornyCat GunCat ScorpionCat Mangy2 BabyDeathWorm]
+                                count 1
+                                spawn_side enemies
+                            }
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+
+                requirements {
+                    not_has_token AdventureToken_MysteriousJarRepeat
+                }
+
+                good {
+                    reward {
+                        common {
+                            prompt "EVENT_MYSTERIOUSJAR_REW5"
+                            play_animation [resultLeave 0]
+                            //nothing
+                        }
+                        rare {
+                            prompt "EVENT_MYSTERIOUSJAR_REW6"
+                            set_adventure_token AdventureToken_MysteriousJarRepeat
+                            next_event_bonus 1
+                            event_now_same_cat MysteriousJar
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            prompt "EVENT_MYSTERIOUSJAR_REW7"
+                            play_animation [resultLeave 0]
+                            //nothing
+                        }
+                        rare {
+                            prompt "EVENT_MYSTERIOUSJAR_REW8" 
+                            gain_disorder Depression
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+OddDevice {
+    intro {
+        title "EVENT_ODDDEVICE_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame odd_device
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_ODDDEVICE_QUES"
+
+        options {
+            push_buttons {
+                label "EVENT_ODDDEVICE_PUSHBUTTONS_ANSW"
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_ODDDEVICE_REW1"
+                            random_mutation 1
+                        }
+                        rare {
+                            prompt "EVENT_ODDDEVICE_REW2"
+                            random_mutation 2
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_ODDDEVICE_REW3"
+                            damage [1 5]  //random
+                        }
+                        rare {
+                            prompt "EVENT_ODDDEVICE_REW4" 
+                            damage [1 5]  //random
+                            damage [1 5]  //random
+                        }
+                    }
+                }
+            }
+
+            pull_lever {
+                label "EVENT_ODDDEVICE_PULLLEVER_ANSW"
+
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_ODDDEVICE_REW5"
+                            learn_ability_from_pool AnyUnlocked
+                        }
+                        rare {
+                            prompt "EVENT_ODDDEVICE_REW6"
+                            learn_passive_from_pool AnyUnlocked
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_ODDDEVICE_REW7"
+                            gain_disorder_from_pool all_disorders
+                        }
+                        rare {
+                            prompt "EVENT_ODDDEVICE_REW8" 
+                            gain_disorder_from_pool all_disorders
+                            gain_disorder_from_pool all_disorders
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

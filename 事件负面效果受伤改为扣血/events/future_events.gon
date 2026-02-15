@@ -1,0 +1,373 @@
+VendingMachine {
+    intro {
+        title "EVENT_VENDINGMACHINE_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame vending_machine
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_VENDINGMACHINE_QUES"
+
+        options {
+            put_in_coins {
+                label "EVENT_VENDINGMACHINE_COINS_ANSW"
+                stat coins
+                animation_fail choice_no_coins
+                animation choice_coins_ten
+                stat_min 10
+                stat_max 10
+
+                good {
+                    random_pool_consider_luck [ //sort worst to best for luck
+                        {
+                            prompt "EVENT_VENDINGMACHINE_REW4" //bad crit
+                            set_frame 5
+                            gain_disorder HeadTrauma
+                            play_animation resultVeryBad
+                        }
+                        { 
+                            prompt "EVENT_VENDINGMACHINE_REW3" //bad
+                            set_frame 4
+                            //get nothing
+                            play_animation resultBad
+                        }
+                        {
+                            prompt "EVENT_VENDINGMACHINE_REW1" //good
+                            set_frame 2
+                            get_item_from_pool chapter_common
+                            get_item_from_pool consumables
+                            play_animation resultGood
+                        }
+                        {
+                            prompt "EVENT_VENDINGMACHINE_REW2" //good crit
+                            set_frame 3
+                            get_item_from_pool chapter_common
+                            get_item_from_pool consumables
+                            get_item_from_pool chapter_common
+                            get_item_from_pool consumables
+                            play_animation resultVeryGood
+                        }
+                    ]
+                }
+                bad {
+                    prompt "EVENT_VENDINGMACHINE_REW0"
+                }
+            }
+
+            shake {
+                label "EVENT_VENDINGMACHINE_SHAKE_ANSW"
+                stat str
+
+                good {
+                    reward {
+                        common {
+                            prompt "EVENT_VENDINGMACHINE_REW5"
+                            set_frame 2
+                            get_item_from_pool chapter_common
+                            get_item_from_pool consumables
+                        }
+                        rare {
+                            prompt "EVENT_VENDINGMACHINE_REW6"
+                            set_frame 3
+                            get_item_from_pool chapter_common
+                            get_item_from_pool consumables
+                            get_item_from_pool tech_items
+							get_item_from_pool tech_items
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            prompt "EVENT_VENDINGMACHINE_REW7"
+                            set_frame 4
+                            //nothing
+                        }
+                        rare {
+                            prompt "EVENT_VENDINGMACHINE_REW8" 
+                            set_frame 5
+                            gain_disorder HeadTrauma
+                        }
+                    }
+                }
+            }
+            
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_VENDINGMACHINE_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+ComputerConsole {
+    intro {
+        title "EVENT_COMPUTERCONSOLE_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame computer_console
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_COMPUTERCONSOLE_QUES"
+
+        options {
+            hack {
+                label "EVENT_HACK_ANSW"
+                stat int
+
+                good {
+                    reward {
+                        common {
+                            set_frame 2 //off
+                            prompt "EVENT_COMPUTERCONSOLE_REW1"
+                            global_effect_next_fight {
+                                Fights 1
+                                CharacterTypeGainsStatusAtBattleStart {
+                                    tag robot
+                                    Stun 1
+                                }
+                            }
+                        }
+                        rare {
+                            set_frame 3 //charmed bot
+                            prompt "EVENT_COMPUTERCONSOLE_REW2"
+                            random_pool [
+                                {
+                                    gain_familiar CharmedLoveBot
+                                }{
+                                    gain_familiar CharmedSecurityBot
+                                }{
+                                    gain_familiar CharmedCopBot
+                                }{
+                                    gain_familiar CharmedSoldierBot
+                                }{
+                                    gain_familiar CharmedHangerBot
+                                }{
+                                    gain_familiar CharmedDoctorBot
+                                }{
+                                    gain_familiar CharmedTallBot
+                                }{
+                                    gain_familiar CharmedFutureBot
+                                }
+                            ]
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 4 //no
+                            prompt "EVENT_COMPUTERCONSOLE_REW3"
+                            //nothing
+                        }
+                        rare {
+                            set_frame 5 //evil haha
+                            prompt "EVENT_COMPUTERCONSOLE_REW4" 
+                            global_effect_next_fight {
+                                Fights 1
+                                CharacterTypeGainsStatusAtBattleStart {
+                                    tag robot
+                                    AllStatsUp 1
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            smash {
+                label "EVENT_SMASH_ANSW"
+                stat str
+
+                good {
+                    reward {
+                        common {
+                            prompt "EVENT_COMPUTERCONSOLE_REW5"
+                            set_frame 4 //no
+                            //nothing
+                        }
+                        rare {
+                            set_frame 6 //deactivate
+                            prompt "EVENT_COMPUTERCONSOLE_REW6"
+                            global_effect_next_fight {
+                                Fights 3
+                                CharacterTypeGainsStatusAtBattleStart {
+                                    tag robot
+                                    Stun 1
+                                }
+                            }
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            prompt "EVENT_COMPUTERCONSOLE_REW7"
+                            set_frame 1
+                            //nothing
+                        }
+                        rare {
+                            set_frame 7
+                            prompt "EVENT_COMPUTERCONSOLE_REW8" 
+                            damage [1 5]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+MysteriousChamber {
+    intro {
+        title "EVENT_MYSTERIOUSCHAMBER_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame mysterious_chamber
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_MYSTERIOUSCHAMBER_QUES"
+
+        options {
+            upgrade_yourself {
+                label "EVENT_MYSTERIOUSCHAMBER_UPGRADE_ANSW"
+                stat lck
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_MYSTERIOUSCHAMBER_REW1"
+                            permanent_stats {
+                                random 1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_MYSTERIOUSCHAMBER_REW2"
+                            upgrade_ability random
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_MYSTERIOUSCHAMBER_REW3"
+                            permanent_stats {
+                                random -1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_MYSTERIOUSCHAMBER_REW4" 
+                            scramble_basic_attack all
+                        }
+                    }
+                }
+            }
+
+            purify {
+                label "EVENT_MYSTERIOUSCHAMBER_PURIFY_ANSW"
+                stat lck
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_MYSTERIOUSCHAMBER_REW5"
+                            heal_disorder 1
+                            self_status_next_fight {
+                                ConstitutionUp 1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_MYSTERIOUSCHAMBER_REW6"
+                            heal_disorder 2
+                            self_status_next_fight {
+                                AllStatsUp 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 6
+                    reward {
+                        common {
+                            prompt "EVENT_MYSTERIOUSCHAMBER_REW7"
+                            gain_disorder_from_pool all_disorders
+                        }
+                        rare {
+                            prompt "EVENT_MYSTERIOUSCHAMBER_REW8"
+                            gain_disorder_from_pool all_disorders 
+                            gain_disorder_from_pool all_disorders
+                        }
+                    }
+                }
+            }
+
+            teleport {
+                label "EVENT_MYSTERIOUSCHAMBER_TELEPORT_ANSW"
+                stat lck
+
+                good {
+                    set_frame 4
+                    play_animation resultHole
+                    reward {
+                        common {
+                            prompt "EVENT_MYSTERIOUSCHAMBER_REW9"
+                            next_event_bonus 1
+                            random_pool [
+                                {
+                                    event_now_same_cat VendingMachine
+                                }
+                                {
+                                    event_now_same_cat ComputerConsole
+                                }
+                            ]
+                        }
+                        rare {
+                            prompt "EVENT_MYSTERIOUSCHAMBER_REW10"
+                            next_event_bonus 2
+                            random_pool [
+                                {
+                                    event_now_same_cat VendingMachine
+                                }
+                                {
+                                    event_now_same_cat ComputerConsole
+                                }
+                            ]
+
+                        }
+                    }
+                }
+                bad {
+                    set_frame 7
+                    play_animation resultHole
+                    reward {
+                        common {
+                            prompt "EVENT_MYSTERIOUSCHAMBER_REW11"
+                            ambush_next_basic_fights 1
+
+                        }
+                        rare {
+                            prompt "EVENT_MYSTERIOUSCHAMBER_REW12" 
+                            next_event_bonus -2
+                            event_now_same_cat random
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

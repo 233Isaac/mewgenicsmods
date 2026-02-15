@@ -1,0 +1,507 @@
+TrashBin { //originally in treasure_box.gon
+    intro {
+        title "EVENT_TRASHBIN_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame trashcan
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_TRASHBIN_QUES"
+
+        options {
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    prompt "EVENT_TRASHBIN_REW1"
+                    set_frame 2
+                    reward {
+                        common {
+                            random_pool [
+                                { 
+                                    party_heal 5 
+                                    gain_food [2 4]
+                                }
+                                { 
+                                    prompt "EVENT_TRASHBIN_REW2"
+                                    spawn_unit_next_fight {
+                                        object RandomNonCoinPickup
+                                        count 8
+                                        spawn_side anywhere
+                                    } 
+                                    spawn_unit_next_fight {
+                                        object [Junk Junk TrashBag]
+                                        count [3 6]
+                                        spawn_side anywhere
+                                    } 
+                                }
+                                { 
+                                    full_heal 1
+                                }
+                                { 
+                                    gain_coins [5 15]
+                                }
+                            ]
+                        }
+                        rare {
+                            random_pool [
+                                {
+                                    party_heal 100%
+                                    gain_food [10 25]
+                                }
+                                { 
+                                    party_heal 3
+                                    party_permanent_stats {
+                                        con 1
+                                    }
+                                }
+                                { 
+                                    get_item_from_pool food
+                                    get_item_from_pool food
+                                    get_item_from_pool food
+                                    get_item_from_pool food
+                                }
+                            ]
+                        }
+                    }
+                }
+                bad {
+                    prompt "EVENT_TRASHBIN_REW3"
+                    set_frame 2
+                    reward {
+                        common {
+                            self_status_next_fight {
+                                Poison 2
+                            }
+                        }
+                        rare {
+                            self_status_next_fight {
+                                Poison 2
+                            }
+                            get_parasite_from_pool sludge_armor
+                        }
+                    }
+                }
+            }
+
+            pick {
+                label "EVENT_PICK_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                copy_results examine
+            }
+
+            open {
+                label "EVENT_OPEN_ANSW"
+                stat lck
+
+                copy_results examine
+            }
+        }
+    }
+}
+
+ClosedWindow { //moved from misc_events.gon
+    intro {
+        title "EVENT_CLOSEDWINDOW_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame brokenwindow
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_CLOSEDWINDOW_QUES"
+
+        options {
+            bash {
+                label "EVENT_BASH_ANSW"
+                stat str
+
+                good {
+                    set_frame 2
+
+                    reward {
+                        common {
+                            prompt "EVENT_CLOSEDWINDOW_REW1"
+                            get_item_from_pool consumables
+                            ally_ambush_next_fights 1
+                        }
+                        rare {
+                            prompt "EVENT_CLOSEDWINDOW_REW2"
+                            get_item_from_pool treasure_easy
+                        }
+                    }
+                }
+
+                bad {
+                    set_frame 2
+
+                    reward {
+                        common {
+                            prompt "EVENT_CLOSEDWINDOW_REW3"
+                            get_parasite PawShards
+                            self_status_next_fight {
+                                Bleed 2
+                                ChangeTileUnderCharacterAtStart GlassTile
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_CLOSEDWINDOW_REW4"
+                            get_parasite FaceShards
+                        }
+                    }
+                }
+            }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 3
+
+                    reward {
+                        common {
+                            prompt "EVENT_CLOSEDWINDOW_REW5"
+                            get_item_from_pool consumables
+                            ally_ambush_next_fights 1
+                        }
+                        rare {
+                            prompt "EVENT_CLOSEDWINDOW_REW6"
+                            get_item_from_pool treasure_easy
+                        }
+                    }
+                }
+
+                bad {
+                    set_frame 4
+                    prompt "EVENT_CLOSEDWINDOW_REW7"
+
+                    reward {
+                        common {
+                            gain_disorder_from_pool mental_disorders
+                        }
+                        rare {
+                            spawn_reflection_next_fight 1
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_CLOSEDWINDOW_REW8"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+MouseNest {
+    intro {
+        title "EVENT_MOUSENEST_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame mouse_nest
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_MOUSENEST_QUES"
+
+        options {
+            charm {
+                label "EVENT_CHARM_ANSW"
+                stat cha
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_MOUSENEST_REW1"
+                            gain_familiar CharmedPinky
+                        }
+                        rare {
+                            prompt "EVENT_MOUSENEST_REW2"
+                            gain_familiar CharmedLeaper
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_MOUSENEST_REW3"
+                            damage 5
+                        }
+                        rare {
+                            prompt "EVENT_MOUSENEST_REW4" 
+                            gain_disorder_from_pool diseases
+                        }
+                    }
+                }
+            }
+
+            attack {
+                label "EVENT_ATTACK_ANSW"
+                stat str
+
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_MOUSENEST_REW5"
+                            spawn_unit_next_fight {
+                                object DeadPinky   
+                                count 3
+                                spawn_side cats
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_MOUSENEST_REW6"
+                            global_effect_next_fight {
+                                Fights 1
+                                StatusRandomEnemiesOnBattleStart {
+                                    count 99
+                                    Fear 3
+                                }
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_MOUSENEST_REW7"
+                            gain_food -5
+                        }
+                        rare {
+                            prompt "EVENT_MOUSENEST_REW8" 
+                            damage 99%
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+WallOfCats {
+    intro {
+        title "EVENT_WALLOFCATS_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame wall_of_cats
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_WALLOFCATS_QUES"
+
+        options {
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_WALLOFCATS_REW1"
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict consumables
+                            }
+                            gain_food [5 10]
+                        }
+                        rare {
+                            prompt "EVENT_WALLOFCATS_REW2"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_WALLOFCATS_REW3"
+                            self_status_next_fight {
+                                Bleed 1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_WALLOFCATS_REW4" 
+                            get_parasite MetalRod
+                        }
+                    }
+                }
+            }
+            
+            bash {
+                label "EVENT_BASH_ANSW"
+                stat str
+                
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_WALLOFCATS_REW5"
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict consumables
+                            }
+                            gain_food [1 4]
+                        }
+                        rare {
+                            prompt "EVENT_WALLOFCATS_REW6"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_WALLOFCATS_REW7"
+                            self_status_next_fight {
+                                Bleed 1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_WALLOFCATS_REW8" 
+                            get_parasite MetalRod
+                        }
+                    }
+                }
+            }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+                
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_WALLOFCATS_REW9"
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict consumables
+                            }
+                            gain_food [1 4]
+                        }
+                        rare {
+                            prompt "EVENT_WALLOFCATS_REW10"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_WALLOFCATS_REW11"
+                            self_status_next_fight {
+                                Bleed 1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_WALLOFCATS_REW12" 
+                            get_parasite MetalRod
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+KnifeInTheWall {
+    requirements {
+        not_has_token WorldEventLegacyToken_MomsKnife
+    }
+
+    intro {
+        title "EVENT_KNIFEINTHEWALL_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame knife_in_the_wall
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_KNIFEINTHEWALL_QUES"
+
+        options {
+            pull {
+                label "EVENT_PULLKNIFE_ANSW"
+                stat str
+
+                good {
+                    reward {
+                        common {
+                            set_frame 2
+                            random_pool [
+                                {
+                                    prompt "EVENT_KNIFEINTHEWALL_REW1"
+                                }
+                                {
+                                    prompt "EVENT_KNIFEINTHEWALL_REW2"
+                                }
+                                {
+                                    prompt "EVENT_KNIFEINTHEWALL_REW3"
+                                }
+                            ]
+                            //nothing
+                        }
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_KNIFEINTHEWALL_REW4"
+                            get_item MomsKnife
+                            set_legacy_token WorldEventLegacyToken_MomsKnife
+                            trigger_adventure_unlock legacy_event_unlock_momsknife
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_KNIFEINTHEWALL_REW5"
+                            self_status_next_fight {
+                                Bleed 1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_KNIFEINTHEWALL_REW5"
+                            self_status_next_fight {
+                                Bleed 3
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

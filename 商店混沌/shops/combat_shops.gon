@@ -1,0 +1,705 @@
+ItemShopSmall {
+    meta {
+        movieclip Shop
+        npc_script tracy_adventure_shop_script.gon
+        delay_enable_tooltips true
+        keeper 0
+        shopkeeper_fights [
+            test.lvl
+        ]
+    }
+
+    item_rarity_costs {
+        consumable_common 1
+        consumable_uncommon 1
+        consumable_rare 1
+        consumable_very_rare 1
+        common 1
+        uncommon 1
+        rare 1
+        very_rare 1
+    }
+
+    item_groups {
+        mandatory {
+            Item {
+                pool rare 
+            }
+        }
+        levelup {
+            LevelUp {
+                cost 10
+            }
+        }
+        pool {
+            Item {
+                pool shop_common
+            }
+        }
+    }
+
+    breakdown {
+        levelup 1
+        pool 2
+    }
+
+    stock_fill_order {
+        //0 1 2
+        // 3 4
+
+        1 [1]
+        2 [0 2]
+        3 [1 3 4]
+        4 [0 2 3 4]
+        5 [1 0 2 3 4]
+    }
+
+    button_nav {
+        //up down left right, x = no connection
+        default {
+            0 [x 3 x 1]
+            1 [x 3 0 2]
+            2 [x 4 1 x]
+            3 [0 x x 4]
+            4 [2 x 3 x]
+        }
+        //stock fill overrides
+        3 { //if exactly 3 items in stock
+            3 [1 x x 4]
+            4 [1 x 3 x]
+        }
+    }
+}
+
+ItemShopMedium {
+    meta {
+        movieclip Shop
+        npc_script tracy_adventure_shop_script.gon
+        delay_enable_tooltips true
+        keeper 0
+        shopkeeper_fights [
+            test.lvl
+        ]
+    }
+
+    item_rarity_costs {
+        consumable_common 1
+        consumable_uncommon 1
+        consumable_rare 1
+        consumable_very_rare 1
+        common 1
+        uncommon 1
+        rare 1
+        very_rare 1
+    }
+
+    item_groups {
+        mandatory {
+            Item {
+                pool rare 
+            }
+        }
+        levelup {
+            LevelUp {
+                cost 10
+            }
+        }
+        pool {
+            Item {
+                pool shop_common
+            }
+        }
+    }
+
+    breakdown {
+        levelup 1
+        pool 3
+    }
+
+    stock_fill_order {
+        //0 1 2
+        // 3 4
+
+        1 [1]
+        2 [0 2]
+        3 [1 3 4]
+        4 [0 2 3 4]
+        5 [1 0 2 3 4]
+    }
+
+    button_nav {
+        //up down left right, x = no connection
+        default {
+            0 [x 3 x 1]
+            1 [x 3 0 2]
+            2 [x 4 1 x]
+            3 [0 x x 4]
+            4 [2 x 3 x]
+        }
+        //stock fill overrides
+        3 { //if exactly 3 items in stock
+            3 [1 x x 4]
+            4 [1 x 3 x]
+        }
+    }
+}
+
+ItemShopLarge {
+    meta {
+        movieclip Shop
+        npc_script tracy_adventure_shop_script.gon
+        delay_enable_tooltips true
+        keeper 0
+        shopkeeper_fights [
+            test.lvl
+        ]
+    }
+
+    item_rarity_costs {
+        consumable_common 1
+        consumable_uncommon 1
+        consumable_rare 1
+        consumable_very_rare 1
+        common 1
+        uncommon 1
+        rare 1
+        very_rare 1
+    }
+
+    item_groups {
+        mandatory {
+            Item {
+                pool rare 
+            }
+        }
+        levelup {
+            LevelUp {
+                cost 10
+            }
+        }
+        pool {
+            Item {
+                pool shop_common
+            }
+        }
+    }
+
+    breakdown {
+        levelup 1
+        mandatory 1
+        pool 3
+    }
+
+    stock_fill_order {
+        //0 1 2
+        // 3 4
+
+        1 [1]
+        2 [0 2]
+        3 [1 3 4]
+        4 [0 2 3 4]
+        5 [1 0 2 3 4]
+    }
+    button_nav {
+        //up down left right, x = no connection
+        default {
+            0 [x 3 x 1]
+            1 [x 3 0 2]
+            2 [x 4 1 x]
+            3 [0 x x 4]
+            4 [2 x 3 x]
+        }
+        //stock fill overrides
+        3 { //if exactly 3 items in stock
+            3 [1 x x 4]
+            4 [1 x 3 x]
+        }
+    }
+}
+
+TreasureEasy {
+    meta {
+        movieclip TreasureRoom
+        treasure_room true
+    }
+
+    item_groups {
+        treasure {
+            Item {
+                pool treasure_easy
+                cost 0
+                mandatory true
+            }
+        }
+    }
+
+    breakdown {
+        treasure 1
+    }
+}
+
+TreasureHard {
+    meta {
+        movieclip TreasureRoom
+        treasure_room true
+    }
+
+    item_groups {
+        treasure {
+            Item {
+                pool treasure_hard
+                cost 0
+                mandatory true
+            }
+        }
+    }
+
+    breakdown {
+        treasure 1
+    }
+}
+
+Event_SmallShop {
+    meta {
+        movieclip Shop
+        npc_script tracy_adventure_shop_script.gon
+        delay_enable_tooltips true
+        keeper 0
+        shopkeeper_fights [
+            test.lvl
+        ]
+    }
+
+    item_rarity_costs {
+        consumable_common 1
+        consumable_uncommon 1
+        consumable_rare 1
+        consumable_very_rare 1
+        common 1
+        uncommon 1
+        rare 1
+        very_rare 1
+    }
+
+    item_groups {
+        pool {
+            Item {
+                pool shop_common
+            }
+        }
+    }
+
+    breakdown {
+        pool 3
+    }
+
+    stock_fill_order {
+        //0 1 2
+        // 3 4
+
+        1 [1]
+        2 [0 2]
+        3 [1 3 4]
+        4 [0 2 3 4]
+        5 [1 0 2 3 4]
+    }
+}
+Event_RareShop {
+    meta {
+        movieclip Shop
+        npc_script tracy_adventure_shop_script.gon
+        delay_enable_tooltips true
+        keeper 0
+        shopkeeper_fights [
+            test.lvl
+        ]
+    }
+
+    item_rarity_costs {
+        consumable_common 1
+        consumable_uncommon 1
+        consumable_rare 1
+        consumable_very_rare 1
+        common 1
+        uncommon 1
+        rare 1
+        very_rare 1
+    }
+
+    item_groups {
+        mandatory {
+            Item {
+                pool rare 
+            }
+        }
+    }
+
+    breakdown {
+        mandatory 3
+    }
+
+    stock_fill_order {
+        //0 1 2
+        // 3 4
+
+        1 [1]
+        2 [0 2]
+        3 [1 3 4]
+        4 [0 2 3 4]
+        5 [1 0 2 3 4]
+    }
+}
+
+
+WaterShop {
+    meta {
+        movieclip Shop
+        npc_script tracy_adventure_shop_script.gon
+        delay_enable_tooltips true
+        welcome_message welcome_water
+        keeper 0
+        shopkeeper_fights [
+            test.lvl
+        ]
+    }
+
+    item_rarity_costs {
+        consumable_common 5
+        consumable_uncommon 7
+        consumable_rare 10
+        consumable_very_rare 20
+        common 7
+        uncommon 10
+        rare 20
+        very_rare 40
+    }
+
+    item_groups {
+        pool {
+            Item {
+                pool [WaterBottle_Full]
+                cost 15
+            }
+            Item {
+                pool [WaterBottle_Half]
+                cost 10
+            }
+            Item {
+                pool [WaterBottle_Empty]
+                cost 5
+            }
+        }
+    }
+
+    breakdown {
+        pool 5
+    }
+}
+
+WaterShopCheap {
+    meta {
+        movieclip Shop
+        npc_script tracy_adventure_shop_script.gon
+        delay_enable_tooltips true
+        welcome_message welcome_water_cheap
+        keeper 0
+        shopkeeper_fights [
+            test.lvl
+        ]
+    }
+
+    item_rarity_costs {
+        consumable_common 1
+        consumable_uncommon 1
+        consumable_rare 1
+        consumable_very_rare 1
+        common 1
+        uncommon 1
+        rare 1
+        very_rare 1
+    }
+
+    item_groups {
+        pool {
+            Item {
+                pool [WaterBottle_Full]
+                cost 5
+            }
+            Item {
+                pool [WaterBottle_Half]
+                cost 3
+            }
+            Item {
+                pool [WaterBottle_Empty]
+                cost 1
+            }
+        }
+        empty {
+            Item {
+                pool [WaterBottle_Empty]
+                cost 1
+            }
+        }
+    }
+
+    breakdown {
+        pool 4
+        empty 1
+    }
+}
+
+TreasureTutorial {
+    meta {
+        movieclip TreasureRoom
+        treasure_room true
+    }
+
+    item_groups {
+        treasure {
+            Item {
+                pool [TutorialStick]
+                cost 0
+                mandatory true
+            }
+        }
+    }
+
+    breakdown {
+        treasure 1
+    }
+}
+
+//hard path treasure boxes
+
+Treasure_SmallMoneyBag {
+    meta {
+        movieclip TreasureRoom
+        treasure_room true
+    }
+
+    item_groups {
+        treasure {
+            Item {
+                pool [MoneyBag_Medium MoneyBag_Large]
+                cost 0
+                mandatory true
+            }
+        }
+    }
+
+    breakdown {
+        treasure 1
+    }
+}
+Treasure_LargeMoneyBag {
+    meta {
+        movieclip TreasureRoom
+        treasure_room true
+    }
+
+    item_groups {
+        treasure {
+            Item {
+                pool [MoneyBag_Huge]
+                cost 0
+                mandatory true
+            }
+        }
+    }
+
+    breakdown {
+        treasure 1
+    }
+}
+Treasure_FurnitureBox {
+    meta {
+        movieclip TreasureRoom
+        treasure_room true
+    }
+
+    item_groups {
+        treasure {
+            Item {
+                pool [FurnitureBox]
+                cost 0
+                mandatory true
+            }
+        }
+    }
+
+    breakdown {
+        treasure 1
+    }
+}
+Treasure_MedFurnitureBox {
+    meta {
+        movieclip TreasureRoom
+        treasure_room true
+    }
+
+    item_groups {
+        treasure {
+            Item {
+                pool [FurnitureBox FurnitureBox_Rare]
+                cost 0
+                mandatory true
+            }
+        }
+    }
+
+    breakdown {
+        treasure 1
+    }
+}
+Treasure_RareFurnitureBox {
+    meta {
+        movieclip TreasureRoom
+        treasure_room true
+    }
+
+    item_groups {
+        treasure {
+            Item {
+                pool [FurnitureBox_Rare]
+                cost 0
+                mandatory true
+            }
+        }
+    }
+
+    breakdown {
+        treasure 1
+    }
+}
+
+Treasure_SmallMeteor {
+    meta {
+        movieclip TreasureRoom
+        treasure_room true
+    }
+
+    item_groups {
+        treasure {
+            Item {
+                pool [SmallMeteor]
+                cost 0
+                mandatory true
+            }
+        }
+    }
+
+    breakdown {
+        treasure 1
+    }
+}
+Treasure_LargeMeteor {
+    meta {
+        movieclip TreasureRoom
+        treasure_room true
+    }
+
+    item_groups {
+        treasure {
+            Item {
+                pool [LargeMeteor]
+                cost 0
+                mandatory true
+            }
+        }
+    }
+
+    breakdown {
+        treasure 1
+    }
+}
+Treasure_GlowingBone {
+    meta {
+        movieclip TreasureRoom
+        treasure_room true
+    }
+
+    item_groups {
+        treasure {
+            Item {
+                pool [GlowingBone]
+                cost 0
+                mandatory true
+            }
+        }
+    }
+
+    breakdown {
+        treasure 1
+    }
+}
+Treasure_AncestorsSkull {
+    meta {
+        movieclip TreasureRoom
+        treasure_room true
+    }
+
+    item_groups {
+        treasure {
+            Item {
+                pool [AncestorsSkull AncestorsJaw AncestorsBones]
+                cost 0
+                mandatory true
+            }
+        }
+    }
+
+    breakdown {
+        treasure 1
+    }
+}
+Treasure_IrradiatedObject {
+    meta {
+        movieclip TreasureRoom
+        treasure_room true
+    }
+
+    item_groups {
+        treasure {
+            Item {
+                pool [
+                    IrradiatedObject_Burn
+                    IrradiatedObject_Poison
+                    IrradiatedObject_Bleed
+                    IrradiatedObject_Fear
+                    IrradiatedObject_Sleep
+                    IrradiatedObject_Stun
+                    IrradiatedObject_Charmed
+                    IrradiatedObject_Weakness
+                    IrradiatedObject_Bruise
+                    IrradiatedObject_Confusion
+                ]
+                cost 0
+                mandatory true
+            }
+        }
+    }
+
+    breakdown {
+        treasure 1
+    }
+}
+Treasure_AbilityNeedle {
+    meta {
+        movieclip TreasureRoom
+        treasure_room true
+    }
+
+    item_groups {
+        treasure {
+            Item {
+                pool [LearnAbility LearnAbility LearnPassive]
+                cost 0
+                mandatory true
+            }
+        }
+    }
+
+    breakdown {
+        treasure 1
+    }
+}
