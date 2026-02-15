@@ -1,0 +1,378 @@
+LockedTrunk {
+    intro {
+        title "EVENT_LOCKEDTRUNK_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame locked_trunk
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_LOCKEDTRUNK_QUES"
+
+        options {
+            open {
+                label "EVENT_OPEN_ANSW"
+                stat lck
+
+                good {
+                    reward {
+                        common {
+                            set_frame 2
+                            prompt "EVENT_LOCKEDTRUNK_REW1"
+                            get_item_from_pool junkyard_items
+                        }
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_LOCKEDTRUNK_REW2"
+                            gain_coins [10 20]
+							get_item_from_pool junkyard_items
+							get_item_from_pool junkyard_items
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 4
+                            prompt "EVENT_LOCKEDTRUNK_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            set_frame 5
+                            prompt "EVENT_LOCKEDTRUNK_REW4" 
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+TirePile {
+    intro {
+        title "EVENT_TIREPILE_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame tire_pile
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_TIREPILE_QUES"
+
+        options {
+            search {
+                label "EVENT_SEARCH_ANSW"
+                stat int
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_TIREPILE_REW1"
+                            get_item_from_pool junkyard_items
+                        }
+                        rare {
+                            prompt "EVENT_TIREPILE_REW2"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_TIREPILE_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_TIREPILE_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_TIREPILE_REW5"
+                            get_item_from_pool junkyard_items
+                        }
+                        rare {
+                            prompt "EVENT_TIREPILE_REW6"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_TIREPILE_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_TIREPILE_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+OldCar {
+    intro {
+        title "EVENT_OLDCAR_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame rusty_car
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_OLDCAR_QUES"
+
+        options {
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_OLDCAR_REW1"
+                            get_item_from_pool junkyard_items
+                        }
+                        rare {
+                            prompt "EVENT_OLDCAR_REW2"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_OLDCAR_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_OLDCAR_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_OLDCAR_REW5"
+                            get_item_from_pool junkyard_items
+                        }
+                        rare {
+                            prompt "EVENT_OLDCAR_REW6"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_OLDCAR_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_OLDCAR_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            bash {
+                label "EVENT_BASH_ANSW"
+                stat str
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_OLDCAR_REW9"
+                            get_item_from_pool junkyard_items
+                        }
+                        rare {
+                            prompt "EVENT_OLDCAR_REW10"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_OLDCAR_REW11"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_OLDCAR_REW12"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+StartDigging {
+    requirements {
+        not_has_token WorldEventLegacyToken_StartDigging_Complete
+    }
+
+    intro {
+        title "EVENT_STARTDIGGING_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame junk_pile
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_STARTDIGGING_QUES"
+
+        options {
+            dig {
+                label "EVENT_STARTDIGGING_ANSW"
+                stat str
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_STARTDIGGING_REW1"
+                            increment_legacy_counter WorldEventLegacyToken_StartDigging
+                        }
+                        rare {
+                            prompt "EVENT_STARTDIGGING_REW2"
+                            increment_legacy_counter WorldEventLegacyToken_StartDigging
+                            increment_legacy_counter WorldEventLegacyToken_StartDigging
+                        }
+                    }
+
+                    conditional_reward {
+                        requirements {
+                            counter_minimum [WorldEventLegacyToken_StartDigging 5]
+                        }
+                        reward {
+                            set_legacy_token WorldEventLegacyToken_StartDigging_Complete
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_STARTDIGGING_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_STARTDIGGING_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            dig_dex {
+                label "EVENT_STARTDIGGING_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                copy_results dig
+            }
+
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                requirements {
+                    has_token WorldEventLegacyToken_StartDigging_Complete
+                }
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_STARTDIGGING_REW5"
+                            shop_now TreasureEasy
+                        }
+                        rare {
+                            prompt "EVENT_STARTDIGGING_REW6"
+                            shop_now TreasureHard
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_STARTDIGGING_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_STARTDIGGING_REW8" 
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+            
+            leave {
+                label "EVENT_LEAVE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_STARTDIGGING_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}

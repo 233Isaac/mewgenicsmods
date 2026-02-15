@@ -1,0 +1,1963 @@
+Butch1 {
+    intro {
+        title "EVENT_BUTCH_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame butch
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_BUTCH_QUES"
+
+        options {
+            damage {
+ 
+               label "EVENT_DAMAGE_ANSW"
+                stat none
+                animation choice_misc
+
+                good {
+                    set_frame 2
+            
+        reward {
+                        common {
+                        prompt "EVENT_BUTCH_REW1"
+                            get_item_from_pool {
+            
+                    pool chapter_common
+                                restrict weapon
+                            }
+                  
+      }
+                        rare {
+                        prompt "EVENT_BUTCH_REW2"
+                            get_item_from_pool {
+               
+                 pool chapter_rare
+                                restrict weapon
+                            }
+                     
+   }
+                    }
+                }
+            }
+
+            protection {
+                label "EVENT_PROTECTION_ANSW"
+                stat none
+  
+              animation choice_misc
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+ 
+                       prompt "EVENT_BUTCH_REW3"
+                            get_item_from_pool {
+                                pool chapter_common
+              
+                  restrict armor
+                            }
+                        }
+                        rare {
+    
+                    prompt "EVENT_BUTCH_REW4"
+                            get_item_from_pool {
+                                pool chapter_rare
+                 
+               restrict armor
+                            }
+                        }
+                    }
+            
+    }
+            }
+        }
+    }
+}
+
+Butch2 {
+    intro {
+        title "EVENT_BUTCH_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame butch
+        event_clip NonWheelEvent
+    }
+
+    main {
+    
+    prompt "EVENT_BUTCH2_QUES"
+
+        options {
+            surprise {
+                label "EVENT_SURPRISE_ANSW"
+                stat none
+                animation choice_misc
+
+                good {
+     
+               set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_BUTCH2_REW1"
+         
+                   self_status_next_fight {
+                                AlphaTurns 1
+                            }
+                   
+     }
+                        rare {
+                            prompt "EVENT_BUTCH2_REW2"
+                            permanent_stats {
+            
+                    spd 2
+                            }
+                        }
+                    }
+       
+         }
+            }
+
+            intimidation {
+                label "EVENT_INTIMIDATION_ANSW"
+                stat none
+                animation choice_misc
+
+               
+ good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_BUTCH2_REW3"
+  
+                          self_status_next_fight {
+                                AllStatsUp 1
+                            }
+            
+            }
+                        rare {
+                            prompt "EVENT_BUTCH2_REW4"
+                            permanent_stats {
+     
+                           cha 2
+                            }
+                        }
+                    
+}
+                }
+            }
+        }
+    }
+}
+
+Butch3 {
+    intro {
+        title "EVENT_BUTCH_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame butch
+        event_clip NonWheelEvent
+ 
+   }
+
+    main {
+        prompt "EVENT_BUTCH3_QUES"
+
+        options {
+            damage {
+                label "EVENT_SCABS_ANSW"
+                stat none
+                animation choice_misc
+
+          
+      good {
+                    set_frame 2
+                    reward {
+                        common {
+                          
+  prompt "EVENT_BUTCH3_REW1"
+                            get_item Callus
+                        }
+                        rare {
+                   
+         prompt "EVENT_BUTCH3_REW2"
+                            random_pool [
+                                {
+                             
+       gain_disorder ScalyScabs
+                                }
+                                {
+                            
+        learn_passive Scabs
+                                }
+                            ]
+                        }
+       
+             }
+                }
+            }
+
+            protection {
+                label "EVENT_CUTS_ANSW"
+                stat none
+            
+    animation choice_misc
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+           
+                 prompt "EVENT_BUTCH3_REW3"
+                            get_item_from_pool [GlassShard, RustyRazor, RazorBlade, BagOfGlass]
+                        }
+                        rare {
+ 
+                           prompt "EVENT_BUTCH3_REW4"
+                            get_item_from_pool { //TODO: get_item KnifeSharpener
+                                pool chapter_rare
+       
+                         restrict weapon
+                            }
+                        }
+                    }
+  
+              }
+            }
+        }
+    }
+}
+
+Beanies1 {
+    intro {
+        title "EVENT_DRBEANIES_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame beanies
+        event_clip NonWheelEvent
+   
+ }
+
+    main {
+        prompt "EVENT_DRBEANIES_QUES"
+
+        options {
+            red {
+                label "EVENT_RED_ANSW"
+                stat none
+                fixed_chance 50%
+            
+    animation choice_misc
+
+                good {
+                    set_frame 2
+
+                    reward {
+                        common {
+           
+                 prompt "EVENT_DRBEANIES_REW1"
+                            party_heal 5
+                        }
+                        rare {
+    
+                        prompt "EVENT_DRBEANIES_REW2"
+                            party_heal 100%
+                            permanent_stats {
+                 
+               con 1
+                            }
+                        }
+                    }
+            
+    }
+
+                bad {
+                    set_frame 3
+
+                    reward {
+                        common {
+            
+                prompt "EVENT_DRBEANIES_REW3"
+                            party_heal 1
+                        }
+                        rare {
+     
+                       prompt "EVENT_DRBEANIES_REW4"
+                            party_heal 1
+                        }
+                    }
+   
+             }
+            }
+
+            blue {
+                label "EVENT_BLUE_ANSW"
+                stat none
+                fixed_chance 50%
+           
+     animation choice_misc
+
+                copy_results red
+            }
+        }
+    }
+}
+
+Beanies2 {
+    intro {
+        title "EVENT_DRBEANIES_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame beanies
+   
+     event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_DRBEANIES2_QUES"
+
+        options {
+            lever {
+                label "EVENT_PULLLEVER_ANSW"
+                stat none
+                fixed_chance 50%
+   
+             animation choice_misc
+
+                good {
+                    set_frame 2
+
+                    reward {
+                        common {
+  
+                          prompt "EVENT_DRBEANIES2_REW1"
+                            permanent_stats {
+                                random 2
+           
+                 }
+                        }
+                        rare {
+                            prompt "EVENT_DRBEANIES2_REW2"
+     
+                       permanent_stats {
+                                str 1
+                                dex 1
+          
+                      con 1
+                                int 1
+                                spd 1
+           
+                     cha 1
+                                lck 1
+                            }
+                 
+       }
+                    }
+                }
+
+                bad {
+                    set_frame 3
+
+                   
+ reward {
+                        common {
+                            prompt "EVENT_DRBEANIES2_REW3"
+                            party_heal 1
+                        }
+                        rare {
+     
+                       prompt "EVENT_DRBEANIES2_REW4"
+                            party_heal 1
+                        }
+                    }
+   
+             }
+            }
+
+            button {
+                label "EVENT_PUSHBUTTON_ANSW"
+                stat none
+                fixed_chance 50%
+           
+     animation choice_misc
+
+                copy_results lever
+            }
+        }
+    }
+}
+
+
+Frank1 {
+    intro {
+        title "EVENT_FRANK_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame frank
+   
+     event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_FRANK_QUES"
+
+        options {
+            boogers {
+                label "EVENT_BOOGERS_ANSW"
+                stat none
+                animation choice_misc
+
+   
+             good {
+                    set_frame 2
+
+                    reward {
+                        common {
+                   
+     prompt "EVENT_FRANK_REW1"
+                            gain_coins [1 25]
+                        }
+                        rare {
+               
+         prompt "EVENT_FRANK_REW2"
+                            get_item_from_pool {
+                                pool chapter
+                            
+    restrict trinket
+                            }
+                        }
+                    }
+                }
+       
+     }
+
+            poop {
+                label "EVENT_POOP_ANSW"
+                stat none
+                animation choice_misc
+
+                good {
+              
+      set_frame 2
+
+                    reward {
+                        common {
+                        prompt "EVENT_FRANK_REW3"
+                      
+      get_item_from_pool consumables
+                        }
+                        rare {
+                        prompt "EVENT_FRANK_REW4"
+                   
+         get_item_from_pool poop_items
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+Frank2 {
+    intro 
+{
+        title "EVENT_FRANK_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame frank
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_FRANK2_QUES"
+
+        options {
+            boogers {
+       
+         label "EVENT_BEEPIS_ANSW"
+                stat none
+                animation choice_misc
+
+                good {
+                    set_frame 2
+
+                  
+  reward {
+                        common {
+                        prompt "EVENT_FRANK2_REW1"
+                            get_item_from_pool consumables
+                  
+      }
+                        rare {
+                        prompt "EVENT_FRANK2_REW2"
+                            get_item_from_pool chapter_rare
+               
+         }
+                    }
+                }
+            }
+
+            poop {
+                label "EVENT_FEEBIS_ANSW"
+             
+   stat none
+                animation choice_misc
+
+                good {
+                    set_frame 2
+
+                    reward {
+                    
+    common {
+                        prompt "EVENT_FRANK2_REW3"
+                            gain_coins [1 25]
+                        }
+                
+        rare {
+                            get_item_from_pool {
+                            prompt "EVENT_FRANK2_REW4"
+                                pool 
+chapter
+                                restrict trinket
+                            }
+                        }
+               
+     }
+                }
+            }
+        }
+    }
+}
+
+Tink1 {
+    intro {
+        title "EVENT_TINK_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame tink
+     
+   event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_TINK_QUES"
+
+        options {
+            tappytoes {
+                label "EVENT_TAPPYTOES_ANSW"
+                stat none
+                animation choice_misc
+
+     
+           good {
+                    set_frame 2
+
+                    reward {
+                        common {
+                     
+       prompt "EVENT_TINK_REW1"
+                            self_status_next_fight {
+                                SpeedUp 2
+                            }
+  
+                      }
+                        rare {
+                            prompt "EVENT_TINK_REW2"
+                        
+    permanent_stats {
+                                spd 2
+                            }
+                        }
+          
+          }
+                }
+            }
+
+            pirouette {
+                label "EVENT_PIROUETTE_ANSW"
+                stat none
+               
+ animation choice_misc
+
+                good {
+                    set_frame 2
+
+                    reward {
+                        common {
+              
+              prompt "EVENT_TINK_REW3"
+                            self_status_next_fight {
+                                DexterityUp 2
+                       
+     }
+                        }
+                        rare {
+                            prompt "EVENT_TINK_REW4"
+                 
+           permanent_stats {
+                                dex 2
+                            }
+                        }
+   
+                 }
+                }
+            }
+        }
+    }
+}
+
+Tink2 {
+    intro {
+        title "EVENT_TINK_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+  
+      subject_frame tink
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_TINK2_QUES"
+
+        options {
+            makeup {
+                label "EVENT_MAKEUP_ANSW"
+                stat none
+          
+      animation choice_misc
+
+                good {
+                    set_frame 2
+
+                    reward {
+                        common {
+         
+                   prompt "EVENT_TINK2_REW1"
+                            permanent_stats {
+                                cha 1
+                  
+          }
+                        }
+                        rare {
+                            prompt "EVENT_TINK2_REW2"
+            
+                permanent_stats {
+                                cha 2
+                            }
+                      
+  }
+                    }
+                }
+            }
+
+            book {
+                label "EVENT_SOMEOLDBOOK_ANSW"
+                stat none
+   
+             animation choice_misc
+
+                good {
+                    set_frame 3
+
+                    reward {
+                        common {
+  
+                          prompt "EVENT_TINK2_REW3"
+                            permanent_stats {
+                                int 1
+           
+                 }
+                        }
+                        rare {
+                            prompt "EVENT_TINK2_REW4"
+     
+                       permanent_stats {
+                                int 2
+                            }
+               
+         }
+                    }
+                }
+            }
+        }
+    }
+}
+
+Tracy1 {
+    intro {
+        title "EVENT_TRACY_NAME"
+        cat_choice random //choose, random, none (random and none 
+are equivalent)
+        subject_clip EventSubject
+        subject_frame tracy
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_TRACY_QUES"
+
+        options {
+            buy1 {
+                label "EVENT_BUY_ANSW"
+               
+ stat coins
+                animation_fail choice_no_coins
+                animation choice_coins_one
+                stat_min 1
+                stat_max 1
+
+                good {
+             
+       set_frame 2
+
+                    random_pool_consider_luck [ //sort worst to best for luck
+                        { //cursed item
+                            prompt "EVENT_TRACY_REW1"
+          
+                  weight 1
+                            get_parasite_from_pool cursed_items 
+                            play_animation resultBad
+                      
+  }
+                        { //temp random stat down
+                            prompt "EVENT_TRACY_REW2"
+                            weight 1
+            
+                self_status_next_fight {
+                                RandomStatUp -1
+                            }
+                      
+      play_animation resultBad
+                        }
+                        { //nothing
+                            prompt "EVENT_TRACY_REW3"
+               
+             weight 1
+                            play_animation resultConfused
+                        }
+                        { //food
+        
+                    prompt "EVENT_TRACY_REW3B"
+                            weight 1
+                            gain_food [1 2]
+                    
+    }
+                        { //temp random stat up
+                            prompt "EVENT_TRACY_REW4"
+                            weight 1
+          
+                  self_status_next_fight {
+                                RandomStatUp 1
+                            }
+                    
+    }
+                        { //temp druid familiar
+                            prompt "EVENT_TRACY_REW5"
+                            weight .5
+           
+                 gain_familiar Squirrel
+                        }
+                        { //temp druid familiar
+                            prompt "EVENT_TRACY_REW6"
+  
+                          weight .5
+                            gain_familiar Snake
+                        }
+                    
+    { //temp druid familiar
+                            prompt "EVENT_TRACY_REW7"
+                            weight .5
+                            gain_familiar Toad
+      
+                  }
+                        { //temp druid familiar
+                            prompt "EVENT_TRACY_REW8"
+                          
+  weight .5
+                            gain_familiar Turtle
+                        }
+                        { //random consumable
+                  
+          prompt "EVENT_TRACY_REW9"
+                            weight 1
+                            get_item_from_pool consumables 
+                        }
+      
+                  
+                    ]
+                }
+
+                bad {
+                    set_frame 2
+        
+            prompt "EVENT_TRACY_REW10"
+                    party_heal 1
+                }
+            }
+
+            buy2 {
+                label "EVENT_BUY_ANSW"
+        
+        stat coins
+                animation_fail choice_no_coins
+                animation choice_coins_ten
+
+                stat_min 10
+                stat_max 10
+
+                good {
+      
+              set_frame 2
+
+                    random_pool_consider_luck [ //sort worst to best for luck
+                        { //random consumable
+                            prompt "EVENT_TRACY_REW11"
+   
+                         weight 1
+                            get_item_from_pool consumables 
+                        }
+                    
+    { 
+                            prompt "EVENT_TRACY_REW12"
+                            weight 1
+                            get_item_from_pool chapter 
+       
+                 }
+                        { 
+                            prompt "EVENT_TRACY_REW13"
+                            weight 
+1
+                            permanent_stats {
+                                random 1
+                            }
+          
+              }
+                        
+                    ]
+                }
+
+                bad {
+         
+           set_frame 2
+                    prompt "EVENT_TRACY_REW14"
+                    party_heal 1
+                }
+            }
+
+            buy3 {
+     
+           label "EVENT_BUY_ANSW"
+                stat coins
+                animation_fail choice_no_coins
+                animation choice_coins_twentyfive
+                stat_min 25
+                stat_max 25
+
+   
+             good {
+                    set_frame 2
+
+                    random_pool_consider_luck [ //sort worst to best for luck
+                        { 
+             
+               prompt "EVENT_TRACY_REW15"
+                            weight 1
+                            get_item RoidRage
+                          
+  get_item SpeedBall
+                            get_item BrainCandy
+                            get_item DiscoBiscuit
+                            get_item Clover
+          
+                  get_item Upper
+                            get_item Percs
+                        }
+                        { 
+   
+                         prompt "EVENT_TRACY_REW16"
+                            weight 1
+                            get_item_from_pool chapter 
+               
+             get_item_from_pool chapter 
+                        }
+                        { 
+                            prompt "EVENT_TRACY_REW17"
+       
+                     weight 1
+                            get_item_from_pool chapter_rare 
+                        }
+                        
+{ 
+                            prompt "EVENT_TRACY_REW18"
+                            weight 1
+                            get_full_item_set_from_pool common
+            
+            }
+                        { 
+                            prompt "EVENT_TRACY_REW19"
+                            weight 1
+     
+                       level_up self
+                        }
+                    ]
+                }
+
+                
+bad {
+                    set_frame 2
+                    prompt "EVENT_TRACY_REW20"
+                    party_heal 1
+                }
+            }
+
+        
+    leave {
+                label "EVENT_LEAVE_ANSW"
+                stat none
+                animation choice_leave
+
+                good {
+                    set_frame 2
+      
+              prompt "EVENT_TRACY_REW21"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+OrganGrinder1 {
+    intro {
+        title "EVENT_ORGANGRINDER_NAME"
+        
+cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame organgrinder
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_ORGANGRINDER_QUES"
+
+        options {
+            itchies {
+                label "EVENT_ITCHIES_ANSW"
+       
+         stat none
+                animation choice_misc
+
+                bad {
+                    set_frame 2
+
+                    prompt "EVENT_ORGANGRINDER_REW1"
+                    party_heal 1
+                }
+            }
+
+            wheezies {
+                label "EVENT_WHEEZIES_ANSW"
+                stat none
+                animation choice_misc
+
+ 
+               bad {
+                    set_frame 2
+
+                    prompt "EVENT_ORGANGRINDER_REW2"
+                    party_heal 1
+                }
+     
+       }
+
+            nothanks {
+                label "EVENT_NOTHANKS_ANSW"
+                stat none
+                animation choice_leave
+
+                good {
+            
+        set_frame 3
+                    play_animation [resultLeave 0]
+
+                    prompt "EVENT_ORGANGRINDER_REW3"
+
+                    next_event_from_set {
+                        event Tragedy
+  
+                      count 1
+                        same_cat true
+                    }
+                }
+            }
+    
+    }
+    }
+}
+
+Jack {
+    intro {
+        title "EVENT_JACK_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame jack
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_JACK_QUES"
+
+        options {
+            donate_5 {
+ 
+               label "EVENT_DONATE_ANSW"
+                stat coins
+                animation_fail choice_no_coins
+                animation choice_coins_one
+                stat_min 5
+                
+stat_max 5
+                requirements {
+                    counter_maximum [WorldEventLegacyCounter_Jack 99]
+                }
+
+                good {
+                    set_frame 2
+      
+              increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+ 
+                   conditional_reward {
+                        requirements {
+                            counter_minimum [WorldEventLegacyCounter_Jack 1]
+                         
+   counter_maximum [WorldEventLegacyCounter_Jack 24]
+                        }
+
+                        reward {
+                            prompt "EVENT_JACK_REW1"
+                 
+           play_animation resultBad
+                        }
+                    }
+                    
+                    conditional_reward {
+   
+                     requirements {
+                            counter_minimum [WorldEventLegacyCounter_Jack 25]
+                            counter_maximum [WorldEventLegacyCounter_Jack 49]
+                  
+      }
+
+                        reward {
+                            prompt "EVENT_JACK_REW2"
+                            get_item_from_pool chapter_rare
+           
+             }
+                    }
+
+                    conditional_reward {
+                        requirements {
+                     
+       counter_minimum [WorldEventLegacyCounter_Jack 50]
+                            counter_maximum [WorldEventLegacyCounter_Jack 99]
+                        }
+
+                        reward {
+            
+                prompt "EVENT_JACK_REW3"
+                            random_pool [
+                                {
+                      
+              get_item_from_pool uncommon
+                                    get_item_from_pool uncommon
+                                }{
+                
+                    get_item_from_pool uncommon
+                                    get_item_from_pool rare
+                                }{
+          
+                          get_item_from_pool rare
+                                    get_item_from_pool rare
+                                }
+    
+                        ]
+                        }
+                    }
+
+                    conditional_reward {
+           
+             requirements {
+                            counter_minimum [WorldEventLegacyCounter_Jack 100]
+                        }
+
+                        reward {
+       
+                     prompt "EVENT_JACK_REW4"
+                            random_pool [
+                                {
+                 
+                   get_item_from_pool rare
+                                    get_item_from_pool rare
+                                }{
+           
+                         get_item_from_pool very_rare
+                                }
+                            ]
+              
+          }
+                    }
+                }
+                bad {
+                    prompt "EVENT_JACK_NOTENOUGHMONEY"
+                    party_heal 1
+                
+}
+            }
+
+            donate_10 {
+                label "EVENT_DONATE_ANSW"
+                stat coins
+                animation_fail choice_no_coins
+                animation choice_coins_ten
+       
+         stat_min 10
+                stat_max 10
+                requirements {
+                    counter_maximum [WorldEventLegacyCounter_Jack 99]
+                }
+
+                good {
+ 
+                   set_frame 3
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                 
+   increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+             
+       increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    conditional_reward {
+                        requirements {
+    
+                        counter_minimum [WorldEventLegacyCounter_Jack 1]
+                            counter_maximum [WorldEventLegacyCounter_Jack 24]
+                        }
+
+                    
+    reward {
+                            prompt "EVENT_JACK_REW1"
+                            play_animation resultBad
+                        }
+             
+       }
+                    
+                    conditional_reward {
+                        requirements {
+                           
+ counter_minimum [WorldEventLegacyCounter_Jack 25]
+                            counter_maximum [WorldEventLegacyCounter_Jack 49]
+                        }
+
+                        reward {
+                  
+          prompt "EVENT_JACK_REW2"
+                            get_item_from_pool chapter_rare
+                        }
+                    }
+
+                
+    conditional_reward {
+                        requirements {
+                            counter_minimum [WorldEventLegacyCounter_Jack 50]
+                            counter_maximum [WorldEventLegacyCounter_Jack 99]
+          
+              }
+
+                        reward {
+                            prompt "EVENT_JACK_REW3"
+                            random_pool [
+   
+                             {
+                                    get_item_from_pool uncommon
+                                  
+  get_item_from_pool uncommon
+                                }{
+                                    get_item_from_pool uncommon
+                            
+        get_item_from_pool rare
+                                }{
+                                    get_item_from_pool rare
+                      
+              get_item_from_pool rare
+                                }
+                            ]
+                        }
+ 
+                   }
+
+                    conditional_reward {
+                        requirements {
+                            counter_minimum [WorldEventLegacyCounter_Jack 100]
+     
+                   }
+
+                        reward {
+                            prompt "EVENT_JACK_REW4"
+                           
+ random_pool [
+                                {
+                                    get_item_from_pool rare
+                             
+       get_item_from_pool rare
+                                }{
+                                    get_item_from_pool very_rare
+                       
+         }
+                            ]
+                        }
+                    }
+                }
+   
+             bad {
+                    prompt "EVENT_JACK_NOTENOUGHMONEY"
+                    party_heal 1
+                }
+            }
+            
+            donate_20 {
+            
+    label "EVENT_DONATE_ANSW"
+                stat coins
+                animation_fail choice_no_coins
+                animation choice_coins_twentyfive
+                stat_min 20
+                stat_max 20
+          
+      requirements {
+                    counter_maximum [WorldEventLegacyCounter_Jack 99]
+                }
+
+                good {
+                    set_frame 2
+                 
+   increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+            
+        
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+        
+            increment_legacy_counter WorldEventLegacyCounter_Jack
+                    
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+    
+                increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter 
+WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    conditional_reward {
+                
+        requirements {
+                            counter_minimum [WorldEventLegacyCounter_Jack 1]
+                            counter_maximum [WorldEventLegacyCounter_Jack 24]
+                        }
+
+       
+                 reward {
+                            prompt "EVENT_JACK_REW1"
+                            play_animation resultBad
+                        
+}
+                    }
+                    
+                    conditional_reward {
+                        requirements {
+              
+              counter_minimum [WorldEventLegacyCounter_Jack 25]
+                            counter_maximum [WorldEventLegacyCounter_Jack 49]
+                        }
+
+                        reward {
+     
+                       prompt "EVENT_JACK_REW2"
+                            get_item_from_pool chapter_rare
+                        }
+                    }
+
+   
+                 conditional_reward {
+                        requirements {
+                            counter_minimum [WorldEventLegacyCounter_Jack 50]
+                           
+ counter_maximum [WorldEventLegacyCounter_Jack 99]
+                        }
+
+                        reward {
+                            prompt "EVENT_JACK_REW3"
+                   
+         random_pool [
+                                {
+                                    get_item_from_pool uncommon
+                     
+               get_item_from_pool uncommon
+                                }{
+                                    get_item_from_pool uncommon
+               
+                     get_item_from_pool rare
+                                }{
+                                    get_item_from_pool rare
+         
+                           get_item_from_pool rare
+                                }
+                            ]
+            
+            }
+                    }
+
+                    conditional_reward {
+                        requirements {
+                      
+      counter_minimum [WorldEventLegacyCounter_Jack 100]
+                        }
+
+                        reward {
+                            prompt "EVENT_JACK_REW4"
+              
+              play_animation resultVeryGood
+                            random_pool [
+                                {
+                        
+            get_item_from_pool rare
+                                    get_item_from_pool rare
+                                }{
+                  
+                  get_item_from_pool very_rare
+                                }
+                            ]
+                     
+   }
+                    }
+                }
+                bad {
+                    prompt "EVENT_JACK_NOTENOUGHMONEY"
+                    party_heal 1
+                }
+       
+     }
+            
+            donate_15 {
+                label "EVENT_DONATE_ANSW"
+                stat coins
+                animation_fail choice_no_coins
+                animation choice_coins_ten
+  
+              stat_min 15
+                stat_max 15
+                
+                requirements {
+                    counter_minimum [WorldEventLegacyCounter_Jack 100]
+             
+   }
+                good {
+                    set_frame 2
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                 
+   increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+             
+       increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    
+         
+           increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+                    increment_legacy_counter WorldEventLegacyCounter_Jack
+    
+                prompt "EVENT_JACK_REW4"
+                    play_animation resultVeryGood
+                    random_pool [
+                        {
+                 
+           get_item_from_pool rare
+                            get_item_from_pool rare
+                        }{
+                            get_item_from_pool very_rare
+      
+                  }
+                    ]
+
+                }
+                bad {
+                    prompt "EVENT_JACK_NOTENOUGHMONEY"
+                    party_heal 1
+        
+        }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+
+                good {
+                    prompt "EVENT_JACK_LEAVE"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    
+}
+}
+
+StevenFetus {
+    intro {
+        title "EVENT_STEVENFETUS_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame steven_fetus
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_STEVENFETUS_QUES"
+        setup {
+            conditional_reward {
+         
+       requirements {
+                    has_token AdventureToken_StevenTryAgain
+                    not_has_token AdventureToken_StevenTryAgain2
+                }
+                reward {
+                 
+   prompt "EVENT_STEVENFETUS_QUES2"
+                }
+            }
+            conditional_reward {
+                requirements {
+                    has_token AdventureToken_StevenTryAgain2
+                 
+   not_has_token AdventureToken_StevenTryAgain3
+
+                }
+                reward {
+                    prompt "EVENT_STEVENFETUS_QUES3"
+                }
+            }
+            conditional_reward {
+ 
+               requirements {
+                    has_token AdventureToken_StevenTryAgain3
+                }
+                reward {
+                    prompt "EVENT_STEVENFETUS_QUES4"
+         
+       }
+            }
+        }
+
+        options {
+            investigate {
+                label "EVENT_INVESTIGATE_ANSW"
+                stat int
+
+                good 
+{
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_STEVENFETUS_REW1"
+    
+                        random_mutation {
+                                count 1
+                                asymmetric false
+         
+                       tag extra
+                            }
+                        }
+                        
+rare {
+                            prompt "EVENT_STEVENFETUS_REW2"
+                            learn_passive MiniMe
+                        }
+                 
+   }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                      
+  common {
+                            prompt "EVENT_STEVENFETUS_REW3"
+                            party_heal 1
+                        }
+               
+         rare {
+                            prompt "EVENT_STEVENFETUS_REW4"
+                            party_heal 1
+         
+               }
+                    }
+                }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+       
+         stat none
+                animation choice_leave
+
+                requirements {
+                    not_has_token AdventureToken_StevenTryAgain3
+                }
+
+                good {
+  
+                  prompt "EVENT_STEVENFETUS_REW5"
+                    play_animation [resultLeave 0]
+                }
+                bad {
+                    play_animation [resultLeave 0]
+    
+                
+                    conditional_reward {
+                        requirements {
+                            has_token AdventureToken_StevenTryAgain
+         
+                   has_token AdventureToken_StevenTryAgain2
+                        }
+                        reward {
+                            prompt "EVENT_STEVENFETUS_REW6"
+  
+                          set_adventure_token AdventureToken_StevenTryAgain3
+                            party_heal 1
+               
+         }
+                    }
+
+                    conditional_reward {
+                        requirements {
+                         
+   has_token AdventureToken_StevenTryAgain
+                            not_has_token AdventureToken_StevenTryAgain2
+                        }
+                        reward {
+                  
+          prompt "EVENT_STEVENFETUS_REW5"
+                            set_adventure_token AdventureToken_StevenTryAgain2
+                            party_heal 1
+                        }
+       
+             }
+
+                    conditional_reward {
+                        requirements {
+                            not_has_token AdventureToken_StevenTryAgain
+            
+                not_has_token AdventureToken_StevenTryAgain2
+                        }
+                        reward {
+                            prompt "EVENT_STEVENFETUS_REW5"
+     
+                       set_adventure_token AdventureToken_StevenTryAgain
+                            party_heal 1
+                        }
+                    }
+
+   
+                 event_now_same_cat StevenFetus
+                }
+            }
+        }
+    }
+}
+
+DarkDen {
+    intro {
+        title "EVENT_DARKDEN_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame 
+dark_den
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_DARKDEN_QUES"
+
+        options {
+            investigate {
+                label "EVENT_INVESTIGATE_ANSW"
+                stat int
+
+                good 
+{
+                    reward {
+                        common {
+                            set_frame 2
+                         
+   prompt "EVENT_DARKDEN_REW1"
+                            gain_familiar CharmedBear
+                        }
+                        rare {
+                  
+          set_frame 3
+                            prompt "EVENT_DARKDEN_REW2"
+							mutation {
+                                legs 322
+							}
+                        }
+  
+                  }
+                }
+                bad {
+                    reward {
+                        common {
+   
+                         set_frame 4
+                            prompt "EVENT_DARKDEN_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            set_frame 5
+           
+                 prompt "EVENT_DARKDEN_REW4" 
+                            party_heal 1
+                        }
+                    }
+        
+        }
+            }
+            
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+    
+            
+                good {
+                    prompt "EVENT_DARKDEN_REW5"
+                    play_animation [resultLeave 0]
+                }
+            
+}
+        }
+    }
+}
+
+WhiteRabbit {
+    intro {
+        title "EVENT_WHITERABBIT_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame white_rabbit
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_WHITERABBIT_QUES"
+
+        options {
+          
+  charm {
+                label "EVENT_CHARM_ANSW"
+                stat cha
+
+                good {
+                    reward {
+                        common 
+{
+                            set_frame 2
+                            prompt "EVENT_WHITERABBIT_REW1"
+                            get_item_from_pool bone_equipment
+             
+           }
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_WHITERABBIT_REW2"
+      
+                      gain_familiar CharmedWhiteRabbit
+                        }
+                    }
+                }
+                bad 
+{
+                    reward {
+                        common {
+                            set_frame 6
+                         
+   prompt "EVENT_WHITERABBIT_REW3"
+                            party_heal 1
+                        }
+             
+           rare {
+                            set_frame 7
+                            prompt "EVENT_WHITERABBIT_REW4" 
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            follow {
+               
+ label "EVENT_FOLLOW_ANSW"
+                stat spd
+
+                good {
+                    set_frame 3
+                    reward {
+                      
+  common {
+                            set_frame 4
+                            prompt "EVENT_WHITERABBIT_REW5"
+                            gain_coins [5 10]
+         
+               }
+                        rare {
+                            set_frame 5
+                            prompt "EVENT_WHITERABBIT_REW6"
+  
+                          gain_coins [10 20]
+                        }
+                    }
+                }
+            
+    bad {
+                    reward {
+                        common {
+                            set_frame 6
+                    
+        prompt "EVENT_WHITERABBIT_REW7"
+                            party_heal 1
+                        }
+        
+                rare {
+                            set_frame 7
+                            prompt "EVENT_WHITERABBIT_REW8" 
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+            
+           
+ ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+              
+      prompt "EVENT_WHITERABBIT_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+MysteriousMachine {
+    requirements {
+        //Several of the unique rewards from the crit events only make sense with 2+ cats.
+minimum_party_size 2
+        not_on_quest 1 //the copy cat / clone item results are quite bad to get if you're on an item quest
+    }
+
+    intro {
+        title "EVENT_MYSTERIOUSMACHINE_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame mysterious_machine
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt 
+"EVENT_MYSTERIOUSMACHINE_QUES"
+
+        options {
+            turnon {
+                label "EVENT_MYSTERIOUSMACHINE_TURNITON_ANSW"
+                stat int
+                
+
+                good {
+           
+         reward {
+                        common {
+                            prompt "EVENT_MYSTERIOUSMACHINE_REW1"
+                            set_frame 2
+       
+                     get_item Technology
+                        }
+                        rare {
+                            prompt 
+"EVENT_MYSTERIOUSMACHINE_REW2"
+                            set_frame 4
+                            event_now MysteriousMachine_Good
+                        }
+                  
+  }
+                }
+                bad {
+                    reward {
+                        common {
+                   
+         prompt "EVENT_MYSTERIOUSMACHINE_REW3"
+                            set_frame 3
+                            party_heal 1
+                        }
+                  
+      rare {
+                            prompt "EVENT_MYSTERIOUSMACHINE_REW4" 
+                            set_frame 4
+                            event_now MysteriousMachine_Bad
+                            party_heal 1
+     
+                   }
+                    }
+                }
+            }
+            
+            ignore {
+        
+        label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_MYSTERIOUSMACHINE_REW5"
+   
+                 play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+BodyOfGlorg {
+    intro {
+        title "EVENT_BODYOFGLORG_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        
+subject_frame body_of_glorg
+        choose_cat_with_parasite true
+        event_clip NonWheelEvent
+    }
+       
+    main {
+        prompt "EVENT_BODYOFGLORG_QUES"
+
+        options {
+            give_parasite {
+                label "EVENT_BODYOFGLORG_PARASITE_ANSW"
+                requirements 
+{
+                    cat_has_parasite true
+                }
+
+                good {
+                    set_frame 2
+                    prompt "EVENT_BODYOFGLORG_REW1"
+    
+                lose_item parasite
+                    event_now_same_cat BodyOfGlorg_Gift
+                }
+                bad {
+                    set_frame 3
+        
+            prompt "EVENT_BODYOFGLORG_REW2"
+                    party_heal 1
+                }
+            }
+
+            fight {
+                label "EVENT_FIGHT_ANSW"
+        
+        stat str
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+       
+                     prompt "EVENT_BODYOFGLORG_REW3"
+                            gain_familiar CharmedMaggot
+                            gain_familiar CharmedMaggot
+                    
+    }
+                        rare {
+                            prompt "EVENT_BODYOFGLORG_REW4"
+                            learn_passive Host
+             
+               get_parasite_from_pool parasites
+                        }
+                    }
+                }
+                bad {
+       
+             set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_BODYOFGLORG_REW5"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_BODYOFGLORG_REW6" 
+                            party_heal 1
+                
+        }
+                    }
+                }
+            }
+            
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+  
+              stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_BODYOFGLORG_REW7"
+              
+      play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,320 @@
+HiddenTrap {
+    intro {
+        title "EVENT_HIDDENTRAP_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame hidden_trap
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_HIDDENTRAP_QUES"
+
+        options {
+            disarm {
+                label "EVENT_DISARM_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_HIDDENTRAP_REW1"
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict consumables
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_HIDDENTRAP_REW2"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_HIDDENTRAP_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_HIDDENTRAP_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+            investigate {
+                label "EVENT_INVESTIGATE_ANSW"
+                stat int
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_HIDDENTRAP_REW5"
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict consumables
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_HIDDENTRAP_REW6"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_HIDDENTRAP_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_HIDDENTRAP_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+            smash {
+                label "EVENT_SMASH_ANSW"
+                stat str
+                
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_HIDDENTRAP_REW9"
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict consumables
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_HIDDENTRAP_REW10"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_HIDDENTRAP_REW11"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_HIDDENTRAP_REW12"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+ToxicLake {
+    intro {
+        title "EVENT_TOXICLAKE_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame toxic_lake
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_TOXICLAKE_QUES"
+
+        options {
+            fish {
+                label "EVENT_FISH_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_TOXICLAKE_REW1"
+                            gain_food [2 6]
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict consumables
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_TOXICLAKE_REW2"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_TOXICLAKE_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_TOXICLAKE_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+            drink {
+                label "EVENT_DRINK_ANSW"
+                stat con
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_TOXICLAKE_REW5"
+                            full_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_TOXICLAKE_REW6"
+                            permanent_stats {
+                                max_hp 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_TOXICLAKE_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_TOXICLAKE_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_TOXICLAKE_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+BurningCorpse {
+    intro {
+        title "EVENT_BURNINGCORPSE_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame burning_corpse
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_BURNINGCORPSE_QUES"
+
+        options {
+            extinguish {
+                label "EVENT_EXTINGUISH_ANSW"
+                stat int
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_BURNINGCORPSE_REW1"
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict consumables
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_BURNINGCORPSE_REW2"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_BURNINGCORPSE_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_BURNINGCORPSE_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_BURNINGCORPSE_REW5"
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict consumables
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_BURNINGCORPSE_REW6"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_BURNINGCORPSE_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_BURNINGCORPSE_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

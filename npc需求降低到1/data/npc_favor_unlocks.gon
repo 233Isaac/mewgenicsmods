@@ -1,0 +1,733 @@
+beanies_questinfo {
+	destinations { //area | coin reward
+		caves 200
+		boneyard 200
+		meatworld 300
+
+		moon 300
+		core 300
+		dimensionx 400
+
+		jurassic 400
+		theend 400
+		endoftime 500
+	}
+
+	prereqs {
+		moon mapflag_IceAgeUnlocked
+		core mapflag_IceAgeUnlocked
+		dimensionx mapflag_IceAgeUnlocked
+
+		jurassic endoftime
+		theend endoftime
+		endoftime endoftime
+	}
+
+	intro [PersuasionDevice]
+	main_pool [
+		ChaosDevice
+		MagicMirror
+		MeStone
+		AngryFace
+		FartFace
+
+		SpiderInjector
+		PartyDetonator
+		AirHorn
+		TheLoner
+		GlassCannon
+
+		PrincessHat
+		HardPill
+		BubbleBoy
+		Redacted
+		Stopwatch
+
+		StorageLocker
+		MysteriousDice
+		ExperimentalTreatment
+		UltraVision3000
+		NuclearKnife
+	]
+}
+
+Beanies {
+	beanies_quests_intro {
+		generate_beanies_quest intro
+		favor 1
+
+		reward_text "FAVOR_BEANIES_INTRO"
+	}
+
+	beanies_quests_repeat {
+		generate_beanies_quest main_pool
+		favor 1
+		repeat infinite
+
+		reward_text "FAVOR_BEANIES_REPEAT"
+		level_display max
+	}
+}
+
+Butch {
+	//start at 3x3 + 7 upgrades = 10x10
+
+	//tutorial
+	upgrade_storage_1 {
+		storage_expansion 1
+		required_act 0
+		required_chapter 0
+		favor 1
+
+		reward_text "FAVOR_BUTCH_UPGRADE"
+	}
+
+	//act 1
+	upgrade_storage_2 {
+		storage_expansion 1
+		required_act 0
+		required_chapter 0
+		favor 1
+
+		reward_text "FAVOR_BUTCH_UPGRADE"
+	}
+
+	upgrade_storage_3 {
+		storage_expansion 1
+		required_act 0
+		required_chapter 0
+		favor 1
+
+		reward_text "FAVOR_BUTCH_UPGRADE"
+	}
+
+	//act 2
+	upgrade_storage_4 {
+		storage_expansion 1
+		required_act 0
+		required_chapter 0
+		favor 1
+
+		reward_text "FAVOR_BUTCH_UPGRADE"
+	}
+
+	upgrade_storage_5 {
+		storage_expansion 1
+		required_act 0
+		required_chapter 0
+		favor 1
+
+		reward_text "FAVOR_BUTCH_UPGRADE"
+	}
+
+	//act 3
+	upgrade_storage_6 {
+		storage_expansion 1
+		required_act 0
+		required_chapter 0
+		favor 1
+
+		reward_text "FAVOR_BUTCH_UPGRADE"
+	}
+
+	upgrade_storage_7 {
+		storage_expansion 1
+		required_act 0
+		required_chapter 0
+		favor 1
+
+		reward_text "FAVOR_BUTCH_UPGRADE"
+	}
+
+
+	upgrade_storage_repeating_intro {
+		rep_reward_count 1
+		required_act 0
+		required_chapter 0
+		required_difficulty 0
+
+		favor 1
+
+		reward_text "FAVOR_BUTCH_UPGRADE"
+		level_display max
+	}
+	upgrade_storage_repeating_normal {
+		rep_reward_count 1
+		required_act 0
+		required_chapter 0
+		required_difficulty 0
+
+		favor 1
+		repeat 20 //with the intro one, this goes from 100 to 121 (11x11)
+
+		reward_text "FAVOR_BUTCH_UPGRADE"
+		level_display max
+	}
+	upgrade_storage_repeating_hard {
+		rep_reward_count 1
+		required_act 0
+		required_chapter 0
+		required_difficulty 1
+
+		favor 1
+		repeat 23
+
+		reward_text "FAVOR_BUTCH_UPGRADE"
+		level_display max
+	}
+	upgrade_storage_repeating_crazy {
+		rep_reward_count 1
+		required_act 0
+		required_chapter 0
+		required_difficulty 2
+
+		favor 1
+		repeat 25
+
+		reward_text "FAVOR_BUTCH_UPGRADE"
+		level_display max
+	}
+	upgrade_storage_repeating_impossible {
+		rep_reward_count 1
+		required_act 0
+		required_chapter 0
+		required_difficulty 3
+
+		favor 1
+		repeat infinite
+
+		reward_text "FAVOR_BUTCH_UPGRADE"
+		level_display max
+	}
+}
+
+Tink {
+	tink_prettybow {
+		favor 1
+		gift_item TinksBow
+
+		reward_text "FAVOR_TINK_BOW"
+	}
+
+	tink_basestats { //ability to view base stats / stat modifications separately
+		favor 1
+		set_savefile_flag catinfo_unlock_basestats
+
+		reward_text "FAVOR_TINK_BASESTATS"
+	}
+
+	tink_inbreeding { //an icon for how inbred a cat is, plus a family tree view
+		favor 1
+		set_savefile_flag catinfo_unlock_inbreeding
+
+		reward_text "FAVOR_TINK_INBREEDING"
+	}
+
+	tink_sexuality { //an icon for libido, plus gay/bi flags
+		favor 1
+		set_savefile_flag catinfo_unlock_sexuality
+
+		reward_text "FAVOR_TINK_SEXUALITY"
+	}
+
+	tink_tags { //ability to manually add symbols to a cat's name
+		favor 1
+		set_savefile_flag catinfo_unlock_tags
+
+		reward_text "FAVOR_TINK_TAGS"
+	}
+
+	tink_aggression { //an icon for how aggressive a cat is
+		favor 1
+		set_savefile_flag catinfo_unlock_aggression
+
+		reward_text "FAVOR_TINK_AGRESSION"
+	}
+
+	tink_relationships { //an icon representing who a cat loves and who a cat hates
+		favor 1
+		set_savefile_flag catinfo_unlock_relationships
+
+		reward_text "FAVOR_TINK_RELATIONSHIPS"
+	}
+
+	tink_max_intro {
+		favor 10
+		coins 250
+
+		reward_text "FAVOR_TINK_MAX"
+		level_display max
+	}
+	tink_max_repeating {
+		favor 10
+		coins 250
+		repeat infinite
+
+		reward_text "FAVOR_TINK_MAX"
+		level_display max
+	}
+}
+
+Frank {
+	house_upgrade_attic {
+		house_upgrade SmallHouse_Attic
+		favor 1
+
+		reward_text "FAVOR_FRANK_ATTIC"
+	}
+
+	house_upgrade_mediumhouse {
+		house_upgrade MediumHouse
+		house_upgrade MediumHouse_SmallRoom
+		favor 1
+
+		reward_text "FAVOR_FRANK_ROOM"
+	}
+
+	house_upgrade_largehouse {
+		house_upgrade LargeHouse
+		house_upgrade LargeHouse_Floor2Large
+		favor 1
+
+		reward_text "FAVOR_FRANK_ROOM"
+	}
+
+	house_upgrade_4throom {
+		house_upgrade LargeHouse_Floor2Small
+		favor 1
+
+		reward_text "FAVOR_FRANK_ROOM"
+	}
+
+	/*house_upgrade_basement {
+		house_upgrade BasementUpgrade
+		favor 1
+	}
+
+	house_upgrade_basement2 {
+		house_upgrade BasementUpgrade2
+		favor 1
+	}
+
+	house_upgrade_basement3 {
+		house_upgrade BasementUpgrade3
+		favor 1
+	}
+
+	house_upgrade_basement4 {
+		house_upgrade BasementUpgrade4
+		favor 1
+	}
+
+	house_upgrade_basement5 {
+		house_upgrade BasementUpgrade5
+		favor 1
+	}*/
+
+	frank_max_intro {
+		favor 1
+		gift_item_from_pool parasites
+
+		reward_text "FAVOR_FRANK_PARASITE"
+		level_display max
+	}
+	frank_max_repeating {
+		favor 1
+		repeat infinite
+		gift_item_from_pool parasites
+
+		reward_text "FAVOR_FRANK_PARASITE"
+		level_display max
+	}
+}
+
+Jack {
+	jack_shopupgrade1 {
+		favor 1
+		shop_level_up 1 //to 3 items in the shop
+
+		reward_text "FAVOR_JACK_UPGRADE"
+	}
+	jack_shopupgrade2 {
+		favor 1
+		shop_level_up 1 //to 4 items in the shop
+
+		reward_text "FAVOR_JACK_UPGRADE"
+	}
+	jack_shopupgrade3 {
+		favor 1
+		shop_level_up 1 //to 5 items in the shop
+
+		reward_text "FAVOR_JACK_UPGRADE"
+	}
+	jack_shopupgrade4 {
+		favor 1
+		shop_level_up 1 //to 6 items in the shop
+
+		reward_text "FAVOR_JACK_UPGRADE"
+	}
+
+	jack_max_intro {
+		favor 1
+		rep_reward_count 1
+
+		reward_text "FAVOR_JACK_MAX"
+		level_display max
+	}
+	jack_max_repeating {
+		favor 1
+		repeat infinite
+		rep_reward_count 1
+
+		reward_text "FAVOR_JACK_MAX"
+		level_display max
+	}
+}
+
+tracy_idols [
+	special_comfortidol 
+	special_appealidol
+	special_healthidol
+	special_evolutionidol
+	special_stimulationidol
+	special_fightidol
+	special_suppressoridol
+]
+
+Tracy {
+	tracy_foodstorage1 {
+		favor 1
+		required_age 5
+		shop_level_up 1
+
+		tracy_special_item {
+			type special_foodbox
+			cost 100
+		}
+
+		reward_text "FAVOR_TRACY_FOOD"
+	}
+	tracy_blankcollar1 {
+		favor 5
+		required_age 5
+		shop_level_up 1
+
+		tracy_special_item {
+			type blankcollar
+			cost 150
+		}
+
+		reward_text "FAVOR_TRACY_COLLAR"
+	}
+	tracy_foodstorage2 {
+		favor 5
+		required_age 5
+		shop_level_up 1
+
+		tracy_special_item {
+			type special_foodbox
+			cost 100
+		}
+
+		reward_text "FAVOR_TRACY_FOOD"
+	}
+	tracy_idol1 {
+		favor 5
+		required_age 5
+		shop_level_up 1
+
+		tracy_special_item {
+			type random_unique_idol
+			cost 150
+		}
+
+		reward_text "FAVOR_TRACY_IDOL"
+	}
+	tracy_foodstorage3 {
+		favor 5
+		required_age 5
+		shop_level_up 1
+
+		tracy_special_item {
+			type special_foodbox
+			cost 100
+		}
+
+		reward_text "FAVOR_TRACY_FOOD"
+	}
+	tracy_blankcollar2 {
+		favor 5
+		required_age 5
+		shop_level_up 1
+
+		tracy_special_item {
+			type blankcollar
+			cost 150
+		}
+
+		reward_text "FAVOR_TRACY_COLLAR"
+	}
+	tracy_foodstorage4 {
+		favor 5
+		required_age 5
+		shop_level_up 1
+
+		tracy_special_item {
+			type special_foodbox
+			cost 100
+		}
+
+		reward_text "FAVOR_TRACY_FOOD"
+	}
+	tracy_idol2 {
+		favor 5
+		required_age 5
+		shop_level_up 1
+
+		tracy_special_item {
+			type random_unique_idol
+			cost 150
+		}
+
+		reward_text "FAVOR_TRACY_IDOL"
+	}
+	tracy_foodstorage5 {
+		favor 5
+		required_age 5
+		shop_level_up 1
+
+		tracy_special_item {
+			type special_foodbox
+			cost 100
+		}
+
+		reward_text "FAVOR_TRACY_FOOD"
+	}
+	tracy_blankcollar3 {
+		favor 5
+		required_age 5
+		shop_level_up 1
+
+		tracy_special_item {
+			type blankcollar
+			cost 150
+		}
+
+		reward_text "FAVOR_TRACY_COLLAR"
+	}
+	tracy_foodstorage6 {
+		favor 5
+		required_age 5
+		shop_level_up 1
+
+		tracy_special_item {
+			type special_foodbox
+			cost 100
+		}
+
+		reward_text "FAVOR_TRACY_FOOD"
+	}
+	tracy_idol3 {
+		favor 5
+		required_age 5
+		shop_level_up 1
+
+		tracy_special_item {
+			type random_unique_idol
+			cost 150
+		}
+
+		reward_text "FAVOR_TRACY_IDOL"
+	}
+	tracy_foodstorage7 {
+		favor 5
+		required_age 5
+		shop_level_up 1
+
+		tracy_special_item {
+			type special_foodbox
+			cost 100
+		}
+
+		reward_text "FAVOR_TRACY_FOOD"
+	}
+	tracy_idol4 {
+		favor 5
+		required_age 5
+		shop_level_up 1
+
+		tracy_special_item {
+			type random_unique_idol
+			cost 150
+		}
+
+		reward_text "FAVOR_TRACY_IDOL"
+	}
+	tracy_foodstorage8 {
+		favor 5
+		required_age 5
+		shop_level_up 1
+
+		tracy_special_item {
+			type special_foodbox
+			cost 100
+		}
+
+		reward_text "FAVOR_TRACY_FOOD"
+	}
+	tracy_idol5 {
+		favor 5
+		required_age 5
+		shop_level_up 1
+
+		tracy_special_item {
+			type random_unique_idol
+			cost 150
+		}
+
+		reward_text "FAVOR_TRACY_IDOL"
+	}
+	tracy_foodstorage9 {
+		favor 5
+		required_age 5
+		shop_level_up 1
+
+		tracy_special_item {
+			type special_foodbox
+			cost 100
+		}
+
+		reward_text "FAVOR_TRACY_FOOD"
+	}
+	tracy_idol6 {
+		favor 5
+		required_age 5
+		shop_level_up 1
+
+		tracy_special_item {
+			type random_unique_idol
+			cost 150
+		}
+
+		reward_text "FAVOR_TRACY_IDOL"
+	}
+	tracy_foodstorage10 {
+		favor 5
+		required_age 5
+		shop_level_up 1
+
+		tracy_special_item {
+			type special_foodbox
+			cost 100
+		}
+
+		reward_text "FAVOR_TRACY_FOOD"
+	}
+	tracy_idol7 {
+		favor 5
+		required_age 5
+		shop_level_up 1
+
+		tracy_special_item {
+			type random_unique_idol
+			cost 150
+		}
+
+		reward_text "FAVOR_TRACY_IDOL"
+	}
+
+	tracy_max_intro {
+		favor 5
+		required_age 5
+
+		tracy_special_item {
+			type bonus_rare_item
+			cost 10
+		}
+
+		reward_text "FAVOR_TRACY_RARE"
+		level_display max
+	}
+	tracy_max_repeating {
+		favor 5
+		required_age 5
+		repeat infinite
+
+		tracy_special_item {
+			type bonus_rare_item
+			cost 10
+		}
+
+		reward_text "FAVOR_TRACY_RARE"
+		level_display max
+	}
+}
+
+OrganGrinder {
+	organ_unlock { //organ grinder initial unlock 
+		favor 1
+		shop_level_up 1 //(3 items, 20% recovery, no item advantage) minimum gold/food recovered: 8
+
+		reward_text "FAVOR_GRINDER_UPGRADE"
+	}
+	organ_upgrade1 {
+		favor 1
+		shop_level_up 1 //(3 items, 25% recovery, +3 item advantage) minimum gold/food recovered: 10
+
+		reward_text "FAVOR_GRINDER_UPGRADE"
+	}
+	organ_upgrade2 {
+		favor 1
+		shop_level_up 1 //(3 items, 30% recovery, +6 item advantage) minimum gold/food recovered: 12
+
+		reward_text "FAVOR_GRINDER_UPGRADE"
+	}
+	organ_upgrade3 {
+		favor 1
+		shop_level_up 1 //(3 items, 35% recovery, +9 item advantage) minimum gold/food recovered: 14
+
+		reward_text "FAVOR_GRINDER_UPGRADE"
+	}
+	organ_upgrade4 {
+		favor 1
+		shop_level_up 1 //(3 items, 40% recovery, +12 item advantage) minimum gold/food recovered: 16
+
+		reward_text "FAVOR_GRINDER_UPGRADE"
+	}
+	organ_upgrade5 {
+		favor 1
+		shop_level_up 1 //(3 items, 45% recovery, +15 item advantage) minimum gold/food recovered: 18
+
+		reward_text "FAVOR_GRINDER_UPGRADE"
+	}
+	organ_upgrade6 {
+		favor 1
+		shop_level_up 1 //(3 items, 50% recovery, +18 item advantage) minimum gold/food recovered: 20
+
+		reward_text "FAVOR_GRINDER_UPGRADE"
+	}
+
+	organ_max_intro {
+		favor 1
+		gift_item disorder_needle
+
+		reward_text "FAVOR_GRINDER_SYRINGE"
+		level_display max
+	}
+	organ_max_repeating {
+		favor 1
+		repeat infinite
+		gift_item disorder_needle
+
+		reward_text "FAVOR_GRINDER_SYRINGE"
+		level_display max
+	}
+}
+
+Steven {
+	steven_milliontrashed {
+		favor 1000000
+		repeat infinite
+		level_display max
+	}
+}

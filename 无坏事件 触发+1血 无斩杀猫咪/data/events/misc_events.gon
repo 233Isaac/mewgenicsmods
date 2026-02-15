@@ -1,0 +1,2443 @@
+CatHole {
+    requirements { //wont show up on quests or on 1-cat runs since the cat dissapearing can be BAD in those cases
+        minimum_party_size 2
+        not_on_quest 1
+    }
+
+    intro {
+        title "EVENT_CATSHAPEDHOLE_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame cathole
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_CATSHAPEDHOLE_QUES"
+
+        options {
+            concheck {
+                label "EVENT_GETINTHEHOLE_ANSW"
+                stat con
+
+                good {
+                    reward {
+                        common {
+                            set_frame 2
+                            prompt "EVENT_CATSHAPEDHOLE_REW1"
+                            play_animation resultConfused
+                        }
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_CATSHAPEDHOLE_REW2"
+                            play_animation resultHole
+
+                            //hide_cat 1
+
+                            leave_party_temporarily {
+                                fights_skipped 1
+                            }
+
+                            mutation {
+                                body 900
+                                ears 900
+                                eyebrows 900
+                                eyes 900
+                                head 900
+                                legs 900
+                                arms 900
+                                mouth 900
+                                tail 900
+                            }
+
+                            hide_appearance_changes 1
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 2
+                            prompt "EVENT_CATSHAPEDHOLE_REW3"
+                            gain_disorder Depression
+                            play_animation resultConfused
+                        }
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_CATSHAPEDHOLE_REW4"
+                            play_animation resultHole
+
+                            //hide_cat 1
+
+                            leave_party_temporarily {
+                                fights_skipped 0
+                                return_during boss
+                                return_as enemy
+                            }
+
+                            mutation {
+                                body 900
+                                ears 900
+                                eyebrows 900
+                                eyes 900
+                                head 900
+                                legs 900
+                                arms 900
+                                mouth 900
+                                tail 900
+                            }
+
+                            hide_appearance_changes 1
+                        }
+                    }
+                }
+            }
+
+            intcheck {
+                label "EVENT_GETINTHEHOLE_ANSW"
+                stat int
+
+                good {
+                    reward {
+                        common {
+                            set_frame 4
+                            prompt "EVENT_CATSHAPEDHOLE_REW5"
+                            play_animation resultLeave
+                        }
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_CATSHAPEDHOLE_REW6"
+                            play_animation resultHole
+
+                            //hide_cat 1
+
+                            leave_party_temporarily {
+                                fights_skipped 1
+                            }
+
+                            mutation {
+                                body 900
+                                ears 900
+                                eyebrows 900
+                                eyes 900
+                                head 900
+                                legs 900
+                                arms 900
+                                mouth 900
+                                tail 900
+                            }
+
+                            hide_appearance_changes 1
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 4
+                            prompt "EVENT_CATSHAPEDHOLE_REW7"
+                            gain_disorder_from_pool mental_disorders
+                            play_animation resultConfused
+                        }
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_CATSHAPEDHOLE_REW8"
+                            play_animation resultHole
+
+                            //hide_cat 1
+
+                            leave_party_temporarily {
+                                fights_skipped 0
+                                return_during boss
+                                return_as enemy
+                            }
+
+                            mutation {
+                                body 900
+                                ears 900
+                                eyebrows 900
+                                eyes 900
+                                head 900
+                                legs 900
+                                arms 900
+                                mouth 900
+                                tail 900
+                            }
+
+                            hide_appearance_changes 1
+                        }
+                    }
+                }
+            }
+
+            dexcheck {
+                label "EVENT_GETINTHEHOLE_ANSW"
+                stat dex
+
+                good {
+                    reward {
+                        common {
+                            set_frame 5
+                            prompt "EVENT_CATSHAPEDHOLE_REW9"
+                            play_animation resultConfused
+                        }
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_CATSHAPEDHOLE_REW10"
+                            play_animation resultHole
+
+                            //hide_cat true
+
+                            leave_party_temporarily {
+                                fights_skipped 1
+                            }
+
+                            mutation {
+                                body 900
+                                ears 900
+                                eyebrows 900
+                                eyes 900
+                                head 900
+                                legs 900
+                                arms 900
+                                mouth 900
+                                tail 900
+                            }
+
+                            hide_appearance_changes 1
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 6
+                            prompt "EVENT_CATSHAPEDHOLE_REW11"
+                            gain_disorder_from_pool physical_disorders
+                            play_animation resultBad
+                        }
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_CATSHAPEDHOLE_REW12"
+
+                            play_animation resultHole
+                            
+                            //hide_cat 1
+
+                            leave_party_temporarily {
+                                fights_skipped 0
+                                return_during boss
+                                return_as enemy
+                            }
+
+                            mutation {
+                                body 900
+                                ears 900
+                                eyebrows 900
+                                eyes 900
+                                head 900
+                                legs 900
+                                arms 900
+                                mouth 900
+                                tail 900
+                            }
+
+                            hide_appearance_changes 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+TallFence {
+    intro {
+        title "EVENT_TALLFENCE_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame tallfence
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_TALLFENCE_QUES"
+
+        options {
+            climb {
+                label "EVENT_CLIMB_ANSW"
+                stat dex
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_TALLFENCE_REW1"
+                            ally_ambush_next_fights 1
+                        }
+                        rare {
+                            prompt "EVENT_TALLFENCE_REW2"
+                            get_item_from_pool treasure_easy
+                        }
+                    }
+                }
+
+                bad {
+                    set_frame 3
+
+                    reward {
+                        common {
+                            prompt "EVENT_TALLFENCE_REW3"
+                            self_damage 5
+                            spin again
+                        }
+                        rare {
+                            prompt "EVENT_TALLFENCE_REW4"
+                            injury spd
+                        }
+                    }
+                }
+            }
+
+            bash {
+                label "EVENT_BASH_ANSW"
+                stat str
+
+                good {
+                    set_frame 2
+
+                    reward {
+                        common {
+                            prompt "EVENT_TALLFENCE_REW5"
+                            get_item_from_pool consumables
+                            ally_ambush_next_fights 1
+                        }
+                        rare {
+                            prompt "EVENT_TALLFENCE_REW6"
+                            get_item_from_pool treasure_easy
+                        }
+                    }
+                }
+
+                bad {
+                    set_frame 2
+                    prompt "EVENT_TALLFENCE_REW7"
+
+                    reward {
+                        common {
+                            get_parasite Splinters
+                        }
+                        rare {
+                            get_parasite BadSplinters
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_TALLFENCE_REW8"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+MouseTrap {
+    intro {
+        title "EVENT_BAITEDMOUSETRAP_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame mousetrap
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_BAITEDMOUSETRAP_QUES"
+
+        options {
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    reward {
+                        common {
+                            prompt "EVENT_BAITEDMOUSETRAP_REW1"
+                            //nothing
+                        }
+                        rare {
+                            set_frame 2
+                            prompt "EVENT_BAITEDMOUSETRAP_REW2"
+								random_pool [
+								{
+									weight 10
+									get_item_from_pool food
+								}
+								{
+									weight 4
+									get_item HeadCheese
+								}
+							]
+                        }
+                    }
+                }
+
+                bad {
+                    set_frame 3
+
+                    reward {
+                        common {
+                            prompt "EVENT_BAITEDMOUSETRAP_REW3"
+                            damage [5 10]
+                        }
+                        rare {
+                            prompt "EVENT_BAITEDMOUSETRAP_REW4"
+                            injury random
+                        }
+                    }
+                }
+            }
+
+            sneak {
+                label "EVENT_SNEAKBY_ANSW"
+                stat dex
+
+                good {
+                    prompt "EVENT_BAITEDMOUSETRAP_REW5"
+                    //nothing, escape
+                }
+
+                bad {
+                    set_frame 3
+
+                    reward {
+                        common {
+                            prompt "EVENT_BAITEDMOUSETRAP_REW6"
+                            damage [5 10]
+                        }
+                        rare {
+                            prompt "EVENT_BAITEDMOUSETRAP_REW7"
+                            injury random
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+CatOrgy {
+    intro {
+        title "EVENT_CATSINHEAT_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame catorgy
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_CATSINHEAT_QUES"
+
+        options {
+            sneak {
+                label "EVENT_SNEAKBY_ANSW"
+                stat dex
+
+                good {
+                    set_frame 2
+                    prompt "EVENT_CATSINHEAT_REW1"
+                    //nothing
+                }
+
+                bad {
+                    set_frame 5
+                    prompt "EVENT_CATSINHEAT_REW2"
+
+                    reward {
+                        common {
+                            party_damage [3 6]
+                        }
+                        rare {
+                            party_damage [7 12]
+                        }
+                    }
+                }
+            }
+
+            join {
+                label "EVENT_JOININ_ANSW"
+                stat cha
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_CATSINHEAT_REW3"
+                            party_heal 100%
+                        }
+                        rare {
+                            prompt "EVENT_CATSINHEAT_REW4"
+                            gain_cat_familiar 1
+                        }
+                    }
+                }
+
+                bad {
+                    set_frame 3
+
+                    reward {
+                        common {
+                            conditional_reward {
+                                requirements {
+                                    is_not_chapter [jurassic iceage]
+                                }
+                                
+                                reward {
+                                    prompt "EVENT_CATSINHEAT_REW5"
+                                    random_pool [
+                                        {
+                                            weight 10
+                                            gain_disorder_from_pool diseases
+                                        }
+                                        {
+                                            weight 1
+                                            gain_disorder FelineAids
+                                        }
+                                    ]
+                                }
+                                else {
+                                    prompt "EVENT_CATSINHEAT_ALT_REW5"
+                                    gain_disorder AcidReflux
+                                }
+                            }   
+                        }
+                        rare {
+                            conditional_reward {
+                                requirements {
+                                    is_not_chapter [jurassic iceage]
+                                }
+                                
+                                reward {
+                                    prompt "EVENT_CATSINHEAT_REW5"
+                                    random_pool [
+                                        {
+                                            weight 10
+                                            gain_disorder_from_pool diseases
+                                        }
+                                        {
+                                            weight 1
+                                            gain_disorder FelineAids
+                                        }
+                                    ]
+                                    get_parasite_from_pool parasites 
+                                }
+                                else {
+                                    prompt "EVENT_CATSINHEAT_ALT_REW5_B"
+                                    random_mutation {
+                                        count 10
+                                        asymmetric true
+                                        tag birth_defect
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            fight {
+                label "EVENT_FIGHT_ANSW"
+                stat str
+
+                good {
+                    set_frame 4 
+
+                    reward {
+                        common {
+                            conditional_reward {
+                                prompt "EVENT_CATSINHEAT_REW6"
+                                requirements {
+                                    is_not_chapter [jurassic iceage]
+                                }
+                                reward {
+                                    gain_coins [4 15]
+                                    get_item_from_pool consumables
+                                }
+
+                                else {
+                                    random_pool [
+                                        {
+                                            get_item Catnip
+                                        }
+                                        {
+                                            gain_food [2 5]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_CATSINHEAT_REW7"
+                            get_item_from_pool [
+                                CatHideHat
+                                CatHideMask
+                                CatHideArmor
+                                GutsHeart
+                                GutsLiver
+                                GutsIntestines
+                            ]
+                        }
+                    }
+                }
+
+                bad {
+
+                    reward {
+                        common {
+                            set_frame 5
+                            
+                            conditional_reward {
+                                prompt "EVENT_CATSINHEAT_REW8"
+                                requirements {
+                                    is_not_chapter [jurassic iceage]
+                                }
+                                reward {
+                                    injury random
+                                }
+
+                                else {
+                                    damage 50%
+                                    self_status_next_fight {
+                                        NoHealthRegen 1
+                                    }
+                                }
+                            }
+                        }
+                        rare {
+                            conditional_reward {
+                                requirements {
+                                    is_not_chapter [jurassic iceage]
+                                }
+                                reward {
+                                    prompt "EVENT_CATSINHEAT_REW9"
+                                    set_frame 5
+                                    injury con
+                                    gain_disorder_from_pool diseases
+                                }
+                                else {
+                                    prompt "EVENT_CATSINHEAT_ALT_REW9"
+                                    set_frame 4
+                                    gain_disorder Soulless
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+WatchingEyeballs {
+    intro {
+        title "EVENT_WATCHINGEYEBALLS_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame watchingeyeballs
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_WATCHINGEYEBALLS_QUES"
+
+        options {
+            sneak {
+                label "EVENT_SNEAKBY_ANSW"
+                stat dex
+
+                good {
+                    set_frame 4
+
+                    reward {
+                        common {
+                            prompt "EVENT_WATCHINGEYEBALLS_REW1"
+                        }
+                        rare {
+                            prompt "EVENT_WATCHINGEYEBALLS_REW2"
+                            ally_ambush_next_fights 1
+                        }
+                    }
+                }
+
+                bad {
+                    set_frame 5
+
+                    reward {
+                        common {
+                            prompt "EVENT_WATCHINGEYEBALLS_REW3"
+                            self_status_next_fight {
+                                Fear 1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_WATCHINGEYEBALLS_REW4"
+                            party_status_next_fight {
+                                Fear 1
+                            }
+                            ambush_next_basic_fights 1
+                        }
+                    }
+                }
+            }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 3
+                    
+                    reward {
+                        common {
+                            prompt "EVENT_WATCHINGEYEBALLS_REW5"
+                            gain_coins [5 7]
+                        }
+                        rare {
+                            prompt "EVENT_WATCHINGEYEBALLS_REW6"
+                            get_item_from_pool Coin_items
+                        }
+                    }
+                }
+
+                bad {
+                    set_frame 5
+
+                    reward {
+                        common {
+                            prompt "EVENT_WATCHINGEYEBALLS_REW7"
+                            party_status_next_fight {
+                                Fear 1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_WATCHINGEYEBALLS_REW8"
+                            gain_disorder PuncturedEye
+                        }
+                    }
+                }
+            }
+
+            bash {
+                label "EVENT_BASH_ANSW"
+                stat str
+
+                good {
+                    set_frame 2 
+
+                    reward {
+                        common {
+                            prompt "EVENT_WATCHINGEYEBALLS_REW9" 
+                            get_item_from_pool food
+                        }
+                        rare {
+                            prompt "EVENT_WATCHINGEYEBALLS_REW10"
+                            get_item_from_pool Eye_items
+                        }
+                    }
+                }
+
+                bad {
+                    set_frame 5
+
+                    reward {
+                        common {
+                            prompt "EVENT_WATCHINGEYEBALLS_REW11"
+                            self_status_next_fight {
+                                Blind 4
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_WATCHINGEYEBALLS_REW12"
+                            gain_disorder PuncturedEye
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+SpiderWebs {
+    intro {
+        title "EVENT_SPIDERWEBS_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame spiderwebs
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_SPIDERWEBS_QUES"
+
+        options {
+            sneak {
+                label "EVENT_SNEAKBY_ANSW"
+                stat dex
+
+                good {
+                    set_frame 2
+                    prompt "EVENT_SPIDERWEBS_REW1"
+                }
+
+                bad {
+                    set_frame 4
+
+                    reward {
+                        common {
+                            prompt "EVENT_SPIDERWEBS_REW2"
+                            self_status_next_fight {
+                                Webbed 1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_SPIDERWEBS_REW3"
+                            self_status_next_fight {
+                                Webbed 2
+                            }
+                            spawn_unit_next_fight {
+                                object [SpiderCat TallSpiderCat]
+                                count 1
+                                spawn_side enemies
+                            }
+                        }
+                    }
+                }
+            }
+
+            attack {
+                label "EVENT_ATTACK_ANSW"
+                stat str
+
+                good {
+                    set_frame 2
+                    
+                    reward {
+                        common {
+                            prompt "EVENT_SPIDERWEBS_REW4"
+                        }
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_SPIDERWEBS_REW5"
+                            gain_immortal_familiar CharmedFleaSpecial
+                        }
+                    }
+                }
+
+                bad {
+                    set_frame 4
+
+                    reward {
+                        common {
+                            prompt "EVENT_SPIDERWEBS_REW6"
+                            party_status_next_fight {
+                                Webbed 1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_SPIDERWEBS_REW7"
+
+                            random_mutation_from_set {
+                                mouth 1026
+                                eyes 1029
+								legs 306
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+Mirror {
+    intro {
+        title "EVENT_STRANGEMIRROR_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame mirror
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_STRANGEMIRROR_QUES"
+
+        options {
+            investigate {
+                label "EVENT_INVESTIGATE_ANSW"
+                stat int
+
+                good {
+                    
+                    reward {
+                        common {
+                            prompt "EVENT_STRANGEMIRROR_REW1"
+                        }
+                        rare {
+                            prompt "EVENT_STRANGEMIRROR_REW2"
+                            set_frame 2
+
+                            mutation {
+                                eyes 442
+                            }
+                        }
+                    }
+                }
+
+                bad {
+                    reward {
+                        common {
+                            prompt "EVENT_STRANGEMIRROR_REW3"
+                            set_frame 4
+                            self_status_next_fight {
+                                Fear 1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_STRANGEMIRROR_REW4"
+                            set_frame 2
+
+                            spawn_reflection_next_fight {
+                                mutation {
+                                    eyes 442
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            attack {
+                label "EVENT_BREAK_ANSW"
+                stat str
+
+                good {
+                    set_frame 3
+                    
+                    reward {
+                        common {
+                            prompt "EVENT_STRANGEMIRROR_REW5"
+							random_pool [
+								{
+									weight 10
+									get_item_from_pool [GlassShard, BagOfGlass]
+								}
+								{
+									weight 3
+									get_item BrokenWindow
+								}
+							]
+                        }
+                        rare {
+                            prompt "EVENT_STRANGEMIRROR_REW6"
+                            get_item_from_pool chapter_rare
+                        }
+                    }
+                }
+
+                bad {
+                    set_frame 5
+
+                    reward {
+                        common {
+                            prompt "EVENT_STRANGEMIRROR_REW7"
+                            permanent_stats {
+                                lck -2
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_STRANGEMIRROR_REW8"
+
+                            next_event_from_set {
+                                event Tragedy
+                                count 3
+                                same_cat true
+                            }
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_STRANGEMIRROR_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+LockedDoor {
+    intro {
+        title "EVENT_LOCKEDDOOR_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame lockeddoor
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_LOCKEDDOOR_QUES"
+
+        options {
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_LOCKEDDOOR_REW1"
+                            override_end_option_prompt "EVENT_LOCKEDDOOR_PROMPT1"
+                            shop_now Event_SmallShop
+                        }
+                        rare {
+                            prompt "EVENT_LOCKEDDOOR_REW2"
+                            override_end_option_prompt "EVENT_LOCKEDDOOR_PROMPT2"
+                            shop_now Event_RareShop
+                        }
+                    }
+                }
+
+                bad {
+                    reward {
+                        common {
+                            prompt "EVENT_LOCKEDDOOR_REW3"
+                            injury int
+                        }
+                        rare {
+                            prompt "EVENT_LOCKEDDOOR_REW4"
+                            gain_disorder_from_pool physical_disorders
+                        }
+                    }
+                }
+            }
+
+            attack {
+                label "EVENT_BASH_ANSW"
+                stat str
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_LOCKEDDOOR_REW5"
+                            override_end_option_prompt "EVENT_LOCKEDDOOR_PROMPT1"
+                            shop_now Event_SmallShop
+                        }
+                        rare {
+                            prompt "EVENT_LOCKEDDOOR_REW6"
+                            override_end_option_prompt "EVENT_LOCKEDDOOR_PROMPT2"
+                            shop_now Event_RareShop
+                        }
+                    }
+                }
+
+                bad {
+                    reward {
+                        common {
+                            prompt "EVENT_LOCKEDDOOR_REW7"
+                            injury str
+                        }
+                        rare {
+                            prompt "EVENT_LOCKEDDOOR_REW8"
+                            get_parasite BadSplinters
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_LOCKEDDOOR_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+SmallBird {
+    intro {
+        title "EVENT_SMALLBIRD_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame small_bird
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_SMALLBIRD_QUES"
+
+        options {
+            catch {
+                label "EVENT_CATCH_ANSW"
+                stat spd
+
+                good {
+                    reward {
+                        common {
+                            set_frame 2
+                            prompt "EVENT_SMALLBIRD_REW1"
+                            get_item_from_pool Bird_items
+                        }
+                        rare {
+                            set_frame 1
+                            prompt "EVENT_SMALLBIRD_REW2"
+                            permanent_stats {
+                                lck 1
+                            }
+                            spawn_unit_next_fight {
+                                object BirdSmall
+                                spawn_side anywhere
+                            }                            
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_SMALLBIRD_REW3"
+                            gain_coins [-10 -5]
+                        }
+                        rare {
+                            prompt "EVENT_SMALLBIRD_REW4" 
+                            get_parasite BirdPoopHat
+                        }
+                    }
+                }
+            }
+
+            charm {
+                label "EVENT_CHARM_ANSW"
+                stat cha
+
+                good {
+                    reward {
+                        common {
+                            set_frame 2
+                            prompt "EVENT_SMALLBIRD_REW5"
+                            get_item_from_pool Bird_items                          
+                        }
+                        rare {
+                            set_frame 1
+                            prompt "EVENT_SMALLBIRD_REW6"
+                            permanent_stats {
+                                lck 1
+                            }
+                            spawn_unit_next_fight {
+                                object BirdSmall
+                                spawn_side anywhere
+                            }    
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_SMALLBIRD_REW7"
+                            gain_coins [-10 -5]
+                        }
+                        rare {
+                            prompt "EVENT_SMALLBIRD_REW8" 
+                            get_parasite BirdPoopHat
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_SMALLBIRD_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+StrongCurrent {
+    intro {
+        title "EVENT_STRONGCURRENT_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame strong_current
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_STRONGCURRENT_QUES"
+
+        options {
+            swim {
+                label "EVENT_SWIM_ANSW"
+                stat str
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_STRONGCURRENT_REW1"
+                            self_status_next_fight {
+                                StrengthUp 2
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_STRONGCURRENT_REW2"
+                            permanent_stats {
+                                str 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_STRONGCURRENT_REW3"
+                            event_now random
+                        }
+                        rare {
+                            prompt "EVENT_STRONGCURRENT_REW4"
+                            self_status_next_fight {
+                                StrengthUp -2
+                            }
+                            ambush_next_basic_fights 1
+                        }
+                    }
+                }
+            }
+
+            jump {
+                label "EVENT_JUMPOVER_ANSW"
+                stat spd
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_STRONGCURRENT_REW5"
+                            self_status_next_fight {
+                                SpeedUp 2
+                            }                            
+                        }
+                        rare {
+                            prompt "EVENT_STRONGCURRENT_REW6"
+                            permanent_stats {
+                                spd 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_STRONGCURRENT_REW7"
+                            injury spd
+                        }
+                        rare {
+                            prompt "EVENT_STRONGCURRENT_REW8" 
+                            gain_disorder_from_pool physical_disorders
+                        }
+                    }
+                }
+            }
+            
+            go_around {
+                label "EVENT_GOAROUND_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    play_animation [resultLeave 0]
+                    prompt "EVENT_STRONGCURRENT_REW9"
+                    event_now_same_cat random
+                }
+                bad {
+                    play_animation [resultLeave 0]
+                    prompt "EVENT_STRONGCURRENT_REW10"
+                    next_event_bonus -1               
+                    event_now_same_cat random
+                }
+            }
+        }
+    }
+}
+
+BearTrap {
+    intro {
+        title "EVENT_BEARTRAP_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame bear_trap
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_BEARTRAP_QUES"
+
+        options {
+            disarm {
+                label "EVENT_DISARM_ANSW"
+                stat dex
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_BEARTRAP_REW1"
+                            get_item BearTraps
+                        }
+                        rare {
+                            prompt "EVENT_BEARTRAP_REW2"
+                            get_item BearTrapMask
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_BEARTRAP_REW3"
+                            damage 7
+                        }
+                        rare {
+                            prompt "EVENT_BEARTRAP_REW4" 
+                            damage 7
+                            random_pool [
+                                {
+                                    injury dex
+                                }
+                                {
+                                    injury spd
+                                }
+                                {
+                                    injury str
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+
+            take {
+                label "EVENT_GOAROUND_ANSW"
+                stat spd
+                
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_BEARTRAP_REW5"
+                            get_item BearTraps
+                        }
+                        rare {
+                            prompt "EVENT_BEARTRAP_REW6"
+                            get_item BearTrapMask
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_BEARTRAP_REW7"
+                            damage 7
+                        }
+                        rare {
+                            prompt "EVENT_BEARTRAP_REW8" 
+                            damage 7
+                            random_pool [
+                                {
+                                    injury dex
+                                }
+                                {
+                                    injury spd
+                                }
+                                {
+                                    injury str
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+Baphomet {
+    intro {
+        title "EVENT_BAPHOMET_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame baphomet
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_BAPHOMET_QUES"
+
+        options {
+            damage {
+                label "EVENT_BAHPHOMET_HEALTH_ANSW"
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_BAPHOMET_REW1"
+                            party_damage 10
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict trinket
+                            }
+                            
+                        }
+                        rare {
+                            prompt "EVENT_BAPHOMET_REW2"
+                            party_damage 10
+                            get_parasite MarkOfTheBeast
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    prompt "EVENT_BAPHOMET_REW3"
+                    party_damage 10
+                    //get nothing in return
+                }
+            }
+
+            sacrifice {
+                label "EVENT_BAHPHOMET_SACRIFICE_ANSW"
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_BAPHOMET_REW4"
+                            kill cat
+                            play_animation resultHole
+                            party_heal 100%
+                            party_permanent_stats_exclude_self {
+                                str 1
+                                dex 1
+                                con 1
+                                int 1
+                                spd 1
+                                cha 1
+                                lck 1
+                            }
+                            gain_familiar CharmedHyde
+                        }
+                        rare {
+                            prompt "EVENT_BAPHOMET_REW5"
+                            party_heal 100%
+                            party_permanent_stats_exclude_self {
+                                str 1
+                                dex 1
+                                con 1
+                                int 1
+                                spd 1
+                                cha 1
+                                lck 1
+                            }
+                            damage 99%
+                            gain_disorder Charred
+                            //cat is spared but charred at 1hp
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    prompt "EVENT_BAPHOMET_REW6"
+                    kill cat
+                    play_animation resultHole
+                    //get nothing in return
+                }
+            }
+            
+            leave {
+                label "EVENT_BAHPHOMET_LEAVE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_BAPHOMET_REW7"
+                    play_animation [resultLeave 0]
+                }
+                bad {
+                    play_animation resultVeryBad
+                    reward {
+                        common {
+                            prompt "EVENT_BAPHOMET_REW8"
+                            next_event_from_set {
+                                event Tragedy
+                                count 1
+                                same_cat true
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_BAPHOMET_REW9"
+                            next_event_from_set {
+                                event Tragedy
+                                count 4
+                                same_cat true
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+ABeggar {
+    intro {
+        title "EVENT_ABEGGAR_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame a_beggar
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_ABEGGAR_QUES"
+
+        options {
+            5coins {
+                label "EVENT_BEGGAR_5_ANSW"
+                stat coins
+                animation_fail choice_no_coins
+                animation choice_coins_one
+                stat_min 5
+                stat_max 5
+
+                good {
+                    random_pool [
+                        {
+                            weight 95
+                            prompt "EVENT_ABEGGAR_REW1"
+                            set_frame 3
+                            random_pool [
+                                {
+                                    get_item_from_pool {
+                                        pool chapter_common
+                                    }
+                                }
+                                {
+                                    get_item_from_pool {
+                                        pool chapter_common
+                                        restrict consumables
+                                    }
+                                }
+                                {
+                                    get_item_from_pool {
+                                        pool chapter_common
+                                        restrict trinket
+                                    }
+                                }
+
+                            ]
+                        }
+                        {
+                            weight 5
+                            prompt "EVENT_ABEGGAR_REW2"
+                            set_frame 2
+                            get_item_from_pool chapter_rare
+                        }
+                    ]
+                }
+
+                bad {
+                    prompt "EVENT_BEGGAR_NOTENOUGHMONEY"
+                }
+            }
+            
+            10coins {
+                label "EVENT_BEGGAR_5_ANSW"
+                stat coins
+                animation_fail choice_no_coins
+                animation choice_coins_ten
+                stat_min 10
+                stat_max 10
+
+                good {
+                    random_pool [
+                        {
+                            weight 90
+                            prompt "EVENT_ABEGGAR_REW1"
+                            set_frame 3
+                            random_pool [
+                                {
+                                    get_item_from_pool {
+                                        pool chapter_common
+                                    }
+                                }
+                                {
+                                    get_item_from_pool {
+                                        pool chapter_common
+                                        restrict consumables
+                                    }
+                                }
+                                {
+                                    get_item_from_pool {
+                                        pool chapter_common
+                                        restrict trinket
+                                    }
+                                }
+
+                            ]
+                        }
+                        {
+                            weight 10
+                            prompt "EVENT_ABEGGAR_REW2"
+                            set_frame 2
+                            get_item_from_pool chapter_rare
+                        }
+                    ]
+                }
+
+                bad {
+                    prompt "EVENT_BEGGAR_NOTENOUGHMONEY"
+                }
+            }
+
+            15coins {
+                label "EVENT_BEGGAR_5_ANSW"
+                stat coins
+                animation_fail choice_no_coins
+                animation choice_coins_twentyfive
+                stat_min 15
+                stat_max 15
+
+                good {
+                    random_pool [
+                        {
+                            weight 85
+                            prompt "EVENT_ABEGGAR_REW1"
+                            set_frame 3
+                            random_pool [
+                                {
+                                    get_item_from_pool {
+                                        pool chapter_common
+                                    }
+                                }
+                                {
+                                    get_item_from_pool {
+                                        pool chapter_common
+                                        restrict consumables
+                                    }
+                                }
+                                {
+                                    get_item_from_pool {
+                                        pool chapter_common
+                                        restrict trinket
+                                    }
+                                }
+
+                            ]
+                        }
+                        {
+                            weight 15
+                            prompt "EVENT_ABEGGAR_REW2"
+                            set_frame 2
+                            get_item_from_pool chapter_rare
+                        }
+                    ]
+                }
+
+                bad {
+                    prompt "EVENT_BEGGAR_NOTENOUGHMONEY"
+                }
+            }
+
+            leave {
+                label "EVENT_LEAVE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_ABEGGAR_LEAVE"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+CatBed {
+    intro {
+        title "EVENT_CATBED_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame cat_bed
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_CATBED_QUES"
+
+        options {
+            rest {
+                label "EVENT_REST_ANSW"
+                stat lck
+
+                good {
+                    reward {
+                        common {
+                            set_frame 4
+                            prompt "EVENT_CATBED_REW1"
+                            full_heal 1
+                            self_status_next_fight {
+                                AllStatsUp 1
+                            }
+                        }
+                        rare {
+                            set_frame 5
+                            prompt "EVENT_CATBED_REW2"
+                            full_heal 1
+                            permanent_stats {
+                                str 1
+                                dex 1
+                                con 1
+                                int 1
+                                spd 1
+                                cha 1
+                                lck 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 2
+                            prompt "EVENT_CATBED_REW3"
+                            damage 2
+                            spawn_unit_next_fight {
+                                object Flea
+                                count 2
+                                spawn_side cats
+                            }
+                        }
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_CATBED_REW4" 
+                            gain_disorder Infestation
+                        }
+                    }
+                }
+            }
+
+            leave {
+                label "EVENT_LEAVE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_CATBED_REW5"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+TapeRecorder {
+    requirements {
+        not_has_token WorldEventLegacyToken_TapeRecorderDestroyed
+    }
+
+    intro {
+        title "EVENT_TAPERECORDER_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame tape_recorder
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_TAPERECORDER_QUES"
+
+        options {
+            listen {
+                label "EVENT_LISTEN_ANSW"
+                stat int
+
+                good {
+                    reward {
+                        common {
+                            set_frame 2
+                            prompt "EVENT_TAPERECORDER_REW1"
+                            permanent_stats {
+                                dex 1
+                                str 1
+                            }
+                        }
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_TAPERECORDER_REW2"
+                            get_item Chainsaw
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 6
+                            prompt "EVENT_TAPERECORDER_REW3"
+                            add_weather RestlessDead
+                        }
+                        rare {
+                            set_frame 7
+                            prompt "EVENT_TAPERECORDER_REW4" 
+                            add_weather RestlessDead
+                            add_weather HauntedNight
+                            party_status_next_fight {
+                                Fear 1
+                            }
+                        }
+                    }
+                }
+            }
+
+            bash {
+                label "EVENT_BASH_ANSW"
+                stat str
+
+                good {
+                    reward {
+                        common {
+                            set_frame 4
+                            prompt "EVENT_TAPERECORDER_REW5"
+                            //nothing happens, which is good
+                        }
+                        rare {
+                            set_frame 5
+                            prompt "EVENT_TAPERECORDER_REW6"
+                            //event is permanently removed from pool
+                            set_legacy_token WorldEventLegacyToken_TapeRecorderDestroyed
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 6
+                            prompt "EVENT_TAPERECORDER_REW7"
+                            add_weather RestlessDead
+                            self_status_next_fight {
+                                Fear 1
+                            }
+                        }
+                        rare {
+                            set_frame 7
+                            prompt "EVENT_TAPERECORDER_REW8" 
+                            add_weather RestlessDead
+                            add_weather HauntedNight
+                            party_status_next_fight {
+                                Fear 1
+                            }
+                        }
+                    }
+                }
+            }
+            
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_TAPERECORDER_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+HoleInTheEarth {
+    intro {
+        title "EVENT_HOLEINTHEEARTH_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame hole_in_the_earth
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_HOLEINTHEEARTH_QUES"
+
+        options {
+            enter {
+                label "EVENT_HOLEINTHEEARTH_ENTER_ANSW"
+                stat lck
+
+                good {
+                    reward {
+                        common {
+                            set_frame 5
+                            prompt "EVENT_HOLEINTHEEARTH_REW1"
+                            get_item_from_pool [Ember, MatchStick, BurningCoal, FireFlower]
+                        }
+                        rare {
+                            set_frame 6
+                            prompt "EVENT_HOLEINTHEEARTH_REW2"
+                            mutation {
+                                eyes 301
+                            }
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 7
+                            prompt "EVENT_HOLEINTHEEARTH_REW3"
+                            injury burned
+                        }
+                        rare {
+                            set_frame 8
+                            prompt "EVENT_HOLEINTHEEARTH_REW4" 
+                            injury burned
+                            gain_disorder Charred
+                        }
+                    }
+                }
+            }
+
+            throw {
+                label "EVENT_HOLEINTHEEARTH_THROW_ANSW"
+                stat lck
+
+                good {
+                    reward {
+                        common {
+                            set_frame 2
+                            prompt "EVENT_HOLEINTHEEARTH_REW5"
+                            lose_item inventory
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict [weapon armor]
+                            }
+                        }
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_HOLEINTHEEARTH_REW6"
+                            lose_item inventory
+                            get_item_from_pool demon_themed_items
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 4
+                            prompt "EVENT_HOLEINTHEEARTH_REW7"
+                            lose_item inventory
+                        }
+                        rare {
+                            set_frame 4
+                            prompt "EVENT_HOLEINTHEEARTH_REW8" 
+                            lose_item inventory
+                            lose_item equipped
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_HOLEINTHEEARTH_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+WrithingPileOfMaggots {
+    intro {
+        title "EVENT_WRITHINGPILEOFMAGGOTS_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame writhing_pile_of_maggots
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_WRITHINGPILEOFMAGGOTS_QUES"
+
+        options {
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_WRITHINGPILEOFMAGGOTS_REW1"
+                            get_item_from_pool consumables
+                            get_item_from_pool consumables
+                        }
+                        rare {
+                            prompt "EVENT_WRITHINGPILEOFMAGGOTS_REW2"
+                            get_item_from_pool grub_armor
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_WRITHINGPILEOFMAGGOTS_REW3"
+                            party_damage [3 6]
+                        }
+                        rare {
+                            prompt "EVENT_WRITHINGPILEOFMAGGOTS_REW4" 
+                            get_parasite_from_pool [Tapeworm, Pinworm, Ringworm, Heartworm, EyeWorm, Parousworm, Hookworm, Roundworm]
+                        }
+                    }
+                }
+            }
+            
+            bash {
+                label "EVENT_BASH_ANSW"
+                stat str
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_WRITHINGPILEOFMAGGOTS_REW5"
+                            //nothing happens
+                        }
+                        rare {
+                            prompt "EVENT_WRITHINGPILEOFMAGGOTS_REW6"
+                            get_item_from_pool grub_armor
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_WRITHINGPILEOFMAGGOTS_REW3"
+                            party_damage [3 6]
+                        }
+                        rare {
+                            prompt "EVENT_WRITHINGPILEOFMAGGOTS_REW4" 
+                            get_parasite_from_pool [Tapeworm, Pinworm, Ringworm, Heartworm, EyeWorm, Parousworm, Hookworm, Roundworm]
+                        }
+                    }
+                }
+            }
+
+            kiss {
+                label "EVENT_KISS_ANSW"
+                stat cha
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_WRITHINGPILEOFMAGGOTS_REW7"
+                            gain_familiar CharmedMaggot
+                            gain_familiar CharmedMaggot
+							gain_familiar CharmedMaggot
+                        }
+                        rare {
+                            prompt "EVENT_WRITHINGPILEOFMAGGOTS_REW8"
+                            gain_familiar CharmedMaggot
+                            gain_familiar CharmedMaggot
+                            gain_familiar CharmedMaggot
+                            gain_familiar CharmedMaggot
+                            gain_familiar CharmedMaggot
+							gain_familiar CharmedMaggot
+                            gain_familiar CharmedMaggot
+                            gain_familiar CharmedMaggot
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_WRITHINGPILEOFMAGGOTS_REW3"
+                            party_damage [3 6]
+                        }
+                        rare {
+                            prompt "EVENT_WRITHINGPILEOFMAGGOTS_REW4" 
+                            get_parasite_from_pool [Tapeworm, Pinworm, Ringworm, Heartworm, EyeWorm, Parousworm, Hookworm, Roundworm]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+DustStorm {
+    intro {
+        title "EVENT_DUSTSTORM_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame dust_storm
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_DUSTSTORM_QUES"
+
+        options {
+            talk_to {
+                label "EVENT_TALKTO_ANSW"
+                stat cha
+
+                good {
+                    reward {
+                        common {
+                            set_frame 3
+                            prompt "EVENT_DUSTSTORM_REW1"
+                            //nothing
+                        }
+                        rare {
+                            set_frame 5
+                            prompt "EVENT_DUSTSTORM_REW2"
+                            gain_familiar CharmedDustDevil
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 6
+                            prompt "EVENT_DUSTSTORM_REW3"
+                            add_weather Sandstorm
+                        }
+                        rare {
+                            set_frame 4
+                            prompt "EVENT_DUSTSTORM_REW4" 
+                            battle "desert/boss/dustdevil/DustDevil.lvl"
+                        }
+                    }
+                }
+            }
+
+            run {
+                label "EVENT_RUN_ANSW"
+                stat spd
+
+                good {
+                    reward {
+                        common {
+                            set_frame 2
+                            prompt "EVENT_DUSTSTORM_REW5"
+                            //nothing
+                        }
+                        rare {
+                            set_frame 2
+                            prompt "EVENT_DUSTSTORM_REW6"
+                            permanent_stats {
+                                spd 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 6
+                            prompt "EVENT_DUSTSTORM_REW7"
+                            add_weather Sandstorm
+                        }
+                        rare {
+                            set_frame 4
+                            prompt "EVENT_DUSTSTORM_REW8" 
+                            battle "desert/boss/dustdevil/DustDevil.lvl"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+VibratingMeteor {
+    intro {
+        title "EVENT_VIBRATINGMETEOR_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame vibrating_meteor
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_VIBRATINGMETEOR_QUES"
+
+        options {
+            take {
+                label "EVENT_TAKE_ANSW"
+                stat con
+                animation choice_dex_alt
+
+                good {
+                    reward {
+                        common {
+                            prompt "EVENT_VIBRATINGMETEOR_REW1"
+                            set_frame 2
+                            get_item_from_pool [VibratingMeteorite, LargeMeteor, SmallMeteor]
+                        }
+                        rare {
+                            prompt "EVENT_VIBRATINGMETEOR_REW2"
+                            set_frame 3
+                            random_mutation 2
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_VIBRATINGMETEOR_REW3"
+                            set_frame 4
+                            random_mutation 1
+                            gain_disorder_from_pool all_disorders
+                        }
+                        rare {
+                            prompt "EVENT_VIBRATINGMETEOR_REW4"
+                            set_frame 5
+                            random_mutation {
+                                count 3
+                                asymmetric true
+                            }
+                            random_mutation {
+                                count 3
+                                asymmetric true
+                                tag birth_defect
+                            }
+                        }
+                    }
+                }
+            }
+            
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_VIBRATINGMETEOR_REW5"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+Death {
+    requirements {
+        cat_has_injury_count_min 2
+    }
+
+    intro {
+        title "EVENT_DEATH_NAME"
+        cat_choice random
+        choose_cat_with_most_injuries true
+        subject_clip EventSubject
+        subject_frame death
+        event_clip NonWheelEvent
+    }
+
+    main {        
+        setup {
+            conditional_reward {
+                requirements {
+                    has_token AdventureToken_HasRunFromDeath
+                }
+
+                reward {
+                    prompt "EVENT_DEATH_QUES2"
+                }
+
+                else {
+                    prompt "EVENT_DEATH_QUES"
+                }
+            }
+        }
+
+        options {
+            sweet_talk {
+                label "EVENT_DEATH_SWEETTALK_ANSW"
+                stat cha
+                
+                good {
+                    reward {
+                        common {
+                            prompt "EVENT_DEATH_REW1"
+                            //nothing
+                        }
+                        rare {
+                            prompt "EVENT_DEATH_REW2"
+                            set_frame 3
+                            get_item MysteriousBone
+                        }
+                    }
+                }
+                bad {
+                    prompt "EVENT_DEATH_REW3"
+                    battle "events/Death.lvl" 
+                    set_frame 4
+
+                    //TODO: save current cat ID in an adventure token, Death should read that token and set his aggro target, so he hyper targets this cat
+                }
+            }
+
+            challenge_to_game {
+                label "EVENT_DEATH_CHALLENGE_ANSW"
+                stat int
+
+                good {
+                    reward {
+                        common {
+                            prompt "EVENT_DEATH_REW4"
+                            //nothing                            
+                        }
+                        rare {
+                            prompt "EVENT_DEATH_REW5"
+                            get_item DeathsScythe
+                            set_frame 2
+                        }
+                    }
+                }
+                bad {
+                    prompt "EVENT_DEATH_REW6"
+                    battle "events/Death.lvl"
+                    set_frame 4
+                }
+            }
+            
+            run {
+                label "EVENT_RUN_ANSW"
+                stat spd
+                animation choice_leave
+
+                requirements {
+                    not_has_token AdventureToken_HasRunFromDeath
+                }
+
+                good {
+                    reward {
+                        common {
+                            prompt "EVENT_DEATH_REW7"
+                            set_legacy_token WorldEventLegacyToken_HasRunFromDeath
+                            play_animation [resultLeave 0]
+                            
+                            set_adventure_token AdventureToken_HasRunFromDeath
+                            next_event_from_set {
+                                event Death
+                                same_cat true
+                            }
+                        }
+                        rare {
+                            conditional_reward {
+                                requirements {
+                                    has_token WorldEventLegacyToken_HasRunFromDeath
+                                }
+
+                                reward {
+                                    prompt "EVENT_DEATH_REW8_B"
+                                    //death has had a cat run away from him before
+                                }
+
+                                else {
+                                    prompt "EVENT_DEATH_REW8"
+                                    set_legacy_token WorldEventLegacyToken_HasRunFromDeath
+                                    //first time a cat has run away from death
+                                }
+                            }
+                            play_animation [resultLeave 0]
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    prompt "EVENT_DEATH_REW9"
+                    battle "events/Death.lvl" 
+                }
+            }
+
+            run_again { //Death only chases you once.
+                label "EVENT_RUN_ANSW"
+                stat spd
+                animation choice_leave
+
+                requirements {
+                    has_token AdventureToken_HasRunFromDeath
+                }
+
+                good {
+                    prompt "EVENT_DEATH_REW_RUNAGAIN"
+                    play_animation [resultLeave 0]
+                    reward {
+                        common {
+                            self_status_next_fight {
+                                SpeedUp 2
+                            }
+                        }
+                        rare {
+                            permanent_stats {
+                                spd 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    prompt "EVENT_DEATH_REW9"
+                    battle "events/Death.lvl" 
+                }
+            }
+        }
+    }
+}

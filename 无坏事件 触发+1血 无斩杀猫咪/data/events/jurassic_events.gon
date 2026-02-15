@@ -1,0 +1,276 @@
+MysteriousCave {
+    intro {
+        title "EVENT_MYSTERIOUSCAVE_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame mysterious_cave
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_MYSTERIOUSCAVE_QUES"
+
+        options {
+            enter {
+                label "EVENT_ENTER_ANSW"
+                stat con
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_MYSTERIOUSCAVE_REW1"
+                            event_now_same_cat MysteriousCave1
+                        }
+                        rare {
+                            prompt "EVENT_MYSTERIOUSCAVE_REW2"
+                            set_adventure_token AdventureToken_MysteriousCave_FamiliarVoice
+                            event_now_same_cat MysteriousCave1
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_MYSTERIOUSCAVE_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_MYSTERIOUSCAVE_REW4" 
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+
+                good {
+                    prompt "EVENT_MYSTERIOUSCAVE_REW5"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+VolcanicGeyser {
+    intro {
+        title "EVENT_VOLCANICGEYSER_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame volcanic_geyser
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_VOLCANICGEYSER_QUES"
+
+        options {
+            jump {
+                label "EVENT_VOLCANICGEYSER_JUMP_ANSW"
+                stat spd
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_VOLCANICGEYSER_REW1"
+                            next_event_bonus 1
+                        }
+                        rare {
+                            prompt "EVENT_VOLCANICGEYSER_REW2"
+                            next_event_bonus 2
+                            permanent_stats {
+                                dex 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_VOLCANICGEYSER_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_VOLCANICGEYSER_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            investigate {
+                label "EVENT_INVESTIGATE_ANSW"
+                stat int
+
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_VOLCANICGEYSER_REW5"
+                            next_event_bonus 1
+                        }
+                        rare {
+                            prompt "EVENT_VOLCANICGEYSER_REW6"
+                            next_event_bonus 2
+                            permanent_stats {
+                                dex 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_VOLCANICGEYSER_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_VOLCANICGEYSER_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            leave {
+                label "EVENT_LEAVE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_VOLCANICGEYSER_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+NestOfEggs {
+    intro {
+        title "EVENT_NESTOFEGGS_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame dino_eggs
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_NESTOFEGGS_QUES"
+
+        options {
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_NESTOFEGGS_REW1"
+                            full_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_NESTOFEGGS_REW2"
+                            full_heal 1
+                            permanent_stats {
+                                hp 2
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_NESTOFEGGS_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_NESTOFEGGS_REW4" 
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+            
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_NESTOFEGGS_REW5"
+                            gain_food [3 6]
+                            get_item_from_pool chapter_common
+                        }
+                        rare {
+                            prompt "EVENT_NESTOFEGGS_REW6"
+                            gain_food [3 6]
+                            get_item_from_pool chapter_rare
+                        }
+                    }
+                }
+                bad {
+                    set_frame 6
+                    reward {
+                        common {
+                            prompt "EVENT_NESTOFEGGS_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_NESTOFEGGS_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            kiss {
+                label "EVENT_KISS_ANSW"
+                stat cha
+
+                good {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_NESTOFEGGS_REW9"
+                            gain_familiar CharmedRaptorBaby
+                        }
+                        rare {
+                            prompt "EVENT_NESTOFEGGS_REW10"
+                            gain_familiar CharmedRaptorBaby
+                            gain_familiar CharmedRaptorBaby
+                            gain_familiar CharmedRaptorBaby
+                        }
+                    }
+                }
+                bad {
+                    set_frame 7
+                    reward {
+                        common {
+                            prompt "EVENT_NESTOFEGGS_REW11"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_NESTOFEGGS_REW12" 
+                            party_heal 1
+                        }   
+                    }
+                }
+            }
+        }
+    }
+}

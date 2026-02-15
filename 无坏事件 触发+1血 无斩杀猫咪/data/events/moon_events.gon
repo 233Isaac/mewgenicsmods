@@ -1,0 +1,246 @@
+CrashedObject {
+    intro {
+        title "EVENT_CRASHEDOBJECT_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame crashed_object
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_CRASHEDOBJECT_QUES"
+
+        options {
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    reward {
+                        common {
+                            set_frame 2
+                            prompt "EVENT_CRASHEDOBJECT_REW1"
+                            get_item_from_pool tech_items
+                        }
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_CRASHEDOBJECT_REW2"
+                            get_item AlienBlaster
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            prompt "EVENT_CRASHEDOBJECT_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            set_frame 7
+                            prompt "EVENT_CRASHEDOBJECT_REW4" 
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            inspect {
+                label "EVENT_INSPECT_ANSW"
+                stat int
+
+                good {
+                    reward {
+                        common {
+                            set_frame 5
+                            prompt "EVENT_CRASHEDOBJECT_REW5"
+                            next_event_bonus 1
+                        }
+                        rare {
+                            set_frame 6
+                            prompt "EVENT_CRASHEDOBJECT_REW6"
+                            permanent_stats {
+                                int 2
+                            }
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            prompt "EVENT_CRASHEDOBJECT_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            set_frame 7
+                            prompt "EVENT_CRASHEDOBJECT_REW8" 
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            leave {
+                label "EVENT_LEAVE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_CRASHEDOBJECT_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+AbandonedOutpost {
+    intro {
+        title "EVENT_ABANDONEDOUTPOST_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame lunar_module
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_ABANDONEDOUTPOST_QUES"
+
+        options {
+            go_inside {
+                label "EVENT_GOINSIDE_ANSW"
+                stat con
+
+                good {
+                    reward {
+                        common {
+                            set_frame 2
+                            prompt "EVENT_ABANDONEDOUTPOST_REW1"
+                            full_heal 1
+                        }
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_ABANDONEDOUTPOST_REW2"
+                            party_heal 100%
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 4
+                            prompt "EVENT_ABANDONEDOUTPOST_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            set_frame 5
+                            prompt "EVENT_ABANDONEDOUTPOST_REW4" 
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+            
+            scavenge {
+                label "EVENT_SCAVENGE_ANSW"
+                stat int
+                
+                good {
+                    reward {
+                        common {
+                            set_frame 6
+                            prompt "EVENT_ABANDONEDOUTPOST_REW5"
+                            get_item_from_pool tech_items
+                        }
+                        rare {
+                            set_frame 7
+                            prompt "EVENT_ABANDONEDOUTPOST_REW6"
+                            get_item_from_pool {
+                                pool chapter_rare
+                            }
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 4
+                            prompt "EVENT_ABANDONEDOUTPOST_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            set_frame 5
+                            prompt "EVENT_ABANDONEDOUTPOST_REW8" 
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            leave {
+                label "EVENT_LEAVE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_ABANDONEDOUTPOST_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+SmallBlackHole {
+    intro {
+        title "EVENT_SMALLBLACKHOLE_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame black_hole
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_SMALLBLACKHOLE_QUES"
+
+        options {
+            stare {
+                label "EVENT_STARE_ANSW"
+                stat int
+
+                good {
+                    reward {
+                        common {
+                            set_frame 2
+                            prompt "EVENT_SMALLBLACKHOLE_REW1"
+                            permanent_stats {
+                                int 1
+                            }
+                        }
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_SMALLBLACKHOLE_REW2"
+                            permanent_stats {
+                                int 2
+                            }
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 4
+                            prompt "EVENT_SMALLBLACKHOLE_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            set_frame 5
+                            prompt "EVENT_SMALLBLACKHOLE_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
