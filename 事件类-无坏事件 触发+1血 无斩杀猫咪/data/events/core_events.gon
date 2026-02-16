@@ -1,0 +1,264 @@
+DemonicIdol {
+    intro {
+        title "EVENT_DEMONICIDOL_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame demonic_idol
+        choose_cat_with_min_health 75%
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_DEMONICIDOL_QUES"
+
+        options {
+            damage_1 {
+                label "EVENT_DEMONICIDOL_1DAMAGE_ANSW"
+                stat con
+                
+                good {
+                    reward {
+                        common {
+                            prompt "EVENT_DEMONICIDOL_REW1"
+                            self_damage 1
+                            prompt "EVENT_DEMONICIDOL_REW1_B"
+                            set_frame 2
+                            injury cha
+                            gain_disorder_from_pool all_disorders
+                        }
+                        rare {
+                            prompt "EVENT_DEMONICIDOL_REW2"
+                            self_damage 1
+                            prompt "EVENT_DEMONICIDOL_REW2_B"
+                            set_frame 3
+                            permanent_stats {
+                                random 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            prompt "EVENT_DEMONICIDOL_REW1"
+                            prompt "EVENT_DEMONICIDOL_REW1_B"
+                            set_frame 2
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_DEMONICIDOL_REW3"
+                            prompt "EVENT_DEMONICIDOL_REW3_B"
+                            set_frame 2
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            damage_2 {
+                label "EVENT_DEMONICIDOL_2DAMAGE_ANSW"
+                stat con
+                
+                good {
+                    reward {
+                        common {
+                            prompt "EVENT_DEMONICIDOL_REW4"
+                            self_damage 2
+                            prompt "EVENT_DEMONICIDOL_REW4_B"
+                            set_frame 2
+                            permanent_stats {
+                                random 1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_DEMONICIDOL_REW5"
+                            self_damage 2
+                            prompt "EVENT_DEMONICIDOL_REW5_B"
+                            set_frame 3
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            prompt "EVENT_DEMONICIDOL_REW6"
+                            prompt "EVENT_DEMONICIDOL_REW6_B"
+                            set_frame 2
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_DEMONICIDOL_REW7"
+                            prompt "EVENT_DEMONICIDOL_REW7_B"
+                            set_frame 2
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+
+                good {
+                    reward {
+                        common {
+                            prompt "EVENT_DEMONICIDOL_REW10"
+                            play_animation [resultLeave 0]
+                            //nothing
+                        }
+                        rare {
+                            prompt "EVENT_DEMONICIDOL_REW11"
+                            set_frame 3
+                            permanent_stats {
+                                random 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            prompt "EVENT_DEMONICIDOL_REW10"
+                            play_animation [resultLeave 0]
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_DEMONICIDOL_REW12"
+                            set_frame 2
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+JaggedPathway {
+    intro {
+        title "EVENT_JAGGEDPATHWAY_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame jagged_pathway
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_JAGGEDPATHWAY_QUES"
+
+        options {
+            push_through {
+                label "EVENT_JAGEDPATHWAY_ANSW_PUSH"
+                stat str
+
+                good {
+                    reward {
+                        common {
+                            set_frame 4
+                            prompt "EVENT_JAGGEDPATHWAY_REW1"
+                            ally_ambush_next_fights 1
+                        }
+                        rare {
+                            set_frame 2
+                            prompt "EVENT_JAGGEDPATHWAY_REW2"
+                            get_item_from_pool chapter_specific_item
+                            get_item_from_pool chapter_common
+                        }
+                    }
+                }
+
+                bad {
+                    reward {
+                        common {
+                            set_frame 3
+                            prompt "EVENT_JAGGEDPATHWAY_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            set_frame 5
+                            prompt "EVENT_JAGGEDPATHWAY_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+            climb {
+                label "EVENT_JAGEDPATHWAY_ANSW_CLIMB"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    reward {
+                        common {
+                            set_frame 4
+                            prompt "EVENT_JAGGEDPATHWAY_REW1"
+                            ally_ambush_next_fights 1
+                        }
+                        rare {
+                            set_frame 2
+                            prompt "EVENT_JAGGEDPATHWAY_REW2"
+                            get_item_from_pool chapter_specific_item
+                            get_item_from_pool chapter_common
+                        }
+                    }
+                }
+
+                bad {
+                    reward {
+                        common {
+                            set_frame 3
+                            prompt "EVENT_JAGGEDPATHWAY_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            set_frame 5
+                            prompt "EVENT_JAGGEDPATHWAY_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+            backtrack {
+                label "EVENT_JAGEDPATHWAY_ANSW_BACK"
+                stat lck
+
+                good {
+                    reward {
+                        common {
+                            set_frame 6
+                            prompt "EVENT_JAGGEDPATHWAY_REW5"
+                            global_effect_next_fight {
+                                Fights 1
+                                Ambush true
+                            }
+                        }
+                        rare {
+                            set_frame 4
+                            prompt "EVENT_JAGGEDPATHWAY_REW6"
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 7
+                            prompt "EVENT_JAGGEDPATHWAY_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            set_frame 5
+                            prompt "EVENT_JAGGEDPATHWAY_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

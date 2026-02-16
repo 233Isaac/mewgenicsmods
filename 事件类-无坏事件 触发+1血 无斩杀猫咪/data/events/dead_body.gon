@@ -1,0 +1,1720 @@
+DeadRat_Alley_Normal {
+    intro {
+        title "EVENT_DEADRAT_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame dead_rat_1
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_DEADRAT_QUES"
+
+        options {
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW1"
+                            gain_food [1 4]
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW2"
+                            full_heal 1
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW5"
+                            get_item_from_pool consumables
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW6"
+                            get_item_from_pool treasure_easy
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_DEADRAT_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+DeadRat_Alley_Stinky {
+    intro {
+        title "EVENT_DEADRAT_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame dead_rat_2
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_DEADRAT_QUES2"
+
+        options {
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW10"
+                            gain_food [1 4]
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW11"
+                            full_heal 1
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW12"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW13"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW14"
+                            get_item_from_pool consumables
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW15"
+                            get_item_from_pool treasure_easy
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW16"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW17"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_DEADRAT_REW18"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+DeadRat_Alley_Mutilated {
+    intro {
+        title "EVENT_DEADRAT_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame dead_rat_3
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_DEADRAT_QUES3"
+
+        options {
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW19"
+                            gain_food [1 4]
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW20"
+                            full_heal 1
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW21"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW22"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW23"
+                            get_item_from_pool consumables
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW24"
+                            get_item_from_pool treasure_easy
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW25"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW26"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_DEADRAT_REW27"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+DeadRat_Alley_Eaten {
+    intro {
+        title "EVENT_DEADRAT_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame dead_rat_4
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_DEADRAT_QUES4"
+
+        options {
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW28"
+                            gain_food [1 4]
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW29"
+                            full_heal 1
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW30"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW31"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW32"
+                            get_item_from_pool consumables
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW33"
+                            get_item_from_pool treasure_easy
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW34"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW35"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_DEADRAT_REW36"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+DeadRat_Suburbs_Normal {
+    intro {
+        title "EVENT_DEADRAT_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame dead_rat_1
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_DEADRAT_QUES1"
+
+        options {
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW1"
+                            gain_food [1 4]
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW2"
+                            full_heal 1
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW5"
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict consumables
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW6"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_DEADRAT_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+DeadRat_Suburbs_Stinky {
+    intro {
+        title "EVENT_DEADRAT_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame dead_rat_2
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_DEADRAT_QUES2"
+
+        options {
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW10"
+                            gain_food [1 4]
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW11"
+                            full_heal 1
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW12"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW13"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW14"
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict consumables
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW15"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW16"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW17"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_DEADRAT_REW18"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+DeadRat_Suburbs_Mutilated {
+    intro {
+        title "EVENT_DEADRAT_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame dead_rat_3
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_DEADRAT_QUES3"
+
+        options {
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW19"
+                            gain_food [1 4]
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW20"
+                            full_heal 1
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW21"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW22"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW23"
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict consumables
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW24"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW25"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW26"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_DEADRAT_REW27"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+DeadRat_Suburbs_Eaten {
+    intro {
+        title "EVENT_DEADRAT_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame dead_rat_4
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_DEADRAT_QUES4"
+
+        options {
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW28"
+                            gain_food [1 4]
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW29"
+                            full_heal 1
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW30"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW31"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW32"
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict consumables
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW33"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_DEADRAT_REW34"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_DEADRAT_REW35"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_DEADRAT_REW36"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+MummifiedCorpse {
+    intro {
+        title "EVENT_MUMMIFIEDCORPSE_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame mummified_body
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_MUMMIFIEDCORPSE_QUES"
+
+        options {
+            poke {
+                label "EVENT_POKE_ANSW"
+                stat int
+                
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_MUMMIFIEDCORPSE_REW1"
+                            get_item_from_pool{
+                                pool chapter_common
+                                restrict [trinket, weapon, armor]
+                            }
+                        }
+
+                        rare {
+                            prompt "EVENT_MUMMIFIEDCORPSE_REW2"
+                            get_item_from_pool{
+                                pool chapter_rare
+                                restrict trinket
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_MUMMIFIEDCORPSE_REW3"
+                            party_heal 1
+                        }
+
+                        rare {
+                            prompt "EVENT_MUMMIFIEDCORPSE_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            bash {
+                label "EVENT_BASH_ANSW"
+                stat str
+                
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_MUMMIFIEDCORPSE_REW5"
+                            get_item_from_pool{
+                                pool chapter_common
+                                restrict [trinket, weapon, armor]
+                            }
+                        }
+
+                        rare {
+                            prompt "EVENT_MUMMIFIEDCORPSE_REW6"
+                            get_item_from_pool{
+                                pool chapter_rare
+                                restrict trinket
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_MUMMIFIEDCORPSE_REW7"
+                            party_heal 1
+                        }
+
+                        rare {
+                            prompt "EVENT_MUMMIFIEDCORPSE_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat dex
+                animation choice_dex_alt
+                
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_MUMMIFIEDCORPSE_REW9"
+                            get_item_from_pool{
+                                pool chapter_common
+                                restrict [trinket, weapon, armor]
+                            }
+                        }
+
+                        rare {
+                            prompt "EVENT_MUMMIFIEDCORPSE_REW10"
+                            get_item_from_pool{
+                                pool chapter_rare
+                                restrict trinket
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_MUMMIFIEDCORPSE_REW11"
+                            party_heal 1
+                        }
+
+                        rare {
+                            prompt "EVENT_MUMMIFIEDCORPSE_REW12"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+Fetus {
+    intro {
+        title "EVENT_FETUS_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        subject_clip EventSubject
+        subject_frame fetus
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_FETUS_QUES"
+
+        options {
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_FETUS_REW1"
+                            gain_food [1 4]
+                        }
+                        rare {
+                            prompt "EVENT_FETUS_REW2"
+                            permanent_stats {
+                                random 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_FETUS_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_FETUS_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_FETUS_REW5"
+                            get_item_from_pool consumables
+                        }
+                        rare {
+                            prompt "EVENT_FETUS_REW6"
+                            get_item_from_pool treasure_easy
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_FETUS_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_FETUS_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+
+                good {
+                    prompt "EVENT_FETUS_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+TheStranger {
+    intro {
+        title "EVENT_STRANGER_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame cultist
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_STRANGER_QUES"
+
+        options {
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_STRANGER_REW1"
+                            get_item_from_pool consumables
+                        }
+                        rare {
+                            prompt "EVENT_STRANGER_REW2"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_STRANGER_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_STRANGER_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            attack {
+                label "EVENT_ATTACK_ANSW"
+                stat str
+                
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_STRANGER_REW5"
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict [weapon, trinket, armor]
+                            }
+                            gain_coins [15 30]
+                        }
+                        rare {
+                            prompt "EVENT_STRANGER_REW6"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                            gain_coins [25 50]
+                        }
+                    }
+                }
+
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_STRANGER_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_STRANGER_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_STRANGER_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+TreasureChest {
+    intro {
+        title "EVENT_TREASURECHEST_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame treasure_chest
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_TREASURECHEST_QUES"
+
+        options {
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_TREASURECHEST_REW1"
+                            get_item_from_pool chapter_common
+                            get_item_from_pool consumables
+                        }
+                        rare {
+                            prompt "EVENT_TREASURECHEST_REW2"
+                            get_item_from_pool chapter_common
+                            get_item_from_pool treasure_easy
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_TREASURECHEST_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_TREASURECHEST_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            pick {
+                label "EVENT_PICK_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                copy_results examine
+            }
+
+            open {
+                label "EVENT_OPEN_ANSW"
+                stat lck
+
+                copy_results examine
+            }
+        }
+    }
+}
+
+
+OldFriend {
+    requirements {
+        not_tutorial true
+    }
+    
+    intro {
+        title "EVENT_OLDFRIEND_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame friendly_cat
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_OLDFRIEND_QUES"
+
+        options {
+            join {
+                label "EVENT_OLDFRIEND_ANSW_JOIN"
+                stat cha
+
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_OLDFRIEND_REW1"
+                            gain_familiar CharmedStray
+                        }
+                        rare {
+                            prompt "EVENT_OLDFRIEND_REW2"
+                            gain_familiar CharmedStrayMutilated
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_OLDFRIEND_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_OLDFRIEND_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+            feed {
+                label "EVENT_OLDFRIEND_ANSW_FEED"
+                stat int
+                
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_OLDFRIEND_REW5"
+                            gain_food -1
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_OLDFRIEND_REW6"
+                            gain_food -1
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_OLDFRIEND_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_OLDFRIEND_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+
+                good {
+                    set_frame 2
+                    prompt "EVENT_OLDFRIEND_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+CultistCamp {
+    intro {
+        title "EVENT_CULTISTCAMP_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame abandoned_campfire
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_CULTISTCAMP_QUES"
+
+        options {
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_CULTISTCAMP_REW1"
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict consumables
+                            }
+                            gain_food [1 4]
+                        }
+                        rare {
+                            prompt "EVENT_CULTISTCAMP_REW2"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_CULTISTCAMP_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_CULTISTCAMP_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_CULTISTCAMP_REW5"
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict consumables
+                            }
+                            gain_food [1 4]
+                        }
+                        rare {
+                            prompt "EVENT_CULTISTCAMP_REW6"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_CULTISTCAMP_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_CULTISTCAMP_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_CULTISTCAMP_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+CorpsePile {
+    intro {
+        title "EVENT_CORPSEPILE_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame corpse_pile
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_CORPSEPILE_QUES"
+
+        options {
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_CORPSEPILE_REW1"
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict consumables
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_CORPSEPILE_REW2"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_CORPSEPILE_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_CORPSEPILE_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_CORPSEPILE_REW5"
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict consumables
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_CORPSEPILE_REW6"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_CORPSEPILE_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_CORPSEPILE_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_CORPSEPILE_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+SludgeTrap {
+    intro {
+        title "EVENT_SLUDGETRAP_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame sludgetrap
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_SLUDGETRAP_QUES"
+
+        options {
+            disarm {
+                label "EVENT_DISARM_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_SLUDGETRAP_REW1"
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict consumables
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_SLUDGETRAP_REW2"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_SLUDGETRAP_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_SLUDGETRAP_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_SLUDGETRAP_REW5"
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict consumables
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_SLUDGETRAP_REW6"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_SLUDGETRAP_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_SLUDGETRAP_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+            bash {
+                label "EVENT_BASH_ANSW"
+                stat str
+                
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_SLUDGETRAP_REW9"
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict consumables
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_SLUDGETRAP_REW10"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_SLUDGETRAP_REW11"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_SLUDGETRAP_REW12"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+TheFountain {
+    intro {
+        title "EVENT_FOUNTAIN_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame magical_water
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_FOUNTAIN_QUES"
+        
+        options {
+            drink_1 {
+                label "EVENT_DRINK_ANSW"
+                stat con
+                
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_FOUNTAIN_DRINK"
+                            full_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_FOUNTAIN_DRINK2"
+                            permanent_stats {
+                                lck 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_FOUNTAIN_DRINK3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_FOUNTAIN_DRINK4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+            
+            drink_2 {
+                label "EVENT_DRINK_ANSW"
+                stat int
+                
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_FOUNTAIN_DRINK"
+                            full_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_FOUNTAIN_DRINK2"
+                            permanent_stats {
+                                hp 2
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_FOUNTAIN_DRINK3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_FOUNTAIN_DRINK4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            drink_3 {
+                label "EVENT_DRINK_ANSW"
+                stat str
+                
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_FOUNTAIN_DRINK"
+                            full_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_FOUNTAIN_DRINK2"
+                            permanent_stats {
+                                lck 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_FOUNTAIN_DRINK3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_FOUNTAIN_DRINK4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+            
+            leave {
+                label "EVENT_LEAVE_ANSW"
+                stat none
+                animation choice_leave
+
+                good {
+                    prompt "EVENT_FOUNTAIN_LEAVE"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }   
+    }
+}

@@ -1,0 +1,132 @@
+CraterWeatherEvent {
+    intro {
+        title "EVENT_CRATERWEATHER_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame crater_weather
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_CRATERWEATHER_QUES"
+        shuffle_options true
+        max_options 3
+
+        options {
+            w1 {
+                label "EVENT_CRATERWEATHER_ANSW1"
+                stat none
+                animation choice_misc
+
+                good {
+                    set_frame 7
+                    prompt "EVENT_HAPPENING_METEORSHOWER_REW"
+                    add_weather MeteorShower
+                    set_legacy_token MeteorShowerUnlocked
+                }
+            }
+            w2 {
+                label "EVENT_CRATERWEATHER_ANSW2"
+                stat none
+                animation choice_misc
+
+                good {
+                    set_frame 2
+                    prompt "EVENT_CRATERWEATHER_REW2"
+                    add_weather SolarFlare
+                    set_legacy_token SolarFlareUnlocked
+                }
+            }
+            w3 {
+                label "EVENT_CRATERWEATHER_ANSW3"
+                stat none
+                animation choice_misc
+
+                good {
+                    set_frame 3
+                    prompt "EVENT_CRATERWEATHER_REW3"
+                    add_weather GeomagneticStorm
+                    set_legacy_token GeomagneticStormUnlocked
+                }
+            }
+            w4 {
+                label "EVENT_CRATERWEATHER_ANSW4"
+                stat none
+                animation choice_misc
+
+                good {
+                    set_frame 6
+                    prompt "EVENT_CRATERWEATHER_REW4"
+                    add_weather TheShimmer
+                    set_legacy_token TheShimmerUnlocked
+                }
+            }
+            w5 {
+                label "EVENT_CRATERWEATHER_ANSW5"
+                stat none
+                animation choice_misc
+
+                good {
+                    set_frame 4
+                    prompt "EVENT_CRATERWEATHER_REW5"
+                    add_weather StrangeEggs
+                    set_legacy_token StrangeEggsUnlocked
+                }
+            }
+            w6 {
+                label "EVENT_CRATERWEATHER_ANSW6"
+                stat none
+                animation choice_misc
+
+                good {
+                    set_frame 5
+                    prompt "EVENT_CRATERWEATHER_REW6"
+                    add_weather AlienOvergrowth
+                    set_legacy_token AlienOvergrowthUnlocked
+                }
+            }
+
+        }
+    }
+}
+
+Butch_Tutorial {
+    intro {
+        title "EVENT_BUTCH_NAME"
+        cat_choice random //choose, random, none (random and none are equivalent)
+        choose_cat_with_highest_stat int
+        subject_clip EventSubject
+        subject_frame butch
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_BUTCHTUTORIAL_QUES"
+
+        options {
+            attack {
+                label "EVENT_BUTCHTUTORIAL_ATTACK_ANSW"
+                stat str
+
+                bad {
+                    set_frame 2
+
+                    prompt "EVENT_BUTCHTUTORIAL_REW1"
+                    party_heal 1
+                }
+            }
+
+            outsmart {
+                label "EVENT_BUTCHTUTORIAL_OUTSMART_ANSW"
+                stat int
+
+                good {
+                    set_frame 2
+
+                    prompt "EVENT_BUTCHTUTORIAL_REW2"
+                    get_item Catnip
+                }
+            }
+        }
+    }
+}

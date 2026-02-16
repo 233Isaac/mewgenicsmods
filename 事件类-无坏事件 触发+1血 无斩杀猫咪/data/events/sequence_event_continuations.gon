@@ -1,0 +1,1418 @@
+//these events cannot be triggered naturally, and only occur when other events trigger them!
+Genie_Good {
+    intro {
+        title "EVENT_GENIEOFTHELAMP_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame genie
+        subject_frame_inner 2
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_GENIEOFTHELAMP_QUES"
+
+        options {
+            wealth 
+{
+                label EVENT_GENIE_CHOICE_WEALTH
+                stat none
+
+                good {
+                    reward {
+                        common {
+   
+                         prompt "EVENT_GENIEOFTHELAMP_REW1"
+                            gain_coins [30 60]
+                        }
+                    
+    rare {
+                            prompt "EVENT_GENIEOFTHELAMP_REW2"
+                            get_item_from_pool {
+                                pool chapter_rare
+    
+                        }
+                            get_item_from_pool {
+                                pool chapter_rare
+              
+              }
+                            get_item_from_pool {
+                                pool chapter_rare
+                        
+    }
+                            get_item_from_pool {
+                                pool chapter_rare
+                            }
+      
+                  }
+                    }
+                }
+            }
+
+            looks {
+                label EVENT_GENIE_CHOICE_LOOKS
+    
+            stat none
+
+                good {
+                    reward {
+                        common {
+                        
+    prompt "EVENT_GENIEOFTHELAMP_REW3"
+                            permanent_stats {
+                                cha 4
+                            }
+     
+                   }
+                        rare {
+                            prompt "EVENT_GENIEOFTHELAMP_REW4"
+                           
+ gain_disorder Gigachad
+							permanent_stats {
+                                cha 3
+                            }
+							mutation {
+                                head 305
+							}
+  
+                      }
+                    }
+                }
+            }
+
+            power {
+                label 
+EVENT_GENIE_CHOICE_POWER
+                stat none
+
+                good {
+                    reward {
+                        common {
+                    
+        prompt "EVENT_GENIEOFTHELAMP_REW5"
+                            permanent_stats {
+                                str 4
+                            }
+ 
+                       }
+                        rare {
+                            prompt "EVENT_GENIEOFTHELAMP_REW6"
+							permanent_stats {
+                      
+          str 4
+                            }
+                            level_up self
+							level_up self
+                        }
+       
+             }
+                }
+            }
+        }
+    }
+}
+
+Genie_Bad {
+    intro {
+        title "EVENT_GENIEOFTHELAMP_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame genie
+     
+   subject_frame_inner 4
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_GENIEOFTHELAMP2_QUES"
+
+        //TODO: Consider making it unable to curse you if you are too dumb (int<=0) because
+        //  you need to clearly articulate your preference for him to act.
+options {
+            mind {
+                label EVENT_GENIE_CHOICE_CURSEMIND
+                stat none
+
+                bad {
+                    reward {
+              
+          common {
+                            prompt "EVENT_GENIEOFTHELAMP2_REW1"
+                            party_heal 1
+                        }
+       
+                 rare {
+                            prompt "EVENT_GENIEOFTHELAMP2_REW2"
+                            party_heal 1
+                        }
+          
+          }
+                }
+            }
+
+            body {
+                label EVENT_GENIE_CHOICE_CURSEBODY
+                stat none
+
+               
+ bad {
+                    reward {
+                        common {
+                            prompt "EVENT_GENIEOFTHELAMP2_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_GENIEOFTHELAMP2_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            soul {
+            
+    label EVENT_GENIE_CHOICE_CURSESOUL
+                stat none
+
+                bad {
+                    reward {
+                        common {
+               
+             prompt "EVENT_GENIEOFTHELAMP2_REW5"
+                            party_heal 1
+                        }
+                        rare {
+       
+                     prompt "EVENT_GENIEOFTHELAMP2_REW6"
+                            party_heal 1
+                        }
+                    }
+              
+  }
+            }
+        }
+    }
+}
+
+WatchingHead2 {
+    intro {
+        title "EVENT_WATCHINGHEAD2_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame watching_head
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_WATCHINGHEAD2_QUES"
+
+     
+   options {
+            fight {
+                label "EVENT_FIGHT_ANSW"
+                stat str
+
+                good {
+                    set_frame 2
+           
+         prompt "EVENT_WATCHINGHEAD2_REW1"
+                    get_item HumanBrain
+                }
+                bad {
+                    set_frame 5
+               
+     prompt "EVENT_WATCHINGHEAD2_REW2" 
+                    party_heal 1
+                }
+           
+ }
+        }
+    }
+}
+
+MonkeyPawWish {
+    intro {
+        title "EVENT_MONKEYPAWWISH_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame monkey_paw_4fingers
+        subject_frame_inner 2 //This event is called when a finger moves down, requiring 2nd frame.
+event_clip NonWheelEvent
+    }
+
+    main {
+        setup {
+            conditional_reward {
+                requirements {
+                    has_token WorldEventLegacyToken_MonkeyPaw1
+                    not_has_token WorldEventLegacyToken_MonkeyPaw2
+         
+       }
+                reward {
+                    set_subject monkey_paw_4fingers
+                    set_frame 2
+                }
+            }
+      
+      conditional_reward {
+                requirements {
+                    has_token WorldEventLegacyToken_MonkeyPaw2
+                    not_has_token WorldEventLegacyToken_MonkeyPaw3
+                }
+                reward {
+ 
+                   set_subject monkey_paw_3fingers
+                    set_frame 2
+                }
+            }
+            conditional_reward {
+                requirements {
+ 
+                   has_token WorldEventLegacyToken_MonkeyPaw3
+                }
+                reward {
+                    set_subject monkey_paw_2fingers
+                    set_frame 2
+     
+           }
+            }
+            conditional_reward {
+                requirements {
+                    has_token WorldEventLegacyToken_MonkeyPaw4
+                }
+          
+      reward {
+                    set_subject monkey_paw_1finger
+                    set_frame 2
+                }
+            }
+        }
+        prompt "EVENT_MONKEYPAWWISH_QUES"
+
+      
+  options {
+            wish_strength {
+                requirements {
+                    not_has_token WorldEventLegacyToken_MonkeyPawStrength
+                }
+
+                label "EVENT_MONKEYPAW_WISH1"
+             
+   stat none
+
+                good {
+                    set_frame 2
+                    prompt "EVENT_MONKEYPAW_WISH1_REW"
+                    set_legacy_token WorldEventLegacyToken_MonkeyPawStrength
+                
+    gain_disorder Gargantuan
+                }
+            }
+            
+            wish_genes {
+                requirements {
+                    not_has_token WorldEventLegacyToken_MonkeyPawGenes
+    
+            }
+
+                label "EVENT_MONKEYPAW_WISH2"
+                stat none
+
+                good {
+                    prompt "EVENT_MONKEYPAW_WISH2_REW"
+                
+    set_legacy_token WorldEventLegacyToken_MonkeyPawGenes
+                    gain_disorder TamperedGenes
+                }
+            }
+            
+            wish_items {
+                requirements {
+    
+                not_has_token WorldEventLegacyToken_MonkeyPawItems
+                }
+
+                label "EVENT_MONKEYPAW_WISH3"
+                stat none
+
+                good {
+                
+    prompt "EVENT_MONKEYPAW_WISH3_REW"
+                    set_legacy_token WorldEventLegacyToken_MonkeyPawItems
+                    random_pool [
+                        {
+                            gain_disorder 
+SensoryOverloadTrinket
+                            get_and_equip_item_from_pool {
+                                pool chapter_rare
+                                restrict trinket
+     
+                       }
+                        }
+                        {
+                            gain_disorder 
+SensoryOverloadFace
+                            get_and_equip_item_from_pool {
+                                pool chapter_rare
+                                restrict face
+     
+                       }
+                        }
+                        {
+                            gain_disorder 
+SensoryOverloadHead
+                            get_and_equip_item_from_pool {
+                                pool chapter_rare
+                                restrict head
+     
+                       }
+                        }
+                        {
+                            gain_disorder 
+SensoryOverloadNeck
+                            get_and_equip_item_from_pool {
+                                pool chapter_rare
+                                restrict neck
+     
+                       }
+                        }
+                        {
+                            gain_disorder 
+SensoryOverloadWeapon
+                            get_and_equip_item_from_pool {
+                                pool chapter_rare
+                                restrict weapon
+     
+                       }
+                        }
+                    ]
+                }
+            }
+
+     
+       wish_levelups {
+                requirements {
+                    not_has_token WorldEventLegacyToken_MonkeyPawKnowledge
+                }
+
+                label "EVENT_MONKEYPAW_WISH4"
+                stat none
+
+    
+            good {
+                    prompt "EVENT_MONKEYPAW_WISH4_REW"
+                    set_legacy_token WorldEventLegacyToken_MonkeyPawKnowledge
+                    gain_disorder BrainDead
+                    level_up self
+   
+                 level_up self
+                }
+            }
+        }
+    }
+}
+
+MysteriousTomb1 {
+    intro {
+        title "EVENT_MYSTERIOUSTOMB_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame 
+mysterious_tomb_stairs
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_MYSTERIOUSTOMB1_QUES"
+
+        options {
+            smash {
+                label "EVENT_MYSTERIOUSTOMB1_ANSW"
+                stat dex
+
+                good 
+{
+                    set_frame 2
+                    override_end_option_prompt "EVENT_MYSTERIOUSTOMB1_END"
+                    event_now_same_cat MysteriousTomb2
+                    reward {
+                
+        common {
+                            prompt "EVENT_MYSTERIOUSTOMB1_REW1"
+                            self_status_next_fight {
+                                Poison 
+2
+                            }
+                        }
+                        rare {
+                       
+     prompt "EVENT_MYSTERIOUSTOMB1_REW2"
+                        }
+                    }
+                }
+
+                bad {
+                 
+   set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_MYSTERIOUSTOMB1_REW3"
+                            party_heal 1
+   
+                     }
+                        rare {
+                            prompt "EVENT_MYSTERIOUSTOMB1_REW4"
+                            party_heal 1
+      
+                  }
+                    }
+                }
+            }
+
+            leave {
+                label "EVENT_LEAVE_ANSW"
+    
+            stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_MYSTERIOUSTOMB1_REW5"
+                
+    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+MysteriousTomb2 {
+    intro {
+        title "EVENT_MYSTERIOUSTOMB_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame mysterious_tomb_enter
+        event_clip NonWheelEvent
+   
+ }
+
+    main {
+        prompt "EVENT_MYSTERIOUSTOMB2_QUES"
+
+        options {
+            smash {
+                label "EVENT_MYSTERIOUSTOMB2_ANSW"
+                stat con
+
+                good {
+            
+        set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_MYSTERIOUSTOMB2_REW1"
+                
+            override_end_option_prompt "EVENT_MYSTERIOUSTOMB2_END_RETRY"
+                            event_now_same_cat MysteriousTomb2 //try same event again
+                        }
+                        rare {
+     
+                       prompt "EVENT_MYSTERIOUSTOMB2_REW2"
+                            self_status_next_fight {
+                                AllStatsUp 
+1
+                            }
+                            override_end_option_prompt "EVENT_MYSTERIOUSTOMB2_END_NEXT"
+                            event_now_same_cat MysteriousTomb3
+                        }
+    
+                }
+                }
+                bad {
+                    reward {
+                        common {
+     
+                       set_frame 3
+                            prompt "EVENT_MYSTERIOUSTOMB2_REW3"
+                            override_end_option_prompt "EVENT_MYSTERIOUSTOMB2_END_RETREAT"
+                  
+          event_now_same_cat MysteriousTomb1 //go back a room
+                            party_heal 1
+                        }
+                        rare {
+                            set_frame 4
+       
+                     prompt "EVENT_MYSTERIOUSTOMB2_REW4"
+               play_animation resultHole
+                            party_heal 1
+         
+               }
+                    }
+                }
+            }
+
+            leave {
+                label "EVENT_LEAVE_ANSW"
+       
+         stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_MYSTERIOUSTOMB2_REW5"
+                   
+ play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+
+MysteriousTomb3 {
+    intro {
+        title "EVENT_MYSTERIOUSTOMB_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame mysterious_tomb_sarcophagus
+        event_clip NonWheelEvent
+    }
+
+  
+  main {
+        prompt "EVENT_MYSTERIOUSTOMB3_QUES"
+
+        options {
+            smash {
+                label "EVENT_MYSTERIOUSTOMB3_ANSW"
+                stat lck
+
+                good {
+               
+     set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_MYSTERIOUSTOMB3_REW1"
+                   
+         gain_coins [50 100]
+                            get_item_from_pool chapter_rare
+                        }
+                        rare {
+           
+                 prompt "EVENT_MYSTERIOUSTOMB3_REW2"
+                            get_item EyeOfRa
+                        }
+                    }
+         
+       }
+                bad {
+                    reward {
+                        common {
+                            set_frame 3
+ 
+                           prompt "EVENT_MYSTERIOUSTOMB3_REW3"
+                            override_end_option_prompt "EVENT_MYSTERIOUSTOMB3_END_MUMMY"
+                            event_now_same_cat MysteriousTomb4 //go to next floor
+                            party_heal 1
+          
+              }
+                        rare {
+                            set_frame 4
+                            prompt "EVENT_MYSTERIOUSTOMB3_REW4"
+                            party_heal 1
+                        }
+                    }
+ 
+               }
+            }
+
+            leave {
+                label "EVENT_LEAVE_ANSW"
+                stat none
+                animation choice_leave
+         
+       
+                good {
+                    prompt "EVENT_MYSTERIOUSTOMB3_REW5"
+                    play_animation [resultLeave 0]
+                }
+            }
+     
+   }
+    }
+}
+
+MysteriousTomb4 {
+    intro {
+        title "EVENT_MYSTERIOUSTOMB_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame mysterious_tomb_mummy
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_MYSTERIOUSTOMB4_QUES"
+
+        options {
+            smash {
+  
+              label "EVENT_MYSTERIOUSTOMB4_ANSW"
+                stat int
+
+                good {
+                    set_frame 2
+                    reward {
+         
+               common {
+                            prompt "EVENT_MYSTERIOUSTOMB4_REW1"
+                            //successfuly escape
+                        }
+  
+                      rare {
+                            prompt "EVENT_MYSTERIOUSTOMB4_REW2"
+                            get_item PharaohStaff
+                   
+     }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward 
+{
+                        common {
+                            prompt "EVENT_MYSTERIOUSTOMB4_REW3"
+                            party_heal 1
+                 
+       }
+                        rare {
+                            prompt "EVENT_MYSTERIOUSTOMB4_REW4"
+                            play_animation resultHole
+                            party_heal 1
+          
+                  }
+                    }
+                }
+            }
+        }
+ 
+   }
+}
+
+ElephantsFootCloser {
+    intro {
+        title "EVENT_ELEPHANTSFOOTCLOSER_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame eliphants_foot_closer
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_ELEPHANTSFOOTCLOSER_QUES"
+
+        options {
+            move_closer {
+      
+          label "EVENT_ELEPHANTSFOOTCLOSER_ANSW"
+                stat str
+
+                good {
+                    set_frame 2
+                    reward {
+             
+           common {
+                            prompt "EVENT_ELEPHANTSFOOTCLOSER_REW1"
+                            random_mutation 1
+                            permanent_stats {
+ 
+                               con 1
+                            }
+                        }
+                
+        rare {
+                            prompt "EVENT_ELEPHANTSFOOTCLOSER_REW2"
+                            random_mutation 1
+                            permanent_stats {
+    
+                            random 1
+                            }
+                            event_now_same_cat ElephantsFootEvenCloser
+              
+          }
+                    }
+                }
+                bad {
+                    set_frame 3
+                
+    reward {
+                        common {
+                            prompt "EVENT_ELEPHANTSFOOTCLOSER_REW3"
+                            party_heal 1
+            
+            }
+                        rare {
+                            prompt "EVENT_ELEPHANTSFOOTCLOSER_REW4"
+                            party_heal 1
+               
+         }
+                    }
+                }
+            }
+
+            leave {
+                label "EVENT_LEAVE_ANSW"
+             
+   stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_ELEPHANTSFOOTCLOSER_REW5"
+                    play_animation [resultLeave 0]
+   
+             }
+            }
+        }
+    }
+}
+
+ElephantsFootEvenCloser {
+    intro {
+        title "EVENT_ELEPHANTSFOOTEVENCLOSER_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame eliphants_foot_closer
+        event_clip NonWheelEvent
+    }
+
+    main {
+   
+     prompt "EVENT_ELEPHANTSFOOTEVENCLOSER_QUES"
+
+        options {
+            withstand {
+                label "EVENT_ELEPHANTSFOOTEVENCLOSER_ANSW"
+                stat con
+
+                good {
+                    set_frame 
+2
+                    reward {
+                        common {
+                            prompt "EVENT_ELEPHANTSFOOTEVENCLOSER_REW1"
+                         
+   random_mutation 2
+                            permanent_stats {
+                                con 1
+                            }
+      
+                  }
+                        rare {
+                            prompt "EVENT_ELEPHANTSFOOTEVENCLOSER_REW2"
+                            
+random_mutation 4
+                            permanent_stats {
+                                random 5
+                            }
+         
+                   event_now_same_cat ElephantsFootEvenCloser
+                        }
+                    }
+                }
+                bad {
+   
+                 set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_ELEPHANTSFOOTEVENCLOSER_REW3"
+                            party_heal 1
+                        }
+                        rare 
+{
+                            prompt "EVENT_ELEPHANTSFOOTEVENCLOSER_REW4" 
+                            party_heal 1
+                      
+  }
+                    }
+                }
+            }
+
+            leave {
+                label "EVENT_LEAVE_ANSW"
+                stat none
+   
+             animation choice_leave
+                
+                good {
+                    prompt "EVENT_ELEPHANTSFOOTEVENCLOSER_REW5"
+                    play_animation [resultLeave 0]
+          
+      }
+            }
+        }
+    }
+}
+
+MysteriousStrangerForced {
+    //This is the same event but with no leave option.
+intro {
+        title "EVENT_MYSTERIOUSSTRANGER_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame mysterious_stranger
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_MYSTERIOUSSTRANGER_QUES"
+        
+        setup {
+            conditional_reward {
+      
+          requirements {
+                    has_token HasPlayedMysteriousStranger
+                }
+                reward {
+                    prompt "EVENT_MYSTERIOUSSTRANGER_QUES2"
+              
+  }
+            }
+        }
+
+        options {
+            play {
+                label "EVENT_MYSTERIOUSSTRANGER_ANSW"
+                stat spd
+
+                good {
+     
+               reward {
+                        common {
+                            set_frame 3
+                            set_adventure_token HasPlayedMysteriousStranger
+ 
+                           prompt "EVENT_MYSTERIOUSSTRANGER_REW1"
+                            gain_coins [5 15]
+                            override_end_option_prompt "EVENT_MYSTERIOUSSTRANGER_END_AGAIN"
+             
+               event_now_same_cat MysteriousStranger
+                        }
+                        rare {
+                            set_frame 4
+      
+                      set_adventure_token HasPlayedMysteriousStranger
+                            prompt "EVENT_MYSTERIOUSSTRANGER_REW2"
+                            gain_coins [20 100]
+                  
+          permanent_stats {
+                                spd 1
+                            }
+                        }
+    
+                }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+         
+               set_adventure_token HasPlayedMysteriousStranger
+                        common {
+                            prompt "EVENT_MYSTERIOUSSTRANGER_REW3"
+                            set_adventure_token HasPlayedMysteriousStranger
+ 
+                           set_adventure_token MysteriousStranger_HasLostFinger
+                            override_end_option_prompt "EVENT_MYSTERIOUSSTRANGER_END_AGAIN"
+                            event_now_same_cat MysteriousStranger
+                            party_heal 1
+ 
+                       }
+                        rare {
+                            prompt "EVENT_MYSTERIOUSSTRANGER_REW4"
+                       
+     set_adventure_token HasPlayedMysteriousStranger
+                            set_adventure_token MysteriousStranger_HasLostFinger
+                            override_end_option_prompt "EVENT_MYSTERIOUSSTRANGER_END_AGAIN2"
+                       
+     event_now_same_cat MysteriousStrangerForced
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+JaggedPathwayStalactite {
+    intro {
+    
+    title "EVENT_JAGGEDPATHWAY_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame jagged_pathway
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_JAGGEDPATHWAY_STALACTITE_QUES"
+
+        options {
+            pull_it_out {
+                label "EVENT_JAGGEDPATHWAY_STALACTITE_ANSW1"
+  
+              stat none
+
+                good {
+                    set_frame 6
+                    reward {
+                        common {
+ 
+                           prompt "EVENT_JAGGEDPATHWAY_STALACTITE_REW1"
+                            lose_specific_item SlagTight
+                            get_item SlagMight
+              
+              damage [5 8]
+                            self_status_next_fight {
+                                Sleep 1
+                      
+      }
+                        }
+                        rare {
+                            prompt "EVENT_JAGGEDPATHWAY_STALACTITE_REW2"
+                
+            lose_specific_item SlagTight
+                            get_item SlagMight
+                            damage [3 4]
+                        }
+    
+                }
+                }
+                bad {
+                    set_frame 6
+                    reward {
+         
+               common {
+                            prompt "EVENT_JAGGEDPATHWAY_STALACTITE_REW3"
+                            lose_specific_item SlagTight
+                          
+  get_item SlagMight
+                            party_heal 1
+                 
+       }
+                        rare {
+                            prompt "EVENT_JAGGEDPATHWAY_STALACTITE_REW4" 
+                            lose_specific_item SlagTight
+                            party_heal 1
+                        }
+                    }
+            
+    }
+            }
+            
+            leave_it_in {
+                label "EVENT_JAGGEDPATHWAY_STALACTITE_ANSW2"
+                stat none
+                animation choice_leave
+        
+        
+                good {
+                    prompt "EVENT_JAGGEDPATHWAY_STALACTITE_REW5"
+                    play_animation [resultLeave 0]
+                }
+                
+bad {
+                    prompt "EVENT_JAGGEDPATHWAY_STALACTITE_REW5"
+                    play_animation [resultLeave 0]
+                    party_heal 1
+                }
+            }
+        }
+    }
+}
+
+MysteriousCave1 { //repell
+    intro {
+        title "EVENT_MYSTERIOUSCAVE1_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame mysterious_cave_hole
+       
+ event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_MYSTERIOUSCAVE1_QUES"
+
+        options {
+            repell {
+                label "EVENT_MYSTERIOUSCAVE1_RAPPEL_ANSW"
+                stat dex
+
+                good {
+       
+             set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_MYSTERIOUSCAVE1_REW1"
+           
+                 conditional_reward {
+                                requirements {
+                                    has_token AdventureToken_MysteriousCave_FamiliarVoice
+            
+                    }
+                                reward {
+                                    next_event_bonus 1
+          
+                      }
+                            }
+                            event_now_same_cat MysteriousCave2
+                     
+   }
+                        rare {
+                            prompt "EVENT_MYSTERIOUSCAVE1_REW2"
+                            conditional_reward {
+              
+                  requirements {
+                                    has_token AdventureToken_MysteriousCave_FamiliarVoice
+                                }
+            
+                    reward {
+                                    next_event_bonus 2
+                                }
+          
+                      else {
+                                    next_event_bonus 1
+                                }
+        
+                    }
+                            event_now_same_cat MysteriousCave2
+                        }
+                    }
+       
+         }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+       
+                     prompt "EVENT_MYSTERIOUSCAVE1_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_MYSTERIOUSCAVE1_REW4" 
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            leave {
+     
+           label "EVENT_LEAVE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt 
+"EVENT_MYSTERIOUSCAVE1_REW5"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+MysteriousCave2 { //glowing one
+    intro {
+        title "EVENT_MYSTERIOUSCAVE2_NAME"
+        cat_choice random
+        subject_clip EventSubject
+   
+     subject_frame mysterious_cave_glowing_one
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_MYSTERIOUSCAVE2_QUES"
+
+        options {
+            repell {
+                label "EVENT_MYSTERIOUSCAVE1_TALKTO_ANSW"
+                stat cha
+
+           
+     good {
+                    set_frame 2
+                    reward {
+                        common {
+                           
+ prompt "EVENT_MYSTERIOUSCAVE2_REW1"
+                            upgrade_ability random
+                            event_now_same_cat MysteriousCave3
+                        }
+                
+        rare {
+                            prompt "EVENT_MYSTERIOUSCAVE2_REW2"
+                            self_status_next_fight {
+                                AllStatsUp 
+1
+                            }
+                            upgrade_ability random
+                            upgrade_passive random
+              
+              event_now_same_cat MysteriousCave3
+                        }
+                    }
+                }
+                bad {
+        
+            set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_MYSTERIOUSCAVE2_REW3"
+            
+                event_now_same_cat MysteriousCave3
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_MYSTERIOUSCAVE2_REW4" 
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+MysteriousCave3 
+{ //climb out
+    intro {
+        title "EVENT_MYSTERIOUSCAVE2_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame mysterious_cave_climb
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_MYSTERIOUSCAVE3_QUES"
+
+        options {
+            repell {
+        
+        label "EVENT_MYSTERIOUSCAVE3_CLIMB_ANSW"
+                stat str
+
+                good {
+                    set_frame 3
+                    reward {
+               
+         common {
+                            prompt "EVENT_MYSTERIOUSCAVE3_REW1"
+                            //nothing, escape event
+                        }
+       
+                 rare {
+                            prompt "EVENT_MYSTERIOUSCAVE3_REW2"
+                            self_status_next_fight {
+                        
+        AllStatsUp 1
+                            }
+                        }
+                    }
+                }
+   
+             bad {
+                    set_frame 2
+                    reward {
+                        common {
+                   
+         prompt "EVENT_MYSTERIOUSCAVE3_REW3"
+                            event_now_same_cat MysteriousCave2
+                            party_heal 1
+                        }
+        
+                rare {
+                            prompt "EVENT_MYSTERIOUSCAVE3_REW4" 
+                            event_now_same_cat MysteriousCave3
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+MysteriousMachine_Good {
+    intro {
+     
+   title "EVENT_MYSTERIOUSMACHINE_GOOD_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame mysterious_machine
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_MYSTERIOUSMACHINE_GOOD_QUES"
+
+        setup {
+            set_frame 4
+        }
+
+        options {
+   
+         copy {
+                label "EVENT_MYSTERIOUSMACHINE_COPY_ANSW"
+
+                good {
+                    set_frame 5
+                    prompt "EVENT_MYSTERIOUSMACHINE_GOOD_REW1"
+              
+      gain_clone_familiar {
+                        object PlayerCat_MachineClone
+                    }
+                }
+            }
+
+            scale {
+       
+         label "EVENT_MYSTERIOUSMACHINE_SCALE_ANSW"
+
+                good {
+                    set_frame 6
+                    prompt "EVENT_MYSTERIOUSMACHINE_GOOD_REW2"
+                    party_gain_disorder_from_pool [Dwarfism]
+          
+      }
+            }
+
+            print {
+                label "EVENT_MYSTERIOUSMACHINE_PRINT_ANSW"
+
+                good {
+                    set_frame 7
+              
+      prompt "EVENT_MYSTERIOUSMACHINE_GOOD_REW3"
+                    copy_party_items 1
+                }
+            }
+        }
+    }
+}
+
+MysteriousMachine_Bad {
+    intro {
+        title "EVENT_MYSTERIOUSMACHINE_BAD_NAME"
+        cat_choice random
+        
+subject_clip EventSubject
+        subject_frame mysterious_machine
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_MYSTERIOUSMACHINE_BAD_QUES"
+
+        setup {
+            set_frame 4
+        }
+
+        options {
+            copy {
+           
+     label "EVENT_MYSTERIOUSMACHINE_COPY_ANSW"
+
+                good {
+                    set_frame 8
+                    prompt "EVENT_MYSTERIOUSMACHINE_BAD_REW1"
+                    play_animation resultBad
+              
+      clone_self_to_party 1
+                }
+            }
+
+            scale {
+                label "EVENT_MYSTERIOUSMACHINE_SCALE_ANSW"
+
+                good {
+                  
+  set_frame 9
+                    prompt "EVENT_MYSTERIOUSMACHINE_BAD_REW2"
+                    party_gain_disorder_from_pool [Gigantism]
+                }
+            }
+
+            print {
+              
+  label "EVENT_MYSTERIOUSMACHINE_PRINT_ANSW"
+
+                good {
+                    set_frame 10
+                    prompt "EVENT_MYSTERIOUSMACHINE_BAD_REW3"
+                    play_animation resultBad
+                 
+   copy_items_to_party 1
+                }
+            }
+        }
+    }
+}
+
+BodyOfGlorg_Gift {
+    intro {
+        title "EVENT_GIFTOFGLORG_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame body_of_glorg
+        event_clip NonWheelEvent
+    }
+
+ 
+   main {
+        prompt "EVENT_GIFTOFGLORG_QUES"
+
+        setup{
+            set_frame 4
+        }
+
+        options {
+            head {
+                label "EVENT_GIFTOFGLORG_HEAD_ANSW"
+
+                good {
+  
+                  prompt "EVENT_GIFTOFGLORG_REW1"
+                    set_frame 5
+                    get_parasite Beepis
+                    gain_disorder BlessingOfGlorg
+                }
+  
+          }
+
+            neck {
+                label "EVENT_GIFTOFGLORG_NECK_ANSW"
+                
+                good {
+                    prompt "EVENT_GIFTOFGLORG_REW2"
+      
+              set_frame 5
+                    get_parasite Cunch
+                    gain_disorder BlessingOfGlorg
+                }
+            }
+            
+   
+         face {
+                label "EVENT_GIFTOFGLORG_FACE_ANSW"
+                
+                good {
+                    prompt "EVENT_GIFTOFGLORG_REW3"
+                   
+ set_frame 5
+                    get_parasite Feebis
+                    gain_disorder BlessingOfGlorg
+                }
+            }
+        }
+    }
+}

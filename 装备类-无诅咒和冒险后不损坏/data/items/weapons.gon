@@ -1,0 +1,2768 @@
+GlassShard {
+    name "ITEM_SHARDOFGLASS_NAME"
+    desc "ITEM_SHARDOFGLASS_DESC"
+    rarity common
+    kind weapon
+    frame 2
+    degrade_after_adventure false
+    durability [7, 12]
+    
+    ability wp_GlassShard
+}
+TinkererGlassShard {
+    variant_of GlassShard
+    durability [4 9]
+}
+
+RailSpikes {
+    name "ITEM_RAILROADSPIKE_NAME"
+    desc "ITEM_RAILROADSPIKE_DESC"
+    rarity common
+    kind weapon
+    frame 3
+    degrade_after_adventure false
+    durability 8
+	set Lead
+    
+    ability wp_RailSpikes
+}
+
+NailBoard {
+    name "ITEM_NAILBOARD_NAME" 
+    desc "ITEM_NAILBOARD_DESC" 
+    rarity uncommon
+    kind weapon
+    frame 4
+    degrade_after_adventure false
+    durability 4
+	set Wood
+    
+    ability wp_NailBoard 
+}
+
+LilSlugger {
+    name "ITEM_LILSLUGGER_NAME"
+    desc "ITEM_LILSLUGGER_DESC"
+    rarity common
+    kind weapon
+    frame 1
+    degrade_after_adventure false
+	set Wood
+
+    
+    ability wp_LilSlugger
+}
+
+ChumBucket {
+    name "ITEM_CHUMBUCKET_NAME"
+    desc "ITEM_CHUMBUCKET_DESC"
+    rarity common
+    kind weapon
+    frame 5
+    degrade_after_adventure false
+    durability 6
+	set [Guts, Meat]
+    
+    ability wp_ChumBucket
+}
+
+MeatHook {
+    name "ITEM_MEATHOOK_NAME"
+    desc "ITEM_MEATHOOKTEMP_DESC"
+    rarity rare
+    kind weapon
+    frame 6
+    degrade_after_adventure false
+	set [Barbed, Butcher]
+    
+    ability wp_MeatHook
+}
+
+Kebab {
+    name "ITEM_KEBAB_NAME"
+    desc "ITEM_KEBAB_DESC"
+    rarity uncommon
+    kind weapon
+    frame 7
+    degrade_after_adventure false
+    durability 8
+    
+    ability wp_Kebab
+}
+
+Pipe {
+    name "ITEM_PIPE_NAME"
+    desc "ITEM_PIPE_DESC"
+    rarity uncommon
+    kind weapon
+    frame 8
+    degrade_after_adventure false
+	set Lead
+    
+    ability wp_Pipe
+}
+
+ObsidianChunk {
+    name "ITEM_OBSIDIANCHUNK_NAME"
+    desc "ITEM_OBSIDIANCHUNK_DESC"
+    rarity rare
+    kind weapon
+    frame 9
+    degrade_after_adventure false
+    durability 9
+    aux 1
+	set Obelisk
+    
+    reset_aux_on_store 1
+
+    ability wp_ObsidianChunk
+}
+
+SoulClaw {
+    name "ITEM_SOULCLAW_NAME"
+    desc "ITEM_SOULCLAW_DESC"
+    rarity rare
+    kind weapon
+    frame 10
+    degrade_after_adventure false
+    durability 7
+	set Demonic
+    
+    ability wp_SoulClaw
+}
+
+Bomb {
+    name "ITEM_BOMB_NAME"
+    desc "ITEM_BOMB_DESC"
+    rarity uncommon
+    kind weapon
+    frame 11
+    degrade_after_adventure false
+    durability 1
+    
+    ability wp_Bomb
+}
+
+BoneClub {
+    name "ITEM_BONECLUB_NAME"
+    desc "ITEM_BONECLUB_DESC"
+    rarity uncommon
+    kind weapon
+    frame 13
+    degrade_after_adventure false
+	set Bone
+    
+    ability wp_BoneClub
+}
+
+Molars {
+    name "ITEM_MOLAR_NAME"
+    desc "ITEM_MOLAR_DESC"
+    rarity common
+    kind weapon
+    frame 14
+    degrade_after_adventure false
+    durability [10 20]
+	set Bone
+    
+    ability wp_Molars
+}
+
+Whetstone {
+    name "ITEM_WHETSTONE_NAME"
+    desc "ITEM_WHETSTONE_DESC"
+    rarity rare
+    kind weapon
+    frame 15
+    degrade_after_adventure false
+	set Rock
+    
+    ability wp_Whetstone
+}
+
+Hairspray {
+    name "ITEM_MODDEDHAIRSPRAY_NAME"
+    desc "ITEM_MODDEDHAIRSPRAY_DESC"
+    rarity uncommon
+    kind weapon
+    frame 25
+    degrade_after_adventure false
+    durability [8 12]
+    
+    ability wp_HairSpray
+}
+
+Lighter {
+    name "ITEM_LIGHTER_NAME"
+    desc "ITEM_LIGHTER_DESC"
+    rarity common
+    kind weapon
+    frame 26
+    degrade_after_adventure false
+    durability [8 12]
+	set Cool
+    
+    ability wp_Lighter
+}
+
+SeedBombs {
+    name "ITEM_SEEDBOMBS_NAME"
+    desc "ITEM_SEEDBOMBS_DESC"
+    rarity uncommon
+    kind weapon
+    frame 27
+    degrade_after_adventure false
+    
+    ability wp_SeedBomb
+}
+
+Battery {
+    name "ITEM_BATTERY_NAME"
+    desc "ITEM_BATTERY_DESC"
+    rarity uncommon
+    kind weapon
+    frame 30
+    degrade_after_adventure false
+    durability [3 6]
+    
+    ability wp_Battery
+}
+TinkererBattery {
+    variant_of Battery
+    durability [2 3]
+}
+
+OldHose {
+    name "ITEM_OLDHOSE_NAME"
+    desc "ITEM_OLDHOSE_DESC"
+    rarity common
+    kind weapon
+    frame 31
+    degrade_after_adventure false
+	set Rubber
+    
+    ability wp_Hose
+}
+
+SixPack {
+    name "ITEM_SIXPACK_NAME"
+    desc "ITEM_SIXPACK_DESC"
+    rarity uncommon
+    kind weapon
+    frame 32
+    degrade_after_adventure false
+    durability 6
+    
+    ability wp_SixPack
+}
+
+IceCubes {
+    name "ITEM_ICECUBES_NAME"
+    desc "ITEM_ICECUBES_DESC"
+    rarity uncommon
+    kind weapon
+    frame 35
+    degrade_after_adventure false
+	set Frozen
+    
+    ability wp_IceCubes
+}
+
+DryIce {
+    name "ITEM_DRYICE_NAME"
+    desc "ITEM_DRYICE_DESC"
+    rarity uncommon
+    kind weapon
+    frame 36
+    degrade_after_adventure false
+	set Frozen
+    
+    ability wp_DryIce
+}
+
+
+Bottles {
+    name "ITEM_BOTTLES_NAME"
+    desc "ITEM_BOTTLES_DESC"
+    rarity common
+    kind weapon
+    frame 17
+    degrade_after_adventure false
+    durability 6
+
+    ability wp_Bottles
+}
+TinkererBottles {
+    variant_of Bottles
+    durability 4
+}
+
+Stick {
+    name "ITEM_STICK_NAME"
+    desc "ITEM_STICK_DESC"
+    rarity common
+    kind weapon
+    frame 16
+    degrade_after_adventure false
+    durability 4
+	set Wood
+
+    ability wp_Stick
+}
+
+TinkererStick {
+    variant_of Stick
+    durability [2 4]
+}
+
+TutorialStick {
+    variant_of Stick
+    durability 4
+}
+
+RubberFist {
+    name "ITEM_RUBBERFIST_NAME"
+    desc "ITEM_RUBBERFIST_DESC" 
+    rarity uncommon
+    kind weapon
+    frame 19
+    degrade_after_adventure false
+	set Rubber
+
+    ability wp_RubberFist
+}
+
+BarbedPaw {
+    name "ITEM_BARBEDPAW_NAME"
+    desc "ITEM_BARBEDPAW_DESC" 
+    rarity uncommon
+    kind weapon
+    frame 24
+    degrade_after_adventure false
+	set Barbed
+
+    con -1
+
+    passives {
+        Thorns 1
+    }
+
+    ability wp_BarbedPaw
+}
+
+GnarledClaw {
+    name "ITEM_GNARLEDCLAW_NAME"
+    desc "ITEM_GNARLEDCLAW_DESC"
+    rarity rare
+    kind weapon
+    frame 21
+    degrade_after_adventure false
+    aux 1
+    durability 13
+
+    reset_aux_on_store 1
+
+    ability wp_GnarledClaw
+}
+
+Garbage {
+    name "ITEM_GARBAGE_NAME"
+    desc "ITEM_GARBAGE_DESC"
+    kind weapon
+    frame 39
+    degrade_after_adventure false
+    durability 1
+	set Recycled
+	
+    ability wp_Garbage
+}
+
+Shotgun {
+    name "ITEM_SHOTGUN_NAME"
+    desc "ITEM_SHOTGUN_DESC"
+    rarity very_rare
+    kind weapon
+    frame 50
+    degrade_after_adventure false
+    durability 2
+
+    ability wp_Shotgun
+}
+
+Revolver {
+    name "ITEM_REVOLVER_NAME"
+    desc "ITEM_REVOLVER_DESC"
+    rarity very_rare
+    kind weapon
+    frame 51
+    degrade_after_adventure false
+    durability 6
+
+    ability wp_Revolver
+}
+
+Sniper {
+    name "ITEM_SNIPERRIFLE_NAME"
+    desc "ITEM_SNIPERRIFLE_DESC"
+    rarity very_rare
+    kind weapon
+    frame 52
+    degrade_after_adventure false
+    durability [2 4]
+
+    ability wp_Sniper
+}
+
+SmallBomb {
+    name "ITEM_SMALLBOMB_NAME"
+    desc "ITEM_SMALLBOMB_DESC"
+    rarity common
+    kind weapon
+    frame 74
+    degrade_after_adventure false
+    durability 1
+    
+    ability wp_SmallBomb
+}
+
+PogoStick {
+    name "ITEM_POGOSTICK_NAME"
+    desc "ITEM_POGOSTICK_DESC"
+    rarity uncommon
+    kind weapon
+    frame 72
+    degrade_after_adventure false
+    durability [3 7]
+    
+    ability wp_PogoStick
+}
+
+Spitball {
+    name "ITEM_SPITBALL_NAME"
+    desc "ITEM_SPITBALL_DESC"
+    rarity uncommon
+    kind weapon
+    frame 73
+    degrade_after_adventure false
+    durability [4 8]
+    
+    ability wp_Spitball
+}
+
+MiniJetpack {
+    name "ITEM_MINIJETPACK_NAME"
+    desc "ITEM_MINIJETPACK_DESC"
+    rarity rare
+    kind weapon
+    frame 77
+    degrade_after_adventure false
+    durability [3 6]
+	set Experimental
+    
+    ability wp_MiniJetpack
+}
+
+BigStick {
+    name "ITEM_BIGSTICK_NAME"
+    desc "ITEM_BIGSTICK_DESC"
+    rarity uncommon
+    kind weapon
+    frame 75
+    degrade_after_adventure false
+    durability [8 12]
+	set Wood
+    
+    ability wp_BigStick
+}
+TinkererBigStick {
+    variant_of BigStick
+    durability [5 8]
+}
+
+BiggestStick {
+    name "ITEM_BIGGESTSTICK_NAME"
+    desc "ITEM_BIGGESTSTICK_DESC"
+    rarity rare
+    kind weapon
+    frame 82
+    degrade_after_adventure false
+    durability [8 12]
+	set Wood
+    
+    ability wp_BiggestStick
+}
+TinkererBiggestStick {
+    variant_of BiggestStick
+    durability [5 8]
+}
+
+Log {
+    name "ITEM_LOG_NAME"
+    desc "ITEM_LOG_DESC"
+    rarity very_rare
+    kind weapon
+    frame 76
+    degrade_after_adventure false
+    durability 8
+	set Wood
+    
+    ability wp_Log
+}
+TinkererLog {
+    variant_of Log
+    durability 4
+}
+
+Taser {
+    name "ITEM_TASER_NAME"
+    desc "ITEM_TASER_DESC"
+    rarity rare
+    kind weapon
+    frame 84
+    degrade_after_adventure false
+    durability 4
+    
+    ability wp_Taser
+}
+TinkererTaser {
+    variant_of Taser
+    durability 3
+}
+
+Deathbot {
+    name "ITEM_DEATHBOT_NAME"
+    desc "ITEM_DEATHBOT_DESC"
+    rarity rare
+    kind weapon
+    frame 81
+    degrade_after_adventure false
+    durability 1
+	set Tinkerer
+    
+    ability wp_Deathbot
+}
+
+
+Crossbow {
+    name "ITEM_CROSSBOW_NAME"
+    desc "ITEM_CROSSBOW_DESC"
+    rarity rare
+    kind weapon
+    frame 80
+    degrade_after_adventure false
+    durability 6
+	set Wood
+    
+    ability wp_Crossbow
+}
+TinkererCrossbow {
+    variant_of Crossbow
+    durability 4
+}
+
+BucketOfAcid {
+    name "ITEM_BUCKETOFACID_NAME"
+    desc "ITEM_BUCKETOFACID_DESC"
+    rarity rare
+    kind weapon
+    frame 78
+    degrade_after_adventure false
+    durability 1
+    
+    ability wp_BucketOfAcid
+}
+
+StunGun {
+    name "ITEM_STUNGUN_NAME"
+    desc "ITEM_STUNGUN_DESC"
+    rarity uncommon
+    kind weapon
+    frame 79
+    degrade_after_adventure false
+    durability [2 4]
+    
+    ability wp_StunGun
+}
+
+SlingShot {
+    name "ITEM_SLINGSHOT_NAME"
+    desc "ITEM_SLINGSHOT_DESC"
+    rarity uncommon
+    kind weapon
+    frame 83
+    degrade_after_adventure false
+    durability [5 9]
+	set Wood
+    
+    ability wp_SlingShot
+}
+TinkererSlingShot {
+    variant_of SlingShot
+    durability [4 7]
+}
+
+Uzi {
+    name "ITEM_UZI_NAME"
+    desc "ITEM_UZI_DESC"
+    rarity rare
+    kind weapon
+    frame 137
+    degrade_after_adventure false
+    durability 3
+
+    ability wp_Uzi
+}
+
+22Rifle {
+    name "ITEM_22RIFLE_NAME"
+    desc "ITEM_22RIFLE_DESC"
+    rarity rare
+    kind weapon
+    frame 152
+    degrade_after_adventure false
+    durability [2 4]
+
+    ability wp_22Rifle
+}
+
+BagOfRocks {
+    name "ITEM_BAGOFROCKS_NAME"
+    desc "ITEM_BAGOFROCKS_DESC"
+    rarity rare
+    kind weapon
+    frame 86
+    degrade_after_adventure false
+	set Rock
+
+    ability wp_BagOfRocks
+}
+
+Textbook {
+    name "ITEM_TEXTBOOK_NAME"
+    desc "ITEM_TEXTBOOK_DESC"
+    rarity rare
+    kind weapon
+    frame 90
+    degrade_after_adventure false
+	set Paper
+
+    ability wp_Textbook
+}
+
+BucketOfLard {
+    name "ITEM_BUCKETOFLARD_NAME"
+    desc "ITEM_BUCKETOFLARD_DESC"
+    rarity uncommon
+    kind weapon
+    frame 91
+    degrade_after_adventure false
+    durability [4 7]
+	set Fatty
+
+    ability wp_BucketOfLard
+}
+
+NailGun {
+    name "ITEM_NAILGUN_NAME"
+    desc "ITEM_NAILGUN_DESC"
+    rarity uncommon
+    kind weapon
+    frame 92
+    degrade_after_adventure false
+
+    ability wp_NailGun
+}
+
+StrongMagnet {
+    name "ITEM_STRONGMAGNET_NAME"
+    desc "ITEM_STRONGMAGNET_DESC"
+    rarity uncommon
+    kind weapon
+    frame 93
+    degrade_after_adventure false
+
+    ability wp_StrongMagnet
+}
+
+SawBlades {
+    name "ITEM_SAWBLADES_NAME"
+    desc "ITEM_SAWBLADES_DESC"
+    rarity rare
+    kind weapon
+    frame 94
+    degrade_after_adventure false
+    durability [9 16]
+
+    ability wp_SawBlades
+}
+
+OddRemote {
+    name "ITEM_ODDREMOTE_NAME"
+    desc "ITEM_ODDREMOTE_DESC" 
+    rarity uncommon
+    kind weapon
+    frame 95
+    degrade_after_adventure false
+	durability [6 8]
+	set Experimental
+
+    ability wp_OddRemote
+}
+
+ButterflyKnife {
+    name "ITEM_BUTTERFLYKNIFE_NAME"
+    desc "ITEM_BUTTERFLYKNIFE_DESC" 
+    rarity rare
+    kind weapon
+    frame 97
+    degrade_after_adventure false
+	set Cool
+
+    ability wp_ButterflyKnife
+}
+
+BearTraps {
+    name "ITEM_BEARTRAPS_NAME"
+    desc "ITEM_BEARTRAPS_DESC"
+    rarity uncommon
+    kind weapon
+    frame 99
+    degrade_after_adventure false
+    durability 6
+	set [Hunter, Survivalist]
+
+    ability wp_BearTraps
+}
+
+RustyRazor {
+    name "ITEM_RUSTYRAZOR_NAME"
+    desc "ITEM_RUSTYRAZOR_DESC"
+    rarity uncommon
+    kind weapon
+    frame 89
+    degrade_after_adventure false
+    durability [6 9]
+
+    ability wp_RustyRazor
+}
+
+Bricks {
+    name "ITEM_BRICKS_NAME"
+    desc "ITEM_BRICKS_DESC" 
+    rarity rare
+    kind weapon
+    frame 18
+    degrade_after_adventure false
+	set Brick
+
+    ability wp_Bricks
+}
+
+Mjolnir {
+    name "ITEM_MJOLNIR_NAME"
+    desc "ITEM_MJOLNIR_DESC"
+    rarity very_rare
+    kind weapon
+    frame 12
+    degrade_after_adventure false
+	set Superhero
+    
+    ability wp_Mjolnir
+}
+
+Blackjack {
+    name "ITEM_BLACKJACK_NAME"
+    desc "ITEM_BLACKJACK_DESC"
+    rarity uncommon
+    kind weapon
+    frame 85
+    degrade_after_adventure false
+	set [Thief, Prowler]
+
+    ability wp_Blackjack
+    passives {
+        MovementReaction {
+            ability wp_Blackjack_Auto
+            enemies_only true
+            on_self_move_too true
+            create_temp_ability true
+        }
+    }
+}
+
+BigSpring {
+    name "ITEM_BIGSPRING_NAME"
+    desc "ITEM_BIGSPRING_DESC"
+    rarity uncommon
+    kind weapon
+    frame 87
+    degrade_after_adventure false
+	set Scrap
+
+    ability wp_BigSpring
+}
+
+Grenade {
+    name "ITEM_GRENADE_NAME"
+    desc "ITEM_GRENADE_DESC"
+    rarity rare
+    kind weapon
+    frame 98
+    degrade_after_adventure false
+    durability 1
+
+    ability wp_Grenade
+}
+
+Pinwheel {
+    name "ITEM_PINWHEEL_NAME"
+    desc "ITEM_PINWHEEL_DESC"
+    rarity common
+    kind weapon
+    frame 34
+    degrade_after_adventure false
+    durability [10 16]
+	set Paper
+
+    ability wp_Pinwheel
+    passives {
+        ExtraWeaponAttacks 2
+    }
+}
+
+CrispPaper {
+    name "ITEM_CRISPPAPER_NAME"
+    desc "ITEM_CRISPPAPER_DESC"
+    rarity uncommon
+    kind weapon
+    frame 56
+    degrade_after_adventure false
+	set Paper
+
+    ability wp_CrispPaper
+}
+
+PurpleMushroom {
+    name "ITEM_PURPLEMUSHROOM_NAME"
+    desc "ITEM_PURPLEMUSHROOM_DESC"
+    rarity common
+    kind weapon
+    frame 57
+    degrade_after_adventure false
+    durability [2 4]
+	set Druid
+
+    ability wp_PurpleMushroom
+}
+
+BlackMushroom {
+    name "ITEM_BLACKMUSHROOM_NAME"
+    desc "ITEM_BLACKMUSHROOM_DESC"
+    rarity common
+    kind weapon
+    frame 58
+    degrade_after_adventure false
+	set Druid
+
+    ability wp_BlackMushroom
+}
+
+RedMushroom {
+    name "ITEM_REDMUSHROOM_NAME"
+    desc "ITEM_REDMUSHROOM_DESC"
+    rarity rare
+    kind weapon
+    frame 59
+    degrade_after_adventure false
+	set Druid
+
+    ability wp_RedMushroom
+}
+
+PoisonVial {
+    name "ITEM_POISONVIAL_NAME"
+    desc "ITEM_POISONVIAL_DESC"
+    rarity common
+    kind weapon
+    frame 60
+    degrade_after_adventure false
+	set Thief
+
+    ability wp_PoisonVial
+}
+
+PopCap {
+    name "ITEM_POPCAP_NAME"
+    desc "ITEM_POPCAP_DESC"
+    rarity common
+    kind weapon
+    frame 42
+    degrade_after_adventure false
+    durability [6 10]
+
+    ability wp_PopCap
+}
+
+CreepyPhoto {
+    name "ITEM_CREEPYPHOTO_NAME"
+    desc "ITEM_CREEPYPHOTO_DESC"
+    rarity uncommon
+    kind weapon
+    frame 62
+    degrade_after_adventure false
+
+    ability wp_CreepyPhoto
+}
+
+FingerBone {
+    name "ITEM_FINGERBONE_NAME"
+    desc "ITEM_FINGERBONE_DESC"
+    rarity rare
+    kind weapon
+    frame 63
+    degrade_after_adventure false
+	set Bone
+
+    ability wp_FingerBone
+}
+
+SpringBoard {
+    name "ITEM_SPRINGBOARD_NAME"
+    desc "ITEM_SPRINGBOARD_DESC"
+    rarity common
+    kind weapon
+    frame 45
+    degrade_after_adventure false
+	set Wood
+
+    ability wp_SpringBoard
+}
+
+Shovel {
+    name "ITEM_SHOVEL_NAME"
+    desc "ITEM_SHOVEL_DESC"
+    rarity rare
+    kind weapon
+    frame 37
+    degrade_after_adventure false
+
+    ability wp_Shovel
+}
+
+Trowel {
+    name "ITEM_TROWEL_NAME"
+    desc "ITEM_TROWEL_DESC"
+    rarity common
+    kind weapon
+    frame 38
+    degrade_after_adventure false
+    durability [6 8]
+
+    ability wp_Trowel
+}
+
+StaffOfFlame {
+    name "ITEM_STAFFOFFLAME_NAME"
+    desc "ITEM_STAFFOFFLAME_DESC"
+    rarity rare
+    kind weapon
+    frame 139
+    degrade_after_adventure false
+	set Mage
+
+    ability wp_StaffOfFlame
+}
+
+LacedNeedle {
+    name "ITEM_LACEDNEEDLE_NAME"
+    desc "ITEM_LACEDNEEDLE_DESC"
+    rarity uncommon
+    kind weapon
+    frame 140
+    degrade_after_adventure false
+    durability [10 14]
+	set Thief
+    
+    ability wp_LacedNeedle
+    passives {
+        ExtraWeaponAttacks 2
+    }
+}
+
+BattleAxe {
+    name "ITEM_BATTLEAXE_NAME"
+    desc "ITEM_BATTLEAXE_DESC"
+    rarity rare
+    kind weapon
+    frame 141
+    degrade_after_adventure false
+	set Fighter
+    
+    ability wp_BattleAxe
+}
+
+AnointingOil {
+    name "ITEM_ANOINTINGOIL_NAME"
+    desc "ITEM_ANOINTINGOIL_DESC"
+    rarity rare
+    kind weapon
+    frame 142
+    degrade_after_adventure false
+	set Cleric
+    
+    ability wp_AnointingOil
+}
+
+Girder {
+    name "ITEM_GIRDER_NAME"
+    desc "ITEM_GIRDER_DESC"
+    rarity rare
+    kind weapon
+    frame 143
+    degrade_after_adventure false
+	set Tank
+    
+    ability wp_Girder
+    passives {
+        PassiveIfWeaponIsUsable {
+            Brace 1
+        }
+    }
+}
+
+InfinityArrow {
+    name "ITEM_INFINITYARROW_NAME"
+    desc "ITEM_INFINITYARROW_DESC"
+    rarity rare
+    kind weapon
+    frame 144
+    degrade_after_adventure false
+	set Hunter
+
+    ability wp_InfinityArrow
+    passives {
+    }
+}
+
+BentSpoon {
+    name "ITEM_BENTSPOON_NAME"
+    desc "ITEM_BENTSPOON_DESC"
+    rarity rare
+    kind weapon
+    frame 145
+    degrade_after_adventure false
+	set Psychic
+
+    ability wp_BentSpoon
+    passives {
+    }
+}
+
+UnderworldStaff {
+    name "ITEM_UNDERWORLDSTAFF_NAME"
+    desc "ITEM_UNDERWORLDSTAFF_DESC"
+    rarity rare
+    kind weapon
+    frame 146
+    degrade_after_adventure false
+	set [Necromancer, Bone]
+
+    ability wp_UnderworldStaff
+    passives {
+        SpawnOnBattleStart ZombieCatFamiliar
+    }
+}
+
+Bo {
+    name "ITEM_BO_NAME"
+    desc "ITEM_BO_DESC"
+    rarity rare
+    kind weapon
+    frame 147
+    degrade_after_adventure false
+	set [Monk, Wood]
+
+    ability wp_Bo
+    passives {
+    }
+}
+
+BallPeenHammer {
+    name "ITEM_BALLPEENHAMMER_NAME"
+    desc "ITEM_BALLPEENHAMMER_DESC"
+    rarity rare
+    kind weapon
+    frame 148
+    degrade_after_adventure false
+	set Tinkerer
+
+    ability wp_BallPeenHammer
+    passives {
+    }
+}
+
+ButchersCleaver {
+    name "ITEM_BUTCHERSCLEAVER_NAME"
+    desc "ITEM_BUTCHERSCLEAVER_DESC"
+    rarity rare
+    kind weapon
+    frame 149
+    degrade_after_adventure false
+	set Butcher
+
+    ability wp_ButchersCleaver
+    passives {
+    }
+}
+
+RainStaff {
+    name "ITEM_RAINSTAFF_NAME"
+    desc "ITEM_RAINSTAFF_DESC"
+    rarity rare
+    kind weapon
+    frame 150
+    degrade_after_adventure false
+	set [Druid, Wood]
+
+    ability wp_RainStaff
+    passives {
+    }
+}
+
+LilKitty {
+    name "ITEM_LILKITTY_NAME"
+    desc "ITEM_LILKITTY_DESC"
+    rarity rare
+    kind weapon
+    frame 167
+    degrade_after_adventure false
+    
+    ability wp_LilKitty
+    passives {
+    }
+}
+
+TractorBeam {
+    name "ITEM_TRACTORBEAM_NAME"
+    desc "ITEM_TRACTORBEAM_DESC"
+    rarity uncommon
+    kind weapon
+    frame 106
+    degrade_after_adventure false
+	set Space
+    
+    ability wp_TractorBeam
+}
+
+RollOfPennies {
+    name "ITEM_ROLLOFPENNIES_NAME"
+    desc "ITEM_ROLLOFPENNIES_DESC"
+    rarity uncommon
+    kind weapon
+    frame 107
+    degrade_after_adventure false
+    
+    ability wp_RollOfPennies
+    
+    passives {
+        StatusOnBreak {
+            GainCoinsRange {
+                min 30
+                max 60
+            }
+        }
+    }
+}
+
+GrapplingHook {
+    name "ITEM_GRAPPLINGHOOK_NAME"
+    desc "ITEM_GRAPPLINGHOOK_DESC"
+    rarity rare
+    kind weapon
+    frame 108
+    degrade_after_adventure false
+	set [Barbed, Ninja]
+    
+    ability wp_GrapplingHook
+}
+
+Chainsaw {
+    name "ITEM_CHAINSAW_NAME"
+    desc "ITEM_CHAINSAW_DESC"
+    rarity rare
+    kind weapon
+    frame 109
+    degrade_after_adventure false
+	set Cool
+    
+    equip_sound SE_CatWeaponPoke_Chainsaw
+
+    ability wp_Chainsaw
+    passives {
+        Thorns 2
+    }
+}
+
+BurningCoal {
+    name "ITEM_BURNINGCOAL_NAME"
+    desc "ITEM_BURNINGCOAL_DESC"
+    rarity rare
+    kind weapon
+    frame 69
+    degrade_after_adventure false
+	set Molten
+    
+    ability wp_BurningCoal
+    passives {
+        StatusEachTurnBegin {
+            Burn 1
+			SpeedUp 2
+        }
+    }
+}
+
+RainbowRemote {
+    name "ITEM_RAINBOWREMOTE_NAME"
+    desc "ITEM_RAINBOWREMOTE_DESC"
+    rarity rare
+    kind weapon
+    frame 66
+    degrade_after_adventure false
+	set Experimental
+    
+    ability wp_RainbowRemote
+}
+
+RubberBat {
+    name "ITEM_RUBBERBAT_NAME"
+    desc "ITEM_RUBBERBAT_DESC"
+    rarity uncommon
+    kind weapon
+    frame 40
+    degrade_after_adventure false
+    set Rubber
+	
+    ability wp_RubberBat
+}
+
+RustedRod {
+    name "ITEM_RUSTEDROD_NAME"
+    desc "ITEM_RUSTEDROD_DESC"
+    rarity uncommon
+    kind weapon
+    frame 41
+    degrade_after_adventure false
+    durability 9
+    
+    ability wp_RustedRod
+}
+
+MeatCleaver {
+    name "ITEM_MEATCLEAVER_NAME"
+    desc "ITEM_MEATCLEAVER_DESC"
+    rarity rare
+    kind weapon
+    frame 43
+    degrade_after_adventure false
+	set Butcher
+    
+    ability wp_MeatCleaver
+}
+
+SharpStraw {
+    name "ITEM_SHARPSTRAW_NAME"
+    desc "ITEM_SHARPSTRAW_DESC"
+    rarity uncommon
+    kind weapon
+    frame 44
+    degrade_after_adventure false
+    
+    ability wp_SharpStraw
+}
+
+BagOfGlass {
+    name "ITEM_BAGOFGLASS_NAME"
+    desc "ITEM_BAGOFGLASS_DESC"
+    rarity uncommon
+    kind weapon
+    frame 46
+    degrade_after_adventure false
+    
+    ability wp_BagOfGlass
+}
+
+BagOfMeat {
+    name "ITEM_BAGOFMEAT_NAME"
+    desc "ITEM_BAGOFMEAT_DESC"
+    rarity uncommon
+    kind weapon
+    frame 47
+    degrade_after_adventure false
+	set Meat
+    
+    ability wp_BagOfMeat
+}
+
+BagOfGlitter {
+    name "ITEM_BAGOFGLITTER_NAME"
+    desc "ITEM_BAGOFGLITTER_DESC"
+    rarity uncommon
+    kind weapon
+    frame 48
+    degrade_after_adventure false
+	set Stunning
+    
+    ability wp_BagOfGlitter
+}
+
+BagOfStuff {
+    name "ITEM_BAGOFSTUFF_NAME"
+    desc "ITEM_BAGOFSTUFF_DESC"
+    rarity common
+    kind weapon
+    frame 49
+    degrade_after_adventure false
+    
+    ability wp_BagOfStuff
+}
+
+Pickaxe {
+    name "ITEM_PICKAXE_NAME"
+    desc "ITEM_PICKAXE_DESC"
+    rarity rare
+    kind weapon
+    frame 88
+    degrade_after_adventure false
+	set Miner
+    
+    ability wp_Pickaxe
+}
+
+RocketLauncher {
+    name "ITEM_ROCKETLAUNCHER_NAME"
+    desc "ITEM_ROCKETLAUNCHER_DESC"
+    kind weapon
+    rarity very_rare
+    frame 160
+    degrade_after_adventure false
+    durability 5
+
+    ability wp_RocketLauncher
+}
+
+FreyedWires {
+    name "ITEM_FREYEDWIRES_NAME" 
+    desc "ITEM_FREYEDWIRES_DESC" 
+    rarity uncommon
+    kind weapon
+    frame 29
+    degrade_after_adventure false
+    
+    ability wp_FreyedWires
+}
+
+OldExtinguisher {
+    name "ITEM_OLDEXTINGUISHER_NAME" 
+    desc "ITEM_OLDEXTINGUISHER_DESC" 
+    rarity uncommon
+    kind weapon
+    frame 33
+    degrade_after_adventure false
+    
+    ability wp_OldExtinguisher
+}
+
+TrashCanLid {
+    name "ITEM_TRASHCANLID_NAME" 
+    desc "ITEM_TRASHCANLID_DESC" 
+    rarity uncommon
+    kind weapon
+    frame 54
+    degrade_after_adventure false
+    
+    shield 5
+
+    ability wp_TrashCanLid
+}
+
+MiniNuke {
+    name "ITEM_MININUKE_NAME" 
+    desc "ITEM_MININUKE_DESC" 
+    rarity rare
+    kind weapon
+    frame 96
+    degrade_after_adventure false
+    durability 1
+	set Radioactive
+    
+    ability wp_MiniNuke
+}
+
+Kandarian {
+    name "ITEM_KANDARIAN_NAME" 
+    desc "ITEM_KANDARIAN_DESC" 
+    rarity rare
+    kind weapon
+    frame 135
+    degrade_after_adventure false
+    durability 1
+	set [Demonic, Bone]
+    
+    ability wp_Kandarian
+}
+
+Geode {
+    name "ITEM_GEODE_NAME"
+    desc "ITEM_GEODE_DESC"
+    rarity common
+    kind weapon
+    frame 100
+    degrade_after_adventure false
+	set [Rock, Gemstone]
+    
+    ability wp_Geode
+    
+    passives {
+        StatusOnBreak {
+            GainCoinsRange {
+                min 15
+                max 30
+            }
+        }
+    }
+}
+
+Rocks {
+    name "ITEM_ROCKS_NAME"
+    desc "ITEM_ROCKS_DESC"
+    rarity common
+    kind weapon
+    frame 55
+    degrade_after_adventure false
+    durability 8
+    set Rock
+	
+    ability wp_Rocks
+}
+
+ExtraLimb {
+    name "ITEM_EXTRALIMB_NAME"
+    desc "ITEM_EXTRALIMB_DESC"
+    rarity rare
+    kind weapon
+    frame 65
+    degrade_after_adventure false
+    durability 6
+	set Hybrid
+    
+    ability wp_ExtraLimb
+}
+
+GripTrainer {
+    name "ITEM_GRIPTRAINER_NAME"
+    desc "ITEM_GRIPTRAINER_DESC"
+    rarity rare
+    kind weapon
+    frame 101
+    degrade_after_adventure false
+	set Fighter
+    
+    ability wp_GripTrainer
+}
+
+ShoeHorn {
+    name "ITEM_SHOEHORN_NAME"
+    desc "ITEM_SHOEHORN_DESC"
+    rarity rare
+    kind weapon
+    frame 102
+    degrade_after_adventure false
+    
+    ability wp_ShoeHorn
+}
+
+Cheese {
+    name "ITEM_CHEESE_NAME"
+    desc "ITEM_CHEESE_DESC"
+    rarity rare
+    kind weapon
+    frame 103
+    degrade_after_adventure false
+    
+    ability wp_Cheese
+}
+
+LipFiller {
+    name "ITEM_LIPFILLER_NAME"
+    desc "ITEM_LIPFILLER_DESC"
+    rarity rare
+    kind weapon
+    frame 104
+    degrade_after_adventure false
+    
+    ability wp_LipFiller
+}
+
+EnergyDrink {
+    name "ITEM_ENERGYDRINK_NAME"
+    desc "ITEM_ENERGYDRINK_DESC"
+    rarity rare
+    kind weapon
+    frame 105
+    degrade_after_adventure false
+    
+    ability wp_EnergyDrink
+}
+
+CatPaw {
+    name "ITEM_CATPAW_NAME"
+    desc "ITEM_CATPAW_DESC"
+    rarity rare
+    kind weapon
+    frame 20
+    degrade_after_adventure false
+	set Hybrid
+
+    lck 2
+
+    ability wp_CatPaw
+}
+
+FlowerMix {
+    name "ITEM_FLOWERMIX_NAME"
+    desc "ITEM_FLOWERMIX_DESC"
+    rarity uncommon
+    kind weapon
+    frame 28
+    degrade_after_adventure false
+	set Flower
+
+    ability wp_FlowerMix
+}
+
+PuzzleBox {
+    name "ITEM_PUZZLEBOX_NAME"
+    desc "ITEM_PUZZLEBOX_DESC"
+    rarity rare
+    kind weapon
+    frame 111
+    degrade_after_adventure false
+	set [Gimp, Demonic]
+    
+    ability wp_PuzzleBox
+}
+
+Crowbar {
+    name "ITEM_CROWBAR_NAME"
+    desc "ITEM_CROWBAR_DESC"
+    rarity rare
+    kind weapon
+    frame 110
+    degrade_after_adventure false
+
+    ability wp_Crowbar
+
+    passives {
+        AddAdvantageToEvent { //TODO: this doesn't actually do anything yet
+            type treasure_box
+            options [smash bash open]
+            add 5
+        }
+    }
+}
+
+FireFlower {
+    name "ITEM_FIREFLOWER_NAME"
+    desc "ITEM_FIREFLOWER_DESC"
+    rarity rare
+    kind weapon
+    frame 112
+    degrade_after_adventure false
+	set Flower
+
+    ability wp_FireFlower
+}
+
+Bible {
+    name "ITEM_BIBLE_NAME"
+    desc "ITEM_BIBLE_DESC"
+    rarity uncommon
+    kind weapon
+    frame 114
+    degrade_after_adventure false
+	set Cleric
+
+    ability wp_Bible
+
+    passives {
+        BoostHeals 1
+    }
+}
+
+CarBattery {
+    name "ITEM_CARBATTERY_NAME"
+    desc "ITEM_CARBATTERY_DESC"
+    rarity uncommon
+    kind weapon
+    frame 115
+    degrade_after_adventure false
+
+    ability wp_CarBattery
+}
+
+ModelingClay { //TODO: test interactions with weapons that have a chance to break on use (they probably shouldn't cause this item to break)
+    name "ITEM_MODELINGCLAY_NAME"
+    desc "ITEM_MODELINGCLAY_DESC"
+    rarity rare
+    kind weapon
+    frame 68
+    degrade_after_adventure false
+	set DirtClod
+
+    str_aux ModelingClay_Default
+    reset_str_aux_on_store ModelingClay_Default
+    str_aux_is_copy_item_active true
+    str_aux_is_copy_item_passive true
+    str_aux_is_copy_item_icon true
+    passives {
+        ModelingClayPassive 1
+        TintItem {
+            ignore_if_str_aux_equals ModelingClay_Default
+            add [0.05 0.05 0.05]
+            mul [0.45 0.3 0.25]
+        }
+    }
+}
+
+ModelingClay_Default {
+    name "ITEM_MODELINGCLAY_NAME"
+    desc "ITEM_MODELINGCLAY_DEFAULT_DESC"
+    kind weapon
+    frame 68
+    degrade_after_adventure false
+
+    ability wp_ModelingClay
+}
+
+PharaohStaff { //Unique item from looting the Mysterious Tomb.
+    name "ITEM_PHARAOHSTAFF_NAME"
+    desc "ITEM_PHARAOHSTAFF_DESC"
+    rarity very_rare
+    kind weapon
+    frame 172
+    degrade_after_adventure false
+
+    durability 1
+    max_durability 1
+    dont_destroy_on_0 true
+
+    ability wp_PharaohStaff
+    passives {
+        StatusOnPopCorpse {
+            RepairWeapon 1
+        }
+    }
+}
+
+SlagMight { //Unique from Jagged Pathway event
+    name "ITEM_SLAGMIGHT_NAME"
+    desc "ITEM_SLAGMIGHT_DESC"
+    rarity very_rare
+    kind weapon
+    frame 173
+    degrade_after_adventure false
+	set Rock
+        
+    ability wp_SlagMight
+}
+
+MomsToeNail { //Unique from BigToe event
+    name "ITEM_MOMSTOENAIL_NAME"
+    desc "ITEM_MOMSTOENAIL_DESC"
+    kind weapon
+    frame 219
+    degrade_after_adventure false
+	set Mother
+    
+    ability wp_MomsToeNail
+}
+
+AlienBlaster { //Unique from CrashedObject event
+    name "ITEM_ALIENBLASTER_NAME"
+    desc "ITEM_ALIENBLASTER_DESC"
+    kind weapon
+    frame 218
+    degrade_after_adventure false
+	set Space
+
+    ability wp_AlienBlaster
+}
+
+PolymorphRemote {
+    name "ITEM_POLYMORPHREMOTE_NAME"
+    desc "ITEM_POLYMORPHREMOTE_DESC"
+    rarity rare
+    kind weapon
+    frame 67
+    degrade_after_adventure false
+    
+    ability wp_PolymorphRemote
+}
+
+MelonBaller {
+    name "ITEM_MELONBALLER_NAME"
+    desc "ITEM_MELONBALLER_DESC"
+    rarity uncommon
+    kind weapon
+    frame 120
+    degrade_after_adventure false
+    durability [4, 6]
+
+    ability wp_MelonBaller
+}
+
+EtherSoakedRag {
+    name "ITEM_ETHERSOAKEDRAG_NAME"
+    desc "ITEM_ETHERSOAKEDRAG_DESC"
+    rarity uncommon
+    kind weapon
+    frame 121
+    degrade_after_adventure false
+	set Rag
+
+    ability wp_EtherSoakedRag
+}
+
+DeathsScythe {
+    name "ITEM_DEATHSSCYTHE_NAME"
+    desc "ITEM_DEATHSSCYTHE_DESC"
+    rarity rare
+    kind weapon
+    frame 122
+    degrade_after_adventure false
+
+    ability wp_DeathsScythe
+}
+
+Necronomicon {
+    name "ITEM_NECRONOMICON_NAME"
+    desc "ITEM_NECRONOMICON_DESC"
+    rarity uncommon
+    kind weapon
+    frame 123
+    degrade_after_adventure false
+	set [Necromancer, Demonic]
+
+    ability wp_Necronomicon
+}
+
+Jitte {
+    name "ITEM_JITTE_NAME"
+    desc "ITEM_JITTE_DESC"
+    rarity uncommon
+    kind weapon
+    frame 124
+    degrade_after_adventure false
+	set Ninja
+
+    ability wp_Jitte
+}
+
+AnarchistCookbook {
+    name "ITEM_ANARCHISTCOOKBOOK_NAME"
+    desc "ITEM_ANARCHISTCOOKBOOK_DESC"
+    rarity uncommon
+    kind weapon
+    frame 125
+    degrade_after_adventure false
+	set Paper
+
+    ability wp_AnarchistCookbook
+}
+
+MomsKnife {
+    name "ITEM_MOMSKNIFE_NAME"
+    desc "ITEM_MOMSKNIFE_DESC"
+    rarity very_rare
+    kind weapon
+    frame 126
+    degrade_after_adventure false
+	set Mother
+
+    ability wp_MomsKnife
+}
+
+MysteriousBone {
+    name "ITEM_MYSTERIOUSBONE_NAME"
+    desc "ITEM_MYSTERIOUSBONE_DESC"
+    rarity very_rare
+    kind weapon
+    frame 127
+    degrade_after_adventure false
+	set Bone
+    
+    ability wp_MysteriousBone
+}
+
+HolyGrail {
+    name "ITEM_HOLYGRAIL_NAME"
+    desc "ITEM_HOLYGRAIL_DESC"
+    rarity very_rare
+    kind weapon
+    frame 128
+    degrade_after_adventure false
+	set Cleric
+
+    ability wp_HolyGrail
+}
+
+SpearOfDestiny {
+    name "ITEM_SPEAROFDESTINY_NAME"
+    desc "ITEM_SPEAROFDESTINY_DESC"
+    rarity very_rare
+    kind weapon
+    frame 129
+    degrade_after_adventure false
+
+    ability wp_SpearOfDestiny
+}
+
+HeavyMace {
+    name "ITEM_HEAVYMACE_NAME"
+    desc "ITEM_HEAVYMACE_DESC"
+    rarity very_rare
+    kind weapon
+    frame 131
+    degrade_after_adventure false
+	set Fighter
+
+    spd -6
+
+    ability wp_HeavyMace
+}
+
+UraniumRod {
+    name "ITEM_URANIUMROD_NAME"
+    desc "ITEM_URANIUMROD_DESC"
+    rarity rare
+    kind weapon
+    frame 132
+    degrade_after_adventure false
+	set Radioactive
+
+    con -6
+
+    ability wp_UraniumRod
+    
+    passives {
+        StatusOnBattleEnd {
+            even_if_dead true
+            Conditional_Corpse {
+                RandomMutation 1
+            }
+        }
+    }
+}
+
+Ocarina {
+    name "ITEM_OCARINA_NAME"
+    desc "ITEM_OCARINA_DESC"
+    rarity medium
+    kind weapon
+    frame 134
+    degrade_after_adventure false
+
+    ability wp_Ocarina
+}
+
+SmallMeteor {
+    name "ITEM_SMALLMETEOR_NAME"
+    desc "ITEM_SMALLMETEOR_DESC"
+    rarity rare
+    kind weapon
+    frame 175
+    degrade_after_adventure false
+    randomize_piece_frames true
+	set Planet
+
+    str_aux_initialize random_copyable_colorless_ability
+    str_aux_is_copy_ability {
+        bonus_passives {
+            ModifyAbility {
+                meta {
+                    is_basic_attack false
+                    is_weapon true
+                }
+                cost {
+                    mana 0
+                    charge 1
+                }
+            }
+        }
+    }
+
+    ability None
+}
+
+GlowingBone {
+    name "ITEM_GLOWINGBONE_NAME"
+    desc "ITEM_GLOWINGBONE_DESC"
+    rarity rare
+    kind weapon
+    frame 174
+    degrade_after_adventure false
+    randomize_piece_frames true
+	set Bone
+
+    str_aux_initialize random_copyable_class_ability
+    str_aux_is_copy_ability {
+        bonus_passives {
+            ModifyAbility {
+                meta {
+                    is_basic_attack false
+                    is_weapon true
+                }
+                cost {
+                    mana 0
+                    charge 1
+                }
+            }
+        }
+    }
+
+    ability None
+}
+
+IrradiatedObject {
+    name "ITEM_IRRADIATEDOBJECT_NAME"
+    desc "ITEM_IRRADIATEDOBJECT_DESC"
+    rarity rare
+    kind weapon
+    frame 176
+    degrade_after_adventure false
+    randomize_piece_frames true
+	set Radioactive
+
+    str_aux_initialize random_passive_trinket
+    str_aux_is_copy_item_passive true
+
+    ability wp_IrradiatedObject
+}
+IrradiatedObject_Burn {
+    variant_of IrradiatedObject
+    desc "ITEM_IRRADIATEDOBJECT_BURN_DESC"
+    ability wp_IrradiatedObject_Burn
+}
+IrradiatedObject_Stun {
+    variant_of IrradiatedObject
+    desc "ITEM_IRRADIATEDOBJECT_STUN_DESC"
+    ability wp_IrradiatedObject_Stun
+}
+IrradiatedObject_Bleed {
+    variant_of IrradiatedObject
+    desc "ITEM_IRRADIATEDOBJECT_BLEED_DESC"
+    ability wp_IrradiatedObject_Bleed
+}
+IrradiatedObject_Bruise {
+    variant_of IrradiatedObject
+    desc "ITEM_IRRADIATEDOBJECT_BRUISE_DESC"
+    ability wp_IrradiatedObject_Bruise
+}
+IrradiatedObject_Poison {
+    variant_of IrradiatedObject
+    desc "ITEM_IRRADIATEDOBJECT_POISON_DESC"
+    ability wp_IrradiatedObject_Poison
+}
+IrradiatedObject_Sleep {
+    variant_of IrradiatedObject
+    desc "ITEM_IRRADIATEDOBJECT_SLEEP_DESC"
+    ability wp_IrradiatedObject_Sleep
+}
+IrradiatedObject_Fear {
+    variant_of IrradiatedObject
+    desc "ITEM_IRRADIATEDOBJECT_FEAR_DESC"
+    ability wp_IrradiatedObject_Fear
+}
+IrradiatedObject_Charmed {
+    variant_of IrradiatedObject
+    desc "ITEM_IRRADIATEDOBJECT_CHARMED_DESC"
+    ability wp_IrradiatedObject_Charmed
+}
+IrradiatedObject_Weakness {
+    variant_of IrradiatedObject
+    desc "ITEM_IRRADIATEDOBJECT_WEAKNESS_DESC"
+    ability wp_IrradiatedObject_Weakness
+}
+IrradiatedObject_Confusion {
+    variant_of IrradiatedObject
+    desc "ITEM_IRRADIATEDOBJECT_CONFUSION_DESC"
+    ability wp_IrradiatedObject_Confusion
+}
+
+SteelBall {
+    name "ITEM_STEELBALL_NAME"
+    desc "ITEM_STEELBALL_DESC"
+    rarity rare
+    kind weapon
+    frame 157
+    degrade_after_adventure false
+
+    ability wp_SteelBall
+}
+
+USAShield {
+    name "ITEM_USASHIELD_NAME"
+    desc "ITEM_USASHIELD_DESC"
+    rarity rare
+    kind weapon
+    frame 158
+    degrade_after_adventure false
+	set Superhero
+
+    passives {
+        PassiveIfWeaponIsUsable {
+            Brace 2
+        }
+    }
+    ability wp_USAShield
+}
+
+
+TeslaCannon { //this is a Tinkerer Tech 3 item
+    name "ITEM_TESLACANNON_NAME"
+    desc "ITEM_TESLACANNON_DESC"
+    rarity very_rare
+    kind weapon
+    frame 185
+    degrade_after_adventure false
+    durability 3
+	set Experimental
+
+    ability wp_TeslaCannon
+}
+
+MeatBomb {
+    name "ITEM_MEATBOMB_NAME"
+    desc "ITEM_MEATBOMB_DESC"
+    rarity very_rare
+    kind weapon
+    frame 191
+    degrade_after_adventure false
+    set Meat
+	
+    ability wp_SmallBomb
+}
+
+BloodyStick {
+    name "ITEM_BLOODYSTICK_NAME"
+    desc "ITEM_BLOODYSTICK_DESC"
+    rarity very_rare
+    kind weapon
+    frame 192
+    degrade_after_adventure false
+	set Wood
+	
+    passives {
+        HealthRegenUp 1
+    }
+
+    ability wp_Stick
+}
+
+BucketOfBlood {
+    name "ITEM_BUCKETOFBLOOD_NAME"
+    desc "ITEM_BUCKETOFBLOOD_DESC"
+    rarity very_rare
+    kind weapon
+    frame 196
+    degrade_after_adventure false
+
+    ability wp_BucketOfLard
+}
+
+BloodyButterflyKnife {
+    name "ITEM_BLOODYBUTTERFLYKNIFE_NAME"
+    desc "ITEM_BLOODYBUTTERFLYKNIFE_DESC" 
+    rarity very_rare
+    kind weapon
+    frame 197
+    degrade_after_adventure false
+
+    ability wp_BloodyButterflyKnife
+}
+
+BloodyBearTraps {
+    name "ITEM_BLOODYBEARTRAPS_NAME"
+    desc "ITEM_BLOODYBEARTRAPS_DESC"
+    rarity very_rare
+    kind weapon
+    frame 198
+    degrade_after_adventure false
+	set [Hunter, Survivalist]
+
+    ability wp_BearTraps
+}
+
+BloodyBagOfGlass {
+    name "ITEM_BLOODYBAGOFGLASS_NAME"
+    desc "ITEM_BLOODYBAGOFGLASS_DESC"
+    rarity very_rare
+    kind weapon
+    frame 194
+    degrade_after_adventure false
+    
+    ability wp_BloodyBagOfGlass
+}
+
+MeatSlugger {
+    name "ITEM_MEATSLUGGER_NAME"
+    desc "ITEM_MEATSLUGGER_DESC"
+    rarity very_rare
+    kind weapon
+    frame 186
+    degrade_after_adventure false
+
+    ability wp_MeatSlugger
+}
+
+BloodyMeatHook {
+    name "ITEM_BLOODYMEATHOOK_NAME"
+    desc "ITEM_BLOODYMEATHOOK_DESC"
+    rarity very_rare
+    kind weapon
+    frame 189
+    degrade_after_adventure false
+	set [Butcher, Barbed]
+    
+    ability wp_BloodyMeatHook
+}
+
+BloodySoulClaw {
+    name "ITEM_BLOODYSOULCLAW_NAME"
+    desc "ITEM_BLOODYSOULCLAW_DESC"
+    rarity very_rare
+    kind weapon
+    frame 190
+    degrade_after_adventure false
+	durability 8
+    
+    ability wp_BloodySoulClaw 
+}
+
+BloodBucket {
+    name "ITEM_BLOODBUCKET_NAME"
+    desc "ITEM_BLOODBUCKET_DESC"
+    rarity very_rare
+    kind weapon
+    frame 188
+    degrade_after_adventure false
+    
+    ability wp_ChumBucket
+}
+
+BloodySpikes {
+    name "ITEM_BLOODYSPIKES_NAME"
+    desc "ITEM_BLOODYSPIKES_DESC"
+    rarity very_rare
+    kind weapon
+    frame 187
+    degrade_after_adventure false
+	
+    passives {
+        Thorns 1
+    }
+    
+    ability wp_RailSpikes
+}
+
+BottlesOfBlood {
+    name "ITEM_BOTTLESOFBLOOD_NAME"
+    desc "ITEM_BOTTLESOFBLOOD_DESC"
+    rarity very_rare
+    kind weapon
+    frame 193
+    degrade_after_adventure false
+
+    ability wp_BloodBottles
+}
+
+BlessedAnointingOil {
+    name "ITEM_BLESSEDANOINTINGOIL_NAME"
+    desc "ITEM_BLESSEDANOINTINGOIL_DESC"
+    rarity very_rare
+    kind weapon
+    frame 221
+    degrade_after_adventure false
+	set Cleric
+    
+    ability wp_BlessedAnointingOil
+}
+
+HarpysClaw {
+    name "ITEM_HARPYSCLAW_NAME"
+    desc "ITEM_HARPYSCLAW_DESC"
+    rarity very_rare
+    kind weapon
+    frame 199
+    degrade_after_adventure false
+
+    ability wp_HarpyClaw
+}
+
+RatBomb {
+    name "ITEM_RATBOMB_NAME"
+    desc "ITEM_RATBOMB_DESC"
+    rarity rare
+    kind weapon
+    frame 222
+    degrade_after_adventure false
+	durability 5
+	set Rat
+
+	ability wp_RatBomb
+}
+
+Spinnerets {
+    name "ITEM_SPINNERETS_NAME"
+    desc "ITEM_SPINNERETS_DESC"
+    rarity rare
+    kind weapon
+    frame 223
+    degrade_after_adventure false
+	durability 6
+
+	ability wp_SpiderWebber
+}
+
+ZodiacsSixshooter {
+    name "ITEM_ZODIACSSIXSHOOTER_NAME"
+    desc "ITEM_ZODIACSSIXSHOOTER_DESC"
+    rarity very_rare
+    kind weapon
+    frame 224
+    degrade_after_adventure false
+    durability 6
+    max_durability 6
+    dont_destroy_on_0 true
+	set Cool
+
+    ability wp_ZodiacsSixshooter
+    passives {
+        StatusOnBattleEnd {
+            even_if_dead true
+            RepairWeapon 6
+        }
+        PassiveWhileHasDurability {
+            MovementReaction {
+                ability wp_ZodiacsSixshooter_Auto
+                enemies_only true
+                create_temp_ability true
+            }
+        }
+    }
+}
+
+GambitsDice {
+    name "ITEM_GAMBITSDICE_NAME"
+    desc "ITEM_GAMBITSDICE_DESC"
+    rarity very_rare
+    kind weapon
+    frame 225
+    degrade_after_adventure false
+
+	ability wp_GambitsDice
+}
+
+JohnnysStool {
+    name "ITEM_JOHNNYSSTOOL_NAME"
+    desc "ITEM_JOHNNYSSTOOL_DESC"
+    rarity rare
+    kind weapon
+    frame 226
+    degrade_after_adventure false
+	set Wood
+
+	ability wp_Stoolatk
+
+    passives {
+		StatusIfUnusedMovePoints {
+			HealthGain 3
+			Charge 3
+		}
+    }
+}
+
+AlienTech {
+    name "ITEM_ALIENTECH_NAME"
+    desc "ITEM_ALIENTECH_DESC"
+    rarity rare
+    kind weapon
+    frame 227
+    degrade_after_adventure false
+	set Space
+
+	ability AlienBeam
+}
+
+Stacy100 {
+    name "ITEM_STACY100_NAME"
+    desc "ITEM_STACY100_DESC"
+    rarity very_rare
+    kind weapon
+    frame 228
+    degrade_after_adventure false
+
+	ability wp_SpawnStacy
+}
+
+BungasBone {
+    name "ITEM_BUNGASBONE_NAME"
+    desc "ITEM_BUNGASBONE_DESC"
+    rarity rare
+    kind weapon
+    frame 229
+    degrade_after_adventure false
+	set Bone
+
+	ability wp_BungaClub
+}
+
+HitlersPistol {
+    name "ITEM_HITLERSPISTOL_NAME"
+    desc "ITEM_HITLERSPISTOL_DESC"
+    rarity rare
+    kind weapon
+    frame 230
+    degrade_after_adventure false
+	durability 8
+
+	ability wp_Lugar
+}
+
+Bug {
+    name "ITEM_BUG_NAME"
+    desc "ITEM_BUG_DESC"
+    rarity rare
+    kind weapon
+    frame 231
+    degrade_after_adventure false
+	
+	attack BasicMetronome
+
+	ability wp_OddRemote
+	
+	passives {
+        OverrideBasicAttack BasicMetronome
+	}
+}
+
+Fate {
+    name "ITEM_FATE_NAME"
+    desc "ITEM_FATE_DESC"
+    rarity rare
+    kind weapon
+    frame 232
+    degrade_after_adventure false
+	
+	ability wp_Fate
+}
+
+MammothTusk {
+    name "ITEM_MAMMOTHTUSK_NAME"
+    desc "ITEM_MAMMOTHTUSK_DESC"
+    rarity very_rare
+    kind weapon
+    frame 233
+    degrade_after_adventure false
+	set Wooly
+	
+	ability wp_TuskThrow
+
+}
+
+AmericanFlag {
+    name "ITEM_AMERICANFLAG_NAME"
+    desc "ITEM_AMERICANFLAG_DESC"
+    rarity rare
+    kind weapon
+    frame 234
+    degrade_after_adventure false
+	
+	str 1
+	dex 1
+    con 1
+	spd 1
+	int 1
+	lck 1
+	cha 1
+
+	ability wp_Rally
+}
+
+BookOfBelial {
+    name "ITEM_BOOKOFBELIAL_NAME"
+    desc "ITEM_BOOKOFBELIAL_DESC"
+    rarity rare
+    kind weapon
+    frame 235
+    degrade_after_adventure false
+	set [Demonic, Paper]
+	
+	ability wp_BookofBelial
+}
+
+MegaAlienBlaster {
+    name "ITEM_MEGAALIENBLASTER_NAME"
+    desc "ITEM_MEGAALIENBLASTER_DESC"
+    rarity rare
+    kind weapon
+    frame 236
+    degrade_after_adventure false
+	set Space
+
+	ability wp_MegaAlienBlaster
+}
+
+HellHook {
+    name "ITEM_HELLHOOK_NAME"
+    desc "ITEM_HELLHOOK_DESC"
+    rarity very_rare
+    kind weapon
+    frame 237
+    degrade_after_adventure false
+	set [Demonic, Barbed, Butcher]
+	
+	ability wp_MeatHookB
+}
+
+DemonCore {
+    name "ITEM_DEMONCORE_NAME"
+    desc "ITEM_DEMONCORE_DESC"
+    rarity rare
+    kind weapon
+    frame 238
+    degrade_after_adventure false
+	set Radioactive
+	
+	ability wp_DemonDoom
+
+    passives {
+        Poison 5
+        StatusAllCharactersOnSpawn {
+            Conditional_Boss {
+                AllStatsUp -2
+            }
+        }
+    }
+}
+
+BagOfChum {
+    name "ITEM_BAGOFCHUM_NAME"
+    desc "ITEM_BAGOFCHUM_DESC"
+    rarity rare
+    kind weapon
+    frame 240
+    degrade_after_adventure false
+	set Guts
+
+	ability wp_ChumShot
+}
+
+GoldenPickaxe {
+    name "ITEM_GOLDENPICKAXE_NAME"
+    desc "ITEM_GOLDENPICKAXE_DESC"
+    rarity very_rare
+    kind weapon
+    frame 241
+    degrade_after_adventure false
+	set Miner
+	
+	ability wp_GoldPickaxe
+	
+	passives {
+		StatusEachTurnEnd {
+			SpawnCoinAnywhere 1
+		}
+    }
+}
+
+ManholeCover {
+    name "ITEM_MANHOLECOVER_NAME"
+    desc "ITEM_MANHOLECOVER_DESC"
+    rarity very_rare
+    kind weapon
+    frame 242
+    degrade_after_adventure false
+	
+	ability wp_Manhole	
+
+	passives {
+		Brace 2
+    }
+}
+
+TinasLarynx {
+    name "ITEM_TINASLARYNX_NAME"
+    desc "ITEM_TINASLARYNX_DESC"
+    rarity very_rare
+    kind weapon
+    frame 183
+    degrade_after_adventure false
+	set Guts
+	
+    ability wp_TinaScream
+}
+
+RoboticArm {
+    name "ITEM_ROBOTICARM_NAME"
+    desc "ITEM_ROBOTICARM_DESC"
+    rarity very_rare
+    kind weapon
+    frame 184
+    degrade_after_adventure false
+	set Cyborg
+
+	ability wp_FuryArm
+    
+    passives {
+        RefreshEquipmentAbilityOnElement {
+            element Electric
+            text "COMBAT_POPUP_RECHARGED"
+        }
+    }
+}
+
+StevensShotgun {
+    name "ITEM_STEVENSSHOTGUN_NAME"
+    desc "ITEM_STEVENSSHOTGUN_DESC"
+    rarity very_rare
+    kind weapon
+    frame 177
+    degrade_after_adventure false
+	
+    ability wp_ShotgunSteven
+}
+
+StevensGristle {
+    name "ITEM_STEVENSGRISTLE_NAME"
+    desc "ITEM_STEVENSGRISTLE_DESC"
+    rarity very_rare
+    kind weapon
+    frame 178
+    degrade_after_adventure false
+	durability 99
+    aux 1
+	set Steven
+
+    reset_aux_on_store 1
+
+    ability wp_GnarledClaw
+
+    passives {
+        CreateGlobalModifiers {
+            NoCorpses 1
+        }
+    }
+}
+
+StevensBagofRocks {
+    name "ITEM_STEVENSBAGOFROCKS_NAME"
+    desc "ITEM_STEVENSBAGOFROCKS_DESC"
+    rarity very_rare
+    kind weapon
+    frame 179
+    degrade_after_adventure false
+	set Steven
+	
+	ability wp_StevensBagOfRocks
+}
+
+StevensBottle {
+    name "ITEM_STEVENSBOTTLE_NAME"
+    desc "ITEM_STEVENSBOTTLE_DESC"
+    rarity very_rare
+    kind weapon
+    frame 180
+    degrade_after_adventure false
+	set Steven
+
+	ability wp_StevensBottles
+}
+
+StevenWeapon1 {
+    name "ITEM_STEVENWEAPON1_NAME"
+    desc "ITEM_STEVENWEAPON1_DESC"
+    rarity very_rare
+    kind weapon
+    frame 181
+    degrade_after_adventure false
+	set Steven
+
+    ability wp_StevenWeapon1
+}
+
+StevenWeapon2 {
+    name "ITEM_STEVENWEAPON2_NAME"
+    desc "ITEM_STEVENWEAPON2_DESC"
+    rarity very_rare
+    kind weapon
+    frame 182
+    degrade_after_adventure false
+	set Steven
+	
+    ability wp_StevenWeapon2
+}
+
+ToyGun {
+    name "ITEM_TOYGUN_NAME"
+    desc "ITEM_TOYGUN_DESC"
+    rarity very_rare
+    kind weapon
+    frame 220
+    degrade_after_adventure false
+	set Jester
+	
+	ability wp_BangGun
+}
+
+Pliers {
+    name "ITEM_PLIERS_NAME"
+    desc "ITEM_PLIERS_DESC"
+    rarity rare
+    kind weapon
+    frame 133
+    degrade_after_adventure false
+
+	ability wp_Pliers
+}
+
+FeatherDarts {
+    name "ITEM_FEATHERDARTS_NAME"
+    desc "ITEM_FEATHERDARTS_DESC"
+    rarity rare
+    kind weapon
+    frame 153
+    degrade_after_adventure false
+	set Feathered
+
+    durability 99
+
+    ability wp_FeatherDarts
+    passives {
+        ExtraWeaponAttacks 2
+    }
+}
+
+FeatheredWing {
+    name "ITEM_FEATHEREDWING_NAME"
+    desc "ITEM_FEATHEREDWING_DESC"
+    kind weapon
+    frame 155
+    degrade_after_adventure false
+	set Feathered
+
+    durability 20
+
+    ability wp_FeatheredWing
+}
+
+MoneyBag_Small {
+    name "ITEM_MONEYBAG_SMALL_NAME"
+    desc "ITEM_MONEYBAG_SMALL_DESC"
+    rarity common
+    kind weapon
+    frame 243
+    degrade_after_adventure false
+    on_store become_aux_coins
+    aux 10
+
+    ability wp_MoneyBag_Small
+
+    passives {
+        BreakAtAux 0
+    }
+}
+MoneyBag_Medium {
+    name "ITEM_MONEYBAG_MEDIUM_NAME"
+    desc "ITEM_MONEYBAG_MEDIUM_DESC"
+    rarity uncommon
+    kind weapon
+    frame 244
+    degrade_after_adventure false
+    on_store become_aux_coins
+    aux 25
+
+    ability wp_MoneyBag_Medium
+
+    passives {
+        ItemAuxTransform {
+            le [10 MoneyBag_Small]
+        }
+        BreakAtAux 0
+    }
+}
+MoneyBag_Large {
+    name "ITEM_MONEYBAG_LARGE_NAME"
+    desc "ITEM_MONEYBAG_LARGE_DESC"
+    rarity rare
+    kind weapon
+    frame 245
+    degrade_after_adventure false
+    on_store become_aux_coins
+    aux 50
+
+    ability wp_MoneyBag_Large
+
+    passives {
+        ItemAuxTransform {
+            le [10 MoneyBag_Small]
+            le [25 MoneyBag_Medium]
+        }
+        BreakAtAux 0
+    }
+}
+MoneyBag_Huge {
+    name "ITEM_MONEYBAG_HUGE_NAME"
+    desc "ITEM_MONEYBAG_HUGE_DESC"
+    rarity very_rare
+    kind weapon
+    frame 246
+    degrade_after_adventure false
+    on_store become_aux_coins
+    aux 100
+
+    ability wp_MoneyBag_Huge
+
+    passives {
+        ItemAuxTransform {
+            le [10 MoneyBag_Small]
+            le [25 MoneyBag_Medium]
+            le [50 MoneyBag_Large]
+        }
+        BreakAtAux 0
+    }
+}
+
+ThePact {
+    name "ITEM_THEPACT_NAME"
+    desc "ITEM_THEPACT_DESC"
+    rarity very_rare
+    kind weapon
+    frame 247
+    degrade_after_adventure false
+	set Demonic
+	
+	ability wp_ThePact
+}
+
+Probe {
+    name "ITEM_PROBE_NAME"
+    desc "ITEM_PROBE_DESC"
+    rarity very_rare
+    kind weapon
+    frame 248
+    degrade_after_adventure false
+	set Space
+	
+	ability wp_Probe
+}

@@ -1,0 +1,779 @@
+//special events are selected specially via the TE instead of in the general event pool
+
+Tragedy {
+    intro {
+        title "EVENT_TRAGEDY_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame tragedy
+        event_clip NonWheelEvent
+    }
+
+    main {
+        goto end
+
+        outcome {
+            play_animation [resultTragedy .5]
+            random_pool [
+                //common
+                { 
+                    set_frame 1 
+                    prompt "EVENT_TRAGEDY_REW1" 
+                }
+                { 
+                    set_frame 2
+                    prompt "EVENT_TRAGEDY_REW2" 
+                }
+                { 
+                    set_frame 3
+                    prompt "EVENT_TRAGEDY_REW3" 
+                }
+                { 
+                    set_frame 4
+                    prompt "EVENT_TRAGEDY_REW4" 
+                }
+
+                //uncommon
+                /*{ 
+                    set_frame 5
+                    prompt "EVENT_TRAGEDY_REW5" 
+                    lose_item inventory 
+                }*/
+                {
+                    set_frame 6
+                    prompt "EVENT_TRAGEDY_REW6" 
+                    self_status_next_fight {
+                        NoHealthRegen 1
+                    }
+                }   
+                {
+                    set_frame 7
+                    prompt "EVENT_TRAGEDY_REW7" 
+                    self_status_next_fight {
+                        NoStartingMana 1
+                    }
+                }   
+                {   
+                    set_frame 8
+                    prompt "EVENT_TRAGEDY_REW8" 
+                    self_status_next_fight {
+                        Bleed 1
+                    }
+                }   
+                {   
+                    set_frame 9
+                    prompt "EVENT_TRAGEDY_REW9" 
+                    self_status_next_fight {
+                        Fear 1
+                    }
+                }   
+                {   
+                    set_frame 10
+                    prompt "EVENT_TRAGEDY_REW10" 
+                    self_status_next_fight {
+                        Poison 1
+                    }
+                }  
+                    
+                    
+                //rare
+                {   
+                    set_frame 11
+                    prompt "EVENT_TRAGEDY_REW11" 
+                    permanent_stats {
+                        cha -1
+                    }
+                }   
+                {   
+                    set_frame 12
+                    prompt "EVENT_TRAGEDY_REW12" 
+                    permanent_stats {
+                        int -1
+                    }
+                }   
+                /*{   
+                    set_frame 13
+                    prompt "EVENT_TRAGEDY_REW13" 
+                    lose_item equipped
+                }*/
+                {   
+                    set_frame 14
+                    prompt "EVENT_TRAGEDY_REW14" 
+                    self_damage [8 15]
+                }   
+                {   
+                    set_frame 15
+                    prompt "EVENT_TRAGEDY_REW15" 
+                    self_damage [4 8]
+                    next_event_from_set Tragedy
+                }   
+                    
+                //v rare
+                {   
+                    set_frame 16
+                    prompt "EVENT_TRAGEDY_REW16" 
+                    self_status_next_fight {
+                        Burn 5
+                    }
+                }   
+                {   
+                    set_frame 17
+                    prompt "EVENT_TRAGEDY_REW17" 
+                    get_parasite_from_pool parasites
+                }   
+                {   
+                    set_frame 18
+                    prompt "EVENT_TRAGEDY_REW18" 
+                    get_parasite_from_pool cursed_items
+                }   
+                {
+                    set_frame 19
+                    prompt "EVENT_TRAGEDY_REW19" 
+                    gain_disorder BloodFrenzy
+                }
+                {   
+                    set_frame 20
+                    prompt "EVENT_TRAGEDY_REW20" 
+                    injury random
+                }
+            ]
+        }
+    }
+}
+
+Blessing {
+    intro {
+        title "Blessing!"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame blessing
+        event_clip NonWheelEvent
+    }
+
+    main {
+        goto end
+
+        outcome {
+            play_animation [resultBlessing .5]
+            random_pool [
+                //common
+                { 
+                    set_frame 1 
+                    prompt "EVENT_BLESSING_REW1" 
+                    heal 5
+                }
+                { 
+                    set_frame 2
+                    prompt "EVENT_BLESSING_REW2"
+                    gain_coins [5 15]
+                }
+                { 
+                    set_frame 3
+                    prompt "EVENT_BLESSING_REW3"
+                    self_status_next_fight {
+                        AddStartingMana 5
+                    }
+                } 
+                { 
+                    set_frame 4
+                    prompt "EVENT_BLESSING_REW4" 
+                    next_event_bonus 2
+                }
+                { 
+                    set_frame 5
+                    prompt "EVENT_BLESSING_REW5" 
+                    gain_familiar CharmedFly
+                } 
+                
+                //uncommon
+                {
+                    set_frame 6
+                    prompt "EVENT_BLESSING_REW6" 
+                    ally_ambush_next_fights 1
+                }   
+                {
+                    set_frame 7
+                    prompt "EVENT_BLESSING_REW7" 
+                    get_item_from_pool consumables
+                }   
+                {   
+                    set_frame 8
+                    prompt "EVENT_BLESSING_REW8" 
+                    permanent_stats {
+                        int 1
+                    }
+                }   
+                {   
+                    set_frame 9
+                    prompt "EVENT_BLESSING_REW9" 
+                    permanent_stats {
+                        str 1
+                    }
+                }   
+                {   
+                    set_frame 10
+                    prompt "EVENT_BLESSING_REW10" 
+                    permanent_stats {
+                        cha 1
+                    }
+                }
+                {   
+                    set_frame 11
+                    prompt "EVENT_BLESSING_REW11" 
+                    get_item_from_pool treasure_easy
+                }  
+                    
+                    
+                //rare
+                {   
+                    set_frame 12
+                    prompt "EVENT_BLESSING_REW12" 
+                    gain_cat_familiar 1
+                }   
+                {   
+                    set_frame 13
+                    prompt "EVENT_BLESSING_REW13" 
+                    get_item_from_pool chapter
+                }   
+                {   
+                    set_frame 14
+                    prompt "EVENT_BLESSING_REW14" 
+                    party_heal 10
+                    gain_food [5 10]
+                    permanent_stats {
+                        con 1
+                    }
+                }   
+                {   
+                    set_frame 15
+                    prompt "EVENT_BLESSING_REW15" 
+                    level_up self
+                }  
+                {   
+                    set_frame 16
+                    prompt "EVENT_BLESSING_REW16" 
+                    permanent_stats {
+                        lck 1
+                    }
+                }  
+                {   
+                    set_frame 17
+                    prompt "EVENT_BLESSING_REW17" 
+                    permanent_stats {
+                        spd 1
+                    }
+                }  
+                    
+                //v rare
+                {   
+                    set_frame 18
+                    prompt "EVENT_BLESSING_REW18" 
+                    permanent_stats {
+                        str 1
+                        dex 1
+                        con 1
+                        int 1
+                        cha 1
+                        spd 1
+                        lck 1
+                    }
+                }   
+                {
+                    set_frame 19
+                    prompt "EVENT_BLESSING_REW19" 
+                    get_item_from_pool rare
+                }
+                {   
+                    set_frame 20
+                    prompt "EVENT_BLESSING_REW20" 
+                    random_mutation 1
+                }
+                {   
+                    set_frame 21
+                    prompt "EVENT_BLESSING_REW21"
+                    level_up all
+                }
+            ]
+        }
+    }
+}
+
+Happening {
+    intro {
+        title "EVENT_HAPPENING_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame happening
+        event_clip NonWheelEvent
+    }
+
+    main {
+        goto end
+
+        outcome {
+            play_animation [resultWeather .5]
+            weather_roll [ //common = weight 1, uncommon = weight .5, rare = weight .25
+                //enemies (1)
+                { 
+                    weight 1
+                    set_frame 2
+                    prompt "EVENT_HAPPENING_FOG_REW"
+                    
+                    add_weather Fog
+                }
+                { 
+                    weight 1
+                    set_frame 4
+                    prompt "EVENT_HAPPENING_RAIN_REW"
+                    
+                    add_weather Rain
+                }
+                { 
+                    weight .5
+                    set_frame 5
+                    prompt "EVENT_HAPPENING_HEAVYRAIN_REW"
+                    
+                    add_weather HeavyRain
+                }
+                { 
+                    weight 1
+                    set_frame 6
+                    prompt "EVENT_HAPPENING_WINDY_REW"
+                    
+                    add_weather Windy
+                }
+                { 
+                    weight 1
+                    set_frame 7
+                    prompt "EVENT_HAPPENING_SANDSTORM_REW"
+                    
+                    add_weather Sandstorm
+                }
+                { 
+                    weight .5
+                    set_frame 8
+                    prompt "EVENT_HAPPENING_OVERGROWTH_REW"
+
+                    add_weather Overgrowth
+                }
+                { 
+                    weight .5
+                    set_frame 9
+                    prompt "EVENT_HAPPENING_EARTHQUAKE_REW"
+
+                    add_weather Earthquake
+                }
+                { 
+                    weight .5
+                    set_frame 10
+                    prompt "EVENT_HAPPENING_WILDFIRE_REW"
+                    
+                    add_weather Wildfire
+                }
+
+                { 
+                    weight .5
+                    set_frame 11
+                    prompt "EVENT_HAPPENING_HEATWAVE_REW"
+                    
+                    add_weather HeatWave
+                }
+
+                { 
+                    weight 1
+                    set_frame 12
+                    prompt "EVENT_HAPPENING_SNOW_REW"
+                    
+                    add_weather Snow
+                }
+
+                { 
+                    weight .25
+                    set_frame 15
+                    prompt "EVENT_HAPPENING_ACIDRAIN_REW"
+
+                    add_weather AcidRain
+                }
+
+                { 
+                    weight .5
+                    set_frame 18
+                    prompt "EVENT_HAPPENING_THUNDERSTORM_REW"
+                    
+                    add_weather Thunderstorm
+                }
+
+                { 
+                    weight .25
+                    set_frame 20
+                    prompt "EVENT_HAPPENING_FLASHFLOOD_REW"
+                    
+                    add_weather FlashFlood
+                }
+
+                //sparse stuff
+
+                { 
+                    weight .5
+                    set_frame 25
+                    prompt "EVENT_HAPPENING_TRASHDAY_REW"
+                    
+                    add_weather TrashDay
+                }
+
+                { 
+                    weight .5
+                    set_frame 30
+                    prompt "EVENT_HAPPENING_FROGS_REW"
+                    
+                    add_weather RainingFrogs
+                }
+
+                { 
+                    weight .5
+                    set_frame 37
+                    prompt "EVENT_HAPPENING_PIPEBLOCKAGE_REW"
+                    
+                    add_weather PipeBlockage
+                }
+
+                { 
+                    weight .5
+                    set_frame 38
+                    prompt "EVENT_HAPPENING_PAYDAY_REW"
+                    
+                    add_weather PayDay
+                }
+
+                { 
+                    weight .5
+                    set_frame 40
+                    prompt "EVENT_HAPPENING_HUNTINGSEASON_REW"
+                    
+                    add_weather HuntingSeason
+                }
+
+                { 
+                    weight .5
+                    requires_flag RestlessDeadUnlocked
+
+                    set_frame 41
+                    prompt "EVENT_HAPPENING_RESTLESSDEAD_REW"
+                    
+                    add_weather RestlessDead
+                }
+
+                //bug swarms
+
+                { 
+                    weight .25
+                    set_frame 42
+                    prompt "EVENT_HAPPENING_FIREFLIES_REW"
+                    
+                    add_weather FireflySwarm
+                }
+
+                { 
+                    weight .25
+                    set_frame 43
+                    prompt "EVENT_HAPPENING_BUTTERFLIES_REW"
+                    
+                    add_weather ButterflySwarm
+                }
+
+                { 
+                    weight .25
+                    set_frame 44
+                    prompt "EVENT_HAPPENING_FLIES_REW"
+                    
+                    add_weather FlySwarm
+                }
+
+
+                //new stuff
+                { 
+                    weight .25
+                    requires_flag RobotUprisingUnlocked
+
+                    set_frame 48
+                    prompt EVENT_HAPPENING_ROBOTS_REW
+                    
+                    add_weather RobotUprising
+                }
+                { 
+                    weight .25
+                    requires_flag HauntedNightUnlocked
+
+                    set_frame 3
+                    prompt EVENT_HAPPENING_HAUNTEDNIGHT_REW
+                    
+                    add_weather HauntedNight
+                }
+
+                { 
+                    weight .5
+                    set_frame 46
+                    prompt EVENT_HAPPENING_FIRESTORM_REW
+                    
+                    add_weather Firestorm
+                }
+
+                { 
+                    weight .25
+                    set_frame 47
+                    prompt EVENT_HAPPENING_METEORNADO_REW
+                    
+                    add_weather Meteornado
+                }
+
+                { 
+                    weight .25
+                    set_frame 50
+                    prompt EVENT_HAPPENING_BIRDMIGRATION_REW
+                    
+                    add_weather BirdMigration
+                }
+
+                { 
+                    weight .25
+                    set_frame 51
+                    prompt EVENT_HAPPENING_COCKROACHES_REW
+                    
+                    add_weather CockroachSwarm
+                }
+
+                { 
+                    weight .25
+                    set_frame 52
+                    prompt EVENT_HAPPENING_JUDGEMENTDAY_REW
+                    
+                    add_weather JudgementDay
+                }
+
+                /*{ 
+                    weight .25
+                    set_frame 53
+                    prompt EVENT_HAPPENING_PANDEMONIUM_REW
+                    
+                    add_weather Pandemonium
+                }*/
+
+                { 
+                    weight .25
+                    set_frame 54
+                    prompt EVENT_HAPPENING_THEHOLLOWING_REW
+                    
+                    add_weather TheHollowing
+                }
+
+                { 
+                    weight .25
+                    set_frame 55
+                    prompt EVENT_HAPPENING_OILSPILL_REW
+                    
+                    add_weather OilSpill
+                }
+
+                { 
+                    weight .5
+                    set_frame 56
+                    prompt EVENT_HAPPENING_BLIZZARD_REW
+                    
+                    add_weather Blizzard
+                }
+
+                { 
+                    weight .25
+                    set_frame 57
+                    prompt EVENT_HAPPENING_HURRICANE_REW
+                    
+                    add_weather Hurricane
+                }
+
+                { 
+                    weight .25
+                    set_frame 58
+                    prompt EVENT_HAPPENING_SPIKES_REW
+                    
+                    add_weather StrangeSpikes
+                }
+
+                { 
+                    weight .25
+                    set_frame 59
+                    prompt EVENT_HAPPENING_BLESSEDDAY_REW
+                    
+                    add_weather BlessedDay
+                }
+
+                { 
+                    weight .25
+                    set_frame 60
+                    prompt EVENT_HAPPENING_STEALTHMISSION_REW
+                    
+                    add_weather StealthMission
+                }
+
+                { 
+                    weight .5
+                    set_frame 61
+                    prompt EVENT_HAPPENING_INFESTATION_REW
+                    
+                    add_weather Infestation
+                }
+
+                { 
+                    weight .25
+                    set_frame 62
+                    prompt EVENT_HAPPENING_ERUPTION_REW
+                    
+                    add_weather Eruption
+                }
+
+                { 
+                    weight .5
+                    set_frame 63
+                    prompt EVENT_HAPPENING_DRUGAWARENESS_REW
+                    
+                    add_weather Drugs
+                }
+
+                { 
+                    weight .5
+                    set_frame 64
+                    prompt EVENT_HAPPENING_TRAININGDAY_REW
+                    
+                    add_weather TrainingDay
+                }
+
+                { 
+                    weight .25
+                    set_frame 65
+                    prompt EVENT_HAPPENING_TORNADOES_REW
+                    
+                    add_weather Tornado
+                }
+
+                { 
+                    weight .5
+                    set_frame 66
+                    prompt EVENT_HAPPENING_CRAZYWEATHER_REW
+                    
+                    add_weather CrazyWeather
+                }
+
+                { 
+                    weight .25
+                    set_frame 67
+                    prompt EVENT_HAPPENING_HUNTINGBOUNTIES_REW
+                    
+                    add_weather BountyHunting
+                }
+
+                { 
+                    weight .25
+                    set_frame 68
+                    prompt EVENT_HAPPENING_MINEFIELD_REW
+                    
+                    add_weather Minesweeper
+                }
+
+                { 
+                    weight .25
+                    requires_flag AlienInvasionUnlocked
+
+                    set_frame 69
+                    prompt EVENT_HAPPENING_ALIENINVASION_REW
+                    
+                    add_weather AlienInvasion
+                }
+
+                { 
+                    weight .25
+                    set_frame 75
+                    prompt "EVENT_HAPPENING_BIRDEMIC_REW"
+                    requires_counter [BonusBirdsKilled 25]
+                    
+                    add_weather Birdemic
+                }
+
+                //crater stuff
+                { 
+                    weight .25
+                    set_frame 16
+                    prompt "EVENT_HAPPENING_METEORSHOWER_REW"
+                    requires_flag MeteorShowerUnlocked
+                    
+                    add_weather MeteorShower
+                }
+                { 
+                    weight .25
+                    set_frame 70
+                    prompt "EVENT_CRATERWEATHER_REW2"
+                    requires_flag SolarFlareUnlocked
+                    
+                    add_weather SolarFlare
+                }
+                { 
+                    weight .25
+                    set_frame 71
+                    prompt "EVENT_CRATERWEATHER_REW3"
+                    requires_flag GeomagneticStormUnlocked
+                    
+                    add_weather GeomagneticStorm
+                }
+                { 
+                    weight .25
+                    set_frame 74
+                    prompt "EVENT_CRATERWEATHER_REW4"
+                    requires_flag TheShimmerUnlocked
+                    
+                    add_weather TheShimmer
+                }
+                { 
+                    weight .25
+                    set_frame 72
+                    prompt "EVENT_CRATERWEATHER_REW5"
+                    requires_flag StrangeEggsUnlocked
+                    
+                    add_weather StrangeEggs
+                }
+                { 
+                    weight .25
+                    set_frame 73
+                    prompt "EVENT_CRATERWEATHER_REW6"
+                    requires_flag AlienOvergrowthUnlocked
+                    
+                    add_weather AlienOvergrowth
+                }
+            ]
+        }
+    }
+}
+
+ExtraLife {
+    intro {
+        title "EVENT_ACAT_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame blessing
+        event_clip NonWheelEvent
+    }
+
+    main {
+        goto end
+
+        outcome {
+            play_animation [resultGood .5]
+            random_pool [
+                //common
+                { 
+                    set_frame 12
+                    prompt "EVENT_ACAT_REW1" 
+                    gain_cat_familiar 1
+                    get_item Neverstone
+                }
+            ]
+        }
+    }
+}

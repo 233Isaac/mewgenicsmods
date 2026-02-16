@@ -1,0 +1,330 @@
+BallOfCancer {
+    intro {
+        title "EVENT_BALLOFCANCER_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame ball_of_cancer
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_BALLOFCANCER_QUES"
+
+        options {
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_BALLOFCANCER_REW1"
+                            heal 1
+                        }
+                        rare {
+                            prompt "EVENT_BALLOFCANCER_REW2"
+                            random_mutation 3
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_BALLOFCANCER_REW3"
+                            damage 1
+                        }
+                        rare {
+                            prompt "EVENT_BALLOFCANCER_REW4" 
+                            gain_disorder Cancer
+                        }
+                    }
+                }
+            }
+            
+            kiss {
+                label "EVENT_KISS_ANSW"
+                stat cha
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_BALLOFCANCER_REW5"
+                            random_mutation 1
+                        }
+                        rare {
+                            prompt "EVENT_BALLOFCANCER_REW6"
+                            random_mutation 2
+                            random_pool [
+                                {
+                                    gain_familiar CharmedCancerCat
+                                }
+                                {
+                                    gain_familiar CharmedFloast
+                                }
+
+                            ]
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_BALLOFCANCER_REW7"
+                            mutation {
+                                mouth -2
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_BALLOFCANCER_REW8" 
+                            mutation {
+                                mouth -2
+                                eyes -2
+                            }
+                        }
+                    }
+                }
+            }
+            
+            destroy {
+                label "EVENT_DESTROY_ANSW"
+                stat str
+
+                good {
+                    set_frame 6
+                    reward {
+                        common {
+                            prompt "EVENT_BALLOFCANCER_REW9"
+                            get_item_from_pool meat_items
+                        }
+                        rare {
+                            prompt "EVENT_BALLOFCANCER_REW10"
+                            self_status_next_fight {
+                                AllStatsUp 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 7
+                            prompt "EVENT_BALLOFCANCER_REW11"
+                            random_mutation_from_set {
+                                arm1 -2
+                                arm2 -2
+                            }
+                        }
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_BALLOFCANCER_REW12" 
+                            gain_disorder Cancer
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+MysteriousBuilding {
+    intro {
+        title "EVENT_MYSTERIOUSBUILDING_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame mysterious_building
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_MYSTERIOUSBUILDING_QUES"
+
+        options {
+            enter {
+                label "EVENT_ENTER_ANSW"
+                stat none
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_MYSTERIOUSBUILDING_REW1"
+                            shop_now Event_SmallShop
+                        }
+                        rare {
+                            prompt "EVENT_MYSTERIOUSBUILDING_REW2"
+                            shop_now Event_RareShop
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_MYSTERIOUSBUILDING_REW3"
+                            next_event_bonus -1
+                            event_now_same_cat random
+                        }
+                        rare {
+                            prompt "EVENT_MYSTERIOUSBUILDING_REW4" 
+                            event_now_same_cat Tragedy
+                        }
+                    }
+                }
+            }
+            
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_MYSTERIOUSBUILDING_REW5"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+CrackInTheEarth {
+    intro {
+        title "EVENT_CRACKINTHEEARTH_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame crack_in_the_earth
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_CRACKINTHEEARTH_QUES"
+
+        options {
+            inspect {
+                label "EVENT_INSPECT_ANSW"
+                stat int
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_CRACKINTHEEARTH_REW1"
+                            get_item_from_pool chapter_common
+                        }
+                        rare {
+                            prompt "EVENT_CRACKINTHEEARTH_REW2"
+                            get_item_from_pool chapter_rare
+                            random_mutation 1
+                        }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_CRACKINTHEEARTH_REW3"
+                            lose_item equipped
+                        }
+                        rare {
+                            prompt "EVENT_CRACKINTHEEARTH_REW4" 
+                            damage [1 5]
+                            self_status_next_fight {
+                                Fear 4
+                            }
+                        }
+                    }
+                }
+            }
+
+            enter {
+                label "EVENT_ENTER_ANSW"
+                stat lck
+
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_CRACKINTHEEARTH_REW5"
+                            next_event_bonus 1
+                            random_pool [
+                                {
+                                    event_now_same_cat DemonicIdol
+                                }
+                                {
+                                    event_now_same_cat JaggedPathway
+                                }
+                                {
+                                    event_now_same_cat MysteriousStranger
+                                }
+                            ]
+                        }
+                        rare {
+                            prompt "EVENT_CRACKINTHEEARTH_REW6"
+                            next_event_bonus 2
+                            random_pool [
+                                {
+                                    event_now_same_cat DemonicIdol
+                                }
+                                {
+                                    event_now_same_cat JaggedPathway
+                                }
+                                {
+                                    event_now_same_cat MysteriousStranger
+                                }
+                            ]
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_CRACKINTHEEARTH_REW7"
+                            next_event_bonus -1
+                            random_pool [
+                                {
+                                    event_now_same_cat DemonicIdol
+                                }
+                                {
+                                    event_now_same_cat JaggedPathway
+                                }
+                                {
+                                    event_now_same_cat MysteriousStranger
+                                }
+                            ]
+                        }
+                        rare {
+                            prompt "EVENT_CRACKINTHEEARTH_REW8" 
+                            next_event_bonus -2
+                            random_pool [
+                                {
+                                    event_now_same_cat DemonicIdol
+                                }
+                                {
+                                    event_now_same_cat JaggedPathway
+                                }
+                                {
+                                    event_now_same_cat MysteriousStranger
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+            
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_CRACKINTHEEARTH_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}

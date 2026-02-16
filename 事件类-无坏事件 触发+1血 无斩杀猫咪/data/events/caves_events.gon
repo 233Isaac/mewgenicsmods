@@ -1,0 +1,558 @@
+DyingFetus {
+    intro {
+        title "EVENT_DYINGFETUS_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame dying_fetus
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_DYINGFETUS_QUES"
+
+        options {
+            comfort {
+                label "EVENT_COMFORT_ANSW"
+                stat cha
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_DYINGFETUS_REW1"
+                            gain_familiar CharmedFetus
+                        }
+                        rare {
+                            prompt "EVENT_DYINGFETUS_REW2"
+                            permanent_stats {
+                                lck 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_DYINGFETUS_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_DYINGFETUS_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+            
+            patch_up {
+                label "EVENT_PATCHUP_ANSW"
+                stat int
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_DYINGFETUS_REW5"
+                            gain_familiar CharmedFetus                            
+                        }
+                        rare {
+                            prompt "EVENT_DYINGFETUS_REW6"
+                            gain_familiar CharmedFetus2
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 5
+                            prompt "EVENT_DYINGFETUS_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            set_frame 5
+                            prompt "EVENT_DYINGFETUS_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+            attack {
+                label "EVENT_ATTACK_ANSW"
+                stat str
+                
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_DYINGFETUS_REW9"
+                            spawn_unit_next_fight {
+                                object DeadFetus
+                                count 2
+                                spawn_side cats
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_DYINGFETUS_REW10"
+                            get_parasite_from_pool flesh_armor
+                        }
+                    }
+                }
+                bad {
+                    set_frame 6
+                    reward {
+                        common {
+                            prompt "EVENT_DYINGFETUS_REW11"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_DYINGFETUS_REW12"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+CryingBoy {
+    intro {
+        title "EVENT_CRYINGBOY_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame cryingboy
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_CRYINGBOY_QUES"
+
+        options {
+            comfort {
+                label "EVENT_COMFORT_ANSW"
+                stat cha
+                
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_CRYINGBOY_REW1"
+                            play_animation [resultLeave 0]
+                        }
+                        rare {
+                            prompt "EVENT_CRYINGBOY_REW2"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_CRYINGBOY_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_CRYINGBOY_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+            distract {
+                label "EVENT_DISTRACT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_CRYINGBOY_REW5"
+                            play_animation [resultLeave 0]
+                        }
+                        rare {
+                            prompt "EVENT_CRYINGBOY_REW6"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_CRYINGBOY_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_CRYINGBOY_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_CRYINGBOY_REW9"
+                            play_animation [resultLeave 0]
+                        }
+                        rare {
+                            prompt "EVENT_CRYINGBOY_REW10"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            prompt "EVENT_CRYINGBOY_REW9"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_CRYINGBOY_REW10"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+AbandonedTent {
+    intro {
+        title "EVENT_ABANDONEDTENT_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame empty_tent
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_ABANDONEDTENT_QUES"
+
+        options {
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_ABANDONEDTENT_REW1"
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict consumables
+                            }
+                            gain_food [1 4]
+                        }
+                        rare {
+                            prompt "EVENT_ABANDONEDTENT_REW2"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_ABANDONEDTENT_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_ABANDONEDTENT_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+            loot {
+                label "EVENT_LOOT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_ABANDONEDTENT_REW5"
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict consumables
+                            }
+                            gain_food [1 4]
+                        }
+                        rare {
+                            prompt "EVENT_ABANDONEDTENT_REW6"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_ABANDONEDTENT_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_ABANDONEDTENT_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            bash {
+                label "EVENT_BASH_ANSW"
+                stat str
+                
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_ABANDONEDTENT_REW9"
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict consumables
+                            }
+                            gain_food [1 4]
+                        }
+                        rare {
+                            prompt "EVENT_ABANDONEDTENT_REW10"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_ABANDONEDTENT_REW11"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_ABANDONEDTENT_REW12"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+SludgeBath {
+    intro {
+        title "EVENT_SLUDGEBATH_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame sludgebath
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_SLUDGEBATH_QUES"
+
+        options {
+            fish_out {
+                label "EVENT_FISHOUT_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_SLUDGEBATH_REW1"
+                            get_item_from_pool {
+                                pool chapter_common
+                                restrict consumables
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_SLUDGEBATH_REW2"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_SLUDGEBATH_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_SLUDGEBATH_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            drink {
+                label "EVENT_DRINK_ANSW"
+                stat con
+                
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_SLUDGEBATH_REW5"
+                            full_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_SLUDGEBATH_REW6"
+                            permanent_stats {
+                                hp 2
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_SLUDGEBATH_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_SLUDGEBATH_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_SLUDGEBATH_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+TheMeatGrinder {
+    requirements {
+        not_has_token WorldEventLegacyToken_NekroAmulet
+    }
+    
+    intro {
+        title "EVENT_MEATGRINDER_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame flesh_device
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_MEATGRINDER_QUES"
+
+        options {
+            sacrifice {
+                label "EVENT_MEATGRINDER_ANSW_SACRIFICE"
+                stat con
+
+                good {
+                    reward {
+                        common {
+                            prompt "EVENT_MEATGRINDER_REW1"
+                            self_damage 2
+                            set_frame 2
+                            random_pool [
+                                {
+                                    get_item_from_pool {
+                                        pool chapter_rare
+                                        restrict [weapon, trinket, armor]
+                                    }
+                                }
+                                {
+                                    permanent_stats {
+                                        lck 1
+                                    }
+                                }
+                                {
+                                    gain_coins [25 50]
+                                }
+                                {
+                                    get_item_from_pool {
+                                        pool chapter_common
+                                        restrict consumables
+                                    }
+                                    get_item_from_pool {
+                                        pool chapter_common
+                                        restrict consumables
+                                    }
+                                    get_item_from_pool {
+                                        pool chapter_common
+                                        restrict consumables
+                                    }
+                                }
+                            ]
+                        }
+                        rare {
+                            prompt "EVENT_MEATGRINDER_REW2"
+                            self_damage 2
+                            set_frame 3
+                            get_item NekromantikonAmulet
+                            set_legacy_token WorldEventLegacyToken_NekroAmulet
+                            trigger_adventure_unlock legacy_event_unlock_nekromantikonamulet
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            prompt "EVENT_MEATGRINDER_REW3"
+                            set_frame 4
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_MEATGRINDER_REW4"
+                            set_frame 4
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

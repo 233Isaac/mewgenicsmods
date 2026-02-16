@@ -1,0 +1,1374 @@
+//grossedout bored winking
+movieclip NPCTutorial
+
+states_and_transitions {
+	states {
+		offscreen ["offscreen"]
+		butch_right ["butch_right", "butch_point_spells", "butch_point_turnorder", "butch_point_team", "butch_point_team_nocircle", "butch_point_enemies", "butch_point_cost", "butch_point_cost2", "butch_point_mana", "butch_point_mapnode", "butch_point_food","butch_point_save", "butch_point_inventory", "butch_point_weapon", "butch_levelup", "butch_point_hotblooded", "butch_point_sunburn"]
+		butch_left ["butch_left", "butch_point_move", "butch_point_attack", "butch_point_passives", "butch_point_endturn"]
+
+		tink_right ["tink_right", "tink_point_strays"]
+		tink_left ["tink_left", "tink_point_cats", "tink_point_food", "tink_point_box"]
+
+		frank_right ["frank_right", "frank_point_pipe"]
+
+		steven_center ["steven_center", "steven_cat"]
+
+		jack_right ["jack_right", "jack_point_furniture"]
+
+		beanies_right ["beanies_right"]
+
+		beanies_intensestatic ["beanies_intensestatic"]
+	}
+
+	transitions {
+		butch_offscreen_to_right [offscreen butch_right]
+		butch_offscreen_to_left [offscreen butch_left]
+		butch_right_to_offscreen [butch_right offscreen]
+		butch_left_to_offscreen [butch_left offscreen]
+		butch_right_to_left [butch_right butch_left]
+		butch_left_to_right [butch_left butch_right]
+
+		tink_offscreen_to_right [offscreen tink_right]
+		tink_offscreen_to_left [offscreen tink_left]
+		tink_right_to_offscreen [tink_right offscreen]
+		tink_left_to_offscreen [tink_left offscreen]
+		tink_right_to_left [tink_right tink_left]
+		tink_left_to_right [tink_left tink_right]
+
+		frank_offscreen_to_right [offscreen frank_right]
+		frank_right_to_offscreen [frank_right offscreen]
+
+		jack_offscreen_to_right [offscreen jack_right]
+		jack_right_to_offscreen [jack_right offscreen]
+
+		steven_offscreen_to_center [offscreen steven_center]
+		steven_center_to_offscreen [steven_center offscreen]
+
+		beanies_offscreen_to_right [offscreen beanies_right]
+		beanies_right_to_offscreen [beanies_right offscreen]
+
+		beanies_offscreen_to_intensestatic [offscreen beanies_intensestatic]
+		beanies_intensestatic_to_offscreen [beanies_intensestatic offscreen]
+	}
+}
+
+//one SEQUENCE can be active at a time
+//once a sequence is completed, it will never show again
+sequences {
+	//sfx UISFX_ButchMove
+
+	///////////////////////////
+	//      FIRST FIGHT      //
+	///////////////////////////
+
+	first_fight_intro {
+		delay .5
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_FIRST_FIGHT_INTRO_1
+		//dialog "[m:angry]OK listen, \n I don't like you, \n [m:veryangry]I don't like no one!"
+		//dialog "[m:angry]Especially some goodie goodie roaming Boon County with a few test tube kitties![/m]"
+		//dialog "[m:confused][s:.5][m:questioning]Meh...[/m][/s]"
+		//dialog "[m:pondering]Sooo... \nInto cats and stuff?"
+		//dialog "[m:questioning]Cool \ncool..."
+		dialog NPC_POPUP_FIRST_FIGHT_INTRO_2
+		dialog NPC_POPUP_FIRST_FIGHT_INTRO_3
+		dialog NPC_POPUP_FIRST_FIGHT_INTRO_4
+		dialog NPC_POPUP_FIRST_FIGHT_INTRO_5
+		sfx UISFX_ButchHint
+		set_state butch_point_team
+		dialog NPC_POPUP_FIRST_FIGHT_INTRO_6
+		sfx UISFX_ButchHint
+		set_state butch_point_enemies
+		dialog NPC_POPUP_FIRST_FIGHT_INTRO_7
+		dialog NPC_POPUP_FIRST_FIGHT_INTRO_8
+		set_mood default
+		set_state butch_right
+
+		wait_for cat_turn
+
+		set_state butch_point_team_nocircle
+		dialog NPC_POPUP_FIRST_FIGHT_INTRO_9
+		dialog NPC_POPUP_FIRST_FIGHT_INTRO_10
+		
+		sfx UISFX_ButchMoveHint
+		set_state butch_point_attack
+		dialog NPC_POPUP_FIRST_FIGHT_INTRO_11
+		dialog NPC_POPUP_FIRST_FIGHT_INTRO_12
+
+		set_state butch_point_move
+		sfx UISFX_ButchHint
+		dialog NPC_POPUP_FIRST_FIGHT_INTRO_13
+		dialog_and_autopass NPC_POPUP_FIRST_FIGHT_INTRO_14
+
+		unlock_controls 1
+		wait_for action_selected
+
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	try_again_melee_move {
+		sfx UISFX_ButchMove	
+		set_state butch_right
+		dialog NPC_POPUP_TRY_AGAIN_MELEE_MOVE_1
+		dialog NPC_POPUP_TRY_AGAIN_MELEE_MOVE_2
+		sfx UISFX_ButchMove
+		reset_turn both
+		set_state offscreen
+		clear_token try_again_melee_move
+	}
+	melee_move2 {
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_MELEE_MOVE2_1
+		sfx UISFX_ButchMoveHint
+		set_state butch_point_move
+		dialog_and_autopass NPC_POPUP_MELEE_MOVE2_2
+
+		unlock_controls 1
+		wait_for action_selected
+		sfx UISFX_ButchMoveAway
+
+		set_state offscreen
+		clear_token melee_move2
+	}
+
+	melee_attack_rat {
+		get_token ranged_cat_attack
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_MELEE_ATTACK_RAT_1
+		sfx UISFX_ButchMoveHint
+		set_state butch_point_attack
+		dialog NPC_POPUP_MELEE_ATTACK_RAT_2
+		dialog_and_autopass NPC_POPUP_MELEE_ATTACK_RAT_3
+
+		unlock_controls 1
+		wait_for action_selected
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+
+	try_again_attack_rat {
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_TRY_AGAIN_ATTACK_RAT_1
+		dialog NPC_POPUP_TRY_AGAIN_ATTACK_RAT_2
+		dialog NPC_POPUP_TRY_AGAIN_ATTACK_RAT_3
+		reset_turn act
+		sfx UISFX_ButchHintDelay1
+		set_state butch_point_attack
+		dialog_and_autopass NPC_POPUP_TRY_AGAIN_ATTACK_RAT_4
+		
+		unlock_controls 1
+		wait_for action_selected
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+		clear_token try_again_attack_rat
+	}
+
+
+	melee_killed_rat {
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_MELEE_KILLED_RAT_1
+		set_state butch_point_team_nocircle
+		dialog NPC_POPUP_MELEE_KILLED_RAT_2
+		sfx UISFX_ButchHintDelay1
+		set_state butch_point_passives
+
+		dialog_and_autopass NPC_POPUP_MELEE_KILLED_RAT_3
+
+		unlock_mouse 1
+		wait_for hovered_passive
+		wait_for click
+
+		sfx UISFX_ButchMove
+		set_state butch_point_team_nocircle
+		dialog NPC_POPUP_MELEE_KILLED_RAT_4
+		
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	melee_out_of_actions {
+		sfx UISFX_ButchHintDelay1
+		set_state butch_point_spells
+		dialog NPC_POPUP_MELEE_OUT_OF_ACTIONS_1
+		sfx UISFX_ButchHint
+		set_state butch_point_cost
+		dialog NPC_POPUP_MELEE_OUT_OF_ACTIONS_2
+		sfx UISFX_ButchHint
+		set_state butch_point_mana
+		dialog NPC_POPUP_MELEE_OUT_OF_ACTIONS_3
+		sfx UISFX_ButchMoveHint
+		set_state butch_point_endturn
+		dialog_and_autopass NPC_POPUP_MELEE_OUT_OF_ACTIONS_4
+		sfx UISFX_EndTurnShow
+
+		unlock_controls 1
+		wait_for end_turn
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	ranged_cat_intro {
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_RANGED_CAT_INTRO_1
+
+		sfx UISFX_ButchMoveHint
+		set_state butch_point_attack
+		dialog NPC_POPUP_RANGED_CAT_INTRO_2
+		sfx UISFX_ButchHint
+		set_state butch_point_move
+		dialog NPC_POPUP_RANGED_CAT_INTRO_3
+		dialog_and_autopass NPC_POPUP_RANGED_CAT_INTRO_4
+
+		unlock_controls 1
+		wait_for action_selected
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	ranged_cat_rolled_first {
+		set_state butch_right
+		dialog NPC_POPUP_RANGED_CAT_ROLLED_FIRST_1
+		dialog NPC_POPUP_RANGED_CAT_ROLLED_FIRST_2
+		dialog NPC_POPUP_RANGED_CAT_ROLLED_FIRST_3
+		set_state butch_point_move
+		dialog_and_autopass NPC_POPUP_RANGED_CAT_ROLLED_FIRST_4
+
+		unlock_controls 1
+		wait_for action_selected
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	ranged_cat_roll {
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_RANGED_CAT_ROLL_1
+		dialog NPC_POPUP_RANGED_CAT_ROLL_2
+		sfx UISFX_ButchHintDelay2
+		set_state butch_point_spells
+		dialog NPC_POPUP_RANGED_CAT_ROLL_3
+		sfx UISFX_ButchHint
+		set_state butch_point_cost2
+		dialog NPC_POPUP_RANGED_CAT_ROLL_4
+		sfx UISFX_ButchHint
+		set_state butch_point_mana
+		dialog NPC_POPUP_RANGED_CAT_ROLL_5
+		sfx UISFX_ButchHint
+		set_state butch_point_spells
+		dialog_and_autopass NPC_POPUP_RANGED_CAT_ROLL_6
+		unlock_controls 1
+		wait_for action_selected
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	ranged_cat_failmove {
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_RANGED_CAT_FAILMOVE_1
+		dialog NPC_POPUP_RANGED_CAT_FAILMOVE_2
+		dialog NPC_POPUP_RANGED_CAT_FAILMOVE_3
+		dialog NPC_POPUP_RANGED_CAT_FAILMOVE_4
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	ranged_cat_early_attack_miss {
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_RANGED_CAT_EARLY_ATTACK_MISS_1
+		dialog NPC_POPUP_RANGED_CAT_EARLY_ATTACK_MISS_2
+		dialog NPC_POPUP_RANGED_CAT_EARLY_ATTACK_MISS_3
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+	ranged_cat_early_attack_rat {
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_RANGED_CAT_EARLY_ATTACK_RAT_1
+		dialog NPC_POPUP_RANGED_CAT_EARLY_ATTACK_RAT_2
+		dialog NPC_POPUP_RANGED_CAT_EARLY_ATTACK_RAT_3
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+	ranged_cat_early_attack_ally {
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_RANGED_CAT_EARLY_ATTACK_ALLY_1
+		dialog NPC_POPUP_RANGED_CAT_EARLY_ATTACK_ALLY_2
+		dialog NPC_POPUP_RANGED_CAT_EARLY_ATTACK_ALLY_3
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	ranged_cat_early_attack2_miss {
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_RANGED_CAT_EARLY_ATTACK2_MISS_1
+		dialog NPC_POPUP_RANGED_CAT_EARLY_ATTACK2_MISS_2
+		dialog NPC_POPUP_RANGED_CAT_EARLY_ATTACK2_MISS_3
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+	ranged_cat_early_attack2_rat {
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_RANGED_CAT_EARLY_ATTACK2_RAT_1
+		dialog NPC_POPUP_RANGED_CAT_EARLY_ATTACK2_RAT_2
+		dialog NPC_POPUP_RANGED_CAT_EARLY_ATTACK2_RAT_3
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+	ranged_cat_early_attack2_ally {
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_RANGED_CAT_EARLY_ATTACK2_ALLY_1
+		dialog NPC_POPUP_RANGED_CAT_EARLY_ATTACK2_ALLY_2
+		dialog NPC_POPUP_RANGED_CAT_EARLY_ATTACK2_ALLY_3
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	ranged_cat_attack {
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog_and_autopass NPC_POPUP_RANGED_CAT_ATTACK_1
+
+		unlock_controls 1
+		wait_for action_selected
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	ranged_attack_tomtom {
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_RANGED_ATTACK_TOMTOM_1
+		dialog NPC_POPUP_RANGED_ATTACK_TOMTOM_2
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+	ranged_attack_tomtom_fail_miss {
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_RANGED_ATTACK_TOMTOM_FAIL_MISS_1
+		dialog NPC_POPUP_RANGED_ATTACK_TOMTOM_FAIL_MISS_2
+		dialog NPC_POPUP_RANGED_ATTACK_TOMTOM_FAIL_MISS_3
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+	ranged_attack_tomtom_fail_ally {
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_RANGED_ATTACK_TOMTOM_FAIL_ALLY_1
+		dialog NPC_POPUP_RANGED_ATTACK_TOMTOM_FAIL_ALLY_2
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+	ranged_attack_tomtom_fail_rat {
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_RANGED_ATTACK_TOMTOM_FAIL_RAT_1
+		dialog NPC_POPUP_RANGED_ATTACK_TOMTOM_FAIL_RAT_2
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	melee_cat_spit {
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_MELEE_CAT_SPIT_1
+		sfx UISFX_ButchHint
+		set_state butch_point_spells
+		dialog NPC_POPUP_MELEE_CAT_SPIT_2
+		dialog_and_autopass NPC_POPUP_MELEE_CAT_SPIT_3
+
+		unlock_controls 1
+		wait_for action_selected
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+	melee_cat_spit_success {
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_MELEE_CAT_SPIT_SUCCESS_1
+		dialog NPC_POPUP_MELEE_CAT_SPIT_SUCCESS_2
+		dialog NPC_POPUP_MELEE_CAT_SPIT_SUCCESS_3
+		dialog_and_autopass NPC_POPUP_MELEE_CAT_SPIT_SUCCESS_4
+
+		unlock_controls 1
+		wait_for action_selected
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+	melee_cat_spit_fail_miss {
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_MELEE_CAT_SPIT_FAIL_MISS_1
+		dialog NPC_POPUP_MELEE_CAT_SPIT_FAIL_MISS_2
+		dialog NPC_POPUP_MELEE_CAT_SPIT_FAIL_MISS_3
+		dialog_and_autopass NPC_POPUP_MELEE_CAT_SPIT_FAIL_MISS_4
+
+		unlock_controls 1
+		wait_for action_selected
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+	melee_cat_spit_fail_rat {
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_MELEE_CAT_SPIT_FAIL_RAT_1
+		dialog NPC_POPUP_MELEE_CAT_SPIT_FAIL_RAT_2
+		dialog NPC_POPUP_MELEE_CAT_SPIT_FAIL_RAT_3
+		dialog_and_autopass NPC_POPUP_MELEE_CAT_SPIT_FAIL_RAT_4
+
+		unlock_controls 1
+		wait_for action_selected
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+	melee_cat_spit_fail_ally {
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_MELEE_CAT_SPIT_FAIL_ALLY_1
+		dialog NPC_POPUP_MELEE_CAT_SPIT_FAIL_ALLY_2
+		dialog NPC_POPUP_MELEE_CAT_SPIT_FAIL_ALLY_3
+		dialog_and_autopass NPC_POPUP_MELEE_CAT_SPIT_FAIL_ALLY_4
+
+		unlock_controls 1
+		wait_for action_selected
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+	melee_cat_spit_ignore {
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_MELEE_CAT_SPIT_IGNORE_1
+		dialog_and_autopass NPC_POPUP_MELEE_CAT_SPIT_IGNORE_2
+
+		unlock_controls 1
+		wait_for action_selected
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+
+		clear_token melee_cat_spit_ignore
+	}
+	done_spitting_success {
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_DONE_SPITTING_SUCCESS_1
+		dialog NPC_POPUP_DONE_SPITTING_SUCCESS_2
+		dialog NPC_POPUP_DONE_SPITTING_SUCCESS_3
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+	done_spitting_fail_miss {
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_DONE_SPITTING_FAIL_MISS_1
+		dialog NPC_POPUP_DONE_SPITTING_FAIL_MISS_2
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+	done_spitting_fail_rat {
+		set_state butch_right
+		dialog NPC_POPUP_DONE_SPITTING_FAIL_RAT_1
+		dialog NPC_POPUP_DONE_SPITTING_FAIL_RAT_2
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+	done_spitting_fail_ally {
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_DONE_SPITTING_FAIL_ALLY_1
+		dialog NPC_POPUP_DONE_SPITTING_FAIL_ALLY_2
+		dialog NPC_POPUP_DONE_SPITTING_FAIL_ALLY_3
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	do_not_end_turn {
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog_and_autopass NPC_POPUP_DO_NOT_END_TURN_1
+		clear_token do_not_end_turn
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+
+	tutorial_cat_dies {
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_TUTORIAL_CAT_DIES_1
+		dialog NPC_POPUP_TUTORIAL_CAT_DIES_2
+		dialog NPC_POPUP_TUTORIAL_CAT_DIES_3
+		dialog NPC_POPUP_TUTORIAL_CAT_DIES_4
+		dialog NPC_POPUP_TUTORIAL_CAT_DIES_5
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	can_still_use_attack {
+		get_token can_still_use_attack_didntspell
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_CAN_STILL_USE_ATTACK_1
+		dialog NPC_POPUP_CAN_STILL_USE_ATTACK_2
+
+		sfx UISFX_ButchHint
+		set_state butch_point_attack
+		dialog_and_autopass NPC_POPUP_CAN_STILL_USE_ATTACK_3
+
+		unlock_controls 1
+		wait_for action_selected
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+	can_still_use_attack_didntspell {
+		get_token can_still_use_attack
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_CAN_STILL_USE_ATTACK_DIDNTSPELL_1
+
+		sfx UISFX_ButchHint
+		set_state butch_point_attack
+		dialog_and_autopass NPC_POPUP_CAN_STILL_USE_ATTACK_DIDNTSPELL_2
+
+		unlock_controls 1
+		wait_for action_selected
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	///////////////////////////
+	//        LEVEL UP       //
+	///////////////////////////
+
+	level_up_intro {
+		delay .5
+		sfx UISFX_ButchMove
+		set_state butch_levelup
+		dialog NPC_POPUP_LEVEL_UP_INTRO_1
+		dialog NPC_POPUP_LEVEL_UP_INTRO_2
+		dialog NPC_POPUP_LEVEL_UP_INTRO_3
+		dialog NPC_POPUP_LEVEL_UP_INTRO_4
+		dialog NPC_POPUP_LEVEL_UP_INTRO_5
+		sfx UISFX_ButchHint
+		set_state butch_point_hotblooded
+		dialog_and_autopass NPC_POPUP_LEVEL_UP_INTRO_6
+
+		unlock_mouse 1
+		wait_for hovered_passive
+		wait_for click
+		lock_mouse 1
+
+		sfx UISFX_ButchHint
+		set_state butch_point_sunburn
+		dialog NPC_POPUP_LEVEL_UP_INTRO_7
+		dialog NPC_POPUP_LEVEL_UP_INTRO_8
+		set_state butch_levelup
+		dialog NPC_POPUP_LEVEL_UP_INTRO_9
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	level_up_selected_sunburn {
+		sfx UISFX_ButchMove
+		set_state butch_left
+
+		dialog NPC_POPUP_LEVEL_UP_SELECTED_SUNBURN_1
+		dialog NPC_POPUP_LEVEL_UP_SELECTED_SUNBURN_2
+		dialog NPC_POPUP_LEVEL_UP_SELECTED_SUNBURN_3
+		dialog NPC_POPUP_LEVEL_UP_SELECTED_SUNBURN_4
+
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+	level_up_didnt_select_sunburn {
+		sfx UISFX_ButchMove
+		set_state butch_left
+
+		dialog NPC_POPUP_LEVEL_UP_DIDNT_SELECT_SUNBURN_1
+		dialog NPC_POPUP_LEVEL_UP_DIDNT_SELECT_SUNBURN_2
+		dialog NPC_POPUP_LEVEL_UP_DIDNT_SELECT_SUNBURN_3
+		dialog NPC_POPUP_LEVEL_UP_DIDNT_SELECT_SUNBURN_4
+		dialog NPC_POPUP_LEVEL_UP_DIDNT_SELECT_SUNBURN_5
+		dialog NPC_POPUP_LEVEL_UP_DIDNT_SELECT_SUNBURN_6
+		dialog NPC_POPUP_LEVEL_UP_DIDNT_SELECT_SUNBURN_7
+
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	///////////////////////////
+	//       BOSS FIGHT      //
+	///////////////////////////
+
+	boss_fight_intro {
+		delay .5
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_BOSS_FIGHT_INTRO_1
+		dialog NPC_POPUP_BOSS_FIGHT_INTRO_2
+		dialog NPC_POPUP_BOSS_FIGHT_INTRO_3
+
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+
+		delay .25
+
+		sfx UISFX_ButchMove
+		set_state butch_right
+
+		dialog NPC_POPUP_BOSS_FIGHT_INTRO_4
+		dialog NPC_POPUP_BOSS_FIGHT_INTRO_5
+
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	use_weapon {
+		get_token use_attack_after_used_weapon
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_USE_WEAPON_1
+		sfx UISFX_ButchHint
+		set_state butch_point_weapon
+		dialog NPC_POPUP_USE_WEAPON_2
+		dialog_and_autopass NPC_POPUP_USE_WEAPON_3
+
+		unlock_controls 1
+		wait_for action_selected
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+	use_attack_after_used_weapon {
+		get_token use_weapon
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_USE_ATTACK_AFTER_USED_WEAPON_1
+		sfx UISFX_ButchHint
+		set_state butch_point_weapon
+		dialog NPC_POPUP_USE_ATTACK_AFTER_USED_WEAPON_2
+
+		sfx UISFX_ButchHint
+		set_state butch_point_attack
+		dialog_and_autopass NPC_POPUP_USE_ATTACK_AFTER_USED_WEAPON_3
+
+		unlock_controls 1
+		wait_for action_selected
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	boss_fight_round2 {
+		sfx UISFX_ButchMove
+		set_state butch_right
+		dialog NPC_POPUP_BOSS_FIGHT_ROUND2_1
+		sfx UISFX_ButchHint
+		set_state butch_point_turnorder
+		dialog NPC_POPUP_BOSS_FIGHT_ROUND2_2
+		dialog NPC_POPUP_BOSS_FIGHT_ROUND2_3
+
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	///////////////////////////
+	//          MAP          //
+	///////////////////////////
+
+	map_click_node {
+		sfx UISFX_ButchHint
+		set_state butch_point_mapnode
+		dialog_and_autopass NPC_POPUP_MAP_CLICK_NODE_1
+
+		unlock_controls 1
+		wait_for mapnode_selected
+
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	map_equip_items {
+		sfx UISFX_ButchMove
+		set_state butch_left
+		dialog NPC_POPUP_MAP_EQUIP_ITEMS_1
+		sfx UISFX_ButchMove
+		set_state butch_point_inventory
+		dialog_and_autopass NPC_POPUP_MAP_EQUIP_ITEMS_2
+
+		unlock_controls 1
+		wait_for inventory_selected
+
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+	map_equip_items2 {
+		clear_token map_equip_items2
+
+		sfx UISFX_ButchHint
+		set_state butch_point_inventory
+		dialog_and_autopass NPC_POPUP_MAP_EQUIP_ITEMS2_1
+
+		unlock_controls 1
+		wait_for inventory_selected
+
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	finish_adventure {
+		sfx UISFX_ButchMove
+		set_state butch_left
+		dialog NPC_POPUP_FINISH_ADVENTURE_1
+		dialog NPC_POPUP_FINISH_ADVENTURE_2
+		sfx UISFX_ButchHint
+		set_state butch_point_food
+		dialog NPC_POPUP_FINISH_ADVENTURE_3
+		dialog NPC_POPUP_FINISH_ADVENTURE_4
+		sfx UISFX_ButchHint
+		set_state butch_point_save
+		dialog NPC_POPUP_FINISH_ADVENTURE_5
+		sfx UISFX_ButchMove
+		set_state butch_left
+		dialog NPC_POPUP_FINISH_ADVENTURE_6
+
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	///////////////////////////
+	//         HOUSE         //
+	///////////////////////////
+
+	house_intro {
+		delay .5
+		sfx UISFX_ButchMove
+		set_state tink_left
+		dialog NPC_POPUP_HOUSE_INTRO_1
+		dialog NPC_POPUP_HOUSE_INTRO_2
+		dialog NPC_POPUP_HOUSE_INTRO_3
+		dialog NPC_POPUP_HOUSE_INTRO_4
+		dialog NPC_POPUP_HOUSE_INTRO_5
+		dialog NPC_POPUP_HOUSE_INTRO_6
+		dialog NPC_POPUP_HOUSE_INTRO_7
+		//dialog "I just dropped by to give you a little birds and bees talk, because you look a bit..."
+		//dialog "[m:mocking][s.8]Inexperienced[/s]"
+
+		set_state tink_point_cats
+		dialog NPC_POPUP_HOUSE_INTRO_8
+		dialog NPC_POPUP_HOUSE_INTRO_9
+		dialog NPC_POPUP_HOUSE_INTRO_10
+		dialog_and_autopass NPC_POPUP_HOUSE_INTRO_11
+
+		unlock_controls 1
+		wait_for click
+
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	house_pass_day {
+		sfx UISFX_ButchMove
+		set_state tink_left
+		dialog NPC_POPUP_HOUSE_PASS_DAY_1
+		dialog NPC_POPUP_HOUSE_PASS_DAY_2
+
+		sfx UISFX_ButchHint
+		set_state tink_point_food
+		dialog NPC_POPUP_HOUSE_PASS_DAY_3
+
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	take_cats_inside {
+		clear_token take_cats_inside
+		sfx UISFX_ButchMove
+		set_state tink_left
+		dialog NPC_POPUP_TAKE_CATS_INSIDE_1
+
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	house_strays {
+		delay .5
+		sfx UISFX_ButchMove
+		set_state tink_left
+		dialog NPC_POPUP_HOUSE_STRAYS_1
+		dialog NPC_POPUP_HOUSE_STRAYS_2
+		dialog NPC_POPUP_HOUSE_STRAYS_3
+
+		sfx UISFX_ButchHint
+		set_state tink_point_strays
+		request_cat_info stray
+		dialog NPC_POPUP_HOUSE_STRAYS_4
+		dialog_and_autopass NPC_POPUP_HOUSE_STRAYS_5
+
+		unlock_controls 1
+		wait_for click
+
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	house_pass_day2 {
+		sfx UISFX_ButchMove
+		set_state tink_left
+		dialog NPC_POPUP_HOUSE_PASS_DAY2_1
+		dialog NPC_POPUP_HOUSE_PASS_DAY2_2
+		dialog NPC_POPUP_HOUSE_PASS_DAY2_3
+		dialog NPC_POPUP_HOUSE_PASS_DAY2_4
+
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	new_adventure {
+		sfx UISFX_ButchMove
+		set_state tink_left
+		dialog NPC_POPUP_NEW_ADVENTURE_1
+		sfx UISFX_ButchHint
+		set_state tink_point_box
+		dialog NPC_POPUP_NEW_ADVENTURE_2
+
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+	low_on_food {
+		sfx UISFX_ButchMove
+		set_state tink_left
+		dialog NPC_POPUP_LOW_ON_FOOD_1
+		sfx UISFX_ButchHint
+		set_state tink_point_food
+		dialog NPC_POPUP_LOW_ON_FOOD_2
+		sfx UISFX_ButchHint
+		set_state tink_point_box
+		dialog NPC_POPUP_LOW_ON_FOOD_3
+
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+
+	house_retired_cat_box {
+		sfx UISFX_ButchMove
+		set_state tink_left
+		dialog NPC_POPUP_HOUSE_RETIRED_CAT_BOX_1
+
+		sfx UISFX_ButchMove
+		set_state offscreen
+	}
+	house_kitten_box {
+		sfx UISFX_ButchMove
+		set_state tink_left
+		dialog NPC_POPUP_HOUSE_KITTEN_BOX_1
+		dialog NPC_POPUP_HOUSE_KITTEN_BOX_2
+
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+	house_starred_box {
+		sfx UISFX_ButchMove
+		set_state tink_left
+		dialog NPC_POPUP_HOUSE_STARRED_BOX_1
+		dialog NPC_POPUP_HOUSE_STARRED_BOX_2
+
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+
+	house_pipe {
+		sfx UISFX_ButchMove
+		set_state frank_right
+		dialog NPC_POPUP_HOUSE_PIPE_1
+		dialog NPC_POPUP_HOUSE_PIPE_2
+		dialog NPC_POPUP_HOUSE_PIPE_3
+		dialog NPC_POPUP_HOUSE_PIPE_4
+		dialog NPC_POPUP_HOUSE_PIPE_5
+		dialog NPC_POPUP_HOUSE_PIPE_6
+		dialog NPC_POPUP_HOUSE_PIPE_7
+		dialog NPC_POPUP_HOUSE_PIPE_8
+		dialog NPC_POPUP_HOUSE_PIPE_9
+		dialog NPC_POPUP_HOUSE_PIPE_10
+		dialog NPC_POPUP_HOUSE_PIPE_11
+		dialog NPC_POPUP_HOUSE_PIPE_12
+		dialog NPC_POPUP_HOUSE_PIPE_13
+		dialog NPC_POPUP_HOUSE_PIPE_14
+		sfx UISFX_ButchHint
+		set_state frank_point_pipe
+		dialog NPC_POPUP_HOUSE_PIPE_15
+		dialog NPC_POPUP_HOUSE_PIPE_16
+		sfx UISFX_ButchHint
+		set_state frank_right
+		dialog NPC_POPUP_HOUSE_PIPE_17
+		dialog NPC_POPUP_HOUSE_PIPE_18 
+		dialog NPC_POPUP_HOUSE_PIPE_19
+		dialog NPC_POPUP_HOUSE_PIPE_20
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+
+	///////////////////////////
+	//    MISC LATER STUFF   //
+	///////////////////////////
+
+	introduce_hard_path {
+		sfx UISFX_ButchMove
+		set_state butch_left
+		dialog NPC_POPUP_INTRODUCE_HARD_PATH_1
+		dialog NPC_POPUP_INTRODUCE_HARD_PATH_2
+		dialog NPC_POPUP_INTRODUCE_HARD_PATH_3
+		dialog NPC_POPUP_INTRODUCE_HARD_PATH_4
+		dialog NPC_POPUP_INTRODUCE_HARD_PATH_5
+		dialog NPC_POPUP_INTRODUCE_HARD_PATH_6
+
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	first_house_boss_tomorrow {
+		sfx UISFX_ButchMove
+		set_state tink_left
+		dialog NPC_POPUP_FIRST_HOUSE_BOSS_TOMORROW_1
+		dialog NPC_POPUP_FIRST_HOUSE_BOSS_TOMORROW_2
+		dialog NPC_POPUP_FIRST_HOUSE_BOSS_TOMORROW_3
+		dialog NPC_POPUP_FIRST_HOUSE_BOSS_TOMORROW_4
+		dialog NPC_POPUP_FIRST_HOUSE_BOSS_TOMORROW_5
+		dialog NPC_POPUP_FIRST_HOUSE_BOSS_TOMORROW_6
+		dialog NPC_POPUP_FIRST_HOUSE_BOSS_TOMORROW_7
+		dialog NPC_POPUP_FIRST_HOUSE_BOSS_TOMORROW_8
+		dialog NPC_POPUP_FIRST_HOUSE_BOSS_TOMORROW_9
+		dialog NPC_POPUP_FIRST_HOUSE_BOSS_TOMORROW_10
+
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	first_house_hint_retired {
+		sfx UISFX_ButchMove
+		set_state tink_left
+
+		dialog NPC_POPUP_FIRST_HOUSE_HINT_RETIRED_1
+		dialog NPC_POPUP_FIRST_HOUSE_HINT_RETIRED_2
+		dialog NPC_POPUP_FIRST_HOUSE_HINT_RETIRED_3
+		dialog NPC_POPUP_FIRST_HOUSE_HINT_RETIRED_4
+
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+	////////////////////////////
+	//  JACK FURNITURE INTRO  //
+	////////////////////////////
+
+	jack_introduction {
+		sfx UISFX_ButchMove
+		set_state jack_right
+		dialog NPC_POPUP_JACK_INTRODUCTION_1
+		dialog NPC_POPUP_JACK_INTRODUCTION_2
+		dialog NPC_POPUP_JACK_INTRODUCTION_3
+		dialog NPC_POPUP_JACK_INTRODUCTION_4
+		get_random_furniture_piece [small_trash_cans small_trash_can2]
+		dialog NPC_POPUP_JACK_INTRODUCTION_5
+		dialog NPC_POPUP_JACK_INTRODUCTION_6
+		sfx UISFX_ButchHint
+		set_state jack_point_furniture
+		dialog_and_autopass NPC_POPUP_JACK_INTRODUCTION_7
+		unlock_controls 1
+		wait_for open_furniture
+		lock_controls 1
+		sfx UISFX_ButchMove
+		set_state jack_right
+		dialog NPC_POPUP_JACK_INTRODUCTION_8
+
+		sfx UISFX_ButchMoveAway
+		set_state offscreen
+	}
+
+
+	////////////////////////////
+	//    STEVEN SAVE SCUM    //
+	////////////////////////////
+
+	steven_savescum_intro { // begone, "artist interpretation" bullshit
+	}
+
+
+	steven_savescum_1 { // begone, "artist interpretation" bullshit
+	}
+	steven_savescum_2 { // begone, "artist interpretation" bullshit
+	}
+	steven_savescum_3 { // begone, "artist interpretation" bullshit
+	}
+	steven_savescum_4 { // begone, "artist interpretation" bullshit
+	}
+
+	steven_savescum_100 { // begone, "artist interpretation" bullshit
+	}
+	
+
+
+
+
+	//house boss
+	steven_savescum_intro_houseboss { // begone, "artist interpretation" bullshit
+	}
+
+
+	steven_savescum_houseboss_1 { // begone, "artist interpretation" bullshit
+	}
+	
+	steven_savescum_houseboss_2 { // begone, "artist interpretation" bullshit
+	}
+	steven_savescum_houseboss_3 { // begone, "artist interpretation" bullshit
+	}
+
+	steven_savescum_houseboss_100 { // begone, "artist interpretation" bullshit
+	}
+
+
+	steven_savescum_1alt1 { //warning
+		set_state steven_center
+
+		dialog NPC_POPUP_STEVEN_SAVESCUM_1ALT1_1
+		dialog NPC_POPUP_STEVEN_SAVESCUM_1ALT1_2
+		dialog NPC_POPUP_STEVEN_SAVESCUM_1ALT1_3
+		dialog NPC_POPUP_STEVEN_SAVESCUM_1ALT1_4
+		dialog NPC_POPUP_STEVEN_SAVESCUM_1ALT1_5
+		dialog NPC_POPUP_STEVEN_SAVESCUM_1ALT1_6
+		dialog NPC_POPUP_STEVEN_SAVESCUM_1ALT1_7
+		dialog NPC_POPUP_STEVEN_SAVESCUM_1ALT1_8
+		dialog NPC_POPUP_STEVEN_SAVESCUM_1ALT1_9
+
+		autosave adventure
+		set_state offscreen
+	}
+	steven_savescum_1alt2 { //warning
+		set_state steven_center
+
+		dialog NPC_POPUP_STEVEN_SAVESCUM_1ALT2_1
+		dialog NPC_POPUP_STEVEN_SAVESCUM_1ALT2_2
+		dialog NPC_POPUP_STEVEN_SAVESCUM_1ALT2_3
+		dialog NPC_POPUP_STEVEN_SAVESCUM_1ALT2_4
+		dialog NPC_POPUP_STEVEN_SAVESCUM_1ALT2_5
+		dialog NPC_POPUP_STEVEN_SAVESCUM_1ALT2_6
+		dialog NPC_POPUP_STEVEN_SAVESCUM_1ALT2_7
+		dialog NPC_POPUP_STEVEN_SAVESCUM_1ALT2_8
+		dialog NPC_POPUP_STEVEN_SAVESCUM_1ALT2_9
+		autosave adventure
+		set_state offscreen
+	}
+	steven_savescum_1alt3 { //warning
+		set_state steven_center
+
+		dialog NPC_POPUP_STEVEN_SAVESCUM_1ALT3_1
+		dialog NPC_POPUP_STEVEN_SAVESCUM_1ALT3_2
+		dialog NPC_POPUP_STEVEN_SAVESCUM_1ALT3_3
+		dialog NPC_POPUP_STEVEN_SAVESCUM_1ALT3_4
+		dialog NPC_POPUP_STEVEN_SAVESCUM_1ALT3_5
+		dialog NPC_POPUP_STEVEN_SAVESCUM_1ALT3_6
+		dialog NPC_POPUP_STEVEN_SAVESCUM_1ALT3_7
+		dialog NPC_POPUP_STEVEN_SAVESCUM_1ALT3_8
+
+		autosave adventure
+		set_state offscreen
+	}
+
+
+	steven_savescum_2alt1 { //1 cat deja vu 10%
+		set_state steven_cat
+
+		dialog NPC_POPUP_STEVEN_SAVESCUM_2ALT1_1
+		dialog NPC_POPUP_STEVEN_SAVESCUM_2ALT1_2
+
+		set_state steven_center
+		dialog NPC_POPUP_STEVEN_SAVESCUM_2ALT1_3
+		dialog NPC_POPUP_STEVEN_SAVESCUM_2ALT1_4
+		dialog NPC_POPUP_STEVEN_SAVESCUM_2ALT1_5
+		dialog NPC_POPUP_STEVEN_SAVESCUM_2ALT1_6
+		dialog NPC_POPUP_STEVEN_SAVESCUM_2ALT1_7
+		dialog NPC_POPUP_STEVEN_SAVESCUM_2ALT1_8
+
+		autosave adventure
+		set_state offscreen
+	}
+	steven_savescum_2alt2 { //1 cat deja vu 10%
+		set_state steven_center
+	
+		dialog NPC_POPUP_STEVEN_SAVESCUM_2ALT2_1
+		dialog NPC_POPUP_STEVEN_SAVESCUM_2ALT2_2
+
+		set_state steven_cat
+
+		dialog NPC_POPUP_STEVEN_SAVESCUM_2ALT2_3
+		dialog NPC_POPUP_STEVEN_SAVESCUM_2ALT2_4
+		dialog NPC_POPUP_STEVEN_SAVESCUM_2ALT2_5
+		dialog NPC_POPUP_STEVEN_SAVESCUM_2ALT2_6
+		dialog NPC_POPUP_STEVEN_SAVESCUM_2ALT2_7
+		dialog NPC_POPUP_STEVEN_SAVESCUM_2ALT2_8
+
+		autosave adventure
+		set_state offscreen
+	}
+	steven_savescum_2alt3 { //1 cat deja vu 10%
+		set_state steven_center
+	
+		dialog NPC_POPUP_STEVEN_SAVESCUM_2ALT3_1
+		dialog NPC_POPUP_STEVEN_SAVESCUM_2ALT3_2
+		dialog NPC_POPUP_STEVEN_SAVESCUM_2ALT3_3
+		dialog NPC_POPUP_STEVEN_SAVESCUM_2ALT3_4
+		dialog NPC_POPUP_STEVEN_SAVESCUM_2ALT3_5
+
+		set_state steven_cat
+		dialog NPC_POPUP_STEVEN_SAVESCUM_2ALT3_6
+		dialog NPC_POPUP_STEVEN_SAVESCUM_2ALT3_7
+		dialog NPC_POPUP_STEVEN_SAVESCUM_2ALT3_8
+		dialog NPC_POPUP_STEVEN_SAVESCUM_2ALT3_9
+
+		set_state steven_center
+		dialog NPC_POPUP_STEVEN_SAVESCUM_2ALT3_10
+
+		autosave adventure
+		set_state offscreen
+	}
+
+
+	steven_savescum_3alt1 { //all cats deja vu 10%
+		set_state steven_center
+	
+		dialog NPC_POPUP_STEVEN_SAVESCUM_3ALT1_1
+		dialog NPC_POPUP_STEVEN_SAVESCUM_3ALT1_2
+		dialog NPC_POPUP_STEVEN_SAVESCUM_3ALT1_3
+		dialog NPC_POPUP_STEVEN_SAVESCUM_3ALT1_4
+		dialog NPC_POPUP_STEVEN_SAVESCUM_3ALT1_5
+		dialog NPC_POPUP_STEVEN_SAVESCUM_3ALT1_6
+		dialog NPC_POPUP_STEVEN_SAVESCUM_3ALT1_7
+		dialog NPC_POPUP_STEVEN_SAVESCUM_3ALT1_8
+
+		autosave adventure
+		set_state offscreen
+	}
+	steven_savescum_3alt2 { //all cats deja vu 10%
+		set_state steven_center
+	
+		dialog NPC_POPUP_STEVEN_SAVESCUM_3ALT2_1
+		dialog NPC_POPUP_STEVEN_SAVESCUM_3ALT2_2
+		dialog NPC_POPUP_STEVEN_SAVESCUM_3ALT2_3
+		dialog NPC_POPUP_STEVEN_SAVESCUM_3ALT2_4
+		dialog NPC_POPUP_STEVEN_SAVESCUM_3ALT2_5
+		dialog NPC_POPUP_STEVEN_SAVESCUM_3ALT2_6
+		dialog NPC_POPUP_STEVEN_SAVESCUM_3ALT2_7
+		dialog NPC_POPUP_STEVEN_SAVESCUM_3ALT2_8
+
+		autosave adventure
+		set_state offscreen
+	}
+	steven_savescum_3alt3 { //all cats deja vu 10%
+		set_state steven_center
+	
+		dialog NPC_POPUP_STEVEN_SAVESCUM_3ALT3_1
+		dialog NPC_POPUP_STEVEN_SAVESCUM_3ALT3_2
+		dialog NPC_POPUP_STEVEN_SAVESCUM_3ALT3_3
+		dialog NPC_POPUP_STEVEN_SAVESCUM_3ALT3_4
+		dialog NPC_POPUP_STEVEN_SAVESCUM_3ALT3_5
+		dialog NPC_POPUP_STEVEN_SAVESCUM_3ALT3_6
+		dialog NPC_POPUP_STEVEN_SAVESCUM_3ALT3_7
+		dialog NPC_POPUP_STEVEN_SAVESCUM_3ALT3_8
+
+		autosave adventure
+		set_state offscreen
+	}
+
+	steven_savescum_4alt1 { //deja vu level up (25%) steven takes over
+		set_state steven_center
+	
+		dialog NPC_POPUP_STEVEN_SAVESCUM_4ALT1_1
+		dialog NPC_POPUP_STEVEN_SAVESCUM_4ALT1_2
+		dialog NPC_POPUP_STEVEN_SAVESCUM_4ALT1_3
+		dialog NPC_POPUP_STEVEN_SAVESCUM_4ALT1_4
+
+		autosave adventure
+		set_state offscreen
+	}
+	steven_savescum_4alt2 { //deja vu level up (25%) steven takes over
+		set_state steven_center
+	
+		dialog NPC_POPUP_STEVEN_SAVESCUM_4ALT2_1
+		dialog NPC_POPUP_STEVEN_SAVESCUM_4ALT2_2
+		dialog NPC_POPUP_STEVEN_SAVESCUM_4ALT2_3
+		dialog NPC_POPUP_STEVEN_SAVESCUM_4ALT2_4
+		dialog NPC_POPUP_STEVEN_SAVESCUM_4ALT2_5
+
+		autosave adventure
+		set_state offscreen
+	}
+	steven_savescum_4alt3 { //deja vu level up (25%) steven takes over
+		set_state steven_center
+	
+		dialog NPC_POPUP_STEVEN_SAVESCUM_4ALT3_1
+		dialog NPC_POPUP_STEVEN_SAVESCUM_4ALT3_2
+		dialog NPC_POPUP_STEVEN_SAVESCUM_4ALT3_3
+		dialog NPC_POPUP_STEVEN_SAVESCUM_4ALT3_4
+
+		autosave adventure
+		set_state offscreen
+	}
+
+
+
+	//beanies late game popups
+
+	beanies_rift_intro { //dr beanies comments on the chaos realm!
+		delay .25
+		sfx UISFX_BeaniesAppear
+		set_state beanies_right
+
+		dialog NPC_POPUP_BEANIES_RIFT_INTRO_1
+		dialog NPC_POPUP_BEANIES_RIFT_INTRO_2
+		dialog NPC_POPUP_BEANIES_RIFT_INTRO_3
+		dialog NPC_POPUP_BEANIES_RIFT_INTRO_4
+		dialog NPC_POPUP_BEANIES_RIFT_INTRO_5
+		dialog NPC_POPUP_BEANIES_RIFT_INTRO_6
+		dialog NPC_POPUP_BEANIES_RIFT_INTRO_7
+		dialog NPC_POPUP_BEANIES_RIFT_INTRO_8
+		dialog NPC_POPUP_BEANIES_RIFT_INTRO_9
+		dialog NPC_POPUP_BEANIES_RIFT_INTRO_10
+		dialog NPC_POPUP_BEANIES_RIFT_INTRO_11
+
+		sfx UISFX_BeaniesAway
+		set_state offscreen
+	}
+
+	beanies_infinite_intro { //dr beanies unlocks the infinite and pushes you to challenge the creator.
+		delay .25
+		sfx UISFX_BeaniesAppear
+		set_state beanies_right
+
+		dialog NPC_POPUP_BEANIES_INFINITE_INTRO_1
+		dialog NPC_POPUP_BEANIES_INFINITE_INTRO_2
+		dialog NPC_POPUP_BEANIES_INFINITE_INTRO_3
+		dialog NPC_POPUP_BEANIES_INFINITE_INTRO_4
+		dialog NPC_POPUP_BEANIES_INFINITE_INTRO_5
+		dialog NPC_POPUP_BEANIES_INFINITE_INTRO_6
+		dialog NPC_POPUP_BEANIES_INFINITE_INTRO_7
+		dialog NPC_POPUP_BEANIES_INFINITE_INTRO_8
+		dialog NPC_POPUP_BEANIES_INFINITE_INTRO_9
+		dialog NPC_POPUP_BEANIES_INFINITE_INTRO_10
+		dialog NPC_POPUP_BEANIES_INFINITE_INTRO_11
+
+		sfx UISFX_BeaniesAway
+		set_state offscreen
+	}
+
+		
+	beanies_vscreatorintro { //dr beanies explains how to end it all
+		sfx UISFX_BeaniesAppear
+		set_state beanies_right
+
+		dialog NPC_POPUP_BEANIES_VSCREATORINTRO_1
+		dialog NPC_POPUP_BEANIES_VSCREATORINTRO_2 
+		dialog NPC_POPUP_BEANIES_VSCREATORINTRO_3
+		dialog NPC_POPUP_BEANIES_VSCREATORINTRO_4
+		dialog NPC_POPUP_BEANIES_VSCREATORINTRO_5
+		dialog NPC_POPUP_BEANIES_VSCREATORINTRO_6
+		dialog NPC_POPUP_BEANIES_VSCREATORINTRO_7
+		dialog NPC_POPUP_BEANIES_VSCREATORINTRO_8
+
+		sfx UISFX_BeaniesAway
+		set_state offscreen
+	}
+
+	beanies_vscreator1 { //dr beanies tells you to detonate the nuke
+		sfx UISFX_BeaniesAppear
+		set_state beanies_right
+
+		dialog NPC_POPUP_BEANIES_VSCREATOR1_1
+		dialog NPC_POPUP_BEANIES_VSCREATOR1_2
+		dialog NPC_POPUP_BEANIES_VSCREATOR1_3
+		dialog NPC_POPUP_BEANIES_VSCREATOR1_4
+		dialog NPC_POPUP_BEANIES_VSCREATOR1_5
+		dialog NPC_POPUP_BEANIES_VSCREATOR1_6
+		dialog NPC_POPUP_BEANIES_VSCREATOR1_7
+		dialog NPC_POPUP_BEANIES_VSCREATOR1_8
+		dialog NPC_POPUP_BEANIES_VSCREATOR1_9
+		dialog NPC_POPUP_BEANIES_VSCREATOR1_10
+		dialog NPC_POPUP_BEANIES_VSCREATOR1_11
+		dialog NPC_POPUP_BEANIES_VSCREATOR1_12
+		dialog NPC_POPUP_BEANIES_VSCREATOR1_13
+		dialog NPC_POPUP_BEANIES_VSCREATOR1_14
+
+		sfx UISFX_BeaniesAway
+		set_state offscreen
+	}
+	
+	beanies_vscreator2 { //dr beanies trys to convince you to detonate the nuke if you refuse
+		sfx UISFX_BeaniesAppear
+		set_state beanies_right
+	
+		dialog NPC_POPUP_BEANIES_VSCREATOR2_1
+		dialog NPC_POPUP_BEANIES_VSCREATOR2_2
+		dialog NPC_POPUP_BEANIES_VSCREATOR2_3
+		dialog NPC_POPUP_BEANIES_VSCREATOR2_4
+		dialog NPC_POPUP_BEANIES_VSCREATOR2_5
+		dialog NPC_POPUP_BEANIES_VSCREATOR2_6
+		dialog NPC_POPUP_BEANIES_VSCREATOR2_7
+		dialog NPC_POPUP_BEANIES_VSCREATOR2_8
+
+		sfx UISFX_BeaniesAway
+		set_state offscreen
+	}
+	
+	beanies_vscreator3 { //dr beanies trys angry by your choice continues to try and convince you to end it.
+		sfx UISFX_BeaniesAppear
+		set_state beanies_intensestatic
+	
+		dialog NPC_POPUP_BEANIES_VSCREATOR3_1
+		dialog NPC_POPUP_BEANIES_VSCREATOR3_2
+		dialog NPC_POPUP_BEANIES_VSCREATOR3_3
+		dialog NPC_POPUP_BEANIES_VSCREATOR3_4
+		dialog NPC_POPUP_BEANIES_VSCREATOR3_5
+		dialog NPC_POPUP_BEANIES_VSCREATOR3_6
+		dialog NPC_POPUP_BEANIES_VSCREATOR3_7
+		dialog NPC_POPUP_BEANIES_VSCREATOR3_8
+		dialog NPC_POPUP_BEANIES_VSCREATOR3_9
+		dialog NPC_POPUP_BEANIES_VSCREATOR3_10
+		dialog NPC_POPUP_BEANIES_VSCREATOR3_11
+
+		sfx UISFX_BeaniesAway
+		set_state offscreen
+	}
+	
+	beanies_vscreator4 { //dr beanies sets the nuke off himself after your refusal to do so
+		sfx UISFX_BeaniesAppear
+		set_state beanies_intensestatic
+
+		dialog NPC_POPUP_BEANIES_VSCREATOR4_1
+		dialog NPC_POPUP_BEANIES_VSCREATOR4_2
+		dialog NPC_POPUP_BEANIES_VSCREATOR4_3
+		dialog NPC_POPUP_BEANIES_VSCREATOR4_4
+		dialog NPC_POPUP_BEANIES_VSCREATOR4_5
+		dialog NPC_POPUP_BEANIES_VSCREATOR4_6
+		dialog NPC_POPUP_BEANIES_VSCREATOR4_7
+		dialog NPC_POPUP_BEANIES_VSCREATOR4_8
+
+		force_current_cat_use_ability neck_NukeBonus_remote
+
+		sfx UISFX_BeaniesAway
+		set_state offscreen
+	}
+}

@@ -1,0 +1,607 @@
+RatMob {
+    intro {
+        title "EVENT_MOBOFRATS_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame ratmob
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_MOBOFRATS_QUES"
+
+        options {
+            fight {
+                label EVENT_FIGHT_ANSW
+                stat str
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_MOBOFRATS_REW1"
+
+                            get_item_from_pool food
+
+                            global_effect_next_fight {
+                                CharacterTypeGainsStatusAtBattleStart {
+                                    tag rat
+                                    Fear 1
+                                }
+                            }
+                        }
+                        rare {
+						    prompt "EVENT_MOBOFRATS_REW2"
+                            get_item_from_pool rat_trinkets
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_MOBOFRATS_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_MOBOFRATS_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            negotiate {
+                label EVENT_NEGOTIATE_ANSW
+                stat cha
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_MOBOFRATS_REW5"
+                            gain_coins [10 20]
+                        }
+                        rare {
+                            prompt "EVENT_MOBOFRATS_REW6"
+                            gain_familiar RatKing
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_MOBOFRATS_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_MOBOFRATS_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            avoid {
+                label "EVENT_AVOID_ANSW"
+                stat spd
+                animation choice_leave
+
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_MOBOFRATS_REW9"
+                            //nothing
+                        }
+                        rare {
+                            prompt "EVENT_MOBOFRATS_REW10"
+                            get_item_from_pool rat_trinkets
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_MOBOFRATS_REW11"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_MOBOFRATS_REW12"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+RatMother {
+    intro {
+        title "EVENT_RATHERMOTHER_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame rat_mother
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_RATHERMOTHER_QUES"
+
+        options {
+            milk {
+                label "EVENT_MILK_ANSW"
+                stat lck
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_RATHERMOTHER_REW1"
+                            gain_food [1 4]
+                        }
+                        rare {
+                            prompt "EVENT_RATHERMOTHER_REW2"
+                            gain_familiar CharmedBabyRat
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_RATHERMOTHER_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_RATHERMOTHER_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            scare {
+                label "EVENT_SCARE_ANSW"
+                stat str
+                
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_RATHERMOTHER_REW5"
+                            gain_food [1 4]
+                        }
+                        rare {
+                            prompt "EVENT_RATHERMOTHER_REW6"
+                            gain_familiar CharmedBabyRat
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_RATHERMOTHER_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_RATHERMOTHER_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            leave {
+                label "EVENT_LEAVE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_RATHERMOTHER_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+Hooligans {
+    intro {
+        title "EVENT_HOOLIGANS_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame bullies
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_HOOLIGANS_QUES"
+
+        options {
+            intimidate {
+                label "EVENT_INTIMIDATE_ANSW"
+                stat cha
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_HOOLIGANS_REW1"
+                            gain_coins [15 30]
+                        }
+                        rare {
+                            prompt "EVENT_HOOLIGANS_REW2"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_HOOLIGANS_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_HOOLIGANS_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            fight {
+                label "EVENT_FIGHT_ANSW"
+                stat str
+                
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_HOOLIGANS_REW5"
+                            gain_coins [15 30]
+                        }
+                        rare {
+                            prompt "EVENT_HOOLIGANS_REW6"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_HOOLIGANS_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_HOOLIGANS_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            run {
+                label "EVENT_RUN_ANSW"
+                stat spd
+                animation choice_leave
+                
+                good {
+                    set_frame 6
+                    reward {
+                        common {
+                            prompt "EVENT_HOOLIGANS_REW9"
+                            play_animation [resultLeave 0]
+                        }
+                        rare {
+                            prompt "EVENT_HOOLIGANS_REW10"
+                            get_item_from_pool chapter_common
+                        }
+                    }
+                }
+                bad {
+                    set_frame 7
+                    reward {
+                        common {
+                            prompt "EVENT_HOOLIGANS_REW11"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_HOOLIGANS_REW12"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+SludgeMonster {
+    intro {
+        title "EVENT_SLUDGEMONSTER_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame sludge_monster
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_SLUDGEMONSTER_QUES"
+
+        options {
+            strike {
+                label "EVENT_STRIKE_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_SLUDGEMONSTER_REW1"
+                            gain_coins [20 30]
+                        }
+                        rare {
+                            prompt "EVENT_SLUDGEMONSTER_REW2"
+                            gain_coins [20 30]
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_SLUDGEMONSTER_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_SLUDGEMONSTER_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            charm {
+                label "EVENT_CHARM_ANSW"
+                stat cha
+                
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_SLUDGEMONSTER_REW5"
+                            gain_familiar CharmedSludge
+                        }
+                        rare {
+                            prompt "EVENT_SLUDGEMONSTER_REW6"
+                            gain_familiar CharmedSludge
+                            gain_coins [20 30]
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_SLUDGEMONSTER_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_SLUDGEMONSTER_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            flee {
+                label "EVENT_FLEE_ANSW"
+                stat spd
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_SLUDGEMONSTER_REW9"
+                    play_animation [resultLeave 0]
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_SLUDGEMONSTER_REW10"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_SLUDGEMONSTER_REW11"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+Witch {
+    intro {
+        title "EVENT_WITCH_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame witch
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_WITCH_QUES"
+
+        options {
+            drink_red {
+                label "EVENT_WITCH_RED_ANSW"
+                stat con
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_WITCH_REW1"
+                            party_heal 50%
+                            random_mutation 1
+                        }
+                        rare {
+                            prompt "EVENT_WITCH_REW2"
+                            party_heal 100%
+                            random_mutation 1
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_WITCH_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_WITCH_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+            drink_green {
+                label "EVENT_WITCH_GREEN_ANSW"
+                stat lck
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_WITCH_REW5"
+                            get_item_from_pool chapter_common
+                        }
+                        rare {
+                            prompt "EVENT_WITCH_REW6"
+                            get_item_from_pool {
+                                pool chapter_rare
+                                restrict [weapon, trinket, armor]
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_WITCH_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_WITCH_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+            leave {
+                label "EVENT_LEAVE_ANSW"
+                stat none
+                animation choice_leave
+
+                good {
+                    prompt "EVENT_WITCH_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+WatchingHead {
+    intro {
+        title "EVENT_WATCHINGHEAD_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame wall_face
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_WATCHINGHEAD_QUES"
+
+        options {
+            talk {
+                label "EVENT_TALK_ANSW"
+                stat cha
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_WATCHINGHEAD_REW1"
+                            random_mutation 1
+                        }
+                        rare {
+                            prompt "EVENT_WATCHINGHEAD_REW2"
+                            random_mutation 2
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_WATCHINGHEAD_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_WATCHINGHEAD_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            sneak {
+                label "EVENT_SNEAKBY_ANSW"
+                stat dex
+
+                good {
+                    set_frame 4
+                    prompt "EVENT_WATCHINGHEAD_REW5"
+                    //nothing
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 4
+                            prompt "EVENT_WATCHINGHEAD_REW5"
+                            party_heal 1
+                        }
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_WATCHINGHEAD_REW6"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

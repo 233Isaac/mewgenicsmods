@@ -1,0 +1,2451 @@
+Crate {
+    intro {
+        title "EVENT_CRATE_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame crate
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_CRATE_QUES"
+
+        options {
+            smash {
+         
+       label "EVENT_SMASH_ANSW"
+                stat str
+
+                good {
+                    set_frame 2
+                    reward {
+                
+        common {
+                            prompt "EVENT_CRATE_REW1"
+                            random_pool [
+                                { 
+
+                                    gain_coins [1, 20] 
+                                }{ 
+                            
+        get_item_from_pool consumables 
+                                }{ 
+                                    prompt "EVENT_CRATE_REW2"
+                    
+                full_heal 1 
+                                }
+                            ]
+                      
+  }
+                        rare {
+                            prompt "EVENT_CRATE_REW3"
+                            random_pool [
+               
+                 { 
+                                    get_item FurnitureBox
+                                }{ 
+            
+                        get_item_from_pool weapons
+                                }{ 
+                                    get_item_from_pool chapter
+     
+                           }
+                            ]
+                        }
+                    }
+ 
+               }
+                bad {
+                    prompt "EVENT_CRATE_REW4"
+                    party_heal 1
+                }
+        
+    }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                copy_results smash
+            }
+
+            open {
+       
+         label "EVENT_OPEN_ANSW"
+                stat lck
+
+                copy_results smash
+            }
+        }
+    }
+}
+
+Dumpster {
+    intro {
+        title "EVENT_LOCKEDDUMPSTER_NAME"
+        cat_choice random
+        
+subject_clip EventSubject
+        subject_frame dumpster
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_LOCKEDDUMPSTER_QUES"
+
+        options {
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+       
+         good {
+                    prompt "EVENT_LOCKEDDUMPSTER_REW1"
+                    set_frame 2
+                    reward {
+                        common {
+  
+                          random_pool [
+                                { 
+                                    gain_coins [10 20]
+  
+                                  gain_food [1 10]
+                                }
+                                
+{ 
+                                    get_item_from_pool chapter
+                                }
+                              
+  { 
+                                    get_item_from_pool consumables
+                                    gain_food [10 20]
+                      
+          }
+                            ]
+                        }
+                        rare {
+             
+               random_pool [
+                                {
+                                    gain_coins [25 50]
+              
+                  }
+                                { 
+                                    get_item_from_pool any_chapter
+            
+                    }
+                            ]
+                        }
+                    }
+        
+        }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+        
+                    prompt "EVENT_LOCKEDDUMPSTER_REW2"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_LOCKEDDUMPSTER_REW3"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+          
+  pick {
+                label "EVENT_PICK_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                copy_results examine
+            }
+
+            smash {
+    
+            label "EVENT_SMASH_ANSW"
+                stat str
+
+                copy_results examine
+            }
+        }
+    }
+}
+
+Safe {
+    intro {
+        title "EVENT_SAFE_NAME"
+        cat_choice random
+     
+   subject_clip EventSubject
+        subject_frame safe
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_SAFE_QUES"
+
+        options {
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+    
+            good {
+                    prompt "EVENT_SAFE_REW1"
+                    set_frame 2
+                    reward {
+                        
+common {
+                            random_pool [
+                                { 
+                                    gain_coins 
+[20 30]
+                                }
+                                { 
+                                  
+  get_item_from_pool chapter
+                                    random_chance {
+                                        chance 50%
+                   
+                     get_item_from_pool chapter
+                                    }
+                                }
+          
+                      { 
+                                    get_item FurnitureBox
+                                }
+        
+                    ]
+                        }
+                        rare {
+                            get_item_from_pool unique
+  
+                      }
+                    }
+                }
+                bad {
+                    reward {
+    
+                    common {
+                            set_frame 3
+                            prompt "EVENT_SAFE_REW2"
+                            party_heal 1
+                        }
+                        rare {
+                            set_frame 2
+                            prompt "EVENT_SAFE_REW3"
+                            party_heal 1
+                        }
+                    }
+                }
+          
+  }
+
+            pick {
+                label "EVENT_PICK_ANSW"
+                stat dex
+                animation choice_dex_alt
+
+                copy_results examine
+            }
+
+     
+       open {
+                label "EVENT_OPEN_ANSW"
+                stat lck
+
+                copy_results examine
+            }
+        }
+    }
+}
+
+Bottle {
+    intro {
+        title "EVENT_BOTTLEOFUNKNOWNLIQUID_NAME"
+  
+      cat_choice random
+        subject_clip EventSubject
+        subject_frame bottleofliquid
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_BOTTLEOFUNKNOWNLIQUID_QUES"
+
+        options {
+            drink {
+                label EVENT_DRINK_ANSW
+         
+       stat con
+
+                good {
+                    prompt "EVENT_BOTTLEOFUNKNOWNLIQUID_REW1"
+                    set_frame 2
+                    reward {
+            
+            common {
+                            permanent_stats {
+                                random 1
+                         
+   }
+                        }
+                        rare {
+                            permanent_stats {
+                   
+             random 2
+                            }
+                        }
+                    }
+              
+  }
+                bad {
+                    prompt "EVENT_BOTTLEOFUNKNOWNLIQUID_REW2"
+                    set_frame 2
+                    reward {
+                        common {
+                            party_heal 1
+                        }
+                        rare {
+                            party_heal 1
+                        }
+                    }
+                }
+    
+        }
+
+            take {
+                label "EVENT_TAKE_ANSW"
+                stat lck
+
+                good {
+                    set_frame 3
+       
+             reward {
+                        common {
+                            prompt "EVENT_BOTTLEOFUNKNOWNLIQUID_REW3"
+                            get_item Bottles
+   
+                     }
+                        rare {
+                            prompt "EVENT_BOTTLEOFUNKNOWNLIQUID_REW3"
+                         
+   get_item Bottles
+                            get_item Bottles
+							get_item Bottles
+                            get_item Bottles
+                            get_item Bottles
+							get_item Bottles
+       
+                 }
+                    }
+                }
+                bad {
+                    set_frame 3
+         
+           reward {
+                        common {
+                            prompt "EVENT_BOTTLEOFUNKNOWNLIQUID_REW4"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_BOTTLEOFUNKNOWNLIQUID_REW5"
+                            party_heal 1
+                        }
+                    }
+                }
+         
+   }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good 
+{
+                    prompt "EVENT_BOTTLEOFUNKNOWNLIQUID_REW6"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+Pinata {
+    intro {
+        title "EVENT_SOMEKINDOFPINATA_NAME"
+  
+      cat_choice random
+        subject_clip EventSubject
+        subject_frame pinata
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_SOMEKINDOFPINATA_QUES"
+        setup {
+            conditional_reward {
+                requirements {
+         
+           has_token HasHitPinata
+                }
+
+                reward {
+                    prompt "EVENT_SOMEKINDOFPINATA_QUES2"
+                }
+            }
+      
+  }
+
+        options {
+            smash {
+                label "EVENT_SMASH_ANSW"
+                stat str
+
+                good {
+                    reward {
+    
+                    common {
+                            set_frame 2
+                            prompt "EVENT_SOMEKINDOFPINATA_REW1"
+                     
+       gain_coins [1 15]
+                        }
+                        rare {
+                            random_pool [
+             
+                   {
+                                    prompt "EVENT_SOMEKINDOFPINATA_REW2A"
+                                }
+            
+                    {
+                                    prompt "EVENT_SOMEKINDOFPINATA_REW2B"
+                                }
+           
+                     {
+                                    prompt "EVENT_SOMEKINDOFPINATA_REW2C"
+                                }
+          
+                  ]
+                            gain_coins [5 20]
+                            set_adventure_token HasHitPinata
+                       
+     override_end_option_prompt "EVENT_SOMEKINDOFPINATA_AGAIN"
+                            event_now_same_cat Pinata
+                        }
+                    }
+                }
+     
+           bad {
+                    reward {
+                        common {
+                            prompt "EVENT_SOMEKINDOFPINATA_REW3"
+                            set_adventure_token HasHitPinata
+                            override_end_option_prompt "EVENT_SOMEKINDOFPINATA_AGAIN"
+                            party_heal 1
+                        }
+  
+                      rare {
+                            prompt "EVENT_SOMEKINDOFPINATA_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            leave {
+                label "EVENT_IGNORE_ANSW"
+                
+stat none
+                animation choice_leave
+
+                good {
+                    conditional_reward {
+                        requirements {
+                   
+         has_token HasHitPinata
+                        }
+                        reward {
+                            prompt "EVENT_SOMEKINDOFPINATA_REW5"
+            
+            }
+                        else{
+                            prompt "EVENT_SOMEKINDOFPINATA_REW6"
+                        }
+           
+         }
+                    
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+GenieLamp {
+    intro {
+   
+     title "EVENT_ANODDLAMP_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame genie
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_ANODDLAMP_QUES"
+
+        options {
+            rub {
+                label "EVENT_RUB_ANSW"
+ 
+               stat lck
+
+                good {
+                    reward {
+                        common {
+                     
+       prompt "EVENT_ANODDLAMP_REW1"
+                            self_status_next_fight {
+                                LuckUp 1
+                            }
+  
+                       }
+                        rare {
+                        
+    prompt "EVENT_ANODDLAMP_REW2"
+                            set_frame 2
+                            event_now_same_cat Genie_Good 
+                        }
+        
+            }
+                }
+                bad {
+                    reward {
+                        common {
+                            prompt "EVENT_ANODDLAMP_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_ANODDLAMP_REW4"
+                            set_frame 4
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            leave {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+ 
+               animation choice_leave
+
+                good {
+                    prompt "EVENT_ANODDLAMP_REW5"
+                    play_animation [resultLeave 0]
+                }
+        
+    }
+        }
+    }
+}
+
+ToxicWaste {
+    intro {
+        title "EVENT_AVATOFTOXICWASTE_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame toxicwastevat
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_AVATOFTOXICWASTE_QUES"
+
+        options {
+      
+      sneak {
+                label "EVENT_GOAROUND_ANSW"
+                stat dex
+
+                good {
+                    set_frame 2
+                    reward 
+{
+                        common {
+                            prompt "EVENT_AVATOFTOXICWASTE_REW1"
+                        }
+                      
+  rare {
+                            prompt "EVENT_AVATOFTOXICWASTE_REW2"
+                            random_mutation_from_set {
+                                tail -1
+                                tail -1
+                                body -1
+                                body -1
+                                leg1 -1
+                                leg2 -1
+                                arm1 -1
+                                arm2 -1
+                            }
+                        }
+                    }
+ 
+               }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_AVATOFTOXICWASTE_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_AVATOFTOXICWASTE_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            examine 
+{
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 2
+                    reward {
+       
+                 common {
+                            prompt "EVENT_AVATOFTOXICWASTE_REW5"
+                            random_mutation_from_set { 
+                                eyes -1
+                                mouth -1
+                                head -1
+                                eyebrows -1
+                                ears -1
+                            }
+                        }
+     
+                   rare {
+                            prompt "EVENT_AVATOFTOXICWASTE_REW6"
+                            random_mutation_from_set { 
+                                count 3
+                                eyes -1
+                                mouth -1
+                                head -1
+                                eyebrows -1
+                                ears -1
+                            }
+                        }
+                    }
+                }
+
+                bad {
+                 
+   set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_AVATOFTOXICWASTE_REW7"
+                            party_heal 1
+                        }
+       
+                 rare {
+                            prompt "EVENT_AVATOFTOXICWASTE_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+   
+         }
+
+            eat {
+                label "EVENT_DRINK_ANSW"
+                stat con
+
+                good {
+                    set_frame 2
+      
+              reward {
+                        common {
+                            prompt "EVENT_AVATOFTOXICWASTE_REW9"
+                            random_mutation_from_set { 
+                                mouth -1
+                            }
+                        }
+               
+         rare {
+                            prompt "EVENT_AVATOFTOXICWASTE_REW10"
+                            random_mutation_from_set {
+                                mouth -1
+                            }
+                            random_mutation_from_set {
+                                body -1
+                            }
+                            random_mutation_from_set {
+                                texture -1
+                            }
+                        }
+                    }
+                }
+
+                bad {
+              
+      set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_AVATOFTOXICWASTE_REW11"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_AVATOFTOXICWASTE_REW12"
+                            party_heal 1
+                        }
+                    }
+               
+ }
+            }
+        }
+    }
+}
+
+WomansPurse {
+    intro {
+        title "EVENT_WOMANSPURSE_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame womans_purse
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_WOMANSPURSE_QUES"
+
+      
+  options {
+            open {
+                label "EVENT_OPEN_ANSW"
+                stat lck
+
+                good {
+                    set_frame 2
+            
+        reward {
+                        common {
+                            prompt "EVENT_WOMANSPURSE_REW1"
+                            self_status_next_fight {
+                                CharismaUp 2
+                            }
+                        }
+                       
+ rare {
+                            prompt "EVENT_WOMANSPURSE_REW2"
+                            get_item_from_pool mom_items
+                        }
+                
+    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_WOMANSPURSE_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_WOMANSPURSE_REW4" 
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                
+stat int
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+               
+             prompt "EVENT_WOMANSPURSE_REW5"
+                            random_pool [
+                                { 
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                }
+                                {
+                                    gain_coins [3 10]
+                                }
+                            ]
+                        }
+                        rare {
+                            prompt "EVENT_WOMANSPURSE_REW6"
+                            get_item_from_pool pills
+                            get_item_from_pool pills
+                            get_item_from_pool pills
+                            get_item_from_pool pills
+                            gain_coins 10
+                        }
+                    }
+                }
+     
+           bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_WOMANSPURSE_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_WOMANSPURSE_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+            
+            leave {
+                label "EVENT_LEAVE_ANSW"
+  
+              stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_WOMANSPURSE_REW9"
+              
+      play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+OldCan {
+    intro {
+        title "EVENT_OLDCAN_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame old_can
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_OLDCAN_QUES"
+
+        options {
+            drink {
+                label "EVENT_DRINK_ANSW"
+                stat con
+
+                good {
+          
+          set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_OLDCAN_REW1"
+                            self_status_next_fight {
+                                AddStartingMana 5
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_OLDCAN_REW2"
+                            permanent_stats {
+                                spd 2
+                            }
+                        }
+                    }
+            
+    }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_OLDCAN_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_OLDCAN_REW4" 
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            take {
+                label "EVENT_TAKE_ANSW"
+                stat lck
+              
+                good {
+                    set_frame 2
+                    prompt "EVENT_OLDCAN_REW5"
+               
+     reward {
+                        common {
+                            get_item_from_pool can_items_common
+                        }
+                
+        rare {
+                            get_item_from_pool can_items_rare
+                        }
+                    }
+                }
+  
+              bad {
+                    set_frame 2
+                    prompt "EVENT_OLDCAN_REW6"
+                    party_heal 1
+                }
+      
+      }
+            
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+  
+              good {
+                    prompt "EVENT_OLDCAN_REW7"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+ARock {
+ 
+   intro {
+        title "EVENT_AROCK_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame a_rock
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_AROCK_QUES"
+
+        options {
+            smash {
+           
+     label "EVENT_SMASH_ANSW"
+                stat str
+
+                good {
+                    set_frame 2
+                    reward {
+                  
+      common {
+                            prompt "EVENT_AROCK_REW1"
+                        }
+            
+            rare {
+                            prompt "EVENT_AROCK_REW2"
+                            get_item Geode
+                        }
+     
+               }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_AROCK_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_AROCK_REW4" 
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            take {
+                label "EVENT_TAKE_ANSW"
+               
+ stat lck
+
+                good {
+                    set_frame 2
+                    prompt "EVENT_AROCK_REW5"
+                    get_item_from_pool rock_items
+                }
+  
+              bad {
+                    prompt "EVENT_AROCK_REW6"
+                    party_heal 1
+                }
+            }
+
+            
+   
+         ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+      
+              prompt "EVENT_AROCK_REW7"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+HollowSkull { 
+    intro {
+        title "EVENT_HOLLOWSKULL_NAME"
+       
+ cat_choice random
+        subject_clip EventSubject
+        subject_frame hollow_skull
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_HOLLOWSKULL_QUES"
+
+        options {
+            smash {
+                label "EVENT_SMASH_ANSW"
+              
+  stat str
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+             
+               random_pool [
+                                { 
+                                    prompt "EVENT_HOLLOWSKULL_REW1"
+                                    get_item Molars
+                                }
+                                {
+                                    prompt "EVENT_HOLLOWSKULL_REW2"
+                                }
+                            ]
+                        }
+                        rare {
+                            prompt "EVENT_HOLLOWSKULL_REW3"
+                            get_item_from_pool [BonesHat, DryBoneHat]
+                        }
+                    }
+                }
+             
+   bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_HOLLOWSKULL_REW4"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_HOLLOWSKULL_REW5" 
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+                        
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+               
+ stat int
+
+                copy_results smash
+            }
+
+            open {
+                label "EVENT_OPEN_ANSW"
+                stat lck
+
+                copy_results smash
+            }
+        }
+    }
+}
+
+TunaCan { 
+    intro {
+        title "EVENT_TUNACAN_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame tuna_can
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_TUNACAN_QUES"
+
+        options {
+  
+          open {
+                label "EVENT_OPEN_ANSW"
+                stat lck
+
+                good {
+                    set_frame 2
+                 
+   reward {
+                        common {
+                            prompt "EVENT_TUNACAN_REW1"
+                            self_heal 10
+             
+           }
+                        rare {
+                            prompt "EVENT_TUNACAN_REW2"
+                            get_item_from_pool [Pearl, FishHook, FishNecklace]
+    
+                    }
+                    }
+                }
+                bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_TUNACAN_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_TUNACAN_REW4" 
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+   
+                     
+            smash {
+                label "EVENT_SMASH_ANSW"
+                stat str
+
+                copy_results open
+            }
+
+   
+         examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                copy_results open
+            }
+        }
+    }
+}
+
+AFewCoins {
+    intro {
+        title 
+"EVENT_AFEWCOINS_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame a_few_coins
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_AFEWCOINS_QUES"
+
+        options {
+            take {
+                label "EVENT_TAKE_ANSW"
+       
+         stat lck
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+      
+                      prompt "EVENT_AFEWCOINS_REW1"
+                            gain_coins [2 3]
+                        }
+                       
+ rare {
+                            prompt "EVENT_AFEWCOINS_REW2"
+                            get_item_from_pool Coin_items
+                        }
+                
+    }
+                }
+                bad {
+                    set_frame 1
+                    reward {
+                        common {
+                            prompt "EVENT_AFEWCOINS_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_AFEWCOINS_REW4" 
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+            
+    good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_AFEWCOINS_REW5"
+                            gain_coins 10
+                        }
+                        rare {
+                     
+       prompt "EVENT_AFEWCOINS_REW6"
+                            get_item_from_pool Coin_items
+                        }
+                    }
+                }
+   
+             bad {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_AFEWCOINS_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_AFEWCOINS_REW8" 
+                            party_heal 1
+                        }
+                    }
+          
+      }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+  
+              good {
+                    prompt "EVENT_AFEWCOINS_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+APuzzleBox {
+ 
+   intro {
+        title "EVENT_APUZZLEBOX_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame a_puzzle_box
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_APUZZLEBOX_QUES"
+
+        options {
+            examine {
+           
+     label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    reward {
+                        common {
+              
+              prompt "EVENT_APUZZLEBOX_REW1"
+                            play_animation resultBad
+                        }
+    
+                    rare {
+                            set_frame 2
+                            prompt "EVENT_APUZZLEBOX_REW2"
+                     
+       battle "events/hellspawn.lvl"
+                        }
+                    }
+                }
+                bad {
+               
+     reward {
+                        common {
+                            prompt "EVENT_APUZZLEBOX_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            set_frame 2
+                            prompt "EVENT_APUZZLEBOX_REW4" 
+                            get_item PuzzleBox
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+  
+          
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+          
+      good {
+                    prompt "EVENT_APUZZLEBOX_REW5"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+TimeCapsule {
+    intro {
+    
+    title "EVENT_TIMECAPSULE_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame time_capsule
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_TIMECAPSULE_QUES"
+
+        options {
+            smash {
+                label "EVENT_SMASH_ANSW"
+  
+              stat str
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+ 
+                           prompt "EVENT_TIMECAPSULE_REW1"
+                            conditional_reward {
+                                requirements {
+          
+                          is_not_chapter [future theend]
+                                }
+
+                                reward {
+       
+                             get_item_from_pool any_chapter
+                                }
+                                else {
+                                    get_item_from_pool [
+                                        LeafyMask
+	                            
+        LeafyHat
+	                                    LeafyNecklace
+	                                    DinoHat
+	                    
+                DinoMask
+	                                    DinoNecklace
+	                                    BigRockHat
+	            
+                        BigRockMask
+	                                    BigRockNecklace
+	                                    PhoenixHat
+	    
+                                PhoenixMask
+	                                    PhoenixNecklace
+                                
+        FrozenHat
+	                                    FrozenMask
+	                                    FrozenNecklace
+	                    
+                SaberToothedHat
+	                                    SaberToothedPelt
+	                                    CavemanBeard
+	            
+                        CavemanWig
+	                                    CavemanEyebrows
+	                                    CavemanNecklace
+                                    ]
+                                }
+                            }
+        
+                }
+                        rare {
+                            prompt "EVENT_TIMECAPSULE_REW2"
+                            conditional_reward {
+ 
+                               requirements {
+                                    is_not_chapter [future theend]
+                              
+  }
+
+                                reward {
+                                    get_item_from_pool chapter_rare
+                            
+    }
+                                else {
+                                    random_pool [
+                                        {
+                                            get_item FrozenHat
+                                            get_item FrozenMask
+                                            get_item FrozenNecklace
+                                        }
+                                        {
+                                            get_item SaberToothedHat
+                                            get_item SabertoothTigerPelt
+                                            get_item SaberToothedPelt
+                                        }
+                                        {
+                                            get_item CavemanWig
+                                            get_item CavemanEyebrows
+                                            get_item CavemanNecklace
+                                        }
+                                        {
+                                            get_item LeafyMask
+                                            get_item LeafyHat
+                                            get_item LeafyNecklace
+                                        }
+                                        {
+                                            get_item DinoHat
+                                            get_item DinoMask
+                                            get_item DinoNecklace
+                                        }
+                                        {
+                                            get_item BigRockHat
+                                            get_item BigRockMask
+                                            get_item BigRockNecklace
+                                        }
+                                        {
+                                            get_item PhoenixHat
+                                            get_item PhoenixMask
+                                            get_item PhoenixNecklace
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                
+    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_TIMECAPSULE_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_TIMECAPSULE_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+          
+  }
+            
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 2
+ 
+                   reward {
+                        common {
+                            prompt "EVENT_TIMECAPSULE_REW5"
+                          
+  conditional_reward {
+                                requirements {
+                                    is_not_chapter [future theend]
+                          
+      }
+
+                                reward {
+                                    get_item_from_pool any_chapter
+                        
+        }
+                                else {
+                                    get_item_from_pool [
+                                        LeafyMask
+	                                    LeafyHat
+	                                    LeafyNecklace
+	                                    DinoHat
+	                                    DinoMask
+	                                    DinoNecklace
+	                                    BigRockHat
+	                                    BigRockMask
+	                                    BigRockNecklace
+	                                    PhoenixHat
+	                                    PhoenixMask
+	                                    PhoenixNecklace
+                                        FrozenHat
+	                                    FrozenMask
+	                                    FrozenNecklace
+	                                    SaberToothedHat
+	                                    SaberToothedPelt
+	                                    CavemanBeard
+	                                    CavemanWig
+	                                    CavemanEyebrows
+	                                    CavemanNecklace
+                                    ]
+                                }
+                            }
+                        }
+                        rare {
+             
+               prompt "EVENT_TIMECAPSULE_REW6"
+                            conditional_reward {
+                                requirements {
+                      
+              is_not_chapter [future theend]
+                                }
+                                reward {
+                   
+                 get_item_from_pool chapter_rare
+                                }
+                                else {
+                 
+                   random_pool [
+                                        {
+                                            get_item FrozenHat
+                                            get_item FrozenMask
+                                            get_item FrozenNecklace
+                                        }
+                                        {
+                                            get_item SaberToothedHat
+                                            get_item SabertoothTigerPelt
+                                            get_item SaberToothedPelt
+                                        }
+                                        {
+                                            get_item CavemanWig
+                                            get_item CavemanEyebrows
+                                            get_item CavemanNecklace
+                                        }
+                                        {
+                                            get_item LeafyMask
+                                            get_item LeafyHat
+                                            get_item LeafyNecklace
+                                        }
+                                        {
+                                            get_item DinoHat
+                                            get_item DinoMask
+                                            get_item DinoNecklace
+                                        }
+                                        {
+                                            get_item BigRockHat
+                                            get_item BigRockMask
+                                            get_item BigRockNecklace
+                                        }
+                                        {
+                                            get_item PhoenixHat
+                                            get_item PhoenixMask
+                                            get_item PhoenixNecklace
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 3
+                            prompt "EVENT_TIMECAPSULE_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            set_frame 4
+                            prompt "EVENT_TIMECAPSULE_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+            
+            ignore {
+              
+  label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_TIMECAPSULE_REW9"
+         
+           play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+Locket {
+    intro {
+        title "EVENT_LOCKET_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame locket
+     
+   event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_LOCKET_QUES"
+
+        options {
+            open {
+                label "EVENT_OPEN_ANSW"
+                stat lck
+
+                good {
+     
+               set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_LOCKET_REW1"
+                        }
+                        rare {
+                            prompt "EVENT_LOCKET_REW2"
+                            learn_ability FutureSight
+                        }
+                    }
+ 
+               }
+                bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_LOCKET_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_LOCKET_REW4" 
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+   
+         examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 3
+                  
+  reward {
+                        common {
+                            prompt "EVENT_LOCKET_REW5"
+                            gain_coins [4 8]
+             
+           }
+                        rare {
+                            prompt "EVENT_LOCKET_REW6"
+                            get_item_from_pool isaac_items
+      
+                  }
+                    }
+                }
+                bad {
+                    set_frame 4
+        
+            reward {
+                        common {
+                            prompt "EVENT_LOCKET_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_LOCKET_REW8"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+            
+            ignore {
+ 
+               label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                 
+   prompt "EVENT_LOCKET_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+
+        }
+    }
+}
+
+WeirdEgg {
+    intro {
+        title "EVENT_WEIRDEGG_NAME"
+        cat_choice random
+        subject_clip EventSubject
+ 
+       subject_frame weird_egg
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_WEIRDEGG_QUES"
+
+        options {
+            smash {
+                label "EVENT_SMASH_ANSW"
+                stat str
+
+         
+       good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_WEIRDEGG_REW1"
+                            full_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_WEIRDEGG_REW2"
+                            party_permanent_stats {
+                                con 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 4
+                            prompt "EVENT_WEIRDEGG_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            set_frame 5
+                            prompt "EVENT_WEIRDEGG_REW4" 
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            loot {
+                label "EVENT_LOOT_ANSW"
+   
+             stat dex
+                animation choice_dex_alt
+
+                good {
+                    set_frame 3
+                    reward {
+          
+              common {
+                            prompt "EVENT_WEIRDEGG_REW5"
+                            get_item_from_pool raptor_nest_eggs
+                        }
+   
+                     rare {
+                            prompt "EVENT_WEIRDEGG_REW6"
+                            gain_familiar FamiliarFetus
+                    
+    }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_WEIRDEGG_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_WEIRDEGG_REW8" 
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+              
+  stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_WEIRDEGG_REW9"
+                    play_animation [resultLeave 0]
+    
+            }
+            }
+        }
+    }
+}
+
+RacyMagazine {
+    intro {
+        title "EVENT_RACYMAGAZINE_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame racy_magazine
+        event_clip NonWheelEvent
+    }
+
+    main {
+    
+    prompt "EVENT_RACYMAGAZINE_QUES"
+
+        options {
+            open {
+                label "EVENT_OPEN_ANSW"
+                stat lck
+
+                good {
+                    set_frame 2
+ 
+                   reward {
+                        common {
+                            prompt "EVENT_RACYMAGAZINE_REW1"
+                            self_status_next_fight {
+                                AddStartingMana 5
+                            }
+                        }
+            
+            rare {
+                            prompt "EVENT_RACYMAGAZINE_REW2"
+                            permanent_stats {
+                                cha 1
+                            }
+                        }
+                    }
+                }
+        
+        bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_RACYMAGAZINE_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_RACYMAGAZINE_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat con
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_RACYMAGAZINE_REW5"
+                        }
+                        rare {
+                            prompt "EVENT_RACYMAGAZINE_REW6"
+                            permanent_stats {
+                                con 1
+                            }
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 3
+                            prompt "EVENT_RACYMAGAZINE_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            set_frame 5
+                            prompt "EVENT_RACYMAGAZINE_REW8" 
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+PillBottle {
+    intro {
+        title "EVENT_PILLBOTTLE_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame pill_bottle
+        event_clip NonWheelEvent
+    }
+
+    
+main {
+        prompt "EVENT_PILLBOTTLE_QUES"
+
+        options {
+            open {
+                label "EVENT_OPEN_ANSW"
+                stat lck
+
+                good {
+                 
+   set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_PILLBOTTLE_REW1"
+                            random_pool [
+                                { 
+                                    get_item_from_pool pills
+                                }
+                                {
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                }
+                                {
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                }
+                                {
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                }
+                            ]
+                        }
+             
+           rare {
+                            prompt "EVENT_PILLBOTTLE_REW2"
+                            permanent_stats {
+                                random 2   
+                            }
+                        }
+                    }
+                }
+                
+bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_PILLBOTTLE_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_PILLBOTTLE_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 2
+ 
+                   reward {
+                        common {
+                            set_frame 3
+                            prompt "EVENT_PILLBOTTLE_REW5"
+                            party_heal 100%
+                        }
+                        rare {
+                            set_frame 2
+                            prompt "EVENT_PILLBOTTLE_REW6"
+                            random_pool [
+                                { 
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                }
+                                {
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                }
+                                {
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                }
+                                {
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                }
+                                {
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                    get_item_from_pool pills
+                                }
+                            ]
+                        }
+                    }
+                }
+             
+   bad {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_PILLBOTTLE_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_PILLBOTTLE_REW8" 
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_PILLBOTTLE_REW9"
+            
+        play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+Coffin {
+    intro {
+        title "EVENT_COFFIN_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame coffin
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_COFFIN_QUES"
+
+        options {
+            bash {
+                label "EVENT_BASH_ANSW"
+                stat str
+
+                good {
+        
+            set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_COFFIN_REW1"
+                            get_item_from_pool bone_equipment
+                        }
+                        rare {
+                            prompt "EVENT_COFFIN_REW2"
+                            get_item_from_pool fleshhead_items
+							get_item_from_pool fleshhead_items
+							get_item_from_pool bone_equipment
+                        }
+                    }
+                }
+              
+  bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_COFFIN_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_COFFIN_REW4" 
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    set_frame 2
+             
+       reward {
+                        common {
+                            prompt "EVENT_COFFIN_REW5"
+                            get_item_from_pool bone_equipment
+                        }
+                        rare {
+                            prompt "EVENT_COFFIN_REW6"
+                            get_item_from_pool fleshhead_items
+							get_item_from_pool fleshhead_items
+							get_item_from_pool bone_equipment
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_COFFIN_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_COFFIN_REW8" 
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_COFFIN_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+Clam {
+    intro {
+        title "EVENT_CLAM_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame clam
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_CLAM_QUES"
+
+        options {
+            lick {
+                label "EVENT_KISS_ANSW"
+                stat cha
+
+                good {
+                   set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_CLAM_REW1"
+                            permanent_stats {
+                                lck 1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_CLAM_REW2" 
+                            get_item Pearl
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_CLAM_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_CLAM_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            bash {
+                label "EVENT_BASH_ANSW"
+                stat str
+
+                good {
+                    reward {
+                        common {
+                            set_frame 1
+                            prompt "EVENT_CLAM_REW5"
+                            permanent_stats {
+                                con 1
+                            }
+                        }
+                        rare {
+                            set_frame 2
+                            prompt "EVENT_CLAM_REW6"
+                            get_item TinyPebble
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_CLAM_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            prompt "EVENT_CLAM_REW8" 
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+            
+            ignore {
+                label "EVENT_LEAVE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_CLAM_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+GratingInTheFloor {
+    intro {
+        title "EVENT_GRATINGINTHEFLOOR_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame grating_in_the_floor
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_GRATINGINTHEFLOOR_QUES"
+
+        options {
+            bash {
+                label "EVENT_BASH_ANSW"
+                stat str
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_GRATINGINTHEFLOOR_REW1"
+                            ally_ambush_next_fights 1
+                        }
+                        rare {
+                            prompt "EVENT_GRATINGINTHEFLOOR_REW2"
+                            next_event_bonus 2
+                            event_now_same_cat random
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 3
+                            prompt "EVENT_GRATINGINTHEFLOOR_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            set_frame 4
+                            prompt "EVENT_GRATINGINTHEFLOOR_REW4"
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+                good {
+                    reward {
+                        common {
+                            set_frame 1
+                            prompt "EVENT_GRATINGINTHEFLOOR_REW5"
+                            gain_coins [2 4]
+                        }
+                        rare {
+                            set_frame 2
+                            prompt "EVENT_GRATINGINTHEFLOOR_REW6"
+                            next_event_bonus 2
+                            event_now_same_cat random
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 1
+                            prompt "EVENT_GRATINGINTHEFLOOR_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_GRATINGINTHEFLOOR_REW8" 
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+            
+            ignore {
+                label "EVENT_LEAVE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_GRATINGINTHEFLOOR_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+BrokenTV {
+    intro {
+        title "EVENT_BROKENTV_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame broken_tv
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_BROKENTV_QUES"
+
+        options {
+            smash {
+                label "EVENT_SMASH_ANSW"
+                stat str
+
+                good {
+                    reward {
+                        common {
+                            set_frame 6
+                            prompt "EVENT_BROKENTV_REW1"
+                            self_status_next_fight {
+                                Bleed 1
+                            }
+                            get_item GlassShard
+                        }
+                        rare {
+                            set_frame 7
+                            prompt "EVENT_BROKENTV_REW2"
+                            random_pool [
+                                {
+                                    get_item OddRemote
+                                }
+                                {
+                                    get_item Conductor
+                                }
+								{
+									get_item FreyedWires
+								}
+                            ]
+                        }
+                    }
+                }
+                bad {
+                    reward {
+                        common {
+                            set_frame 6
+                            prompt "EVENT_BROKENTV_REW3"
+                            party_heal 1
+                        }
+                        rare {
+                            set_frame 8
+                            prompt "EVENT_BROKENTV_REW4" 
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+
+            turnon {
+                label "EVENT_TURNONTV_ANSW"
+                stat lck
+
+                good {
+                    reward {
+                        common {
+                            set_frame 2
+                            prompt "EVENT_BROKENTV_REW5"
+                            permanent_stats {
+                                cha 1
+                            }
+                        }
+                        rare {
+                            set_frame 3
+                            prompt "EVENT_BROKENTV_REW6"
+                            level_up self
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            set_frame 4
+                            prompt "EVENT_BROKENTV_REW7"
+                            party_heal 1
+                        }
+                        rare {
+                            set_frame 5
+                            prompt "EVENT_BROKENTV_REW8" 
+                            party_heal 1
+                        }
+                    }
+                }
+            }
+            
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_BROKENTV_REW9"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}

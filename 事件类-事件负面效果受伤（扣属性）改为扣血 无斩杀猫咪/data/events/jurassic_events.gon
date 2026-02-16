@@ -1,0 +1,285 @@
+MysteriousCave {
+    intro {
+        title "EVENT_MYSTERIOUSCAVE_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame mysterious_cave
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_MYSTERIOUSCAVE_QUES"
+
+        options {
+            enter {
+                label "EVENT_ENTER_ANSW"
+                stat con
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_MYSTERIOUSCAVE_REW1"
+                            event_now_same_cat MysteriousCave1
+                        }
+                        rare {
+                            prompt "EVENT_MYSTERIOUSCAVE_REW2"
+                            set_adventure_token AdventureToken_MysteriousCave_FamiliarVoice
+                            event_now_same_cat MysteriousCave1
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_MYSTERIOUSCAVE_REW3"
+                            self_status_next_fight {
+                                Fear 1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_MYSTERIOUSCAVE_REW4" 
+                            self_status_next_fight {
+                                Fear 1
+                            }
+                            gain_disorder_from_pool mental_disorders
+                        }
+                    }
+                }
+            }
+
+            ignore {
+                label "EVENT_IGNORE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_MYSTERIOUSCAVE_REW5"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+TarPits {
+    intro {
+        title "EVENT_TARPITS_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame tar_pits
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_TARPITS_QUES"
+
+        options {
+            cross {
+                label "EVENT_CROSS_ANSW"
+
+                good {
+                    reward {
+                        common {
+                            set_frame 2
+                            prompt "EVENT_TARPITS_REW1"
+                            ally_ambush_next_fights 1
+                        }
+                        rare {
+                            set_frame 4
+                            prompt "EVENT_TARPITS_REW2"
+                            gain_familiar CharmedTarBaby
+                            gain_familiar CharmedTarBaby
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_TARPITS_REW3"
+                            self_status_next_fight {
+                                Tarred 1
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_TARPITS_REW4" 
+                            ambush_next_basic_fights 1
+                            party_status_next_fight {
+                                Tarred 1
+                            }
+                        }
+                    }
+                }
+            }
+
+            go_around {
+                label "EVENT_GOAROUND_ANSW"
+
+                good {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_TARPITS_REW5"
+                            //nothing
+                        }
+                        rare {
+                            prompt "EVENT_TARPITS_REW6"
+                            next_event_bonus 1
+                            event_now_same_cat MysteriousCave
+                        }
+                    }
+                }
+                bad {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_TARPITS_REW7"
+                            event_now_same_cat random
+                        }
+                        rare {
+                            prompt "EVENT_TARPITS_REW8" 
+                            next_event_bonus -2
+                            event_now_same_cat random
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+NestOfEggs {
+    intro {
+        title "EVENT_NESTOFEGGS_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame nest_of_eggs
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_NESTOFEGGS_QUES"
+
+        options {
+            eat {
+                label "EVENT_EAT_ANSW"
+                stat con
+
+                good {
+                    set_frame 2
+                    reward {
+                        common {
+                            prompt "EVENT_NESTOFEGGS_REW1"
+                            full_heal 1
+                            self_status_next_fight {
+                                HealthRegenUp 2
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_NESTOFEGGS_REW2"
+                            party_heal 100%
+                            party_status_next_fight {
+                                HealthRegenUp 2
+                            }
+                        }
+                    }
+                }
+                bad {
+                    set_frame 3
+                    reward {
+                        common {
+                            prompt "EVENT_NESTOFEGGS_REW3"
+                            party_status_next_fight {
+                                Poison 2
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_NESTOFEGGS_REW4" 
+                            self_status_next_fight {
+                                Poison 2
+                            }
+                            learn_ability BarfBall
+                        }
+                    }
+                }
+            }
+
+            take {
+                label "EVENT_TAKE_ANSW"
+                stat spd
+
+                good {
+                    set_frame 4
+                    reward {
+                        common {
+                            prompt "EVENT_NESTOFEGGS_REW5"
+                            get_item RaptorEgg
+                        }
+                        rare {
+                            prompt "EVENT_NESTOFEGGS_REW6"
+                            get_item RaptorEgg
+                            get_item_from_pool raptor_nest_eggs
+                            get_item_from_pool raptor_nest_eggs
+                        }
+                    }
+                }
+                bad {
+                    set_frame 6
+                    reward {
+                        common {
+                            prompt "EVENT_NESTOFEGGS_REW7"
+                            damage 5
+                            self_status_next_fight {
+                                Bleed 3
+                            }
+                        }
+                        rare {
+                            prompt "EVENT_NESTOFEGGS_REW8" 
+                            party_damage 5
+                            party_status_next_fight {
+                                Bleed 3
+                            }
+                        }
+                    }
+                }
+            }
+
+            kiss {
+                label "EVENT_KISS_ANSW"
+                stat cha
+
+                good {
+                    set_frame 5
+                    reward {
+                        common {
+                            prompt "EVENT_NESTOFEGGS_REW9"
+                            gain_familiar CharmedRaptorBaby
+                        }
+                        rare {
+                            prompt "EVENT_NESTOFEGGS_REW10"
+                            gain_familiar CharmedRaptorBaby
+                            gain_familiar CharmedRaptorBaby
+                            gain_familiar CharmedRaptorBaby
+                        }
+                    }
+                }
+                bad {
+                    set_frame 7
+                    reward {
+                        common {
+                            prompt "EVENT_NESTOFEGGS_REW11"
+                            damage [1 5]
+                        }
+                        rare {
+                            prompt "EVENT_NESTOFEGGS_REW12" 
+                            damage 10
+                            gain_disorder PuncturedEye
+                        }   
+                    }
+                }
+            }
+        }
+    }
+}

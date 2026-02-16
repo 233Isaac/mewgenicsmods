@@ -1,0 +1,2876 @@
+RatTail {
+    name "ITEM_RATTAIL_NAME"
+    desc "ITEM_RATTAIL_DESC"
+    kind trinket
+    frame 4
+    degrade_after_adventure false
+    rarity common
+	set Rat
+
+    lck 1
+}
+
+RatHeart {
+    name "ITEM_RATHEART_NAME"
+    desc "ITEM_RATHEART_DESC"
+    kind trinket
+    frame 5
+    degrade_after_adventure false
+    rarity common
+	set [Rat, Guts]
+
+    con 1
+}
+
+RatBeezer {
+    name "ITEM_RATBEZOAR_NAME"
+    desc "ITEM_RATBEZOAR_DESC"
+    kind trinket
+    rarity common
+	set Rat
+
+    frame 6
+    degrade_after_adventure false
+
+    passives {
+        PoisonThorns 1
+    }
+}
+
+Book {
+    name "ITEM_BOOK_NAME"
+    desc "ITEM_BOOK_DESC"
+    rarity common
+    kind trinket
+    frame 90
+    degrade_after_adventure false
+	set Paper
+
+    int 1
+}
+
+Dumbell {
+    name "ITEM_DUMBELL_NAME"
+    desc "ITEM_DUMBELL_DESC"
+    rarity common
+    kind trinket
+    frame 91
+    degrade_after_adventure false
+	set Lead
+
+    str 1
+}
+
+Jazzercise {
+    name "ITEM_JAZZERCISEVHSTAPE_NAME"
+    desc "ITEM_JAZZERCISEVHSTAPE_DESC"
+    rarity common
+    kind trinket
+    frame 92
+    degrade_after_adventure false
+
+    dex 1
+}
+
+OldShoe {
+    name "ITEM_OLDSHOE_NAME"
+    desc "ITEM_OLDSHOE_DESC"
+    rarity common
+    kind trinket
+    frame 93
+    degrade_after_adventure false
+	set [Used, Leather]
+
+    spd 1
+}
+
+BodySpray {
+    name "ITEM_BODYSPRAY_NAME"
+    desc "ITEM_BODYSPRAY_DESC"
+    rarity common
+    kind trinket
+    frame 94
+    degrade_after_adventure false
+
+    cha 1
+}
+
+LuckyPenny {
+    name "ITEM_LUCKYPENNY_NAME"
+    desc "ITEM_LUCKYPENNY_DESC"
+    rarity common
+    kind trinket
+    frame 95
+    degrade_after_adventure false
+	set Lucky
+
+    lck 1
+}
+
+WizCheese {
+    name "ITEM_WIZCHEESE_NAME"
+    desc "ITEM_WIZCHEESE_DESC"
+    rarity common
+    kind trinket
+    frame 96
+    degrade_after_adventure false
+
+    con 1
+}
+
+SnaggleTooth {
+    name "ITEM_SNAGGLETOOTH_NAME"
+    desc "ITEM_SNAGGLETOOTH_DESC"
+    rarity rare
+    kind trinket
+    frame 8
+    degrade_after_adventure false
+	set Bone
+
+    passives {
+        AddStatusToBasicAttack {
+            Bleed 1
+        }
+    }
+}
+
+JarOfLeeches {
+    name "ITEM_JAROFLEECHES_NAME"
+    desc "ITEM_JAROFLEECHES_DESC"
+    rarity rare
+    kind trinket
+    frame 81
+    degrade_after_adventure false
+	set Leech
+
+    passives {
+        AddStatusToBasicAttack {
+            Leeches 1
+        }
+    }
+}
+
+BrassKnuckles {
+    name "ITEM_BRASSKNUCKLES_NAME"
+    desc "ITEM_BRASSKNUCKLES_DESC"
+    rarity rare
+    kind trinket
+    frame 82
+    degrade_after_adventure false
+	set Fighter
+
+    passives {
+        AddStatusToBasicAttack {
+            Bruise 1
+        }
+    }
+}
+
+FlyLarva {
+    name "ITEM_FLYLARVA_NAME"
+    desc "ITEM_FLYLARVA_DESC"
+    rarity uncommon
+    kind trinket
+    frame 83
+    degrade_after_adventure false
+	set Fly
+
+    passives {
+        AddStatusToBasicAttack {
+            Rot 1
+        }
+    }
+}
+
+StrangeMarble {
+    name "ITEM_STRANGEMARBLE_NAME"
+    desc "ITEM_STRANGEMARBLE_DESC"
+    rarity uncommon
+    kind trinket
+    frame 84
+    degrade_after_adventure false
+
+    passives {
+        AddStatusToBasicAttack {
+            ManaLeeches 1
+        }
+    }
+}
+
+VibratingSkull {
+    name "ITEM_VIBRATINGSKULL_NAME"
+    desc "ITEM_VIBRATINGSKULL_DESC"
+    rarity uncommon
+    kind trinket
+    frame 85
+    degrade_after_adventure false
+	set [Bone, Space]
+
+    passives {
+        AddStatusToBasicAttack {
+            MagicWeakness 1
+        }
+    }
+}
+
+BoneMarrow {
+    name "ITEM_BONEMARROW_NAME"
+    desc "ITEM_BONEMARROW_DESC"
+    rarity rare
+    kind trinket
+    frame 9
+    degrade_after_adventure false
+	set [Meat, Bone]
+
+    passives {
+        AddEndOfCombatRegen 999999
+    }
+} //TODO: Add upgraded version that gives +1 con 
+
+Feather {
+    name "ITEM_FEATHER_NAME"
+    desc "ITEM_FEATHER_DESC"
+    rarity uncommon
+    kind trinket
+    frame 31
+    degrade_after_adventure false
+	set Feathered
+	
+	spd 1
+
+    passives {
+        AddInitiative 100
+    }
+}
+
+Weight {
+    name "ITEM_WEIGHT_NAME"
+    desc "ITEM_WEIGHT_DESC"
+    rarity uncommon
+    kind trinket
+    frame 30
+    degrade_after_adventure false
+	set Lead
+
+    passives {
+        AddInitiative -20
+		Trample 3
+    }
+}
+
+MatchStick {
+    name "ITEM_MATCHSTICK_NAME"
+    desc "ITEM_MATCHSTICK_DESC"
+    rarity rare
+    kind trinket
+    frame 32
+    degrade_after_adventure false
+
+    passives {
+        AddStatusToBasicAttack {
+            Burn 1
+        }
+    }
+}
+
+BeeStinger {
+    name "ITEM_BEESTINGER_NAME"
+    desc "ITEM_BEESTINGER_DESC"
+    rarity rare
+    kind trinket
+    frame 33
+    degrade_after_adventure false
+
+    passives {
+        AddStatusToBasicAttack {
+            Poison 1
+        }
+    }
+}
+
+PullTab {
+    name "ITEM_PULLTAB_NAME"
+    desc "ITEM_PULLTAB_DESC"
+    rarity common
+    kind trinket
+    frame 15
+    degrade_after_adventure false
+	set Scrap
+
+    shield 4
+}
+
+SelfDestructButton {
+    name "ITEM_SELFDESTRUCTBUTTON_NAME"
+    desc "ITEM_SELFDESTRUCTBUTTON_DESC"
+    rarity very_rare
+    kind trinket
+    frame 42
+    degrade_after_adventure false
+
+    ability tr_SelfDestruct
+}
+
+EmptySyringe {
+    name "ITEM_EMPTYSYRINGE_NAME"
+    desc "ITEM_EMPTYSYRINGE_DESC"
+    rarity rare
+    kind trinket
+    frame 66
+    degrade_after_adventure false
+	set Medical
+
+    passives {
+        AmplifyStatus Bleed
+		AmplifyStatus Poison
+    }
+}
+
+LiquidNitrogen {
+    name "ITEM_LIQUIDNITROGEN_NAME"
+    desc "ITEM_LIQUIDNITROGEN_DESC"
+    rarity uncommon
+    kind trinket
+    frame 60
+    degrade_after_adventure false
+	set Frozen
+
+    passives {
+        AddDamageToElementDamage {
+            element Ice
+            damage 2
+        }
+    }
+}
+
+Ember {
+    name "ITEM_EMBER_NAME"
+    desc "ITEM_EMBER_DESC"
+    rarity uncommon
+    kind trinket
+    frame 61
+    degrade_after_adventure false
+	set Molten
+
+    passives {
+        AddStatusToElementDamage {
+            element Fire
+            Burn 1
+        }
+        AddDamageToElementDamage {
+            element Fire
+            damage 1
+        }
+    }
+}
+
+Conductor {
+    name "ITEM_CONDUCTOR_NAME"
+    desc "ITEM_CONDUCTOR_DESC"
+    rarity uncommon
+    kind trinket
+    frame 62
+    degrade_after_adventure false
+
+    passives {
+        AddStatusToElementDamage {
+            element Electric
+            Stun [1 .1]
+        }
+        AddDamageToElementDamage {
+            element Electric
+            damage 1
+        }
+    }
+}
+
+FeedBag {
+    name "ITEM_FEEDBAG_NAME"
+    desc "ITEM_FEEDBAG_DESC"
+    rarity uncommon
+    kind trinket
+    frame 64
+    degrade_after_adventure false
+	set [Druid, Hunter]
+
+    passives {
+        AddPassivesToMinions {
+            AddMaxHealth 2
+            HealthGain 2 //fill up the blank max health
+        }
+    }
+}
+
+Nightshade {
+    name "ITEM_NIGHTSHADE_NAME"
+    desc "ITEM_NIGHTSHADE_DESC"
+    rarity rare
+    kind trinket
+    frame 63
+    degrade_after_adventure false
+	set Flower
+
+
+    passives {
+	    Poison 2
+        AmplifyStatus Poison
+		AmplifyStatus Poison
+    }
+}
+
+Neverstone {
+    name "ITEM_NEVERSTONE_NAME"
+    desc "ITEM_NEVERSTONE_DESC"
+    rarity rare
+    kind trinket
+    frame 97
+    degrade_after_adventure false
+	set [Rock, Gemstone]
+
+    prevent_level_up true
+}
+
+Pawn {
+    name "ITEM_PAWN_NAME"
+    desc "ITEM_PAWN_DESC"
+    rarity common
+    kind trinket
+    frame 35
+    degrade_after_adventure false
+
+    durability 10
+
+    ability tk_Pawn
+}
+Knight {
+    name "ITEM_KNIGHT_NAME"
+    desc "ITEM_KNIGHT_DESC"
+    rarity uncommon
+    kind trinket
+    frame 114
+    degrade_after_adventure false
+
+    durability 6
+
+    ability tk_Knight
+}
+Rook {
+    name "ITEM_ROOK_NAME"
+    desc "ITEM_ROOK_DESC"
+    rarity rare
+    kind trinket
+    frame 36
+    degrade_after_adventure false
+
+    durability 6
+
+    ability tk_Rook
+}
+Queen {
+    name "ITEM_QUEEN_NAME"
+    desc "ITEM_QUEEN_DESC"
+    rarity very_rare
+    kind trinket
+    frame 37
+    degrade_after_adventure false
+
+    durability 8
+
+    ability tk_Queen
+}
+
+PetrifiedPoop {
+    name "ITEM_PETRIFIEDPOOP_NAME"
+    desc "ITEM_PETRIFIEDPOOP_DESC"
+    rarity uncommon
+    kind trinket
+    frame 45
+    degrade_after_adventure false
+	set [Rock, Fecal]
+
+    shield 2
+	
+	passives {
+        AddPassivesToMinions {
+            Shield 2
+        }
+    }
+}
+
+FishHook {
+    name "ITEM_FISHHOOK_NAME"
+    desc "ITEM_FISHHOOK_DESC"
+    rarity uncommon
+    kind trinket
+    frame 55
+    degrade_after_adventure false
+	set Barbed
+
+    passives {
+        StripKnockback 1
+    }
+}
+
+HumanHand {
+    name "ITEM_HUMANHAND_NAME"
+    desc "ITEM_HUMANHAND_DESC"
+    rarity uncommon
+    kind trinket
+    frame 105
+    degrade_after_adventure false
+	set HumanFlesh
+
+    str 2
+}
+HumanBrain {
+    name "ITEM_HUMANBRAIN_NAME"
+    desc "ITEM_HUMANBRAIN_DESC"
+    rarity uncommon
+    kind trinket
+    frame 106
+    degrade_after_adventure false
+	set [HumanFlesh, Guts]
+
+    int 2
+}
+HumanLeg {
+    name "ITEM_HUMANLEGBONE_NAME"
+    desc "ITEM_HUMANLEGBONE_DESC"
+    rarity uncommon
+    kind trinket
+    frame 107
+    degrade_after_adventure false
+	set Bone
+
+    dex 2
+}
+HumanToe {
+    name "ITEM_HUMANTOE_NAME"
+    desc "ITEM_HUMANTOE_DESC"
+    rarity uncommon
+    kind trinket
+    frame 108
+    degrade_after_adventure false
+	set HumanFlesh
+
+    lck 2
+}
+HumanHeart {
+    name "ITEM_HUMANHEART_NAME"
+    desc "ITEM_HUMANHEART_DESC"
+    rarity uncommon
+    kind trinket
+    frame 109
+    degrade_after_adventure false
+	set [HumanFlesh, Guts]
+
+    con 2
+}
+HumanFoot {
+    name "ITEM_HUMANFOOT_NAME"
+    desc "ITEM_HUMANFOOT_DESC"
+    rarity uncommon
+    kind trinket
+    frame 110
+    degrade_after_adventure false
+	set HumanFlesh
+
+    spd 2
+}
+MysteriousEye {
+    name "ITEM_HUMANEYE_NAME"
+    desc "ITEM_HUMANEYE_DESC"
+    rarity uncommon
+    kind trinket
+    frame 20
+    degrade_after_adventure false
+	set [HumanFlesh, Guts]
+
+    cha 2
+}
+
+D6 {
+    name "ITEM_D6_NAME"
+    desc "ITEM_D6_DESC"
+    rarity common
+    kind trinket
+    frame 89
+    degrade_after_adventure false
+
+    passives {
+        AddLevelUpRerolls 1
+    }
+}
+
+MetalSquare {
+    name "ITEM_METALPLATE_NAME"
+    desc "ITEM_METALPLATE_DESC"
+    rarity uncommon
+    kind trinket
+    frame 86
+    degrade_after_adventure false
+	set Scrap
+
+    passives {
+        StatusOnKillEnemy {
+            Brace 1
+        }
+    }
+}
+
+BlinkingEyeball {
+    name "ITEM_BLINKINGEYEBALL_NAME"
+    desc "ITEM_BLINKINGEYEBALL_DESC"
+    kind trinket
+    frame 10
+    degrade_after_adventure false
+	set Guts
+
+    passives {
+        RemoveLineOfSightRestrictions 1
+    }
+}
+GoldenTooth {
+    name "ITEM_GOLDENTOOTH_NAME"
+    desc "ITEM_GOLDENTOOTH_DESC"
+    kind trinket
+    frame 11
+    degrade_after_adventure false
+
+    lck 4
+
+    on_store become_aux_coins
+    aux 125
+}
+
+WaterBottle_Full {
+    name "ITEM_WATERBOTTLEFULL_NAME"
+    desc "ITEM_WATERBOTTLEFULL_DESC"
+    kind trinket
+    frame 128
+    degrade_after_adventure false
+
+    durability 2
+    max_durability 2
+    dont_destroy_on_0 true
+
+    ability tk_WaterBottle_Full
+
+    passives {
+        DurabilityTransform {
+            eq [1 WaterBottle_Half]
+            eq [0 WaterBottle_Empty]
+        }
+    }
+}
+WaterBottle_Half {
+    name "ITEM_WATERBOTTLEHALF_NAME"
+    desc "ITEM_WATERBOTTLEHALF_DESC"
+    kind trinket
+    frame 129
+    degrade_after_adventure false
+
+    durability 1
+    max_durability 2
+    dont_destroy_on_0 true
+
+    ability tk_WaterBottle_Half
+
+    passives {
+        TransformItemOnElementInfluence {
+            element Greater_Water
+            item WaterBottle_Full
+            full_repair true
+        }
+        DurabilityTransform {
+            ge [2 WaterBottle_Full]
+            eq [0 WaterBottle_Empty]
+        }
+    }
+}
+WaterBottle_Empty {
+    name "ITEM_WATERBOTTLEEMPTY_NAME"
+    desc "ITEM_WATERBOTTLEMPTY_DESC"
+    kind trinket
+    frame 130
+    degrade_after_adventure false
+
+    durability 0
+    max_durability 2
+    dont_destroy_on_0 true
+
+    ability tk_WaterBottle_Empty
+
+    passives {
+        TransformItemOnElementInfluence {
+            element Greater_Water
+            item WaterBottle_Full
+            full_repair true
+        }
+        DurabilityTransform {
+            ge [2 WaterBottle_Full]
+            eq [1 WaterBottle_Half]
+        }
+    }
+}
+
+BloodyCoin {
+    name "ITEM_BLOODYCOIN_NAME"
+    desc "ITEM_BLOODYCOIN_DESC"
+    kind trinket
+    rarity uncommon
+    frame 38
+    degrade_after_adventure false
+	//set Bloody
+    
+    ability tk_BloodyCoin
+}
+
+GlowingCoin {
+    name "ITEM_GLOWINGCOIN_NAME"
+    desc "ITEM_GLOWINGCOIN_DESC"
+    kind trinket
+    rarity uncommon
+    frame 39
+    degrade_after_adventure false
+    
+    ability tk_GlowingCoin
+}
+
+ElectricCoin {
+    name "ITEM_ELECTRICCOIN_NAME"
+    desc "ITEM_ELECTRICCOIN_DESC"
+    kind trinket
+    rarity uncommon
+    frame 40
+    degrade_after_adventure false
+    
+    ability tk_ElectricCoin
+}
+
+CounterfeitCoin {
+    name "ITEM_COUNTERFEITCOIN_NAME"
+    desc "ITEM_COUNTERFEITCOIN_DESC"
+    kind trinket
+    rarity uncommon
+    frame 41
+    degrade_after_adventure false
+    
+    ability tk_CounterfeitCoin
+}
+
+Whistle {//refresh when a familiar dies
+    name "ITEM_WHISTLE_NAME"
+    desc "ITEM_WHISTLE_DESC"
+    kind trinket
+    rarity common
+    frame 16
+    degrade_after_adventure false
+	set [Druid, Hunter]
+    
+    ability tk_Whistle
+}
+
+Metronome {
+    name "ITEM_METRONOME_NAME"
+    desc "ITEM_METRONOME_DESC"
+    kind trinket
+    rarity rare
+    frame 17
+    degrade_after_adventure false
+	set Jester
+    
+    ability tk_Metronome
+}
+
+TinkerTools {
+    name "ITEM_TINKERTOOLS_NAME"
+    desc "ITEM_TINKERTOOLS_DESC"
+    kind trinket
+    rarity rare
+    frame 18
+    degrade_after_adventure false
+	set Tinkerer
+    
+    passives {
+        StatusOnBattleEnd {
+            RepairAll 1
+        }
+    }
+}
+
+RingOfFrost {
+    name "ITEM_RINGOFFROST_NAME"
+    desc "ITEM_RINGOFFROST_DESC"
+    kind trinket
+    rarity rare
+    frame 177
+    degrade_after_adventure false
+	set [Mage, Frozen]
+    
+    passives {
+        AddDamageToElementDamage {
+            element Ice
+            damage 1
+        }
+        RevengeDamage {
+            damage 0
+            effects {
+                Freeze [1, .25]
+            }
+        }
+        InnateElement Ice
+    }
+}
+
+LuckyCoinPurse {
+    name "ITEM_LUCKYCOINPURSE_NAME"
+    desc "ITEM_LUCKYCOINPURSE_DESC"
+    kind trinket
+    rarity rare
+    frame 178
+    degrade_after_adventure false
+	set [Thief, Lucky]
+    
+    passives {
+        StatusOnGainCoins {
+            LuckUp 2
+        }
+    }
+}
+
+RageJuice {
+    name "ITEM_RAGEJUICE_NAME"
+    desc "ITEM_RAGEJUICE_DESC"
+    kind trinket
+    rarity rare
+    frame 179
+    degrade_after_adventure false
+	set Fighter
+    
+    ability tk_RageJuice
+}
+
+PrayerCard {
+    name "ITEM_PRAYERCARD_NAME"
+    desc "ITEM_PRAYERCARD_DESC"
+    kind trinket
+    rarity rare
+    frame 180
+    degrade_after_adventure false
+	set [Cleric, Cardboard, Paper]
+    
+    passives {
+        StatusOnTookDamage {
+            DivineShield [1, .33]
+        }
+    }
+}
+
+TankToy {
+    name "ITEM_TANKTOY_NAME"
+    desc "ITEM_TANKTOY_DESC"
+    kind trinket
+    rarity rare
+    frame 181
+    degrade_after_adventure false
+	set Tank
+	
+	shield 5
+    
+    passives {
+        Trample 3
+    }
+}
+
+BagOfSeeds {
+    name "ITEM_BAGOFSEEDS_NAME"
+    desc "ITEM_BAGOFSEEDS_DESC"
+    kind trinket
+    rarity rare
+    frame 182
+    degrade_after_adventure false
+	set Druid
+    
+    ability tk_BagOfSeeds
+}
+
+Libra {
+    name "ITEM_LIBRA_NAME"
+    desc "ITEM_LIBRA_DESC"
+    kind trinket
+    rarity rare
+    frame 174
+    degrade_after_adventure false
+	set Space
+
+    passives {
+        BalanceStats 1
+    }
+}
+
+BallOfBandages {
+    name "ITEM_BALLOFBANDAGES_NAME"
+    desc "ITEM_BALLOFBANDAGES_DESC"
+    kind trinket
+    rarity uncommon
+    frame 99
+    degrade_after_adventure false
+	set Nurse
+
+    passives {
+        StatusEachTurnEnd {
+            PartialCleanse 1
+        }
+        HealthRegenUp 1
+    }
+}
+
+/*
+Rosary {//todo:blessing chance up
+    name "ITEM_ROSARY_NAME"
+    desc "ITEM_ROSARY_DESC"
+    kind trinket
+    rarity uncommon
+    frame 77
+    degrade_after_adventure false
+
+    passives {
+    }
+}
+
+WeatherVane {//todo:weather chance up
+    name "ITEM_WEATHERVANE_NAME"
+    desc "ITEM_WEATHERVANE_DESC"
+    kind trinket
+    rarity uncommon
+    frame 78
+    degrade_after_adventure false
+
+    passives {
+    }
+}
+*/
+
+Natural20 {
+    name "ITEM_NATURAL20_NAME"
+    desc "ITEM_NATURAL20_DESC"
+    kind trinket
+    rarity uncommon
+    frame 34
+    degrade_after_adventure false
+
+    passives {
+        BoostWeaponDamage {
+            damage 0
+            crit_chance .5
+        }
+        BasicAttackCritChance .1
+    }
+}
+
+Technology {
+    name "ITEM_TECHNOLOGY_NAME"
+    desc "ITEM_TECHNOLOGY_DESC"
+    kind trinket
+    rarity rare
+    frame 46
+    degrade_after_adventure false
+	set [Cyborg, Bionic]
+    
+    ability tk_Technology
+
+    passives {
+        RefreshEquipmentAbilityOnElement {
+            element Electric
+            text "COMBAT_POPUP_RECHARGED"
+        }
+    }
+}
+
+Spring {
+    name "ITEM_SPRING_NAME"
+    desc "ITEM_SPRING_DESC"
+    kind trinket
+    rarity uncommon
+    frame 47
+    degrade_after_adventure false
+	set Scrap
+	
+	spd 2
+    
+    passives {
+        ReplaceBasicMove BasicJump
+    }
+}
+
+RedDrink {
+    name "ITEM_REDDRINK_NAME"
+    desc "ITEM_REDDRINK_DESC"
+    kind trinket
+    rarity uncommon
+    frame 48
+    degrade_after_adventure false
+    
+    ability tk_RedDrink
+}
+
+GreenDrink {
+    name "ITEM_GREENDRINK_NAME"
+    desc "ITEM_GREENDRINK_DESC"
+    kind trinket
+    rarity uncommon
+    frame 49
+    degrade_after_adventure false
+    
+    ability tk_GreenDrink
+}
+
+PurpleDrink {
+    name "ITEM_PURPLEDRINK_NAME"
+    desc "ITEM_PURPLEDRINK_DESC"
+    kind trinket
+    rarity uncommon
+    frame 50
+    degrade_after_adventure false
+    
+    ability tk_PurpleDrink
+}
+
+LilBattery {
+    name "ITEM_LILBATTERY_NAME"
+    desc "ITEM_LILBATTERY_DESC"
+    kind trinket
+    rarity rare
+    frame 51
+    degrade_after_adventure false
+    
+    ability tk_LilBattery
+}
+
+CarvingKnife {
+    name "ITEM_CARVINGKNIFE_NAME"
+    desc "ITEM_CARVINGKNIFE_DESC"
+    kind trinket
+    rarity uncommon
+    
+    frame 52
+    degrade_after_adventure false
+    ability tk_CarvingKnife
+}
+
+RazorBlade {
+    name "ITEM_RAZORBLADE_NAME"
+    desc "ITEM_RAZORBLADE_DESC"
+    kind trinket
+    rarity rare
+    frame 53
+    degrade_after_adventure false
+    
+    ability tk_RazorBlade
+}
+
+Teleport {
+    name "ITEM_TELEPORT_NAME"
+    desc "ITEM_TELEPORT_DESC"
+    kind trinket
+    rarity rare
+    frame 54
+    degrade_after_adventure false
+	set Experimental
+    
+    ability tk_Teleport
+}
+
+SmallEye {
+    name "ITEM_SMALLEYE_NAME"
+    desc "ITEM_SMALLEYE_DESC"
+    kind trinket
+    rarity uncommon
+    frame 58
+    degrade_after_adventure false
+	set Guts
+    
+    passives {
+        DodgeChance 15%
+        AddStatusToBasicAttack {
+            Fear [1 .1]
+        }
+    }
+}
+
+Stickman {
+    name "ITEM_STICKMAN_NAME"
+    desc "ITEM_STICKMAN_DESC"
+    kind trinket
+    rarity rare
+    frame 67
+    degrade_after_adventure false
+	set [Wood, Demonic]
+    
+    passives {
+        ExtraStatusWhenDealingDamage {
+            Conditional_PartyMember {
+                Conditional_IsSelf {
+                } Else {
+                    ApplyToSource {
+                        AllStatsUp 1
+                    }
+                }
+            }
+        }
+    }
+}
+
+CursedStickman {
+    name "ITEM_CURSEDSTICKMAN_NAME"
+    desc "ITEM_CURSEDSTICKMAN_DESC"
+    kind trinket
+    rarity rare
+    cursed true
+    frame 68
+    degrade_after_adventure false
+	set [Wood, Demonic]
+    
+    passives {
+        StatusEachTurnBegin {
+            Conditional_BadRoll {
+                odds .1
+                
+                Temporary {
+                    status Madness
+                    stacks 1
+                    turns 1
+                    expires_on_end_turn true
+                }
+            }
+        }
+        ExtraStatusWhenDealingDamage {
+            Conditional_PartyMember {
+                Conditional_IsSelf {
+                } Else {
+                    ApplyToSource {
+                        AllStatsUp 1
+                    }
+                }
+            }
+        }
+    }
+}
+
+GlowingSeed {
+    name "ITEM_GLOWINGSEED_NAME"
+    desc "ITEM_GLOWINGSEED_DESC"
+    kind trinket
+    rarity uncommon
+    frame 71
+    degrade_after_adventure false
+    
+    passives {
+        AddStatusToBasicAttack {
+            ChangeTile TallGrassTile
+        }
+    }
+}
+
+MagicSeed {
+    name "ITEM_MAGICSEED_NAME"
+    desc "ITEM_MAGICSEED_DESC"
+    kind trinket
+    rarity uncommon
+    frame 113
+    degrade_after_adventure false
+    
+    passives {
+        AddStatusToBasicAttack {
+            ChangeTile BrambleTile
+        }
+    }
+}
+
+WeirdEgg {
+    name "ITEM_WEIRDEGG_NAME"
+    desc "ITEM_WEIRDEGG_DESC"
+    kind trinket
+    rarity uncommon
+    frame 73
+    degrade_after_adventure false
+	set Baby
+
+    passives {
+        StatusEachTurnEnd {
+            Conditional_GoodRoll {
+                odds 10%
+                ForceUseAbility tk_WeirdEgg_Spawn
+            }
+        }
+    }
+}
+
+SpottedMushroom {
+    name "ITEM_SPOTTEDMUSHROOM_NAME"
+    desc "ITEM_SPOTTEDMUSHROOM_DESC"
+    kind trinket
+    rarity common
+    frame 74
+    degrade_after_adventure false
+	set Druid
+    
+    str_aux_initialize random_seed
+
+    passives {
+        RandomSeededStatModifier [2 -1] // hard coded in SpawnDatabase::get_item_stats
+    }
+}
+
+MundaneStone {
+    name "ITEM_MUNDANESTONE_NAME"
+    desc "ITEM_MUNDANESTONE_DESC"
+    kind trinket
+    rarity rare
+    frame 88
+    degrade_after_adventure false
+	set Rock
+    
+    passives {
+        StatDependentPassive {
+            AddDamageToBasicAttack "min(min(min(min(min(min(str,dex),int),con),lck),spd),cha)-2"
+        }
+    }
+}
+
+EmptySack {
+    name "ITEM_EMPTYSACK_NAME"
+    desc "ITEM_EMPTYSACK_DESC"
+    kind trinket
+    rarity uncommmon
+    frame 115
+    degrade_after_adventure false
+    set [Leather, HumanFlesh]
+	
+    passives {
+        StatusOnBattleStart {
+            FindItemFromPool common
+        }
+        SpawnExtraThingsOnBattleStart {
+            object RandomPickup
+            number 3
+        }
+    }
+}
+
+AAABattery {
+    name "ITEM_AAABATTERY_NAME"
+    desc "ITEM_AAABATTERY_DESC"
+    kind trinket
+    rarity uncommon
+    frame 117
+    degrade_after_adventure false
+    
+    passives {
+        StatusEveryXSpellCasts {
+            stacks 3
+            Charge 3
+        }
+    }
+}
+
+ToolBox {
+    name "ITEM_TOOLBOX_NAME"
+    desc "ITEM_TOOLBOX_DESC"
+    kind trinket
+    rarity uncommon
+    frame 118
+    degrade_after_adventure false
+	set Tinkerer
+    
+    passives {
+        SetBrittleImmune ""
+        SetFragileImmune ""
+        AddSelfStatusToWeapons {
+            RepairWeapon [1 .25]
+        }
+    }
+}
+
+RubberCement {
+    name "ITEM_RUBBERCEMENT_NAME"
+    desc "ITEM_RUBBERCEMENT_DESC"
+    kind trinket
+    rarity rare
+    frame 124
+    degrade_after_adventure false
+	set [Rubber, Slimy]
+    
+    passives {
+        BouncyProjectiles {
+            max_bounces 1
+            max_range 2
+        }
+    }
+}
+
+CoinPurse {
+    name "ITEM_COINPURSE_NAME"
+    desc "ITEM_COINPURSE_DESC"
+    kind trinket
+    rarity uncommon
+    frame 125
+    degrade_after_adventure false
+	set Mother
+    
+    passives {
+        StatusOnPickupCoins {
+            GainCoins 1
+        }
+        StatusOnBattleEnd {
+            GainCoins 1
+        }
+    }
+}
+
+Fork {
+    name "ITEM_FORK_NAME"
+    desc "ITEM_FORK_DESC"
+    kind trinket
+    rarity uncommon
+    frame 126
+    degrade_after_adventure false
+    
+    passives {
+        StatusOnKill {
+            HealthGain 5
+        }
+        StatusOnPopCorpse {
+            HealthGain 5
+        }
+    }
+}
+
+CatONineTails {
+    name "ITEM_CATONINETAILS_NAME"
+    desc "ITEM_CATONINETAILS_DESC"
+    kind trinket
+    rarity uncommon
+    frame 127
+    degrade_after_adventure false
+	set Gimp
+    
+    ability tk_CatONineTails
+}
+
+Glue {
+    name "ITEM_GLUE_NAME"
+    desc "ITEM_GLUE_DESC"
+    rarity uncommon
+    kind trinket
+    frame 137
+    degrade_after_adventure false
+    durability [5 8]
+	set Slimy
+    
+    ability tk_Glue
+}
+
+MyShadow {
+    name "ITEM_MYSHADOW_NAME"
+    desc "ITEM_MYSHADOW_DESC"
+    rarity rare
+    kind trinket
+    frame 133
+    degrade_after_adventure false
+	set Demonic
+
+    durability 6
+
+    ability tk_MyShadow
+}
+
+EggSack {
+    name "ITEM_EGGSACK_NAME"
+    desc "ITEM_EGGSACK_DESC"
+    rarity uncommon
+    kind trinket
+    frame 134
+    degrade_after_adventure false
+    durability [4 6]
+    
+    ability tk_EggSack
+}
+
+GorgonsEye {
+    name "ITEM_GORGONSEYE_NAME"
+    desc "ITEM_GORGONSEYE_DESC"
+    rarity uncommon
+    kind trinket
+    frame 135
+    degrade_after_adventure false
+    durability [5 7]
+	set [Guts, Rock]
+    
+    ability tk_GorgonsEye
+}
+
+HotLunch {
+    name "ITEM_HOTLUNCH_NAME"
+    desc "ITEM_HOTLUNCH_DESC"
+    rarity uncommon
+    kind trinket
+    frame 139
+    degrade_after_adventure false
+    durability [5 8]
+	set Paper
+    
+    ability tk_HotLunch
+}
+
+ButterBean {
+    name "ITEM_BUTTERBEAN_NAME"
+    desc "ITEM_BUTTERBEAN_DESC"
+    rarity common
+    kind trinket
+    frame 140
+    degrade_after_adventure false
+    
+    ability tk_ButterBean
+}
+
+MomsRing {
+    name "ITEM_MOMSRING_NAME"
+    desc "ITEM_MOMSRING_DESC"
+    rarity rare
+    kind trinket
+    frame 142
+    degrade_after_adventure false
+	set Mother
+    
+    passives {
+        DamageUp 1
+        StatusOnBattleEnd {
+            FindItemFromPool pills
+        }
+    }
+}
+
+MindStone {
+    name "ITEM_MINDSTONE_NAME"
+    desc "ITEM_MINDSTONE_DESC"
+    rarity rare
+    kind trinket
+    frame 146
+    degrade_after_adventure false
+	set Rock
+    
+    passives {
+        ClassManaCostReduction {
+            class Colorless
+            reduction 2
+        }
+    }
+}
+
+SkillStone {
+    name "ITEM_SKILLSTONE_NAME"
+    desc "ITEM_SKILLSTONE_DESC"
+    rarity rare
+    kind trinket
+    frame 147
+    degrade_after_adventure false
+	set Rock
+    
+    passives {
+        ClassManaCostReduction {
+            reduction 1
+        }
+    }
+}
+
+Multiplier {
+    name "ITEM_MULTIPLIER_NAME"
+    desc "ITEM_MULTIPLIER_DESC"
+    rarity rare
+    kind trinket
+    frame 148
+    degrade_after_adventure false
+    
+    passives {
+        ExtraWeaponAttacks 1
+    }
+}
+
+SacredHeart {
+    name "ITEM_SACREDHEART_NAME"
+    desc "ITEM_SACREDHEART_DESC"
+    rarity rare
+    kind trinket
+    frame 153
+    degrade_after_adventure false
+	set Cleric
+    
+    passives {
+        DamageUp 1
+        AddSelfStatusToBasicAttack {
+            RandomMagicMissile 2
+        }
+    }
+}
+
+FetusInAJar {
+    name "ITEM_FETUSINAJAR_NAME"
+    desc "ITEM_FETUSINAJAR_DESC"
+    rarity rare
+    kind trinket
+    frame 155
+    degrade_after_adventure false
+	set Baby
+    
+    passives {
+        StatusOnBattleStart {
+            Craft {
+                pool bombs //should expand to bombs_0, bombs_1, bombs_2, bombs_3
+                slot weapon
+                works_with_tech true
+            }
+        }
+        StatusIfUnusedActPoints {
+            Craft {
+                pool bombs //should expand to bombs_0, bombs_1, bombs_2, bombs_3
+                slot weapon
+                works_with_tech true
+            }
+        }
+    }
+}
+
+Breakfast {
+    name "ITEM_BREAKFAST_NAME"
+    desc "ITEM_BREAKFAST_DESC"
+    rarity uncommon
+    kind trinket
+    frame 157
+    degrade_after_adventure false
+	set Cardboard
+    
+    passives {
+        HealthRegenUp 2
+    }
+}
+
+DreamCatcher {
+    name "ITEM_DREAMCATCHER_NAME"
+    desc "ITEM_DREAMCATCHER_DESC"
+    rarity rare
+    kind trinket
+    frame 158
+    degrade_after_adventure false
+	set Twine
+    
+    passives {
+        StatusOnFallAsleep {
+            AllStatsUp 1
+            FillMana 1
+			HealRandomInjury 1
+        }
+    }
+}
+
+EnchantingPoop { //Aquired from various Poop events
+    name "ITEM_ENCHANTINGPOOP_NAME"
+    desc "ITEM_ENCHANTINGPOOP_DESC"
+    kind trinket
+    frame 159
+    degrade_after_adventure false
+	set Fecal
+    
+    passives {
+        SpawnOnBattleStart {
+            object Poop
+        }
+    }
+}
+
+EnchantingPoop_Cursed {
+    variant_of EnchantingPoop
+    cursed true
+}
+
+LunchBox {
+    name "ITEM_LUNCHBOX_NAME"
+    desc "ITEM_LUNCHBOX_DESC"
+    rarity uncommon
+    kind trinket
+    frame 176
+    degrade_after_adventure false
+    
+    durability 0
+    max_durability 9
+    dont_destroy_on_0 true
+
+    passives {
+        StatusOnEatFood {
+            TempPassiveUntilSettled {
+                LimitHeal 0
+            }
+            RepairTrinket 1
+        }
+    }
+    
+    ability tk_LunchBox
+}
+
+SatanicBible {
+    name "ITEM_SATANICBIBLE_NAME"
+    desc "ITEM_SATANICBIBLE_DESC"
+    rarity rare
+    kind trinket
+    frame 184
+    degrade_after_adventure false
+	set [Demonic, Paper]
+    
+    passives {
+        ExtraStatusWhenDealingDamage {
+            Conditional_PartyMember {
+                Conditional_IsSelf {
+                } Else {
+                    ApplyToSource {
+                        HealthGain 3
+                        Charge 3
+                    }
+                }
+            }
+        }
+    }
+}
+
+TinyPebble {
+    name "ITEM_TINYPEBBLE_NAME"
+    desc "ITEM_TINYPEBBLE_DESC"
+    rarity uncommon
+    kind trinket
+    frame 185
+    degrade_after_adventure false
+	set Rock
+    
+    passives {
+        DodgeChance_Status 10
+        StatusOnDodge {
+            DodgeChance_Status 2
+        }
+    }
+}
+
+ScrapBag {
+    name "ITEM_SCRAPBAG_NAME"
+    desc "ITEM_SCRAPBAG_DESC"
+    rarity uncommmon
+    kind trinket
+    frame 186
+    degrade_after_adventure false
+	set [Scrap, Tinkerer]
+    
+    passives {
+        StatusOnBattleStart {
+            Craft {
+                pool tinkerer_default
+                slot weapon
+            }
+        }
+    }
+}
+
+Cookbook {
+    name "ITEM_COOKBOOK_NAME"
+    desc "ITEM_COOKBOOK_DESC"
+    rarity uncommon
+    kind trinket
+    frame 187
+    degrade_after_adventure false
+	set [Butcher, Paper]
+    
+    passives {
+        KillsToMeat Food
+    }
+}
+
+TarotDeck {
+    name "ITEM_TAROTDECK_NAME"
+    desc "ITEM_TAROTDECK_DESC"
+    rarity uncommon
+    kind trinket
+    frame 183
+    degrade_after_adventure false
+	set [Psychic, Cardboard, Paper]
+    
+    ability tk_TarotDeck
+
+    passives {
+    }
+}
+
+TinyCage {
+    name "ITEM_TINYCAGE_NAME"
+    desc "ITEM_TINYCAGE_DESC"
+    rarity uncommon
+    kind trinket
+    frame 188
+    degrade_after_adventure false
+	set Druid
+
+    passives {
+        SpawnOnBattleStart {
+            object RandomDruidFamiliar
+            number 1
+        }
+    }
+}
+
+SpellBook {
+    name "ITEM_SPELLBOOK_NAME"
+    desc "ITEM_SPELLBOOK_DESC"
+    rarity rare
+    kind trinket
+    frame 207
+    degrade_after_adventure false
+	set [Mage, Paper]
+
+    durability 2
+    ability tk_SpellBook
+
+    passives {
+    }
+}
+
+BagOfBags {
+    name "ITEM_BAGOFBAGS_NAME"
+    desc "ITEM_BAGOFBAGS_DESC"
+    rarity uncommon
+    kind trinket
+    frame 208
+    degrade_after_adventure false
+
+    durability 13
+    ability tk_BagOfBags
+
+    passives {
+    }
+}
+
+Steroids {
+    name "ITEM_STEROIDS_NAME"
+    desc "ITEM_STEROIDS_DESC"
+    rarity rare
+    kind trinket
+    frame 209
+    degrade_after_adventure false
+	set Fighter
+
+    durability 9
+
+    ability tk_Steroids
+
+    passives {
+    }
+}
+
+HolyWater {
+    name "ITEM_HOLYWATER_NAME"
+    desc "ITEM_HOLYWATER_DESC"
+    rarity uncommon
+    kind trinket
+    frame 210
+    degrade_after_adventure false
+	set Cleric
+
+    ability tk_HolyWater
+
+    passives {
+    }
+}
+
+TankJuice {
+    name "ITEM_TANKJUICE_NAME"
+    desc "ITEM_TANKJUICE_DESC"
+    rarity uncommon
+    kind trinket
+    frame 211
+    degrade_after_adventure false
+	set Tank
+    
+    ability tk_TankJuice
+
+    passives {
+    }
+}
+
+HuntersFlute {
+    name "ITEM_HUNTERSFLUTE_NAME"
+    desc "ITEM_HUNTERSFLUTE_DESC"
+    rarity rare
+    kind trinket
+    frame 212
+    degrade_after_adventure false
+	set Hunter
+
+    ability tk_HuntersFlute
+
+    passives {
+    }
+}
+
+FriendshipBracelet {
+    name "ITEM_FRIENDSHIPBRACELET_NAME"
+    desc "ITEM_FRIENDSHIPBRACELET_DESC"
+    rarity rare
+    kind trinket
+    frame 213
+    degrade_after_adventure false
+	set Druid
+
+    durability 3
+    ability tk_FriendshipBracelet
+
+    passives {
+    }
+}
+
+CambionConception {
+    name "ITEM_CAMBIONCONCEPTION_NAME"
+    desc "ITEM_CAMBIONCONCEPTION_DESC"
+    rarity rare
+    kind trinket
+    frame 214
+    degrade_after_adventure false
+	set [Necromancer, Demonic, Baby]
+
+    durability 2
+    ability tk_CambionConception
+
+    passives {
+    }
+}
+
+EmptyHand {
+    name "ITEM_EMPTYHAND_NAME"
+    desc "ITEM_EMPTYHAND_DESC"
+    rarity rare
+    kind trinket
+    frame 215
+    degrade_after_adventure false
+	set Monk
+
+    durability 4
+    ability tk_EmptyHand
+
+    passives {
+        StatusOnBreak {
+            ConstitutionUp 1
+        }
+    }
+}
+
+Fireworks {
+    name "ITEM_FIREWORKS_NAME"
+    desc "ITEM_FIREWORKS_DESC"
+    rarity rare
+    kind trinket
+    frame 216
+    degrade_after_adventure false
+	set Tinkerer
+
+    durability 3
+    ability tk_Fireworks
+
+    passives {
+        StatusEachTurnEnd {
+            Conditional_ManaThreshold {
+                threshold_flat 0
+                RepairTrinket 1
+            }
+        }
+    }
+}
+
+SackOfMeat {
+    name "ITEM_SACKOFMEAT_NAME"
+    desc "ITEM_SACKOFMEAT_DESC"
+    rarity rare
+    kind trinket
+    frame 217
+    degrade_after_adventure false
+	set Butcher
+
+    durability 2
+    ability tk_SackOfMeat
+
+    passives {
+	    ExtraTrinketUses 10
+        StatusOnPopCorpse {
+            RepairTrinket 1
+        }
+    }
+}
+
+DruidsWhistle {
+    name "ITEM_DRUIDSWHISTLE_NAME"
+    desc "ITEM_DRUIDSWHISTLE_DESC"
+    rarity rare
+    kind trinket
+    frame 218
+    degrade_after_adventure false
+	set Druid
+    
+    ability tk_DruidsWhistle
+
+    passives {
+    }
+}
+
+BallOfYarn {
+    name "ITEM_BALLOFYARN_NAME"
+    desc "ITEM_BALLOFYARN_DESC"
+    rarity uncommon
+    kind trinket
+    frame 226
+    degrade_after_adventure false
+	set Twine
+
+    passives {
+        SpawnOnBattleStart BuffCharmedKitten
+    }
+}
+
+BirdHead {
+    name "ITEM_BIRDHEAD_NAME"
+    desc "ITEM_BIRDHEAD_DESC"
+    rarity rare
+    kind trinket
+    frame 192
+    degrade_after_adventure false
+	set Feathered
+    
+    passives {
+        AddStatusToBasicAttack {
+            SoulLink 1
+        }
+    }
+}
+
+BrokenMirror {
+    name "ITEM_BROKENMIRROR_NAME"
+    desc "ITEM_BROKENMIRROR_DESC"
+    rarity rare
+    kind trinket
+    frame 196
+    degrade_after_adventure false
+	set Used
+    
+    lck -99
+
+    passives {
+    }
+}
+
+Binoculars {
+    name "ITEM_BINOCULARS_NAME"
+    desc "ITEM_BINOCULARS_DESC"
+    rarity uncommon
+    kind trinket
+    frame 198
+    degrade_after_adventure false
+    
+    passives {
+        AddBonusRange 2
+    }
+}
+
+Bishop {
+    name "ITEM_BISHOP_NAME"
+    desc "ITEM_BISHOP_DESC"
+    rarity uncommon
+    kind trinket
+    frame 201
+    degrade_after_adventure false
+
+    durability 6
+    
+    ability tk_Bishop
+}
+
+GoldenEgg {
+    name "ITEM_GOLDENEGG_NAME"
+    desc "ITEM_GOLDENEGG_DESC"
+    rarity uncommon
+    kind trinket
+    frame 190
+    degrade_after_adventure false
+    
+    passives {
+        StatusOnBattleEnd {
+            GainCoins [3 5]
+        }
+    }
+}
+
+BirdFeed {
+    name "ITEM_BIRDFEED_NAME"
+    desc "ITEM_BIRDFEED_DESC"
+    rarity uncommon
+    kind trinket
+    frame 191
+    degrade_after_adventure false
+    
+    passives {
+        SpawnOnBattleStartRandomEmptyTile {
+            object Bird
+            number [0 1]
+        }
+    }
+}
+
+AngelWing {
+    name "ITEM_ANGELWING_NAME"
+    desc "ITEM_ANGELWING_DESC"
+    rarity rare
+    kind trinket
+    frame 195
+    degrade_after_adventure false
+	set Feathered
+    
+    passives {
+        PassiveAtHealthThreshold {
+            threshold 1
+            mode greater
+            
+            passives {
+                DeathRattleRevive DoNothing
+            }
+        }
+    }
+}
+
+SoulJar {
+    name "ITEM_SOULJAR_NAME"
+    desc "ITEM_SOULJAR_DESC"
+    rarity rare
+    kind trinket
+    frame 175
+    degrade_after_adventure false
+
+    passives {
+        DropSoulJarOnDeath SoulJar_Full
+    }
+}
+SoulJar_Full {
+    name "ITEM_SOULJAR_FULL_NAME"
+    desc "ITEM_SOULJAR_FULL_DESC"
+    rarity very_rare
+    kind trinket
+    frame 206
+    degrade_after_adventure false
+    aux -1
+    aux_is_catid true
+    
+    ability tk_SoulJar
+}
+
+PetrifiedPinky {
+    name "ITEM_PETRIFIEDPINKY_NAME"
+    desc "ITEM_PETRIFIEDPINKY_DESC"
+    rarity uncommon
+    kind trinket
+    frame 7
+    degrade_after_adventure false
+	set [Rat, Rock]
+    
+    passives {
+        DeathRattleRevive tk_PetrifiedPinky
+    }
+}
+
+CatRib {
+    name "ITEM_CATRIB_NAME"
+    desc "ITEM_CATRIB_DESC"
+    rarity rare
+    kind trinket
+    frame 19
+    degrade_after_adventure false
+	set Bone
+    
+    passives {
+        SpawnCatCloneOnCorpsePopped 1
+    }
+}
+
+EstusFlask_Full {
+    name "ITEM_ESTUSFLASK_NAME"
+    desc "ITEM_ESTUSFLASK_DESC"
+    rarity rare
+    kind trinket
+    frame 87
+    degrade_after_adventure false
+
+    durability 3
+    max_durability 3
+    dont_destroy_on_0 true
+
+    ability tk_EstusFlask
+
+    passives {
+        DurabilityTransform {
+            eq [2 EstusFlask_Half]
+            eq [1 EstusFlask_Half]
+            eq [0 EstusFlask_Empty]
+        }
+    }
+}
+EstusFlask_Half {
+    name "ITEM_ESTUSFLASK_NAME"
+    desc "ITEM_ESTUSFLASK_DESC"
+    rarity rare
+    kind trinket
+    frame 203
+    degrade_after_adventure false
+
+    durability 2
+    max_durability 3
+    dont_destroy_on_0 true
+
+    ability tk_EstusFlask
+
+    passives {
+        DurabilityTransform {
+            ge [3 EstusFlask_Full]
+            eq [0 EstusFlask_Empty]
+        }
+        StatusOnBattleEnd {
+            RepairTrinket 99
+        }
+        TransformItemOnElementInfluence {
+            element Fire
+            item EstusFlask_Full
+            full_repair true
+        }
+    }
+}
+EstusFlask_Empty {
+    name "ITEM_ESTUSFLASK_NAME"
+    desc "ITEM_ESTUSFLASK_DESC"
+    rarity rare
+    kind trinket
+    frame 204
+    degrade_after_adventure false
+
+    durability 0
+    max_durability 3
+    dont_destroy_on_0 true
+
+    passives {
+        DurabilityTransform {
+            ge [3 EstusFlask_Full]
+            eq [2 EstusFlask_Half]
+            eq [1 EstusFlask_Half]
+        }
+        StatusOnBattleEnd {
+            RepairTrinket 99
+        }
+        TransformItemOnElementInfluence {
+            element Fire
+            item EstusFlask_Full
+            full_repair true
+        }
+    }
+}
+
+LuckyCoin {
+    name "ITEM_LUCKYCOIN_NAME"
+    desc "ITEM_LUCKYCOIN_DESC"
+    rarity uncommmon
+    kind trinket
+    frame 145
+    degrade_after_adventure false
+	set Lucky
+
+    lck 2
+
+    passives {
+        MultiplyCoinsOnBattleStart 2
+    }
+}
+
+HeavyRock {
+    name "ITEM_HEAVYROCK_NAME"
+    desc "ITEM_HEAVYROCK_DESC"
+    rarity uncommon
+    kind trinket
+    frame 65
+    degrade_after_adventure false
+	set Rock
+
+    passives {
+        AddStatusToAllDamage {
+            Conditional_HasTag {
+                tag rock
+                BonusKnockbackDamage 5
+                OverrideChainKnockback 0
+            }
+        }
+    }
+}
+
+Ipecac {
+    name "ITEM_IPECAC_NAME"
+    desc "ITEM_IPECAC_DESC"
+    rarity rare
+    kind trinket
+    frame 149
+    degrade_after_adventure false
+	set Medical
+
+    attack BasicExplosiveShot
+    passives {
+        OverrideBasicAttack BasicExplosiveShot
+    }
+}
+
+MeatCube {
+    name "ITEM_MEATCUBE_NAME"
+    desc "ITEM_MEATCUBE_DESC"
+    rarity rare
+    kind trinket
+    frame 143
+    degrade_after_adventure false
+	set Meat
+
+    passives {
+        SpawnOnBattleStart {
+            object FamiliarFleshLad
+        }
+    }
+}
+
+
+SoyMilk {
+    name "ITEM_SOYMILK_NAME"
+    desc "ITEM_SOYMILK_DESC"
+    rarity rare
+    kind trinket
+    frame 150
+    degrade_after_adventure false
+
+    passives {
+        CapBasicAttackDamage 1
+        ExtraBasicAttacks 2
+    }
+}
+
+SpoonBender {
+    name "ITEM_SPOONBENDER_NAME"
+    desc "ITEM_SPOONBENDER_DESC"
+    rarity rare
+    kind trinket
+    frame 151
+    degrade_after_adventure false
+	set Psychic
+
+    passives {
+        BasicAttackCantMiss 1
+        AddSelfStatusToBasicAttack {
+            RandomMagicMissile 1
+        }
+    }
+}
+
+Cancer {
+    name "ITEM_CANCER_NAME"
+    desc "ITEM_CANCER_DESC"
+    rarity rare
+    kind trinket
+    frame 152
+    degrade_after_adventure false
+	set Mother
+
+    passives {
+        StatusOnBattleEnd {
+            even_if_dead true
+            
+            RandomPermanentStat -3
+            RandomMutation 1
+        }
+    }
+}
+
+Wafer {
+    name "ITEM_WAFER_NAME"
+    desc "ITEM_WAFER_DESC"
+    rarity rare
+    kind trinket
+    frame 156
+    degrade_after_adventure false
+	set Cleric
+
+    divine_shield 2
+
+    passives {
+    }
+}
+
+LargeMeteor {
+    name "ITEM_LARGEMETEOR_NAME"
+    desc "ITEM_LARGEMETEOR_DESC"
+    rarity uncommon
+    kind trinket
+    frame 243
+    degrade_after_adventure false
+    randomize_piece_frames true
+	set Planet 
+    
+    str_aux_initialize random_copyable_colorless_passive
+    str_aux_is_copy_passive true
+}
+
+BloodyRazor {
+    name "ITEM_BLOODYRAZOR_NAME"
+    desc "ITEM_BLOODYRAZOR_DESC"
+    kind trinket
+    rarity very_rare
+    frame 270
+    degrade_after_adventure false
+	//set Bloody
+    
+    ability tk_BloodyRazor
+}
+
+ImmaculateHeart {
+    name "ITEM_IMMACULATEHEART_NAME"
+    desc "ITEM_IMMACULATEHEART_DESC"
+    rarity very_rare
+    kind trinket
+    frame 246
+    degrade_after_adventure false
+    
+    passives {
+        DamageUp 2
+		SpellDamageUp 1
+        AddSelfStatusToBasicAttack {
+            RandomMagicMissile 3
+        }
+    }
+}
+
+DybbuksRib {
+    name "ITEM_DYBBUKSRIB_NAME"
+    desc "ITEM_DYBBUKSRIB_DESC"
+    rarity very_rare
+    kind trinket
+    frame 273
+    degrade_after_adventure false
+	set Bone
+	
+	passives {
+		StatusOnBattleStart {
+			ForceUseAbility tk_DybbuksRib
+		}
+	}
+}
+
+SnakeEyes {
+    name "ITEM_SNAKEEYES_NAME"
+    desc "ITEM_SNAKEEYES_DESC"
+    rarity rare
+    kind trinket
+    frame 274
+    degrade_after_adventure false
+    
+    passives {
+        PassiveAtHealthThreshold {
+            threshold 2
+            mode equal
+            
+            passives {
+                LuckUp 222
+            }
+		}
+    }
+}
+
+GreenWhistle {
+    name "ITEM_GREENWHISTLE_NAME"
+    desc "ITEM_GREENWHISTLE_DESC"
+    rarity very_rare
+    kind trinket
+    frame 280
+    degrade_after_adventure false
+    
+	ability tk_LegWhistle
+}
+
+MothersLove {
+    name "ITEM_MOTHERSLOVE_NAME"
+    desc "ITEM_MOTHERSLOVE_DESC"
+    rarity very_rare
+    kind trinket
+    frame 281
+    degrade_after_adventure false
+	set Mother
+
+	shield 6
+    lck 6
+    
+    passives {
+		HealthRegenUp 6
+    }
+}
+
+PentagramSigil {
+    name "ITEM_PENTAGRAMSIGIL_NAME"
+    desc "ITEM_PENTAGRAMSIGIL_DESC"
+    rarity very_rare
+    kind trinket
+    frame 276
+    degrade_after_adventure false
+    cursed true
+	set Demonic
+    
+    durability 5
+
+    ability tk_Pentagram
+}
+
+LuciferSigil {
+    name "ITEM_LUCIFERSIGIL_NAME"
+    desc "ITEM_LUCIFERSIGIL_DESC"
+    rarity rare
+    kind trinket
+    frame 275
+    degrade_after_adventure false
+    cursed true
+	set Demonic
+    
+    passives {
+        SpawnOnBattleStart {
+            object CharmedBigDemon
+            number 1
+        }
+    }
+}
+
+HexagramSigil {
+    name "ITEM_HEXAGRAMSIGIL_NAME"
+    desc "ITEM_HEXAGRAMSIGIL_DESC"
+    rarity rare
+    kind trinket
+    frame 284
+    degrade_after_adventure false
+	cursed true
+	set Demonic
+	
+	str 3
+	dex 3
+
+    passives {
+		SpellDamageUp 3
+
+		DebuffImmunity 1
+        BuffImmunity 1
+        AddCorpseHealth -999999
+    }
+}
+
+ChupacabraTongue {
+    name "ITEM_CHUPACABRATONGUE_NAME"
+    desc "ITEM_CHUPACABRATONGUE_DESC"
+    rarity rare
+    kind trinket
+    frame 286
+    degrade_after_adventure false
+	set Guts
+    
+    passives {
+		Lifesteal 1
+    }
+}
+
+CharonsObal {
+    name "ITEM_CHARONSOBAL_NAME"
+    desc "ITEM_CHARONSOBAL_DESC"
+    rarity very_rare
+    kind trinket
+    frame 287
+    degrade_after_adventure false
+	set Necromancer
+    
+    passives {
+		SpawnThingOnDeath CharmedReaper
+		AddCorpseHealth 6
+    }
+}
+
+HumanHead {
+    name "ITEM_HUMANHEAD_NAME"
+    desc "ITEM_HUMANHEAD_DESC"
+    rarity very_rare
+    kind trinket
+    frame 288
+    degrade_after_adventure false
+	set HumanFlesh
+	
+    str 1
+	dex 1
+	con 1
+    int 1
+	spd 1
+	cha 1
+	lck 1
+}
+
+Glitch {
+    name "ITEM_GLITCH_NAME"
+    desc "ITEM_GLITCH_DESC"
+    rarity rare
+    kind trinket
+    frame 289
+    degrade_after_adventure false
+    
+    ability tk_Glitch
+}
+
+VideoGameCart {//this item will have no effect till dlc.. figure it out later. 
+    name "ITEM_VIDEOGAMECART_NAME"
+    desc "ITEM_VIDEOGAMECART_DESC"
+    rarity very_rare
+    kind trinket
+    frame 290
+    degrade_after_adventure false
+	set Used
+    
+    passives {
+
+    }
+}
+
+TV {
+    name "ITEM_TV_NAME"
+    desc "ITEM_TV_DESC"
+    rarity very_rare
+    kind trinket
+    frame 291
+    degrade_after_adventure false
+    
+    passives {
+		BonusAbility WasteTime
+    }
+}
+
+Triachnid {
+    name "ITEM_TRIACHNID_NAME"
+    desc "ITEM_TRIACHNID_DESC"
+    rarity very_rare
+    kind trinket
+    frame 292
+    degrade_after_adventure false
+    
+    passives {
+        SpawnOnBattleStart {
+            object Triachnid
+            number 1
+        }
+    }
+}
+
+GallonOfWater {//todo make it become empty and you can throw it like bottles but with a big glass aoe and more damage.
+    name "ITEM_GALLONOFWATER_NAME"
+    desc "ITEM_GALLONOFWATER_DESC"
+    kind trinket
+    frame 293
+    degrade_after_adventure false
+    rarity rare
+
+    durability 8
+    max_durability 8
+    dont_destroy_on_0 true
+
+    ability tk_WaterBottle_Half
+
+    passives {
+        TransformItemOnElementInfluence {
+            element Greater_Water
+            item GallonOfWater
+            full_repair true
+        }
+    }
+}
+
+ScorchedEarth {
+    name "ITEM_SCORCHEDEARTH_NAME"
+    desc "ITEM_SCORCHEDEARTH_DESC"
+    rarity very_rare
+    kind trinket
+    frame 238
+    degrade_after_adventure false
+	set DirtClod
+    
+    passives {
+        ElementalManaCostReduction {
+            element [Fire Earth]
+            reduction 1
+        }
+    }
+}
+
+LiquidMetal {
+    name "ITEM_LIQUIDMETAL_NAME"
+    desc "ITEM_LIQUIDMETAL_DESC"
+    rarity very_rare
+    kind trinket
+    frame 231
+    degrade_after_adventure false
+    
+    passives {
+		DodgeChance 25%
+    }
+}
+
+StevenStone {
+    name "ITEM_STEVENSTONE_NAME"
+    desc "ITEM_STEVENSTONE_DESC"
+    rarity very_rare
+    kind trinket
+    frame 232
+    degrade_after_adventure false
+	set Steven
+	
+	cha 2
+    
+    passives {
+        ClassManaCostReduction {
+			class Colorless
+            reduction 2
+        }
+    }
+}
+
+StevenMarrow {
+    name "ITEM_STEVENMARROW_NAME"
+    desc "ITEM_STEVENMARROW_DESC"
+    rarity very_rare
+    kind trinket
+    frame 233
+    degrade_after_adventure false
+	set Steven
+    
+	shield 4
+	con -3
+	
+	passives {
+		GainExtraShield 4
+	}
+}
+
+StevenTrinket1 {
+    name "ITEM_STEVENTRINKET1_NAME"
+    desc "ITEM_STEVENTRINKET1_DESC"
+    rarity very_rare
+    kind trinket
+    frame 234
+    degrade_after_adventure false
+	set Steven
+    
+    passives {
+		FreezePiercing 1
+        AddStatusToBasicAttack {
+            Slow 1
+			Freeze [1 .1]
+        }
+    }
+}
+
+StevenTrinket2 {
+    name "ITEM_STEVENTRINKET2_NAME"
+    desc "ITEM_STEVENTRINKET2_DESC"
+    rarity very_rare
+    kind trinket
+    frame 236
+    degrade_after_adventure false
+	set Steven
+    
+    passives {
+        AddStatusToBasicAttack {
+            Confusion 1
+        }
+    }
+}
+
+NinnyStick {
+    name "ITEM_NINNYSTICK_NAME"
+    desc "ITEM_NINNYSTICK_DESC"
+    rarity very_rare
+    kind trinket
+    frame 267
+    degrade_after_adventure false
+	set Jester
+    
+    passives {
+        RerollItemsOnBattleEnd 1
+        AddLevelUpRerolls 1
+    }
+}
+
+SkillSplit {
+    name "ITEM_SKILLSPLIT_NAME"
+    desc "ITEM_SKILLSPLIT_DESC"
+    rarity very_rare
+    kind trinket
+    frame 269
+    degrade_after_adventure false
+    
+    passives {
+        CopyPassiveSlot 0
+    }
+}
+
+FurnitureBox {
+    name "ITEM_FURNITUREBOX_NAME"
+    desc "ITEM_FURNITUREBOX_DESC"
+    rarity rare
+    kind trinket
+    frame 294
+    degrade_after_adventure false
+    on_store become_furniture
+
+    spd -5
+    shield 8
+
+    passives {
+        BreakWhenNoShield 1
+    }
+}
+
+FurnitureBox_Rare {
+    name "ITEM_FURNITUREBOX_RARE_NAME"
+    desc "ITEM_FURNITUREBOX_RARE_DESC"
+    rarity very_rare
+    kind trinket
+    frame 295
+    degrade_after_adventure false
+    on_store become_rare_furniture
+
+    spd -5
+    lck 5
+    shield 4
+
+    passives {
+        BreakWhenNoShield 1
+    }
+}
+
+Ankh {
+    name "ITEM_ANKH_NAME"
+    desc "ITEM_ANKH_DESC"
+    rarity rare
+    kind trinket
+    frame 199
+    degrade_after_adventure false
+
+    passives {
+        ChanceToRevive {
+            stacks 50
+            health 34%
+        }
+    }
+}
+
+TheBoxCardboard {
+    name "ITEM_THEBOXCARDBOARD_NAME"
+    desc "ITEM_THEBOXCARDBOARD_DESC"
+    rarity rare
+    kind trinket
+    frame 296
+    degrade_after_adventure false
+	set Cardboard
+
+    passives {
+	    StatusOnBattleEnd {
+            FindItemFromPool chapter_specific_item
+        }
+    }
+}
+
+TheBoxChest {
+    name "ITEM_THEBOXCHEST_NAME"
+    desc "ITEM_THEBOXCHEST_DESC"
+    rarity rare
+    kind trinket
+    frame 297
+    degrade_after_adventure false
+	set Wood
+
+    durability 1
+    max_durability 4
+    dont_destroy_on_0 true
+
+    passives {
+        StatusOnAllyCatDeath {
+            RepairTrinket 1
+        }
+    }
+    
+	ability tk_SpawnTheLost
+}
+
+TheBox {
+    name "ITEM_THEBOX_NAME"
+    desc "ITEM_THEBOX_DESC"
+    rarity rare
+    kind trinket
+    frame 298
+    degrade_after_adventure false
+	set Steven
+	
+	durability 4
+
+	ability tk_Reset
+}
+
+TheBlackBox {
+    name "ITEM_THEBLACKBOX_NAME"
+    desc "ITEM_THEBLACKBOX_DESC"
+    rarity very_rare
+    kind trinket
+    frame 300
+    degrade_after_adventure false
+	set Steven
+
+	ability tk_TheBlackBox
+}
+
+//The BOX
+//use: craft and equip a random item [from general/chaos pool]
+
+SkullOfGlorg {
+    name "ITEM_SKULLOFGLORG_NAME"
+    desc "ITEM_SKULLOFGLORG_DESC"
+    rarity rare
+    kind trinket
+    frame 299
+    degrade_after_adventure false
+	parasite true
+	set Bone
+
+    passives {
+		ReduceSpellCostsPerParasite 1
+    }
+}
+
+// TODO trinkets that may or may not make it in
+
+/* cut
+Checkers {
+    name "Checkers"
+    desc "Use: Move 1 tile diagonally. If a unit is in the way, leap 2 tiles over it instead, dealing 4 damage to it and refresh this. You cannot use this to move to a tile you've previously occupied this turn."
+    rarity rare
+    kind trinket
+    frame 200
+    degrade_after_adventure false
+}
+
+*/

@@ -1,0 +1,288 @@
+MonkeyPaw1 {
+    requirements {
+        not_has_token WorldEventLegacyToken_MonkeyPaw1
+    }
+
+    intro {
+        title "EVENT_MONKEYPAW_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame monkey_paw_4fingers
+        set_frame 1
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_MONKEYPAW1_QUES"
+
+        options {
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    reward {
+                        common {
+                            prompt "EVENT_MONKEYPAW1_REW1"
+                            //nothing happens
+                        }
+                        rare {
+                            prompt "EVENT_MONKEYPAW1_REW2"
+                            set_legacy_token WorldEventLegacyToken_MonkeyPaw1
+                            set_frame 2
+                            event_now_same_cat MonkeyPawWish
+                        }
+                    }
+                }
+            }
+
+            leave {
+                label "EVENT_LEAVE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_MONKEYPAW_LEAVE"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+MonkeyPaw2 {
+    requirements {
+        has_token WorldEventLegacyToken_MonkeyPaw1
+        not_has_token WorldEventLegacyToken_MonkeyPaw2
+    }
+
+    intro {
+        title "EVENT_MONKEYPAW_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame monkey_paw_3fingers
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_MONKEYPAW2_QUES"
+
+        options {
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    reward {
+                        common {
+                            prompt "EVENT_MONKEYPAW2_REW1"
+                            //nothing happens
+                        }
+                        rare {
+                            prompt "EVENT_MONKEYPAW2_REW2"
+                            set_legacy_token WorldEventLegacyToken_MonkeyPaw2
+                            set_frame 2
+                            event_now_same_cat MonkeyPawWish
+                        }
+                    }
+                }
+            }
+
+            leave {
+                label "EVENT_LEAVE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_MONKEYPAW_LEAVE"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+MonkeyPaw3 {
+    requirements {
+        has_token WorldEventLegacyToken_MonkeyPaw2
+        not_has_token WorldEventLegacyToken_MonkeyPaw3
+    }
+    intro {
+        title "EVENT_MONKEYPAW_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame monkey_paw_2fingers //event states have different base frames.
+        event_clip NonWheelEvent
+    }
+    main {
+        prompt "EVENT_MONKEYPAW3_QUES"
+
+        options {
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    reward {
+                        common {
+                            prompt "EVENT_MONKEYPAW3_REW1"
+                            //nothing happens
+                        }
+                        rare {
+                            prompt "EVENT_MONKEYPAW3_REW2"
+                            set_legacy_token WorldEventLegacyToken_MonkeyPaw3
+                            set_frame 2
+                            event_now_same_cat MonkeyPawWish
+                        }
+                    }
+                }
+            }
+
+            leave {
+                label "EVENT_LEAVE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_MONKEYPAW_LEAVE"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+MonkeyPaw4 {
+    requirements {
+        has_token WorldEventLegacyToken_MonkeyPaw3
+        not_has_token WorldEventLegacyToken_MonkeyPaw4
+    }
+    intro {
+        title "EVENT_MONKEYPAW_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame monkey_paw_1finger //event states have different base frames.
+        event_clip NonWheelEvent
+    }
+    main {
+        prompt "EVENT_MONKEYPAW3_QUES"
+
+        options {
+            examine {
+                label "EVENT_EXAMINE_ANSW"
+                stat int
+
+                good {
+                    reward {
+                        common {
+                            prompt "EVENT_MONKEYPAW3_REW1"
+                            //nothing happens
+                        }
+                        rare {
+                            prompt "EVENT_MONKEYPAW3_REW2"
+                            set_legacy_token WorldEventLegacyToken_MonkeyPaw4
+                            set_frame 2
+                            event_now_same_cat MonkeyPawWish
+                        }
+                    }
+                }
+            }
+
+            leave {
+                label "EVENT_LEAVE_ANSW"
+                stat none
+                animation choice_leave
+                
+                good {
+                    prompt "EVENT_MONKEYPAW_LEAVE"
+                    play_animation [resultLeave 0]
+                }
+            }
+        }
+    }
+}
+
+MeatGolem {
+    requirements {
+        has_token WorldEventLegacyToken_CryptOpened
+    }
+
+    intro {
+        title "EVENT_MEATGOLEM_NAME"
+        cat_choice random
+        subject_clip EventSubject
+        subject_frame meat_golem
+        event_clip NonWheelEvent
+    }
+
+    main {
+        prompt "EVENT_MEATGOLEM_QUES"
+        shuffle_options true
+        max_options 2
+
+        options {
+            smash {
+                label "EVENT_GOLEMSMASH_ANSW"
+                stat none
+
+                good {
+                    prompt "EVENT_MEATGOLEM_REW1"
+                    set_frame 2
+                    ally_ambush_next_fights 1
+                }
+            }
+            
+            scream {
+                label "EVENT_GOLEMSCREAM_ANSW"
+                stat none
+
+                good {
+                    prompt "EVENT_MEATGOLEM_REW2"
+                    set_frame 2
+                    global_effect_next_fight {
+                        Fights 1
+                        StatusRandomEnemiesOnBattleStart {
+                            count 2
+                            Fear 2
+                        }
+                    }
+                }
+            }
+
+            find {
+                label "EVENT_GOLEMFIND_ANSW"
+                stat none
+
+                good {
+                    prompt "EVENT_MEATGOLEM_REW3"
+                    set_frame 2
+                    reward {
+                        common {
+                            get_item_from_pool {
+                                pool chapter_common
+                            }
+                        }
+                        rare {
+                            get_item_from_pool {
+                                pool chapter_rare
+                            }
+                        }
+                    }
+                }
+            }
+
+            lick {
+                label "EVENT_GOLEMLICK_ANSW"
+                stat none
+
+                good {
+                    prompt "EVENT_MEATGOLEM_REW4"
+                    set_frame 2
+                    heal_injury 1
+                    heal_disorder 1
+                    heal 50%
+                }
+            }
+        }
+    }
+}
