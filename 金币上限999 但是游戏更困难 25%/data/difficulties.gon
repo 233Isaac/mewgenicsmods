@@ -1,0 +1,225 @@
+0 { //default difficulty
+	boss_health_multiplier 1.2
+	bonus_itemroll_luck 0
+	coins_multiplier 1
+	food_multiplier 1
+	wallet_size 999
+	event_difficulty 1
+	
+	easy {
+		elite_budget 0.25
+		champ_budget 0.25
+
+		elite_buffs 1
+		rare_elite_buffs 1
+	}
+	hard {
+		champ_budget 2.5
+		champ_chance_mini .25 //chance for maggots, fleas, etc to become champs
+
+		elite_buffs 2
+		rare_elite_buffs 2
+	}
+}
+
+1 { //+1 difficulty
+	boss_health_multiplier 1.5
+	boss_elite_buffs 2
+	bonus_itemroll_luck 8
+	coins_multiplier 1.25
+	food_multiplier 1.25
+	wallet_size 999
+	event_difficulty 2
+	
+	easy {
+		elite_budget 0.5
+		champ_budget 1.5
+		champ_chance_mini .25
+
+		elite_buffs 2
+		rare_elite_buffs 3
+	}
+	hard {
+		elite_budget 1.5
+		champ_budget 3
+		elite_chance_mini .25 //chance for maggots, fleas, etc to become elites
+		champ_chance_mini .25 //chance for maggots, fleas, etc to become champs
+		
+		elite_buffs 2
+		rare_elite_buffs 3
+	}
+}
+
+2 { //+2 difficulty
+	boss_health_multiplier 2
+	boss_elite_buffs 3
+	bonus_itemroll_luck 16
+	coins_multiplier 1.5
+	food_multiplier 1.5
+	wallet_size 999
+	event_difficulty 3
+	
+	easy {
+		elite_budget 1.5
+		champ_budget 1.5
+		elite_chance_mini .25
+		champ_chance_mini .25
+
+		elite_buffs 3
+		rare_elite_buffs 4
+	}
+	hard {
+		elite_budget 3
+		champ_budget 2.25
+		elite_chance_mini .25 //chance for maggots, fleas, etc to become elites
+		champ_chance_mini .25 //chance for maggots, fleas, etc to become champs
+		
+		elite_buffs 3
+		rare_elite_buffs 4
+	}
+}
+
+3 { //+3 difficulty
+	boss_health_multiplier 2.5
+	boss_elite_buffs 4
+	bonus_itemroll_luck 24
+	coins_multiplier 2
+	food_multiplier 2
+	wallet_size 999
+	event_difficulty 4
+	
+	easy {
+		elite_budget 3
+		champ_budget 1.5
+		elite_chance_mini .25
+		champ_chance_mini .25
+
+		elite_buffs 5
+		rare_elite_buffs 7
+	}
+	hard {
+		elite_budget 4.5
+		champ_budget 1.5
+		elite_chance_mini .25 //chance for maggots, fleas, etc to become elites
+		champ_chance_mini .25 //chance for maggots, fleas, etc to become champs
+		
+		elite_buffs 5
+		rare_elite_buffs 7
+	}
+}
+
+4 { //+4 difficulty, only accessible if you limit break difficulty by setting it to max and then equipping the quest item that makes you play on +1 difficulty
+	boss_health_multiplier 3
+	boss_elite_buffs 7
+	bonus_itemroll_luck 200
+	coins_multiplier 5
+	food_multiplier 5
+	wallet_size 999
+	event_difficulty 7
+	
+	easy {
+		elite_budget 4.5
+		champ_budget 1.5
+		elite_chance_mini .5
+		champ_chance_mini .5
+
+		elite_buffs 8
+		rare_elite_buffs 10
+	}
+	hard {
+		elite_budget 7.5
+		champ_budget 1.5
+		elite_chance_mini .5 //chance for maggots, fleas, etc to become elites
+		champ_chance_mini .5 //chance for maggots, fleas, etc to become champs
+		
+		elite_buffs 8
+		rare_elite_buffs 10
+	}
+}
+
+5 { //+5 difficulty, only accessible if you limit break difficulty by setting it to max and then equipping multiple of the quest item that makes you play on +1 difficulty
+	boss_health_multiplier 4.5
+	boss_elite_buffs 9
+	bonus_itemroll_luck 400
+	coins_multiplier 7
+	food_multiplier 7
+	wallet_size 999
+	event_difficulty 9
+	
+	easy {
+		elite_budget 999
+		champ_budget 999
+		elite_chance_mini 1
+		champ_chance_mini 1
+
+		elite_buffs 10
+		rare_elite_buffs 13
+	}
+	hard {
+		elite_budget 999
+		champ_budget 999
+		elite_chance_mini 1 //chance for maggots, fleas, etc to become elites
+		champ_chance_mini 1 //chance for maggots, fleas, etc to become champs
+		
+		elite_buffs 10
+		rare_elite_buffs 13
+	}
+}
+
+6 { //+6 difficulty, only accessible if you limit break difficulty by setting it to max and then equipping multiple of the quest item that makes you play on +1 difficulty
+	boss_health_multiplier 6
+	boss_elite_buffs 12
+	bonus_itemroll_luck 600
+	coins_multiplier 9
+	food_multiplier 9
+	wallet_size 999
+	event_difficulty 12
+	
+	easy {
+		elite_budget 999
+		champ_budget 999
+		elite_chance_mini 1
+		champ_chance_mini 1
+
+		elite_buffs 13
+		rare_elite_buffs 20
+	}
+	hard {
+		elite_budget 999
+		champ_budget 999
+		elite_chance_mini 1 //chance for maggots, fleas, etc to become elites
+		champ_chance_mini 1 //chance for maggots, fleas, etc to become champs
+		
+		elite_buffs 13
+		rare_elite_buffs 20
+	}
+}
+
+7 { //+7 difficulty, only accessible if you limit break difficulty by setting it to max and then equipping multiple of the quest item that makes you play on +1 difficulty
+	boss_health_multiplier 8
+	boss_elite_buffs 20
+	bonus_itemroll_luck 1000
+	coins_multiplier 15
+	food_multiplier 15
+	wallet_size 999
+	event_difficulty 20
+	
+	easy {
+		elite_budget 999
+		champ_budget 999
+		elite_chance_mini 1
+		champ_chance_mini 1
+
+		elite_buffs 20
+		rare_elite_buffs 27
+	}
+	hard {
+		elite_budget 999
+		champ_budget 999
+		elite_chance_mini 1 //chance for maggots, fleas, etc to become elites
+		champ_chance_mini 1 //chance for maggots, fleas, etc to become champs
+		
+		elite_buffs 20
+		rare_elite_buffs 27
+	}
+}
