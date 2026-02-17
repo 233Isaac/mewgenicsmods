@@ -1,0 +1,648 @@
+Tapeworm {
+    name "PARASITE_TAPEWORM_NAME"
+    desc "PARASITE_TAPEWORM_DESC"
+    kind trinket
+    frame 12
+    
+    parasite true
+    con -2
+
+    passives {
+        AddStatusToBasicAttack {
+            Poison 1
+        }
+    }
+}
+
+Pinworm {
+    name "PARASITE_PINWORM_NAME"
+    desc "PARASITE_PINWORM_DESC"
+    kind neck
+    frame 15
+    
+    parasite true
+	set Parasite
+
+    con -1
+    str -1
+
+    passives {
+        SpawnThingOnDamage {
+            object CharmedMaggot
+            good false //good relative to the thing attacking, for luck calculations
+        }
+    }
+}
+
+Ringworm {
+    name "PARASITE_RINGWORM_NAME"
+    desc "PARASITE_RINGWORM_DESC"
+    kind face
+    frame 20
+    
+    parasite true
+	set Parasite
+
+    cha -3
+
+    passives {
+        AddStatusToBasicAttack {
+            Weakness 3
+        }
+    }
+}
+
+Heartworm {
+    name "PARASITE_HEARTWORM_NAME"
+    desc "PARASITE_HEARTWORM_DESC"
+    kind trinket
+    frame 14
+    
+    parasite true
+
+    durability 1
+
+    lck 3
+
+    passives {
+        AddCorpseHealth -999999
+    }
+}
+
+BotflyLarva {
+    name "PARASITE_BOTFLYLARVA_NAME"
+    desc "PARASITE_BOTFLYLARVA_DESC"
+    kind trinket
+    frame 13
+    
+    parasite true
+
+    spd -1
+    cha -1
+
+    passives {
+        SpawnThingOnDeath CharmedPooter
+        SpawnThingOnDeath CharmedPooter
+    }
+}
+
+BrainMaggot {
+    name "PARASITE_BRAINMAGGOT_NAME"
+    desc "PARASITE_BRAINMAGGOT_DESC"
+    kind head
+    frame 16
+    
+    parasite true
+	set Parasite
+
+    int -3
+
+    passives {
+        DelayedAutoRevive {
+            rounds 2
+            health 50%
+        }
+    }
+}
+
+SpiderEgg {
+    name "PARASITE_SPIDEREGG_NAME"
+    desc "PARASITE_SPIDEREGG_DESC"
+    kind trinket
+    frame 98
+    
+    parasite true
+
+    passives {
+        AddStatusToBasicAttack {
+            SpiderInfested 1
+        }
+    }
+}
+
+SpiderWebber {
+    name "PARASITE_SPIDERWEBBER_NAME"
+    desc "PARASITE_SPIDERWEBBER_DESC"
+    kind weapon
+    frame 159
+    
+    parasite true
+
+    ability wp_SpiderWebber
+}
+
+AmoebaHat {
+    name "PARASITE_AMOEBAHEAD_NAME"
+    desc "PARASITE_AMOEBAHEAD_DESC"
+    kind head
+    frame 100
+    set Amoeba
+    
+    parasite true
+    
+    shield 4
+    int -1
+
+    passives {
+        Brace 1
+		MissChance 10
+    }
+}
+AmoebaNeck {
+    name "PARASITE_AMOEBANECK_NAME"
+    desc "PARASITE_AMOEBANECK_DESC"
+    kind neck
+    frame 100
+    set Amoeba
+    
+    parasite true
+
+	shield 4
+    con -1
+
+    passives {
+        Brace 1
+		MissChance 10
+    }
+}
+AmoebaFace {
+    name "PARASITE_AMOEBAFACE_NAME"
+    desc "PARASITE_AMOEBAFACE_DESC"
+    kind face
+    frame 100
+    set Amoeba
+    
+    parasite true
+
+	shield 4
+	cha -1
+
+    passives {
+        Brace 1
+        MissChance 10
+    }
+}
+
+SoulSucker {
+    name "ARMOR_SOULSUCKER_NAME"
+    desc "ARMOR_SOULSUCKER_DESC"
+    kind face
+    frame 58
+    
+    parasite true
+	set Parasite
+
+    con -1
+
+    passives {
+        StatusOnKillEnemy {
+            ManaGain 2
+        }
+    }
+}
+
+BestBud {
+    name "ARMOR_BESTBUD_NAME"
+    desc "ARMOR_BESTBUD_DESC"
+    kind head
+    frame 51
+    
+    parasite true
+	set Parasite
+
+    con -1
+
+    passives {
+        ArmorBreakOnHit {
+            durability_loss 0
+            chance_to_break 10%
+        }
+        StatusOnBreak {
+            ObjectOnHitCharacter BestBud
+        }
+    }
+}
+
+AngryWorm {
+    name "ARMOR_ANGRYWORM_NAME"
+    desc "ARMOR_ANGRYWORM_DESC"
+    kind head
+    frame 52
+    
+    parasite true
+	set Parasite
+
+    con -1
+
+    passives {
+        AddTemporaryEffectsToBasicAttack {
+            CastAgainWithStatus {
+                stacks 1
+                OverrideDamage 1
+            }
+        }
+    }
+}
+
+HealWorm {
+    name "ARMOR_HEALWORM_NAME"
+    desc "ARMOR_HEALWORM_DESC"
+    kind neck
+    frame 49
+    
+    parasite true
+	set Parasite
+
+    con -1
+
+    passives {
+        HealthRegenUp 2
+    }
+}
+
+CymothoaExigua {
+    name "ARMOR_CYMOTHOAEXIGUA_NAME"
+    desc "ARMOR_CYMOTHOAEXIGUA_DESC"
+    kind face
+    frame 43
+    
+    parasite true
+	set Parasite
+
+    cha -2
+    str 2
+    dex 2
+
+    passives {
+    }
+}
+
+EyeWorm {
+    name "ARMOR_EYEWORM_NAME"
+    desc "ARMOR_EYEWORM_DESC"
+    kind face
+    frame 44
+    
+    parasite true
+	set Parasite
+
+    passives {
+        MissChance 10
+
+        StatusOnBattleStart {
+            DestroyEquipmentAndAttachParasite {
+                chance .75
+                pool [FaceGrub HeadGrub NeckGrub]
+            }
+        }
+    }
+}
+
+Scabies {
+    name "ARMOR_SCABIES_NAME"
+    desc "ARMOR_SCABIES_DESC"
+    kind face
+    frame 45
+    
+    parasite true
+	set Parasite
+
+    passives {
+        Bruise 2
+        SpawnThingOnDamage {
+            object CharmedFlea
+            spawn_on_death_hit false
+        }
+    }
+}
+
+BeanParasite {
+    name "ARMOR_BEANPARASITE_NAME"
+    desc "ARMOR_BEANPARASITE_DESC"
+    kind head
+    frame 67
+    
+    parasite true
+	set Parasite
+
+    int 5
+
+    passives {
+        Confusion 99
+    }
+}
+
+Cordyceps {
+    name "ARMOR_CORDYCEPS_NAME"
+    desc "ARMOR_CORDYCEPS_DESC"
+    kind head
+    frame 36
+    
+    parasite true
+	set Parasite
+
+    passives {
+        StatusEachTurnBegin {
+            Conditional_BadRoll {
+                odds .3
+
+                Temporary {
+                    status SpeedUp
+                    stacks 2
+                    turns 1
+                    expires_on_end_turn true
+                }
+                Temporary {
+                    status Uncontrollable
+                    stacks 1
+                    turns 1
+                    expires_on_end_turn true
+                }
+            }
+        }
+    }
+}
+
+NaegleriaFowleri {
+    name "ARMOR_NAEGLERIAFOWLERI_NAME"
+    desc "ARMOR_NAEGLERIAFOWLERI_DESC"
+    kind head
+    frame 37
+    
+    parasite true
+	set Parasite
+
+    // kinda convenient that this gives Brace equal to aux
+    // might need to implement tooltip_values for items later
+    aux 1
+
+    shield "max((aux-1)*2, 0)"
+
+    passives {
+        StatusOnBattleStart {
+            Brace aux
+        }
+        StatusOnBattleEnd {
+            PermanentIntelligence -1
+            SetItemAux {
+                slot head
+                value item_aux+1
+            }
+            even_if_dead true
+        }
+        CatPartsSizeScale {
+            head 1.3
+        }
+        
+        PassiveAtStatThreshold {
+            mode less_or_equal
+            threshold {
+                int 0
+            }
+            passives {
+                StatusOnBattleStart {
+                    SafeDie 1
+                }
+            }
+        }
+    }
+}
+
+Malaria {
+    name "ARMOR_MALARIA_NAME"
+    desc "ARMOR_MALARIA_DESC"
+    kind head
+    frame 38
+    
+    parasite true
+	set Parasite
+
+    passives {
+		SpawnThingOnDeath CharmedFlySwarm
+		SpawnThingOnDeath CharmedFlySwarm
+        StatusOnBattleEnd {
+            PermanentCharisma -1
+            PermanentConstitution -1
+            PermanentDexterity -1
+            PermanentIntelligence -1
+            PermanentLuck -1
+            PermanentSpeed -1
+            PermanentStrength -1
+            
+            even_if_dead true
+        }
+        
+        PassiveAtStatThreshold {
+            mode less_or_equal
+            threshold {
+                con 0
+            }
+            passives {
+                StatusOnBattleStart {
+                    SafeDie 1
+                }
+            }
+        }
+    }
+}
+
+TheTick {
+    name "ARMOR_THETICK_NAME"
+    desc "ARMOR_THETICK_DESC"
+    rarity uncommon
+    kind neck
+    frame 96
+    
+    parasite true
+	set Parasite
+
+    con -1
+
+    passives {
+        AddEndOfCombatRegen 12
+        StatusAllCharactersOnSpawn {
+            Conditional_Boss {
+                AllStatsUp -1
+            }
+        }
+    }
+}
+
+Parousworm {
+    name "ITEM_PAROUSWORM_NAME"
+    desc "ITEM_PAROUSWORM_DESC"
+    kind trinket
+    frame 271
+    
+    parasite true
+	//set Worm
+    con -1
+
+    passives {
+        StatusOnBattleEnd {
+            Conditional_GoodRoll {
+                odds 66%
+                FindItemFromPool parasites
+			}
+        }
+    }
+}
+
+Hookworm {
+    name "ARMOR_HOOKWORM_NAME"
+    desc "ARMOR_HOOKWORM_DESC"
+    kind neck
+    frame 188
+    
+    parasite true
+	
+	con -1
+	spd -1
+
+	passives {
+        SpawnThingOnDamage {
+            object CharmedLeech
+        }
+	}
+}
+
+Cooties {
+    name "ARMOR_COOTIES_NAME"
+    desc "ARMOR_COOTIES_DESC"
+    kind neck
+    frame 189
+    
+    parasite true
+	
+	con -1
+	str -1
+	dex -1
+	lck -1
+	int -1
+    spd -1
+	cha -1
+
+    passives {
+		AddStatusToBasicAttack {
+            Weakness 1
+			Rot 1
+			SpiderInfested 1
+        }
+    }
+}
+
+Lice {
+    name "ARMOR_LICE_NAME"
+    desc "ARMOR_LICE_DESC"
+    kind head
+    frame 218
+    
+    parasite true
+
+	passives {
+		Bruise 1
+        SpawnThingOnDamage {
+            object CharmedLice
+        }
+	}
+}
+
+SacculinaCarcini {
+    name "ARMOR_SACCULINACARCINI_NAME"
+    desc "ARMOR_SACCULINACARCINI_DESC"
+    kind face
+    frame 197
+    
+    parasite true
+
+	spd -1
+	shield 5
+
+    passives {
+
+    }
+}
+
+Roundworm {
+    name "ITEM_ROUNDWORM_NAME"
+    desc "ITEM_ROUNDWORM_DESC"
+    kind trinket
+    frame 283
+    
+    parasite true
+
+	con -1
+
+    passives {
+        MeleeRevengeDamage {
+            knockback 5
+        }
+    }
+}
+
+EuhaplorchisCaliforniensis {
+    name "ITEM_EUHAPLORCHISCALIFORNIENSIS_NAME"
+    desc "ITEM_EUHAPLORCHISCALIFORNIENSIS_DESC"
+    kind trinket
+    frame 282
+    
+    parasite true
+	
+	spd 4
+
+    passives {
+		Confusion 3
+    }
+}
+
+Beepis { 
+    name "ARMOR_BEEPIS_NAME"
+    desc "ARMOR_BEEPIS_DESC"
+    kind head
+    frame 224
+    
+    parasite true
+
+    passives {
+        ManaCostReduction -2
+        AllSpellsCostCharge 1
+        CopyPassiveSlot 0
+        CopyPassiveSlot 1
+    }
+}
+
+Feebis { 
+    name "ARMOR_FEEBIS_NAME"
+    desc "ARMOR_FEEBIS_DESC"
+    kind face
+    frame 204
+    
+    parasite true
+
+    attack BasicPoke
+    passives {
+        ManaCostReduction 2
+        StatusEachTurnBegin {
+            DoubleCastSpellThisTurn 1
+        }
+        CapMovementAbilityRange 1
+        MoveSpeedMultiplier .5
+        ReplaceBasicAttack BasicPoke
+    }
+}
+
+Cunch {
+    name "ARMOR_CUNCH_NAME"
+    desc "ARMOR_CUNCH_DESC"
+    kind neck
+    frame 199
+    
+    parasite true
+
+    passives {
+        ExtraBasicAttacks_Status 1
+        ExtraBasicMoves_Status 1
+        DisablePassiveSlot 0
+        DisablePassiveSlot 1
+    }
+}

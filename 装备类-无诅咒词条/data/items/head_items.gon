@@ -1,0 +1,1258 @@
+Antenna {
+    name "ARMOR_ANTENNA_NAME"
+    desc "ARMOR_ANTENNA_DESC"
+    rarity uncommon
+    kind head
+    frame 1
+    
+    passives {
+        RevengeDamage {
+            damage 1
+
+            effects {
+                Stun [1, .1]
+                VisualFX Bolt
+            }
+            
+            elements [
+                Electric
+            ]
+        }
+        Metal 1
+    }
+}
+
+Horns {
+    name "ARMOR_HORNS_NAME"
+    desc "ARMOR_HORNS_DESC"
+    rarity uncommon
+    kind head
+    frame 2
+    
+    str 1
+    passives {
+        Thorns 1
+    }
+}
+
+HappyHelmet {
+    name "ARMOR_HAPPYHELMET_NAME"
+    desc "ARMOR_HAPPYHELMET_DESC"
+    rarity rare
+    kind head
+    frame 55
+	set [Bionic, Cyborg]
+    
+    shield 10
+    passives {
+        SetDefaultFacePassive euphoric
+        Fragile 1
+        StatusOnBreak {
+            GainDisorder Psychosis
+        }
+    }
+}
+
+HeadSpring {
+    name "ARMOR_HEADSPRING_NAME"
+    desc "ARMOR_HEADSPRING_DESC"
+    rarity common
+    kind head
+    frame 54
+	set Scrap
+    
+    passives {
+        MeleeRevengeDamage {
+            knockback 10
+        }
+        Metal 1
+    }
+}
+
+Wig {
+    name "ARMOR_WIG_NAME"
+    desc "ARMOR_WIG_DESC"
+    rarity common
+    kind head
+    frame 56
+	set Used
+    
+    cha 2
+}
+
+HeadCheese {
+    name "ARMOR_HEADCHEESE_NAME"
+    desc "ARMOR_HEADCHEESE_DESC"
+    rarity uncommon
+    kind head
+    frame 53
+    
+    passives {
+        HealthRegenUp 2
+    }
+}
+
+DunceCap {
+    name "ARMOR_DUNCECAP_NAME"
+    desc "ARMOR_DUNCECAP_DESC"
+    rarity rare
+    kind head
+    frame 91
+	set Paper
+
+    int -2
+
+    passives {
+        ManaCostReduction 1
+    }
+}
+
+PoopHat {
+    name "ARMOR_POOPHAT_NAME"
+    desc "ARMOR_POOPHAT_DESC"
+    rarity rare
+    kind head
+    frame 96
+	set Fecal
+
+    passives {
+        ReplaceSpawnedObjects [Poop RandomLivingPoop]
+        ReplaceSpawnedObjects [FlamingPoop RandomLivingPoop]
+    }
+}
+
+Magneto {
+    name "ARMOR_MAGNETO_NAME"
+    desc "ARMOR_MAGNETO_DESC"
+    rarity rare
+    kind head
+    frame 29
+
+    shield 1
+
+    passives {
+        Metal 1
+        StatusOnEndMove {
+            ImmediateUseAbility head_MagnetoAttract
+        }
+        StatusOnGainCoins {
+            Shield X
+        }
+    }
+}
+
+BlackCandle { //TODO: make sure this can't be replaced by a parasite or cursed item
+    name "ARMOR_BLACKCANDLE_NAME"
+    desc "ARMOR_BLACKCANDLE_DESC"
+    rarity rare
+    kind head
+    frame 58
+    
+    force_sticky true
+	set Demonic
+    
+    shield 1
+
+    passives {
+        CanRemoveCursedItems 1
+        ExcludeFromEvents Tragedy
+    }
+}
+
+CamoHat {
+    name "ARMOR_CAMOHAT_NAME"
+    desc "ARMOR_CAMOHAT_DESC"
+    rarity rare
+    kind head
+    frame 59
+	set Survivalist 
+
+    passives {
+        ChanceToAmbush 25%
+        StatusEachTurnEnd {
+            Stealth [1 .1]
+        }
+    }
+}
+
+JesterCap {
+    name "ARMOR_JESTERCAP_NAME"
+    desc "ARMOR_JESTERCAP_DESC"
+    rarity rare
+    kind head
+    frame 60
+	set Jester
+
+    cha 1
+
+    passives {
+        AddLevelUpRerolls 2
+        JesterLevelUpRerolls 1
+    }
+}
+
+Halo {
+    name "ARMOR_HALO_NAME"
+    desc "ARMOR_HALO_DESC"
+    rarity rare
+    kind head
+    frame 61
+	set Cleric
+
+    divine_shield 1
+
+    passives {
+        StatusOnTakeHealthOrShieldDamage {
+            DivineShield [1 .33]
+        }
+    }
+}
+
+PropellerCap {
+    name "ARMOR_PROPELLERCAP_NAME"
+    desc "ARMOR_PROPELLERCAP_DESC"
+    rarity uncommon
+    kind head
+    frame 62
+
+    shield 2
+
+    passives {
+        Flying 1
+    }
+}
+
+BrainInAJar {
+    name "ITEM_BRAININAJAR_NAME"
+    desc "ITEM_BRAININAJAR_DESC"
+    rarity rare
+    kind head
+    
+    frame 168
+	set Guts
+    
+    int -5
+    
+    passives {
+        StatusEachTurnBegin {
+            Temporary {
+                status FreeSpell
+                stacks 1
+                expires_on_end_turn true
+            }
+        }
+    }
+}
+
+MangyWig {
+    name "ARMOR_MANGYWIG_NAME"
+    desc "ARMOR_MANGYWIG_DESC"
+    rarity uncommon
+    kind head
+    frame 133
+	set Used
+
+    passives {
+        StatusOnBattleStart {
+            ObjectOnHitCharacter {
+                stacks "floor(lck/4)"
+                object CharmedTinySpider
+            }
+        }
+    }
+}
+
+RisingSunBandana {
+    name "ARMOR_RISINGSUNBANDANA_NAME"
+    desc "ARMOR_RISINGSUNBANDANA_DESC"
+    rarity rare
+    kind head
+    frame 135
+
+    passives {
+        PassiveAtHealthThreshold {
+            threshold 5
+            mode less_or_equal
+            
+            passives {
+                ExtraMovePoints 1
+                DamageUp 3
+            }
+        }
+    }
+}
+
+JewelOfDrog {
+    name "ARMOR_JEWELOFDROG_NAME"
+    desc "ARMOR_JEWELOFDROG_DESC"
+    rarity rare
+    kind head
+    frame 137
+	set Gemstone
+
+    passives {
+        StatusOnFullMana {
+            Conditional_OncePerBattle {
+                key JewelOfDrog
+                ReduceManaCost 1
+                SpellDamageUp 1
+                ShowText "COMBAT_POPUP_BRAINSTORM"
+            }
+        }
+    }
+}
+
+LeakyBrain {
+    name "ARMOR_LEAKYBRAIN_NAME"
+    desc "ARMOR_LEAKYBRAIN_DESC"
+    rarity rare
+    kind head
+    frame 143
+	set Guts
+
+    int -2
+
+    passives {
+        ScaledStatusAlliesOnSpendMana {
+            Conditional_Adjacent {
+                Conditional_Ally {
+                    ManaGain 1
+                }
+            }
+        }
+    }
+}
+
+FryingPan {
+    name "ARMOR_FRYINGPAN_NAME"
+    desc "ARMOR_FRYINGPAN_DESC"
+    rarity uncommon
+    kind head
+    frame 151
+	set Lead
+
+    passives {
+        Metal 1
+        ChanceToBlockAndCounter {
+            chance 100%
+            backstab_only true
+        }
+    }
+}
+
+CrownOfHorns {
+    name "ARMOR_CROWNOFHORNS_NAME"
+    desc "ARMOR_CROWNOFHORNS_DESC"
+    rarity rare
+    kind head
+    frame 155
+	set [Demonic, Barbed]
+
+    passives {
+        Thorns 4
+        StatusOnTookDamage {
+            Conditional_HasStatus {
+                status Thorns
+                ImmediateUseAbility_Instant head_CrownOfHorns
+                RemoveStatusStacks {
+                    status Thorns
+                    stacks 1
+                }
+            }
+        }
+    }
+}
+
+TheRelic {
+    name "ARMOR_THERELIC_NAME"
+    desc "ARMOR_THERELIC_DESC"
+    rarity uncommon
+    kind head
+    frame 158
+	set Cleric
+
+    divine_shield 1
+
+    passives {
+        ScaledStatusOnHolyShieldBlock {
+            RandomMagicMissile 1
+        }
+    }
+}
+
+FocusBand {
+    name "ARMOR_FOCUSBAND_NAME"
+    desc "ARMOR_FOCUSBAND_DESC"
+    rarity uncommon
+    kind head
+    frame 136
+
+    passives {
+        AddStatusToAllDamage {
+            KnockbackIfCrit {
+                knockback 10
+                override_chain_knockback 10
+            }
+        }
+    }
+}
+
+MedicHat {
+    name "ARMOR_MEDICHAT_NAME"
+    desc "ARMOR_MEDICHAT_DESC"
+    rarity uncommon
+    kind head
+    frame 140
+	set [Nurse, Medical]
+
+    passives {
+        DamageUp -1
+        AddStatusToBasicAttack {
+            DamageOrHealConditionally 1
+        }
+    }
+}
+
+KingsCrown {
+    name "ARMOR_KINGSCROWN_NAME"
+    desc "ARMOR_KINGSCROWN_DESC"
+    rarity uncommon
+    kind head
+    frame 141
+
+    passives {
+        Metal 1
+        AlphaCat 1
+        AlphaAllStatsUp 1
+        StatusOnTookDamage {
+            RemoveStatus AlphaCat
+        }
+    }
+}
+
+EmoWig {
+    name "ARMOR_EMOWIG_NAME"
+    desc "ARMOR_EMOWIG_DESC"
+    rarity rare
+    kind head
+    frame 142
+	set [Necromancer, Used]
+
+    str -1
+    dex -1
+    con -1
+    int -1
+    spd -1
+    cha -1
+    lck -1
+
+    passives {
+        DepressionAura 2
+        AbilityReaction head_EmoSong
+    }
+}
+
+ToxicCanister {
+    name "ARMOR_TOXICCANISTER_NAME"
+    desc "ARMOR_TOXICCANISTER_DESC"
+    rarity rare
+    kind head
+    frame 147
+	set Radioactive
+
+    passives {
+        Metal 1
+        StatusAllCharactersOnSpawn {
+            Poison 1
+        }
+        AddStatusToBasicAttack {
+            Poison 1
+        }
+        MeleeRevengeDamage {
+            effects {
+                Poison 1
+            }
+        }
+        StatusOnDie {
+            Conditional_RandomChance {
+                odds 20%
+                ApplyPassives {
+                    StatusOnBattleEnd {
+                        even_if_dead true
+                        RandomMutation 1
+                    }
+                }
+            }
+        }
+    }
+}
+
+BrokenMirrorHat {
+    name "ARMOR_BROKENMIRROR_NAME"
+    desc "ARMOR_BROKENMIRROR_DESC"
+    rarity rare
+    kind head
+    frame 134
+	set Used
+
+    shield 4
+    lck -7
+
+    passives {
+        BleedThorns 3
+        AddStatusToBasicAttack {
+            ChangeTile GlassTile
+            Bleed 1
+        }
+    }
+}
+
+TopHat {
+    name "ARMOR_TOPHAT_NAME"
+    desc "ARMOR_TOPHAT_DESC"
+    rarity uncommon
+    kind head
+    frame 138
+	set Cool
+
+    passives {
+        StatusOnBattleStart {
+            Craft {
+                pool bombs //should expand to bombs_0, bombs_1, bombs_2, bombs_3
+                slot weapon
+                works_with_tech true
+            }
+        }
+        IncreaseExplosionSize 1
+    }
+}
+
+Helmet {
+    name "ARMOR_HELMET_NAME"
+    desc "ARMOR_HELMET_DESC"
+    rarity common
+    kind head
+    frame 139
+
+    shield 4
+
+    passives {
+        Metal 1
+        PreventSpecificInjury int
+        // TODO: prevent Head Trauma disorder?
+    }
+}
+
+ConfusingHat {
+    name "ARMOR_CONFUSINGHAT_NAME"
+    desc "ARMOR_CONFUSINGHAT_DESC"
+    rarity rare
+    kind head
+    frame 144
+
+    passives {
+        Confusion 2
+        StatusRandomEnemiesOnBattleStart {
+            count 99
+            Confusion 2
+        }
+    }
+}
+
+NightmareHat {
+    name "ARMOR_NIGHTMAREHAT_NAME"
+    desc "ARMOR_NIGHTMAREHAT_DESC"
+    rarity uncommon
+    kind head
+    frame 145
+	set Leather
+
+    passives {
+        PassiveAfterXKills {
+            stacks 3
+
+            passives {
+                ExtraBasicAttacks 1
+            }
+        }
+    }
+}
+
+CrownOfPestilence {
+    name "ARMOR_CROWNOFPESTILENCE_NAME"
+    desc "ARMOR_CROWNOFPESTILENCE_DESC"
+    rarity rare
+    kind head
+    frame 150
+	set Necromancer
+
+    passives {
+        ReplaceBasicAttack head_Pestilence
+    }
+}
+
+RainHat {
+    name "ARMOR_RAINHAT_NAME"
+    desc "ARMOR_RAINHAT_DESC"
+    rarity uncommon
+    kind head
+    frame 153
+
+    passives {
+        PassiveWhenAffectedByElement {
+            element water
+            passives {
+                AllStatsUp 1
+            }
+        }
+    }
+}
+
+SplinteredCrown {
+    name "ARMOR_SPLINTEREDCROWN_NAME"
+    desc "ARMOR_SPLINTEREDCROWN_DESC"
+    rarity uncommon
+    kind head
+    frame 157
+    set Wood
+
+    passives {
+        StatusOnTookDamage {
+            Thorns 1
+        }
+    }
+}
+
+MedievalHelmet {
+    name "ARMOR_MEDIEVALHELMET_NAME"
+    desc "ARMOR_MEDIEVALHELMET_DESC"
+    rarity uncommon
+    kind head
+    frame 159
+	set Fighter
+
+    passives {
+        Metal 1
+        Brace 2
+    }
+}
+
+ConjoinedEye {
+    name "ARMOR_CONJOINEDEYE_NAME"
+    desc "ARMOR_CONJOINEDEYE_DESC"
+    rarity common
+    kind head
+    frame 191
+	set Hybrid
+
+    passives {
+        ArmorDodgeChance 10%
+    }
+}
+
+StoneHelmet {
+    name "ARMOR_STONEHELMET_NAME"
+    desc "ARMOR_STONEHELMET_DESC"
+    rarity common
+    kind head
+    frame 190
+	set Rock
+
+    passives {
+        Brace 1
+    }
+}
+
+OakHelmet {
+    name "ARMOR_OAKHELMET_NAME"
+    desc "ARMOR_OAKHELMET_DESC"
+    rarity common
+    kind head
+    frame 189
+	set Wood
+
+	shield 3
+
+    passives {
+        Flammable 1
+    }
+}
+
+RustingHelmet {
+    name "ARMOR_RUSTINGHELMET_NAME"
+    desc "ARMOR_RUSTINGHELMET_DESC"
+    rarity common
+    kind head
+    frame 183
+	set Used
+
+	shield 1
+	
+    passives {
+        Metal 1
+        StatusEachTurnEnd {
+			Shield 1
+		}
+    }
+}
+
+TrainingBand {
+    name "ARMOR_TRAININGBAND_NAME"
+    desc "ARMOR_TRAININGBAND_DESC"
+    rarity common
+    kind head
+    frame 182
+
+    passives {
+		CritChanceUp 20
+    }
+}
+
+SkullClamp {
+    name "ARMOR_SKULLCLAMP_NAME"
+    desc "ARMOR_SKULLCLAMP_DESC"
+    rarity rare
+    kind head
+    frame 70
+
+    int -6
+    shield 10
+
+    passives {
+        Metal 1
+        Brace 2
+        MeleeRevengeDamage {
+            effects {
+                Stun [1, .25]
+            }
+        }
+    }
+}
+
+BrainChip {
+    name "ARMOR_BRAINCHIP_NAME"
+    desc "ARMOR_BRAINCHIP_DESC"
+    rarity uncommon
+    kind head
+    frame 69
+	set Chip
+
+    str 1
+    dex 1
+    con 1
+    int 1
+    cha 1
+    spd 1
+    lck 1
+
+    passives {
+        Metal 1
+        Uncontrollable 1
+    }
+}
+
+SpareParts {
+    name "ARMOR_SPAREPARTS_NAME"
+    desc "ARMOR_SPAREPARTS_DESC"
+    rarity uncommon
+    kind head
+    frame 181
+	set [Tinkerer, Scrap]
+
+    passives {
+        Metal 1
+        LeaveBehindOnceEachMove Scrap
+    }
+}
+
+SnakeskinHat {
+    name "ARMOR_SNAKESKINHAT_NAME"
+    desc "ARMOR_SNAKESKINHAT_DESC"
+    rarity uncommon
+    kind head
+    frame 185
+	set Leather
+
+    passives {
+        SpawnOnBattleStart {
+            object CharmedRattleSnake
+        }
+    }
+}
+
+DeathShroud {
+    name "ARMOR_DEATHSHROUD_NAME"
+    desc "ARMOR_DEATHSHROUD_DESC"
+    rarity rare
+    kind head
+    frame 187
+	set Rag
+
+    passives {
+        StatusOnDie {
+            RandomStatusFromPool {
+                PermanentStrength 1
+                PermanentDexterity 1
+                PermanentConstitution 1
+                PermanentIntelligence 1
+                PermanentCharisma 1
+                PermanentSpeed 1
+                PermanentLuck 1
+            }
+        }
+    }
+}
+
+BlessedHalo {
+    name "ARMOR_BLESSEDHALO_NAME"
+    desc "ARMOR_BLESSEDHALO_DESC"
+    rarity very_rare
+    kind head
+    frame 206
+
+    divine_shield 3
+
+    passives {
+        StatusOnTakeHealthOrShieldDamage {
+            DivineShield [1 .5]
+        }
+    }
+}
+
+CrownOfThorns {
+    name "ARMOR_CROWNOFTHORNS_NAME"
+    desc "ARMOR_CROWNOFTHORNS_DESC"
+    rarity very_rare
+    kind head
+    frame 65
+	set Cleric
+	divine_shield 2
+
+
+	passives {
+		Thorns 1
+
+		StatusOnTookDamage {
+			Thorns 1
+		}
+    }
+}
+
+RottenGuts {
+	name "ARMOR_ROTTENGUTS_NAME"
+	desc "ARMOR_ROTTENGUTS_DESC"
+	rarity very_rare
+	kind head
+	frame 207
+	set [Guts, Rotten]
+
+	con 2
+	cha -1
+
+	passives {
+		HealthRegenUp 2
+		SpawnEachTurn {
+			chance 100%
+			object [CharmedFly CharmedMaggot]
+		}
+	}
+}
+
+PaperRags {
+	name "ARMOR_PAPERRAGS_NAME"
+	desc "ARMOR_PAPERRAGS_DESC"
+	rarity very_rare
+	kind head
+	frame 208
+	set [Paper, Rag]
+
+	passives {
+		ArmorDodgeChance 20%
+		BleedThorns 1
+		AddStatusToBasicAttack {
+			Bleed 1
+		}
+	}
+}
+
+TieDyeBandana {
+    name "ARMOR_TIEDYEBANDANA_NAME"
+    desc "ARMOR_TIEDYEBANDANA_DESC"
+    rarity rare
+    kind head
+    frame 209
+	set Hippie
+
+	passives {
+		SpawnThingOnDamage {
+			object Catnip
+			good false //good relative to the thing attacking, for luck calculations
+		}
+	}
+}
+
+BungasCrown {
+    name "ARMOR_BUNGASCROWN_NAME"
+    desc "ARMOR_BUNGASCROWN_DESC"
+    rarity very_rare
+    kind head
+    frame 217
+	
+	str 2
+	spd -4
+	con 1
+
+	passives {
+		BoostWeaponDamage {
+            damage 0
+            crit_chance 1
+        }
+		StatusOnKill {
+			EquipPermanentItem BoneClub
+		}
+	}
+}
+
+Asteroid {
+    name "ARMOR_ASTEROID_NAME"
+    desc "ARMOR_ASTEROID_DESC"
+    rarity very_rare
+    kind head
+    frame 216
+	shield 4
+	set Planet
+
+	passives {
+		StatusOnTakeHealthOrShieldDamage{
+			Conditional_GoodRoll {
+                odds 20%
+                ForceUseAbility tk_Asteroid
+			}
+        }
+	}
+}
+
+AlienStalk {
+    name "ARMOR_ALIENSTALK_NAME"
+    desc "ARMOR_ALIENSTALK_DESC"
+    rarity very_rare
+    kind head
+    frame 215
+	set [Space, Amoeba]
+
+	passives {
+		StatusOnTakeHealthOrShieldDamage {
+			Metronome 1
+		}
+	}
+}
+
+FriendlyAmoeba {
+    name "ARMOR_FRIENDLYAMOEBA_NAME"
+    desc "ARMOR_FRIENDLYAMOEBA_DESC"
+    kind head
+	rarity rare
+    frame 214
+    set Amoeba
+	
+	int -1
+	shield 3
+
+    passives {
+        Brace 1
+		HealthRegenUp 2
+		MeleeRevengeDamage {
+            knockback 1
+        }
+    }
+}
+
+SpiderBaby {
+    name "ARMOR_SPIDERBABY_NAME"
+    desc "ARMOR_SPIDERBABY_DESC"
+    rarity very_rare
+    kind head
+    frame 213
+	set Necromancer
+
+	passives {
+        SpawnThingOnDamage {
+            object CharmedTinySpider
+        }
+	}
+}
+
+BorisBrain {
+    name "ARMOR_BORISBRAIN_NAME"
+    desc "ARMOR_BORISBRAIN_DESC"
+    rarity very_rare
+    kind head
+    frame 212
+	set Guts
+
+	passives {
+		Trample 3
+		MoveTowardsDamageSource MoveOne
+	}
+}
+
+JohnnysUndies {
+    name "ARMOR_JOHNNYSUNDIES_NAME"
+    desc "ARMOR_JOHNNYSUNDIES_DESC"
+    rarity very_rare
+    kind head
+    frame 211
+	set Used
+
+	passives {
+		SpawnOnBattleStart CharmedCultist
+	}
+}
+
+QueensCrown {
+    name "ARMOR_QUEENSCROWN_NAME"
+    desc "ARMOR_QUEENSCROWN_DESC"
+    rarity very_rare
+    kind head
+    frame 210
+	shield 4
+
+	passives {
+        Metal 1
+		AddStatusToBasicAttack {
+			Knockback 1
+            OverrideChainKnockback 1
+		}
+	}
+}
+
+DustDevilsHorn {
+    name "ARMOR_DUSTDEVILSHORN_NAME"
+    desc "ARMOR_DUSTDEVILSHORN_DESC"
+    rarity very_rare
+    kind head
+    frame 219
+
+	shield 1
+
+	passives {
+		Thorns 1
+		AddSelfStatusToBasicAttack {
+			ForceUseAbility DustDash
+        }
+	}
+}
+
+ChildOfTheGlowingOne {
+    name "ARMOR_CHILDOFTHEGLOWINGONE_NAME"
+    desc "ARMOR_CHILDOFTHEGLOWINGONE_DESC"
+    rarity very_rare
+    kind head
+    frame 220
+	//allsets
+	
+	passives {
+		StatusOnEndMove {
+			DivineShield 1
+		}
+	}
+}
+
+SabertoothTigerPelt {
+    name "ARMOR_SABERTOOTHTIGERPELT_NAME"
+    desc "ARMOR_SABERTOOTHTIGERPELT_DESC"
+    rarity rare
+    kind head
+    frame 221
+	set Wooly
+
+	cha 2
+
+	passives {
+		StatusOnKillEnemy {
+			ForceUseAbility head_CatChestPound
+		}
+	}
+}
+
+CowSkull {
+    name "ARMOR_COWSKULL_NAME"
+    desc "ARMOR_COWSKULL_DESC"
+    rarity very_rare
+    kind head
+    frame 222
+	set Bone
+	
+	attack BasicTankMelee
+    shield 3
+	str 2
+
+	passives {
+		Thorns 2
+        OverrideBasicAttack BasicTankMelee
+	}
+}
+
+TrashCan {
+    name "ARMOR_TRASHCAN_NAME"
+    desc "ARMOR_TRASHCAN_DESC"
+    rarity very_rare
+    kind head
+    frame 223
+
+	shield 10
+
+	passives {
+        Metal 1
+		Brace 4
+		Blind -1
+	}
+}
+
+ThrobbingCrown {
+    name "ARMOR_THROBBINGCROWN_NAME"
+    desc "ARMOR_THROBBINGCROWN_DESC"
+    rarity very_rare
+    kind head
+    frame 172
+
+    passives {
+        Metal 1
+        StatusEachTurnEnd {
+            ImmediateUseAbility head_ThrobbingCrown
+        }
+    }
+}
+
+CrownOfChaos {
+    name "ARMOR_CROWNOFCHAOS_NAME"
+    desc "ARMOR_CROWNOFCHAOS_DESC"
+    rarity very_rare
+    kind head
+    frame 173
+	set Hybrid
+
+    passives {
+		AddLevelUpRerolls 2
+		LevelUpClassOverride Jester
+    }
+}
+
+ChildsCrown {
+    name "ARMOR_CHILDSCROWN_NAME"
+    desc "ARMOR_CHILDSCROWN_DESC"
+    rarity very_rare
+    kind head
+    frame 174
+
+    passives {
+        Metal 1
+        AddElementsToBasicAttack Holy
+        AddStatusToBasicAttack {
+            DamageOrHealConditionally 1
+        }
+    }
+}
+
+TinasBellyButton {
+    name "ARMOR_TINASBELLYBUTTON_NAME"
+    desc "ARMOR_TINASBELLYBUTTON_DESC"
+    rarity very_rare
+    kind head
+    frame 175
+
+    passives {
+		StatusOnKill {
+			HealthRegenUp 1
+		}
+    }
+}
+
+HitlersToupe {
+    name "ARMOR_HITLERSTOUPE_NAME"
+    desc "ARMOR_HITLERSTOUPE_DESC"
+    rarity very_rare
+    kind head
+    frame 225
+	set [Man, Used]
+
+	str 2
+	dex 2
+
+    passives {
+		PermanentMadness 1
+		StatusEachTurnEnd {
+			ForceUseAbility head_HitlersToupe
+		}
+    }
+}
+
+StevensHat {
+    name "ARMOR_STEVENSHAT_NAME"
+    desc "ARMOR_STEVENSHAT_DESC"
+    rarity very_rare
+    kind head
+    frame 177
+	set Steven
+
+    int -9
+	cha -9
+
+	passives {
+		SetSpellCosts 0
+		MakeSpellsRequireCharge 1
+	}
+}
+
+StevensHelmet {
+    name "ARMOR_STEVENSHELMET_NAME"
+    desc "ARMOR_STEVENSHELMET_DESC"
+    rarity very_rare
+    kind head
+    frame 176
+	set Steven
+
+    shield 20
+	
+    passives {
+        SetDefaultFacePassive euphoric
+        Fragile 1
+        StatusOnBreak {
+            ApplyToRandomPartyMemberIfPossible {
+                GainDisorderFromPool all_disorders
+                GainDisorderFromPool all_disorders
+            }
+        }
+    }
+}
+
+StevenHat1 {
+    name "ARMOR_STEVENHAT1_NAME"
+    desc "ARMOR_STEVENHAT1_DESC"
+    rarity very_rare
+    kind head
+    frame 178
+	set Steven
+    
+    passives {
+		ExplosionImmunity 1
+		IncreaseExplosionSize 7
+        IncreaseExplosionDamage 2
+    }
+}
+
+StevenHat2 {
+    name "ARMOR_STEVENHAT2_NAME"
+    desc "ARMOR_STEVENHAT2_DESC"
+    rarity very_rare
+    kind head
+    frame 179
+	set Steven
+	
+	passives {
+		StatusAfterCastSpell {
+			TempRangeUp 1
+            TempMeleeRangeUp 1
+		}
+	}
+}
