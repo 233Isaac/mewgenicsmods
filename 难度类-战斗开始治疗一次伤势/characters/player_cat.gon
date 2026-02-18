@@ -1,0 +1,346 @@
+PlayerCat {
+    graphics {
+        movieclip _CAT
+        shadow_size 1
+        name "PLAYER_CAT_NAME"
+        projectile_spawn_offset [.5 .75]
+
+        tooltip "PLAYER_CAT_DESC"
+    }
+
+    stats {
+        strength 5
+        dexterity 5
+        constitution 5
+        intelligence 5
+        speed 5
+        charisma 5
+        luck 5
+    }
+    
+    properties {
+        tag cat
+        faction allies
+        type cat
+
+        //the following properties are added to whatever value they get from stats (defaults shown here)
+        base_movement 4
+        base_initiative 0
+        base_health 0
+        base_mana 0
+        base_mana_regen 0
+        base_health_regen 0
+        base_initial_mana 0
+        base_crit_chance 0
+        mana_matters true
+        
+        //how much HP needed for this character to switch to weak idle animation
+        weak_threshold 5 
+
+        can_be_overkilled false //player cats will not instapop on extreme damage kills
+        can_collect_coins true
+        can_eat_food true
+        access_to_player_inventory true
+        corpse_health 3
+        is_player_cat true
+        can_run false
+        exclude_from_hallucinate true
+        
+        uncapturable true
+    }
+
+    abilities {
+        can_get_bonus true
+    }
+
+    passives {
+    HealRandomInjury 1
+    }
+    
+    ai {
+        brain PlayerBrain
+        decision_weights default
+        move_weights keep_distance
+    }
+}
+
+
+CustomEnemyCat {
+    variant_of PlayerCat
+
+    graphics {
+    }
+
+    properties {
+        faction enemies
+
+        can_be_overkilled true
+        allow_passive_spelltransforming true
+
+        can_collect_coins false
+        can_eat_food false
+        access_to_player_inventory false
+        corpse_health 1
+        is_player_cat false
+        exclude_from_hallucinate true
+
+        uncapturable false
+        capture_as_cat true
+    }
+
+    ai {
+        brain GenericBrain
+    }
+}
+
+PlayerCat_Shade {
+    variant_of PlayerCat
+
+    graphics {
+        tint [0 0 0 1]
+    }
+
+    properties {
+        corpse_health 0
+        can_grant_extra_turns false
+    }
+
+    passives {
+        FadeInsteadOfDie 1
+    }
+}
+
+PlayerCat_ThiefShade {
+    variant_of PlayerCat
+
+    graphics {
+        tint [0 0 0 1]
+    }
+
+    properties {
+        corpse_health 0
+        can_grant_extra_turns false
+        takes_turns false
+        health 1
+        weak_threshold 0
+        catdata_ignore_skills true
+        is_player_cat false
+        move_block nothing
+    }
+
+    passives {
+        FadeInsteadOfDie 1
+        ExpireOnSpawnerTurnEnd 1
+        MimicSpawnerAttacks 1
+    }
+}
+PlayerCat_ThiefShade2 {
+    variant_of PlayerCat
+
+    graphics {
+        tint [0 0 0 1]
+    }
+
+    properties {
+        corpse_health 0
+        can_grant_extra_turns false
+        takes_turns false
+        health 1
+        weak_threshold 0
+        catdata_ignore_skills true
+        is_player_cat false
+        move_block nothing
+    }
+
+    passives {
+        FadeInsteadOfDie 1
+        MimicSpawnerAttacks 1
+    }
+}
+PlayerCat_MonkShade {
+    variant_of PlayerCat
+
+    graphics {
+        tint yellow
+    }
+
+    properties {
+        corpse_health 0
+        can_grant_extra_turns false
+        takes_turns false
+        health 1
+        weak_threshold 0
+        catdata_ignore_skills true
+        is_player_cat false
+        move_block nothing
+    }
+
+    passives {
+        FadeInsteadOfDie 1
+        ExpireOnSpawnerTurnEnd 1
+        MimicSpawnerAttacks -1
+    }
+}
+
+PlayerCat_MiniMe {
+    variant_of PlayerCat
+
+    graphics {
+        name "PLAYER_MINIME_NAME" 
+        scale .75
+    }
+
+    passives {
+        BaseStatMultiply .5
+    }
+
+    ai {
+        brain GenericBrain
+    }
+}
+PlayerCat_MiniMiniMe {
+    variant_of PlayerCat
+
+    graphics {
+        name "PLAYER_MINIMINIME_NAME"
+        scale .5
+    }
+
+    passives {
+        BaseStatMultiply .25
+    }
+
+    ai {
+        brain GenericBrain
+    }
+}
+PlayerCat_MonkMiniMe {
+    variant_of PlayerCat_MiniMe
+
+    passives {
+        DisableSpells 1
+    }
+}
+
+PlayerCat_FleshGolem {
+    variant_of PlayerCat
+    graphics {
+        name "PLAYER_FLESHGOLEM_NAME"
+    }
+}
+
+PlayerCat_CambionMiniMe {
+    variant_of PlayerCat
+
+    graphics {
+        name "PLAYER_MINIME_NAME"
+        scale .75
+    }
+
+    properties {
+        tag [cat demon]
+    }
+    
+    passives {
+        BaseStatMultiply .666
+
+        CatPartsTransform {
+            palette 59
+            eye1 1013
+            eye2 1013
+            ear1 1013
+            ear2 1013
+        }
+    }
+
+    ai {
+        brain GenericBrain
+    }
+}
+
+PlayerCat_NecroShade {
+    variant_of PlayerCat
+
+    graphics {
+        tint [0 0 0 1]
+    }
+
+    properties {
+        corpse_health 0
+        can_grant_extra_turns false
+    }
+
+    passives {
+        SafeDoomed 1
+        InjuryImmunity 1
+        FadeInsteadOfDie 1
+    }
+}
+
+PlayerCat_AncestralShade {
+    variant_of PlayerCat
+    
+    properties {
+        corpse_health 0
+        can_grant_extra_turns false
+    }
+
+    passives {
+        SafeDoomed 1
+        InjuryImmunity 1
+        FadeInsteadOfDie 1
+        IllusionTint 1
+    }
+}
+
+PlayerCat_StevenShade {
+    variant_of PlayerCat
+
+    properties {
+        corpse_health 0
+        can_grant_extra_turns false
+    }
+    
+    graphics {
+        name "ITEM_STEVENSCONSUMABLE2_NAME"
+        tint [0, 0, 0, 1]
+        spawnin_animation poofIntoExistance
+    }
+    
+    passives {
+        InjuryImmunity 1
+        FadeInsteadOfDie 1
+    }
+}
+
+PlayerCat_MachineClone {
+    variant_of PlayerCat
+
+    graphics {
+        name "PLAYER_CATCLONE_NAME" 
+    }
+    
+    ai {
+        brain GenericBrain
+    }
+}
+PlayerCat_ClotClone {
+    variant_of PlayerCat
+
+    graphics {
+        name "PLAYER_CATCLONE_NAME" 
+        scale .75
+
+        tint [.7, .4, .4, 1]
+    }
+
+    passives {
+        StatusOnSpawnIn {
+            SetHealth 50%
+        }
+    }
+
+    ai {
+        brain GenericBrain
+    }
+}
