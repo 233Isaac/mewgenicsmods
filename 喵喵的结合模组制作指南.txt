@@ -1,0 +1,197 @@
+此内容摘自泰勒·格莱尔在《末日将至》Discord频道的帖子（该频道使用相同引擎，他当时讨论的是从Mewgenics回溯移植的功能，因此这些功能在Mewgenics中应可正常运作）
+
+“处理文本、gon或CSV文件时，现在可在文件名后添加”.append“、”.merge“或”.patch“后缀。其中”.patch"仅适用于gon（.txt）文件。执行swf列表操作时，应将swf文件追加至列表末尾而非覆盖现有文件，以便美术模组实现叠加效果
+qq群902267930 233Isaac整理记录
+---------------------------------------------------------------------
+（文本编辑现在 后缀加.append现在可用可以生效 仍然是覆盖式 无法做到直接在原有词条上做修改）
+--------------------------------
+格式
+文件名.csv.append
+--------------------------------
+词条排序（看不懂可以用excel打开csv文件）（词条  英文介绍（非汉化修改可以删除）  中文介绍）
+ARMOR_ADVANCEDARMOR_DESC	"+2 Brace, +2 Thorns.
+Brittle.
+
+Part of the Advanced Alloy Set Bonus"	"‘+2 支撑，+2 荆棘。
+脆弱。
+
+[s:.8][c:purple]【高级合金套装】高级合金套装部件不再易碎。[/c][/s]"
+--------------------------------
+
+文本采用了bbcode格式
+可以添加
+[s:.8][c:purple]【先祖套装】倒地时召唤你的幽灵复制体，复制体在回合结束时消亡。[/c][/s]
+
+字体大小（省去了0）.8 颜色紫色 
+
+=可以使用:替代
+[b]我粗了[/b]；
+斜体：[i]我斜了[/i]；
+下划线：[u]我踩线了[/u]；
+删除线：[s]我串了[/s]；
+字体大小：[s:数字]我小了[/s]；
+字体颜色：[c:颜色]我绿了[/c]；
+2.格式
+[center]居中[/center]；
+[left]左对齐[/left]；
+[right]右对齐[/right]
+3.插入
+[quote]引用内容[/quote]；
+[quote=名字]这是一个有名字的引用[/quote]；
+[code]插入代码[/code]；
+[url]插入网址[/url]；
+[url=网址]起个名[/url]；
+[img]图片地址[/img]；
+[img={width}x{height}]指定图片宽度、高度[/img]；
+4.列表
+[list]
+[*]红色
+[*]蓝色
+[*]黄色
+[/list]
+[list=赋值]，如数字，字母，就有序号了。
+
+https://www.bbcode.org/reference.php
+
+https://zhuanlan.zhihu.com/p/597488083
+https://docs.godotengine.org/zh-cn/4.x/tutorials/ui/bbcode_in_richtextlabel.html
+---------------------------------------------------------------------
+
+.append功能如其名，相当于将两个文件粘合在一起。
+
+.merge会定位文件中的特定字段并仅替换该字段（例如此文件可修改世界1的调色板：
+
+tilesets.txt.merge
+
+
+.patch用于更复杂的操作，若需为关卡添加美术替换方案而不影响其他内容，可使用：
+
+tilesets.txt.patch
+
+在.patch中，可通过“.overwrite”“.append”.merge“.add”和“.multiply”为单个字段命名
+
+此外，通过查阅GitHub上.gon格式的文档也能获取更多信息
+
+---------------------------------------------------------------------
+
+以下是添加额外swf文件的示例：
+--------------------------------
+文件格式
+swflist.text.append
+--------------------------------
+内容
+https://github.com/TylerGlaiel/GON/commit/7f9600b278231a1d458e0ca7f44784e10cffa953
+
+game [
+			myadditionalswf.swf
+		]1
+	{
+		palette 5
+}1
+	{
+		palette 5
+	art_alts.append
+		[
+	  [Player PlayerRetro]
+	]
+}
+---------------------------------------------------------------------
+词条修改 覆写方式.patch
+可以直接读取并且覆盖原有的 适合打包用mod管理器
+修改好的文件.原有拓展名.patch
+---------------------------------------------------------------------
+词条修改 覆写方式.overwrite
+文件格式
+
+原文件名（disorders.gon）.patch
+--------------------------------
+内容
+
+技能(被动 词条 比如DejaVu（既视感被动））.overwrite（覆写）
+数值（类似
+DejaVu.overwrite {
+    name "DISORDER_DEJAVU_NAME"
+    auto_plus_signs_on_name false
+    class Disorder
+
+    1 {
+        desc "DISORDER_DEJAVU_DESC"
+        passives {
+            DejaVu 0%
+        }
+    }
+    2 {
+        desc "DISORDER_DEJAVU_DESC"
+        icon DejaVu2
+
+        passives {
+            DejaVu 0%
+        }
+    }
+    3 {
+        name "DISORDER_SEVEREDEJAVU_NAME"
+        desc "DISORDER_SEVEREDEJAVU_DESC"
+        icon DejaVu3
+
+        passives {
+            ReplaceBrain {
+                brain GenericBrain
+                decision_weights default
+                move_weights keep_distance
+            }
+        }
+    }
+}
+
+--------------------------------
+解释
+	替换既视感的词条的被动效果为无效果 文件内只有既视感修改那只会修改既视感的效果
+---------------------------------------------------------------------
+词条增加 粘合（新加词条）方式.append
+文件格式
+
+原文件名（armor_sets.gon）.patch
+--------------------------------
+内容
+    （物品技能词条）.append { 要加的内容 }
+	
+    ScrapHat.append {
+		degrade_after_adventure false 
+	}
+
+--------------------------------
+解释  文件内只有废品帽修改那只会修改废品帽的效果
+	废品帽.粘合词条 {
+		探险后物品破损 否
+	}
+---------------------------------------------------------------------
+技能 被动增加（效果与append相同但是无需词条后加） 替换方式.merge
+文件格式
+
+原文件名（parasites.gon）.merge
+--------------------------------
+内容
+    （物品技能词条） { 要加的内容 }
+	
+    ScrapHat {
+		degrade_after_adventure false 
+	}
+
+--------------------------------
+
+解释  文件内只有废品帽修改那只会修改废品帽的效果
+	废品帽.粘合词条 {
+		探险后物品破损 否
+	}
+
+---------------------------------------------------------------------
+
+一键查找
+ {
+    name
+	
+替换为（.merge可以换成其他词条）
+.merge{
+    name
+
+---------------------------------------------------------------------
